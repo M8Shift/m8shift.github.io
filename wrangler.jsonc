@@ -1,0 +1,10 @@
+{
+  // Cloudflare Worker serving the static VitePress build as assets.
+  // Build first with `npm run docs:build`, then `npx wrangler dev`.
+  "name": "m8shift-site",
+  "compatibility_date": "2026-06-22",
+  "assets": {
+    "directory": "./docs/.vitepress/dist",
+    "not_found_handling": "404-page"
+  }
+}
