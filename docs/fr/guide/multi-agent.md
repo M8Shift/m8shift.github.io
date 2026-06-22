@@ -24,6 +24,16 @@ workflow:
       target: { agent: gemini, role: reviewer }
 ```
 
+Cette déclaration est un graphe de dépendances : chaque tâche attend ses prérequis avant que son agent cible la prenne.
+
+```mermaid
+flowchart LR
+    A["architecture<br/>claude · architecte"] --> I["implémentation<br/>codex · implémenteur"]
+    I --> R["revue<br/>gemini · relecteur"]
+    classDef phase fill:#7c3aed22,stroke:#7c3aed;
+    class A,I,R phase;
+```
+
 Le coordinateur est un rôle utilisé pour une seule phase. Le même agent peut devenir plus tard
 l'intégrateur, mais ne devrait pas approuver son propre travail produit lorsqu'une validation
 indépendante est requise.

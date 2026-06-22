@@ -15,6 +15,22 @@ exclusive (le stylo), un journal des tours immuable et une règle « réclamer a
 réponses plus riches au reste — contrats structurés, tâches sensibles aux dépendances et validation
 indépendante — constituent une direction spécifiée de la [roadmap](/fr/roadmap), pas encore livrée.
 
+```mermaid
+flowchart LR
+    subgraph Without["Sans coordination"]
+        direction TB
+        a1["claude écrit"] --> f[("dépôt")]
+        a2["codex écrit"] --> f
+        f --> coll["écrasements · passation perdue"]
+    end
+    subgraph With["Avec M8Shift"]
+        direction TB
+        b1["claude · détient le stylo"] --> r[("dépôt")]
+        r --> hb["append --to codex"]
+        hb --> b2["codex · détient le stylo"] --> r
+    end
+```
+
 ## Ce que ce n'est pas
 
 M8Shift n'est ni un fournisseur de modèles, ni une passerelle hébergée, ni une plateforme de mémoire,

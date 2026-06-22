@@ -4,12 +4,20 @@ The simplest — and only shipped — M8Shift workflow uses two agents and one g
 It is deliberately sequential: its value is not throughput, but predictable ownership and
 a durable handoff trail.
 
-```text
-  claude: claim ──► work ──► append --to codex ──┐
-                                                 ▼
-  codex:  wait --once ──► claim ──► work ──► append --to claude ──┐
-                                                                  ▼
-  …strict alternation until one side runs `done`…
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as claude
+    participant P as 🖊️ pen
+    participant X as codex
+    C->>P: claim
+    Note over C: work (holds the pen)
+    C->>X: append --to codex (done + ask)
+    X->>P: wait --once → claim
+    Note over X: work (holds the pen)
+    X->>C: append --to claude (done + ask)
+    Note over C,X: strict alternation…
+    C->>P: done
 ```
 
 ## The full loop

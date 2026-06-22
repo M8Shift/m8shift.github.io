@@ -5,9 +5,12 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "validate:mermaid": "node scripts/validate-mermaid.mjs"
   },
   "devDependencies": {
+    "jsdom": "^29.1.1",
+    "mermaid": "^11.15.0",
     "vitepress": "^2.0.0-alpha.17"
   }
 }

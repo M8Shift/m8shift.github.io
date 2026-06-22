@@ -24,6 +24,17 @@ workflow:
       target: { agent: gemini, role: reviewer }
 ```
 
+That declaration is a dependency graph: each task waits for its prerequisites before its
+target agent picks it up.
+
+```mermaid
+flowchart LR
+    A["architecture<br/>claude · architect"] --> I["implementation<br/>codex · implementer"]
+    I --> R["review<br/>gemini · reviewer"]
+    classDef phase fill:#7c3aed22,stroke:#7c3aed;
+    class A,I,R phase;
+```
+
 The coordinator is a role used for one phase. The same agent may later become the
 integrator, but should not approve its own produced work when independent validation
 is required.

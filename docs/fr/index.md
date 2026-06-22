@@ -53,18 +53,18 @@ Il n'a pas besoin de devenir le fournisseur de modèle, le runtime des agents, l
 l'application de discussion et la machine à café. Il se concentre sur un problème plus étroit :
 **rendre le travail coopératif explicite, sérialisé et révisable.**
 
-```text
-        ┌─────────────┐        claim (exclusive)
-        │   the pen   │  ◄───────────────────────── claude
-        └─────────────┘
-              │ append --to codex   (turn closed, immutable)
-              ▼
-        ┌─────────────┐        claim (exclusive)
-        │   the pen   │  ◄───────────────────────── codex
-        └─────────────┘
-              │ append --to claude
-              ▼
-            … strict alternation until `done` …
+```mermaid
+sequenceDiagram
+    participant C as claude
+    participant Pen as 🖊️ le stylo
+    participant X as codex
+    C->>Pen: claim (exclusif)
+    Note over C: détient le stylo — seul rédacteur
+    C->>X: append --to codex · tour clos & immuable
+    X->>Pen: claim (exclusif)
+    Note over X: détient le stylo — seul rédacteur
+    X->>C: append --to claude
+    Note over C,X: alternance stricte jusqu'à done
 ```
 
 ## Comment fonctionne un relais

@@ -15,6 +15,20 @@ examples/headless_runner.py claude \
   --start-on-idle --interval 30 --max-retries 3
 ```
 
+```mermaid
+flowchart TD
+    S([start]) --> R{read lock state}
+    R -->|DONE| E([stop])
+    R -->|your turn / IDLE| K[claim]
+    R -->|not your turn| W[wait interval] --> R
+    K --> Work[run agent: one turn]
+    Work --> C{exited still WORKING_me?}
+    C -->|no, appended| R
+    C -->|yes = crash| Retry{retries left?}
+    Retry -->|yes| Work
+    Retry -->|no| M([stop · leave pen for manual recovery])
+```
+
 ## What a naïve `while wait; do …` loop gets wrong
 
 The reference runner exists because the obvious loop has three bugs:

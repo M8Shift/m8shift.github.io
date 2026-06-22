@@ -4,12 +4,20 @@ Le flux de travail M8Shift le plus simple — et le seul livré — utilise deux
 Il est délibérément séquentiel : sa valeur n'est pas le débit, mais une propriété prévisible et une
 trace de passation durable.
 
-```text
-  claude: claim ──► work ──► append --to codex ──┐
-                                                 ▼
-  codex:  wait --once ──► claim ──► work ──► append --to claude ──┐
-                                                                  ▼
-  …strict alternation until one side runs `done`…
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as claude
+    participant P as 🖊️ le stylo
+    participant X as codex
+    C->>P: claim
+    Note over C: travaille (détient le stylo)
+    C->>X: append --to codex (done + ask)
+    X->>P: wait --once → claim
+    Note over X: travaille (détient le stylo)
+    X->>C: append --to claude (done + ask)
+    Note over C,X: alternance stricte…
+    C->>P: done
 ```
 
 ## La boucle complète

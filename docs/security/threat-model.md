@@ -5,6 +5,18 @@ errors* between agents that follow the protocol. It is not a sandbox and does no
 a malicious or compromised agent — that is the host's job (filesystem permissions,
 branch protection, secret scoping).
 
+Every command that mutates state goes through the same serialised path:
+
+```mermaid
+flowchart TD
+    A["command that mutates"] --> L{"acquire .m8shift.lock<br/>(O_EXCL)"}
+    L -->|busy| Q["wait · 60 s takeover if abandoned"] --> L
+    L -->|acquired| V{"lock block valid?"}
+    V -->|no| X["refuse · exit 1"]
+    V -->|yes| W["write atomically<br/>mkstemp + os.replace"]
+    W --> R["release .m8shift.lock"]
+```
+
 | Threat | Mitigation |
 | --- | --- |
 | Two agents claim the pen at once | `claim` is exclusive via an `O_EXCL` lock file; exactly one wins, the other waits |

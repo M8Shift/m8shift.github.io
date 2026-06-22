@@ -40,14 +40,18 @@ lang: en
 
 ## Transitions
 
-```text
-        claim X                 append X --to Y                claim Y
-IDLE ───────────► WORKING_X ─────────────────────► AWAITING_Y ─────────► WORKING_Y ─► …
-                   │   ▲
-          done X   │   │ re-claim X  → refresh TTL (+30 min)
-                   │   │ claim Y --force (only if X is stale: now > expires) → WORKING_Y
-                   ▼
-                 DONE
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> WORKING_X: claim X
+    WORKING_X --> AWAITING_Y: append X --to Y
+    AWAITING_Y --> WORKING_Y: claim Y
+    WORKING_Y --> AWAITING_X: append Y --to X
+    AWAITING_X --> WORKING_X: claim X
+    WORKING_X --> WORKING_X: re-claim X · rafraîchit le TTL (+30 min)
+    WORKING_X --> WORKING_Y: claim Y --force · seulement si X est périmé
+    WORKING_X --> DONE: done X
+    DONE --> [*]
 ```
 
 - `claim` est la seule acquisition et elle est **exclusive** : deux réclamations

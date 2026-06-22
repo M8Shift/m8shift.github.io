@@ -53,18 +53,18 @@ It does not need to become the model provider, the agent runtime, the project ma
 the chat application, and the coffee machine. It focuses on a narrower problem:
 **making cooperative work explicit, serialized, and reviewable.**
 
-```text
-        ┌─────────────┐        claim (exclusive)
-        │   the pen   │  ◄───────────────────────── claude
-        └─────────────┘
-              │ append --to codex   (turn closed, immutable)
-              ▼
-        ┌─────────────┐        claim (exclusive)
-        │   the pen   │  ◄───────────────────────── codex
-        └─────────────┘
-              │ append --to claude
-              ▼
-            … strict alternation until `done` …
+```mermaid
+sequenceDiagram
+    participant C as claude
+    participant Pen as 🖊️ the pen
+    participant X as codex
+    C->>Pen: claim (exclusive)
+    Note over C: holds the pen — sole writer
+    C->>X: append --to codex · turn closed & immutable
+    X->>Pen: claim (exclusive)
+    Note over X: holds the pen — sole writer
+    X->>C: append --to claude
+    Note over C,X: strict alternation until done
 ```
 
 ## How a relay works

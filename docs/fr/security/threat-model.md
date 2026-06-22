@@ -5,6 +5,18 @@ M8Shift est une couche de coordination **coopérative et indicative**. Elle att�
 sable (sandbox) et elle ne contient pas d'agent malveillant ou compromis — c'est le rôle de
 l'hôte (permissions du système de fichiers, protection de branche, cantonnement des secrets).
 
+Toute commande qui modifie l'état passe par le même chemin sérialisé :
+
+```mermaid
+flowchart TD
+    A["commande qui modifie l'état"] --> L{"acquérir .m8shift.lock<br/>(O_EXCL)"}
+    L -->|"occupé"| Q["attendre · reprise après 60 s si abandonné"] --> L
+    L -->|"acquis"| V{"bloc de verrou valide ?"}
+    V -->|"non"| X["refus · sortie 1"]
+    V -->|"oui"| W["écriture atomique<br/>mkstemp + os.replace"]
+    W --> R["libérer .m8shift.lock"]
+```
+
 | Menace | Atténuation |
 | --- | --- |
 | Deux agents réclament le stylo en même temps | `claim` est exclusif via un fichier de verrou `O_EXCL` ; un seul l'emporte, l'autre attend |

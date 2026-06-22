@@ -15,6 +15,22 @@ pen), an immutable turn journal, and a claim-before-write rule. Richer answers t
 rest — structured contracts, dependency-aware tasks, and independent validation — are a
 specified [roadmap](/roadmap) direction, not yet shipped.
 
+```mermaid
+flowchart LR
+    subgraph Without["Without coordination"]
+        direction TB
+        a1["claude writes"] --> f[("repo")]
+        a2["codex writes"] --> f
+        f --> coll["overwrites · lost handoff"]
+    end
+    subgraph With["With M8Shift"]
+        direction TB
+        b1["claude · holds pen"] --> r[("repo")]
+        r --> hb["append --to codex"]
+        hb --> b2["codex · holds pen"] --> r
+    end
+```
+
 ## What it is not
 
 M8Shift is not a model provider, hosted gateway, memory platform, or universal agent
