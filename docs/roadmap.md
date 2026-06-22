@@ -18,13 +18,13 @@ this radical act of honesty.
 
 ## Stage 2 — M8Shift rename and compatibility
 
-<span class="m8-badge">Next</span>
+<span class="m8-badge">Available</span>
 
-- rename CLI and generated files;
-- preserve `cowork.py` compatibility shim;
-- migration from `COWORK.*` to `M8SHIFT.*`;
-- update anchors, documentation, package metadata, and tests;
-- publish the new website.
+- CLI renamed `cowork.py` → `m8shift.py`;
+- `cowork.py` kept as a thin compatibility shim;
+- generated files `COWORK.*` → `M8SHIFT.*`, with legacy `COWORK.*` still read;
+- updated anchors, documentation, and tests;
+- this website.
 
 ## Stage 3 — N-agent directed relay
 

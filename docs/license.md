@@ -1,6 +1,22 @@
 # License
 
-M8Shift is intended to remain available under the Apache License 2.0, subject to the
-final repository license decision.
+M8Shift is released under the **Apache License, Version 2.0**.
 
-Replace this page with the exact repository license text or link before publication.
+```text
+Copyright 2026 M8Shift contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+The full license text and `NOTICE` file live in the
+[source repository](https://github.com/TheLazyGeekGuy/M8Shift).

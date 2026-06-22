@@ -1,4 +1,6 @@
-# Proposed information architecture
+# Information architecture
+
+English lives at the root; the French locale mirrors it under `docs/fr/`.
 
 ```text
 docs/
@@ -8,23 +10,23 @@ docs/
 │   ├── why.md                       Problem and positioning
 │   ├── quickstart.md                Five-minute setup
 │   ├── vscode.md                    IDE workflow
-│   ├── cloudflare.md                Website deployment
-│   ├── two-agent-relay.md           Existing basic workflow
-│   ├── multi-agent.md               Roles and dependencies
-│   └── content-image-review.md      Concurrent specialist example
+│   ├── headless.md                  Fully headless relay
+│   ├── windows.md                   Windows (WSL / Git Bash / native)
+│   ├── cloudflare.md                Pages or Worker deployment
+│   ├── two-agent-relay.md           The shipped relay
+│   └── multi-agent.md               Specified multi-agent direction
 ├── concepts/
 │   ├── index.md
 │   ├── pen.md
 │   ├── agents-roles.md
 │   ├── relations.md
 │   ├── handoff-contracts.md
-│   ├── validation.md
-│   └── worktrees.md
+│   └── validation.md
 ├── reference/
 │   ├── index.md
 │   ├── cli.md
 │   ├── state-model.md
-│   ├── contract-schema.md
+│   ├── contract-schema.md           Turn (handoff) schema
 │   ├── generated-files.md
 │   ├── exit-codes.md
 │   └── limitations.md
@@ -36,32 +38,37 @@ docs/
 ├── faq.md
 ├── roadmap.md
 ├── contributing.md
-└── license.md
+├── license.md
+└── fr/                              French locale mirroring the above
 ```
 
 ## Top navigation
 
 ```text
-Guide | Concepts | Reference | Security | Roadmap | GitHub
+Guide | Concepts | Reference | Security | Roadmap | More ▾ | language ▾
 ```
+
+`More ▾` holds Comparison, FAQ, Contributing, License.
 
 ## Homepage message hierarchy
 
 1. Name: M8Shift
 2. Promise: AI agents, working in shifts.
 3. Problem: agents overwrite work and lose context.
-4. Mechanism: ownership, handoffs, roles, validation, isolated workspaces.
-5. Differentiation: coordination layer, not another hosted runtime.
-6. Proof: readable protocol, tests, local CLI, examples.
-7. Call to action: quickstart and GitHub.
+4. Mechanism: one exclusive pen, claim-before-write, immutable turn journal, roster.
+5. Differentiation: a coordination layer, not another hosted runtime.
+6. Proof: readable protocol, tests, single-file local CLI.
+7. Call to action: quickstart and source.
 
-## Suggested future additions
+## Editorial rule
+
+Every page distinguishes **available now** from **specified / planned** and **future
+RFC**. A Markdown specification is never marketed as shipped software.
+
+## Possible future additions
 
 - interactive workflow diagram;
-- generated CLI reference;
+- generated CLI reference from `m8shift.py --help`;
 - changelog and release notes;
 - compatibility matrix by agent host;
-- examples gallery;
-- downloadable VS Code kit;
-- architecture decision records;
-- bilingual French pages under `/fr/`.
+- downloadable VS Code kit.

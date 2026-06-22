@@ -1,8 +1,13 @@
 # Quickstart
 
 ::: warning Status
-The commands below describe the existing relay-oriented workflow. Multi-agent contract
-and worktree commands remain specification targets until implemented and tested.
+The commands below are the shipped two-agent relay. Richer multi-agent contracts remain
+specification targets until implemented and tested — see the [roadmap](/roadmap).
+:::
+
+::: tip Naming
+The CLI is `m8shift.py`. On projects created before the rename, `cowork.py` keeps working
+as a thin compatibility shim and existing `COWORK.*` files are still read.
 :::
 
 Copy the CLI into a project:

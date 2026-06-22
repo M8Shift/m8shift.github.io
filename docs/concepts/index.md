@@ -1,12 +1,15 @@
 # Concepts
 
-M8Shift separates concepts that agent frameworks often blend together:
+M8Shift separates concepts that agent frameworks often blend together. Some are shipped
+today; others are a specified direction (see the [roadmap](/roadmap)).
 
-| Concept | Question answered |
-|---|---|
-| Role | What responsibility is the agent assuming? |
-| Relation | Why is work moving from this agent to that agent? |
-| Permission | What may the target do? |
-| Expected output | What must the target produce? |
-| Validation | Who decides whether the output is acceptable? |
-| Lock | Where may work happen exclusively? |
+| Concept | Question answered | Status |
+| --- | --- | --- |
+| [The pen](./pen) | Who may write right now? | Available |
+| [Agents & roster](./agents-roles) | Which agents relay, and via which anchors? | Available |
+| [Handoff contracts](./handoff-contracts) | What was done, and what is asked next? | Available |
+| [Relations](./relations) | Why is the pen moving between agents? | `ask` today; vocabulary specified |
+| [Validation](./validation) | Is the journal trustworthy, and is the work reviewed? | Input checks today; review specified |
+
+The one rule that ties them together: **never modify the repository before a successful
+`claim`.**

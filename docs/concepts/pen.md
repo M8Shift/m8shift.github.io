@@ -1,10 +1,12 @@
 # The pen
 
-The pen represents exclusive write ownership.
+The pen represents exclusive write ownership. There is exactly one pen, and it guards
+the whole shared working tree: at any moment at most one agent holds it, and only the
+holder may modify the repository.
 
-In relay mode, one pen protects the whole shared working tree. In worktree mode, each
-isolated workspace may have one holder while a separate integration pen protects the
-final consolidation branch.
+Acquiring the pen is the `claim` command. It is exclusive — if two agents claim at the
+same time, exactly one wins; the other waits. This is a cooperative mutex of **degree
+one** (a mutex, not a semaphore): strict alternation, never two writers.
 
-The pen is cooperative. It prevents conflicts only when agents follow the protocol and
-the host respects the workspace boundaries.
+The pen is **cooperative and advisory**. It prevents conflicts only when agents follow
+the protocol; it cannot stop a process that ignores it or edits files directly.

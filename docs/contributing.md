@@ -1,16 +1,26 @@
 # Contributing
 
-Keep changes focused, tested, and compatible with the project's local-first design.
+There are two repositories: this **website** and the **M8Shift CLI** itself. Send changes
+to the right one.
 
-Before submitting:
+## This website
 
 ```bash
-npm run docs:build
-python3 -m unittest discover -s tests
-git diff --check
+npm install
+npm run docs:build      # must succeed (catches dead links)
 ```
 
-For protocol or concurrency changes, request an independent review. For changes to the
-single source of truth, regenerate derived protocol and anchor files before commit.
+Keep the editorial rule: clearly distinguish **available now** from **specified** and
+**future RFC**. Do not present a specification as shipped software.
 
-Commit and push only after the full diff and generated files have been checked.
+## The M8Shift CLI
+
+The CLI is a single file with a standard-library-only test suite:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
+The protocol document and per-agent anchors are **generated** from the CLI source, and a
+test enforces that they stay byte-identical. For protocol or concurrency changes,
+regenerate the derived files and request an independent review before committing.

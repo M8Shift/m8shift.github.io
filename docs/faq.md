@@ -5,23 +5,22 @@
 No. It coordinates ownership, handoffs, tasks, and validation. It does not need to run
 the agents or own their provider credentials.
 
-## Can one agent have several roles?
-
-Yes. One primary active role should be selected per task or turn.
-
 ## Can agents work concurrently?
 
-Yes, when each task has an isolated branch or worktree. Integration remains exclusive.
+No. M8Shift is a strict degree-one relay: exactly one agent writes at a time, in
+alternation. Task graphs, branch isolation and concurrent writers are a **future RFC**,
+not a shipped feature — see the [roadmap](/roadmap).
 
-## Can a coordinator create several tasks?
+## Can one agent have several roles?
 
-Yes. `coordinator` is an active role that can define targets, dependencies, permissions,
-outputs, and validators.
+In the shipped relay, an agent is simply one of the two declared in the pair. A richer
+role vocabulary (architect, implementer, reviewer, coordinator…) is **specified, not yet
+shipped**.
 
 ## Can an agent generate images?
 
-Yes, when its host exposes an image-generation capability. The handoff should constrain
-where generated assets are written and require an asset manifest.
+M8Shift only coordinates the handoff; whether an agent can generate images depends on
+its host. There is no image-specific feature in the tool itself.
 
 ## Does M8Shift enforce permissions?
 

@@ -7,9 +7,9 @@ titleTemplate: AI agents, working in shifts.
 hero:
   name: M8Shift
   text: AI agents, working in shifts.
-  tagline: Coordinate AI teammates across turns, roles, reviews, and isolated workspaces — without letting them overwrite each other or lose the handoff.
+  tagline: Coordinate Claude, Codex, Gemini and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
   image:
-    src: /logo-placeholder.svg
+    src: /logo.svg
     alt: M8Shift logo
   actions:
     - theme: brand
@@ -19,28 +19,29 @@ hero:
       text: Explore the concepts
       link: /concepts/
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/OWNER/m8shift
+      text: View the source
+      link: https://github.com/TheLazyGeekGuy/M8Shift
 
 features:
-  - icon: 🔒
-    title: Controlled ownership
-    details: One agent owns a shared workspace at a time. Parallel work uses isolated worktrees and a single integration pen.
+  - icon: 🖊️
+    title: One writer at a time
+    details: A single exclusive "pen" guards the repository. An agent must claim it before touching files; a second claim simply waits. A cooperative mutex, not a free-for-all.
   - icon: 🔁
     title: Structured handoffs
-    details: Every turn can state who worked, what changed, who acts next, what outputs are required, and whether validation is mandatory.
+    details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
   - icon: 🎭
-    title: Multiple roles per agent
-    details: An agent may be architect, implementer, reviewer, image generator, or integrator — with one primary active role per task.
+    title: Configurable agent pair
+    details: Declare which two agents relay (claude, codex, gemini, le chat…). The first two are active; the protocol stays a strict degree-1 relay.
   - icon: 🧩
     title: Provider-neutral
-    details: Coordinate Claude, Codex, Gemini, local agents, or any CLI-capable teammate without tying the protocol to one vendor.
+    details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
   - icon: 🪶
-    title: Local and lightweight
-    details: Human-readable state, versioned alongside the repository, with no M8Shift API account or hosted control plane required.
+    title: One file, zero dependencies
+    details: A single Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: 🧪
-    title: Reviewable by design
-    details: Separate production from validation, preserve an append-only trail, and make approvals or requested revisions explicit.
+    title: Auditable by design
+    details: An append-only turn trail you can read with a text editor or grep — and bound with one archive command when it grows.
+
 ---
 
 ## Coordination, not another agent platform
@@ -50,78 +51,71 @@ desktop application, or automation environment.
 
 It does not need to become the model provider, the agent runtime, the project manager,
 the chat application, and the coffee machine. It focuses on a narrower problem:
-**making cooperative work explicit, serialized where necessary, and reviewable.**
+**making cooperative work explicit, serialized, and reviewable.**
 
 ```text
-User goal
-   |
-   v
-Coordinator role
-   |--------------------------|
-   v                          v
-Writer                    Image generator
-isolated worktree         isolated worktree
-   |                          |
-   +------------+-------------+
-                v
-             Integrator
-        exclusive integration pen
-                |
-                v
-         Independent reviewer
+        ┌─────────────┐        claim (exclusive)
+        │   the pen   │  ◄───────────────────────── claude
+        └─────────────┘
+              │ append --to codex   (turn closed, immutable)
+              ▼
+        ┌─────────────┐        claim (exclusive)
+        │   the pen   │  ◄───────────────────────── codex
+        └─────────────┘
+              │ append --to claude
+              ▼
+            … strict alternation until `done` …
 ```
 
-## Two operating modes
+## How a relay works
 
-### Relay mode
+Two agents share one repository. The state lives at the top of a single file
+(`M8SHIFT.md`, or `COWORK.md` on existing projects), readable line by line:
 
-Use one shared working tree and one global pen. Agents take strict turns.
-
-Best for:
-
-- a simple Claude ↔ Codex loop;
-- one-file installation;
-- interactive IDE sessions;
-- changes where parallelism would add more ceremony than value.
-
-### Worktree mode
-
-Run independent tasks in isolated branches or worktrees, then serialize integration.
-
-Best for:
-
-- code and documentation produced concurrently;
-- text and generated images developed in parallel;
-- specialist agents with non-overlapping responsibilities;
-- independent review before final integration.
-
-## What M8Shift records
-
-A handoff can carry more than “done” and “next”:
-
-```yaml
-handoff:
-  source: { agent: claude, role: coordinator }
-  target: { agent: codex, role: implementer }
-  relation: implement
-  permissions:
-    enforcement: advisory
-    allow: [repository.read, workspace.write, tests.run]
-  expected_output:
-    required: [summary, changed_files, test_results]
-  validation:
-    required: true
-    independence_required: true
-    validator: { agent: gemini, role: reviewer }
+```text
+<!-- M8SHIFT:LOCK:BEGIN -->
+holder: claude
+state: WORKING_CLAUDE
+agents: claude,codex
+turn: 3
+since: 2026-06-22T18:00:00Z
+expires: 2026-06-22T18:30:00Z
+lang: en
+<!-- M8SHIFT:LOCK:END -->
 ```
+
+The rule that makes it safe is one sentence: **never modify the repository before a
+successful `claim`.** When an agent is done with its turn, it `append`s a handoff and
+passes the pen to the other agent.
+
+## What a handoff records
+
+Each turn is a numbered block — once closed, it is never rewritten:
+
+```text
+<!-- M8SHIFT:TURN 4 claude BEGIN -->
+from: claude
+to: codex
+ask: Implement the parser and keep legacy behaviour.
+done: Defined the parser contract and added tests.
+files: docs/spec.md, tests/test_parser.py
+handoff: codex
+<!-- M8SHIFT:TURN 4 claude END -->
+```
+
+Richer turn fields (branch, commit, tests, next) are **specified, not yet shipped** —
+see the [roadmap](/roadmap).
 
 ## Current status
 
-M8Shift evolves from the original CoWork relay design. The current implementation and
-future protocol stages must be labelled separately:
+M8Shift evolves from the original CoWork relay design. The shipped implementation and
+the planned protocol stages are labelled separately:
 
-- **available now:** cooperative relay, shared lock, turn journal, local CLI;
-- **specified next:** N-agent roles, structured handoffs, explicit validation;
-- **future RFC:** concurrent isolated worktrees and integration coordination.
+- **available now:** exclusive-claim relay, shared lock with stale-lock recovery, the
+  immutable turn journal, bounded archiving, the configurable agent pair (roster), a
+  local single-file CLI, and EN/FR output;
+- **specified next:** shared memory and recap, structured turn fields with `peek`,
+  and a timeline / JSON status;
+- **future RFC:** more than two simultaneous agents (degree > 1).
 
 [Read the roadmap →](/roadmap)

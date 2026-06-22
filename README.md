@@ -1,7 +1,8 @@
 # M8Shift website proposal
 
-A Markdown-first website and documentation structure for **M8Shift**, built with
-[VitePress](https://vitepress.dev/) and deployable to Cloudflare Pages.
+A Markdown-first, bilingual (English/French) website and documentation structure for
+**M8Shift**, built with [VitePress](https://vitepress.dev/) and deployable to Cloudflare
+Pages or a Cloudflare Worker.
 
 ## Positioning
 
@@ -62,26 +63,23 @@ Root directory: /
 Node.js: 22 or 24
 ```
 
-The site is fully static. No Worker, database, API key, or server runtime is required.
+The site is fully static. It can be served by Cloudflare Pages or by a Worker — a
+`wrangler.jsonc` is included (`npx wrangler dev` / `npx wrangler deploy`). No database,
+API key, or server runtime is required.
 
 ## Included content
 
 - product homepage;
 - why M8Shift;
 - five-minute quickstart;
-- core concepts;
-- roles and relations;
-- handoff contracts;
-- multi-agent workflows;
-- worktree concurrency;
-- image-generation workflow;
-- CLI overview;
-- architecture;
-- security model;
-- comparisons;
-- FAQ;
-- roadmap;
-- contributing and license placeholders.
+- core concepts (pen, agents/roster, relations, handoff contracts, validation);
+- two-agent relay and the specified multi-agent direction;
+- VS Code, headless-runner, and Windows guides;
+- CLI, state model, turn schema, generated files, exit codes, limitations;
+- security and threat models;
+- comparison, FAQ, roadmap;
+- contributing and Apache-2.0 license;
+- full French locale under `/fr/`.
 
 ## Important editorial rule
 

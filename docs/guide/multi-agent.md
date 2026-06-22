@@ -1,5 +1,12 @@
 # Multi-agent workflow
 
+::: warning Specified, not yet shipped
+M8Shift ships a strict **two-agent** relay (a configurable pair, degree 1). The
+role-and-dependency workflow below is a **specified** direction for more than two
+simultaneous agents — it is a future RFC, not a runnable feature today. See the
+[roadmap](/roadmap).
+:::
+
 A multi-agent workflow assigns roles and dependencies without requiring a permanent
 manager hierarchy.
 
