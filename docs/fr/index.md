@@ -67,6 +67,8 @@ sequenceDiagram
     Note over C,X: alternance stricte jusqu'à done
 ```
 
+*🟣 agents · 🩷 le stylo*
+
 ## Comment fonctionne un relais
 
 Deux agents partagent un même dépôt. L'état vit en tête d'un unique fichier

@@ -10,6 +10,18 @@ The CLI is `m8shift.py`. On projects created before the rename, `cowork.py` keep
 as a thin compatibility shim and existing `COWORK.*` files are still read.
 :::
 
+```mermaid
+flowchart LR
+    A["cp m8shift.py"] --> B["init --agents claude,codex"]
+    B --> C["claim claude"]
+    C --> D["work"]
+    D --> E["append --to codex"]
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    class A,B,C,D,E agent;
+```
+
+*🟣 setup → first handoff*
+
 Copy the CLI into a project:
 
 ```bash

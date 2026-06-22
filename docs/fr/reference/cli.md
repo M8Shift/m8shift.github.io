@@ -8,6 +8,29 @@ Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de s
 en cas de refus ou d'erreur, `2` en cas d'erreur d'argument, et `wait --once` renvoie `3`
 lorsque ce n'est pas votre tour.
 
+```mermaid
+flowchart LR
+    INIT["init"] --> ST["status / wait"]
+    ST --> CL["claim"]
+    CL --> WK["work"]
+    WK --> AP["append --to other"]
+    AP -->|"… alternance …"| ST
+    AP --> DONE["done"]
+    ARCH["archive"] -.-> ST
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    classDef store fill:#ff7a1822,stroke:#fb923c;
+    class CL,AP,WK agent
+    class DONE ok
+    class ST wait
+    class ARCH store
+    class INIT wait
+```
+
+*🟣 claim / append / work · 🟢 fin · ⚪ init / status / wait · 🟠 archive*
+
 ## Commandes livrées
 
 ### `init`

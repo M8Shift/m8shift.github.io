@@ -4,6 +4,23 @@
 use the `M8SHIFT.*` names; projects created before the rename keep their `COWORK.*`
 files, which are detected and read automatically.
 
+```mermaid
+flowchart TD
+    INIT["m8shift.py init"] --> RELAY["M8SHIFT.md<br/>(relay file)"]
+    INIT --> PROTO["M8SHIFT.protocol.md"]
+    INIT --> ANCH["CLAUDE.md / AGENTS.md / GEMINI.md<br/>(anchors)"]
+    INIT --> LOCK[".m8shift.lock"]
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef pen fill:#f0509c22,stroke:#f0509c;
+    classDef store fill:#ff7a1822,stroke:#fb923c;
+    class INIT agent
+    class RELAY pen
+    class PROTO,ANCH,LOCK store
+```
+
+*🟣 init · 🩷 relay file · 🟠 generated files*
+
 | File | Purpose |
 | --- | --- |
 | `M8SHIFT.md` | living lock, workflow state, and the immutable turn journal |

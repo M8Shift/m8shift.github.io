@@ -52,7 +52,18 @@ stateDiagram-v2
     WORKING_X --> WORKING_Y: claim Y --force · only if X is stale
     WORKING_X --> DONE: done X
     DONE --> [*]
+
+    classDef working fill:#7c3aed22,stroke:#7c3aed;
+    classDef awaiting fill:#f0509c22,stroke:#f0509c;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    class IDLE wait
+    class WORKING_X,WORKING_Y working
+    class AWAITING_X,AWAITING_Y awaiting
+    class DONE ok
 ```
+
+*🟣 working · 🩷 awaiting · ⚪ idle · 🟢 done*
 
 - `claim` is the only acquisition and is **exclusive**: two simultaneous claims yield
   exactly one winner.

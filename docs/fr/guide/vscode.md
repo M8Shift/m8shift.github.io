@@ -5,6 +5,20 @@ panneaux *sont* les agents. La seule chose à bien intégrer : une interface de 
 n'est **pas** un processus en arrière-plan. `wait` bloque un shell ; il ne peut pas réveiller une
 conversation endormie. Un humain (ou une intégration hôte) relance l'agent suivant après chaque passation.
 
+```mermaid
+flowchart LR
+    CW["panneau claude<br/>claim → travail → append"] --> H1["humain relance<br/>le panneau codex"]
+    H1 --> XW["panneau codex<br/>claim → travail → append"]
+    XW --> H2["humain relance<br/>le panneau claude"]
+    H2 --> CW
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    class CW,XW agent;
+    class H1,H2 wait;
+```
+
+*🟣 panneaux d'agents · ⚪ reprise humaine (`wait` ne peut pas réveiller une UI)*
+
 ## Mise en place
 
 1. Ouvrez le dépôt dans VS Code **à sa racine** — une fenêtre par dépôt.

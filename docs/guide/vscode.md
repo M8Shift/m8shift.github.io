@@ -5,6 +5,20 @@ M8Shift can coordinate Claude and Codex running as panels inside VS Code — the
 background process. `wait` blocks a shell; it cannot wake a sleeping conversation. A human
 (or a host integration) resumes the next agent after each handoff.
 
+```mermaid
+flowchart LR
+    CW["claude panel<br/>claim → work → append"] --> H1["human resumes<br/>codex panel"]
+    H1 --> XW["codex panel<br/>claim → work → append"]
+    XW --> H2["human resumes<br/>claude panel"]
+    H2 --> CW
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    class CW,XW agent;
+    class H1,H2 wait;
+```
+
+*🟣 agent panels · ⚪ human resume (`wait` cannot wake a UI)*
+
 ## Setup
 
 1. Open the repository in VS Code **on its root** — one window per repo.

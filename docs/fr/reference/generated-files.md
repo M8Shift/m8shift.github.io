@@ -4,6 +4,23 @@
 nouveaux projets utilisent les noms `M8SHIFT.*` ; les projets créés avant le renommage
 conservent leurs fichiers `COWORK.*`, qui sont détectés et lus automatiquement.
 
+```mermaid
+flowchart TD
+    INIT["m8shift.py init"] --> RELAY["M8SHIFT.md<br/>(fichier de relais)"]
+    INIT --> PROTO["M8SHIFT.protocol.md"]
+    INIT --> ANCH["CLAUDE.md / AGENTS.md / GEMINI.md<br/>(ancres)"]
+    INIT --> LOCK[".m8shift.lock"]
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef pen fill:#f0509c22,stroke:#f0509c;
+    classDef store fill:#ff7a1822,stroke:#fb923c;
+    class INIT agent
+    class RELAY pen
+    class PROTO,ANCH,LOCK store
+```
+
+*🟣 init · 🩷 fichier de relais · 🟠 fichiers générés*
+
 | Fichier | Rôle |
 | --- | --- |
 | `M8SHIFT.md` | verrou vivant, état du flux de travail et journal immuable des tours |

@@ -20,6 +20,8 @@ sequenceDiagram
     C->>P: done
 ```
 
+*🟣 agents · 🩷 the pen*
+
 ## The full loop
 
 Set up once:

@@ -15,7 +15,22 @@ flowchart TD
     V -->|"non"| X["refus · sortie 1"]
     V -->|"oui"| W["écriture atomique<br/>mkstemp + os.replace"]
     W --> R["libérer .m8shift.lock"]
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef pen fill:#f0509c22,stroke:#f0509c;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    classDef bad fill:#f43f5e22,stroke:#e11d48;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    class A agent
+    class L pen
+    class V pen
+    class Q wait
+    class X bad
+    class W ok
+    class R wait
 ```
+
+*🟣 agents · 🩷 le stylo · 🟢 ok · 🔴 refus · ⚪ attente*
 
 | Menace | Atténuation |
 | --- | --- |

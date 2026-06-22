@@ -27,7 +27,17 @@ flowchart TD
     C -->|yes = crash| Retry{retries left?}
     Retry -->|yes| Work
     Retry -->|no| M([stop · leave pen for manual recovery])
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    classDef bad fill:#f43f5e22,stroke:#e11d48;
+    class K,Work agent;
+    class W wait;
+    class E ok;
+    class M bad;
 ```
+
+*🟣 claim & run agent · ⚪ wait · 🟢 done → stop · 🔴 leave pen for manual recovery*
 
 ## What a naïve `while wait; do …` loop gets wrong
 

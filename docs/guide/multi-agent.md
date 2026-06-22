@@ -31,9 +31,13 @@ target agent picks it up.
 flowchart LR
     A["architecture<br/>claude · architect"] --> I["implementation<br/>codex · implementer"]
     I --> R["review<br/>gemini · reviewer"]
-    classDef phase fill:#7c3aed22,stroke:#7c3aed;
-    class A,I,R phase;
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    class A,I agent;
+    class R ok;
 ```
+
+*🟣 agents · 🟢 review*
 
 The coordinator is a role used for one phase. The same agent may later become the
 integrator, but should not approve its own produced work when independent validation

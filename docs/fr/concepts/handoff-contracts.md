@@ -19,6 +19,20 @@ handoff: codex
 <!-- M8SHIFT:TURN 4 claude END -->
 ```
 
+```mermaid
+flowchart LR
+    O["ouvrir le tour<br/>(claim)"] --> F["remplir les champs<br/>from/to/ask/done/files"]
+    F --> A["append<br/>(marqueur END)"]
+    A --> C["clos = immuable"]
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    class O,F,A agent
+    class C ok
+```
+
+*🟣 étapes actives · 🟢 clos (immuable)*
+
 Deux principes tiennent :
 
 - **Un tour clos est immuable.** L'outil ne réécrit jamais un tour une fois son marqueur

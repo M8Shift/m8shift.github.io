@@ -29,7 +29,17 @@ flowchart LR
         r --> hb["append --to codex"]
         hb --> b2["codex · holds pen"] --> r
     end
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    classDef bad fill:#f43f5e22,stroke:#e11d48;
+    classDef store fill:#ff7a1822,stroke:#fb923c;
+    class a1,a2,b1,b2 agent;
+    class f,r store;
+    class coll bad;
+    class hb ok;
 ```
+
+*🟣 agents · 🟠 repo · 🔴 overwrites · 🟢 handoff*
 
 ## What it is not
 

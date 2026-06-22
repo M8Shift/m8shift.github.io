@@ -20,6 +20,8 @@ sequenceDiagram
     C->>P: done
 ```
 
+*🟣 agents · 🩷 le stylo*
+
 ## La boucle complète
 
 À configurer une fois :

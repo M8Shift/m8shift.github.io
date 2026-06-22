@@ -67,6 +67,8 @@ sequenceDiagram
     Note over C,X: strict alternation until done
 ```
 
+*🟣 agents · 🩷 the pen*
+
 ## How a relay works
 
 Two agents share one repository. The state lives at the top of a single file

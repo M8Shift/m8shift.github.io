@@ -17,6 +17,20 @@ handoff: codex
 <!-- M8SHIFT:TURN 4 claude END -->
 ```
 
+```mermaid
+flowchart LR
+    O["open turn<br/>(claim)"] --> F["fill fields<br/>from/to/ask/done/files"]
+    F --> A["append<br/>(END marker)"]
+    A --> C["closed = immutable"]
+
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    class O,F,A agent
+    class C ok
+```
+
+*🟣 active steps · 🟢 closed (immutable)*
+
 Two principles hold:
 
 - **A closed turn is immutable.** The tool never rewrites a turn once its `END` marker

@@ -30,9 +30,13 @@ Cette déclaration est un graphe de dépendances : chaque tâche attend ses pré
 flowchart LR
     A["architecture<br/>claude · architecte"] --> I["implémentation<br/>codex · implémenteur"]
     I --> R["revue<br/>gemini · relecteur"]
-    classDef phase fill:#7c3aed22,stroke:#7c3aed;
-    class A,I,R phase;
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    class A,I agent;
+    class R ok;
 ```
+
+*🟣 agents · 🟢 revue*
 
 Le coordinateur est un rôle utilisé pour une seule phase. Le même agent peut devenir plus tard
 l'intégrateur, mais ne devrait pas approuver son propre travail produit lorsqu'une validation

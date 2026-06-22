@@ -17,17 +17,27 @@ examples/headless_runner.py claude \
 
 ```mermaid
 flowchart TD
-    S(["début"]) --> R{"lire l'état du verrou"}
-    R -->|"DONE"| E(["arrêt"])
-    R -->|"ton tour / IDLE"| K["claim"]
-    R -->|"pas ton tour"| W["attendre l'intervalle"] --> R
-    K --> Work["lancer l'agent : un tour"]
-    Work --> C{"sorti encore en WORKING_moi ?"}
-    C -->|"non, append fait"| R
-    C -->|"oui = crash"| Retry{"essais restants ?"}
-    Retry -->|"oui"| Work
-    Retry -->|"non"| M(["arrêt · stylo laissé pour reprise manuelle"])
+    S([début]) --> R{lire l'état du verrou}
+    R -->|DONE| E([arrêt])
+    R -->|ton tour / IDLE| K[claim]
+    R -->|pas ton tour| W[attendre l'intervalle] --> R
+    K --> Work[lancer l'agent : un tour]
+    Work --> C{sorti encore en WORKING_moi ?}
+    C -->|non, append fait| R
+    C -->|oui = crash| Retry{essais restants ?}
+    Retry -->|oui| Work
+    Retry -->|non| M([arrêt · stylo laissé pour reprise manuelle])
+    classDef agent fill:#7c3aed22,stroke:#7c3aed;
+    classDef wait fill:#94a3b822,stroke:#64748b;
+    classDef ok fill:#22c55e22,stroke:#16a34a;
+    classDef bad fill:#f43f5e22,stroke:#e11d48;
+    class K,Work agent;
+    class W wait;
+    class E ok;
+    class M bad;
 ```
+
+*🟣 claim & lancer l'agent · ⚪ attente · 🟢 fin → arrêt · 🔴 stylo laissé pour reprise manuelle*
 
 ## Ce qu'une boucle naïve `while wait; do …` rate
 
