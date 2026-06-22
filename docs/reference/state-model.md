@@ -1,0 +1,26 @@
+# State model
+
+Relay states:
+
+```text
+IDLE
+WORKING_<AGENT>
+AWAITING_<AGENT>
+DONE
+```
+
+Task states specified for multi-agent workflows:
+
+```text
+PENDING
+READY
+CLAIMED
+WORKING
+BLOCKED
+COMPLETED
+NEEDS_REVIEW
+APPROVED
+CHANGES_REQUESTED
+FAILED
+CANCELLED
+```
