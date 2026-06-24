@@ -55,6 +55,10 @@ Puis Codex, de manière symétrique (`next codex`, `append codex --to claude --w
 - Gardez `M8SHIFT.md` ouvert à côté de la source — le bloc de verrou indique à qui est le tour.
 - Utilisez `python3 m8shift.py status --for <agent>` lorsqu'un humain interrompt un
   panneau ; la commande imprime l'action sûre au lieu de dépendre de la mémoire.
+- Pendant un **long** `WORKING_<vous>`, relancez `python3 m8shift.py claim <vous>` pour remettre
+  `expires` à `now + 30 min` — un **heartbeat manuel** (l'agent ou un wrapper headless le fait ;
+  M8Shift ne tourne aucun daemon). Sans ça, le verrou se périme au bout de 30 minutes et un autre
+  agent peut le réclamer.
 - Si un panneau a planté en plein tour et a laissé un verrou périmé, récupérez avec
   `python3 m8shift.py claim <agent> --force` (ne fonctionne qu'une fois le verrou au-delà de son
   TTL de 30 minutes).

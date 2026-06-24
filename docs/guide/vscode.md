@@ -55,6 +55,9 @@ Then Codex, symmetrically (`next codex`, `append codex --to claude --wait`,
 - Keep `M8SHIFT.md` open beside the source — the lock block tells you whose turn it is.
 - Use `python3 m8shift.py status --for <agent>` whenever a human interrupts a panel; it
   prints the safe next action instead of relying on memory.
+- During a **long** `WORKING_<you>`, re-run `python3 m8shift.py claim <you>` to refresh `expires`
+  to `now + 30 min` — a **manual heartbeat** (the agent or a headless wrapper does it; M8Shift runs
+  no daemon). Skip it and the lock goes stale after 30 minutes, letting another agent reclaim it.
 - If a panel crashed mid-turn and left a stale lock, recover with
   `python3 m8shift.py claim <agent> --force` (only works once the lock is past its
   30-minute TTL).

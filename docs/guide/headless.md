@@ -51,6 +51,9 @@ The reference runner exists because the obvious loop has three bugs:
 - **A crashed turn.** If the agent exits while the pen is still `WORKING_<me>` (it claimed
   then died without `append`), that is a crash → retry up to a cap, then stop and leave
   the pen for manual recovery. The runner **never force-steals** the pen.
+- **A long turn.** If a single turn can run past the 30-minute TTL, the wrapper should re-run
+  `python3 m8shift.py claim <me>` periodically to refresh `expires` — a **manual heartbeat**;
+  M8Shift never refreshes the lock for you.
 
 It also uses bounded backoff and a static `argv` (no shell evaluation of the agent
 command).

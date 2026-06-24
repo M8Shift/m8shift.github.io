@@ -72,10 +72,13 @@ python3 m8shift.py doctor [--lint] [--json] [--severity-min info|warning|error]
 
 ### `recap`
 
-Print a briefing: lock, recent turns, memory notes, and open tasks.
+Print a **current-session briefing** — the lock, recent turns, memory headlines, and open tasks —
+what an agent reads when it resumes. (`recap` is the *current* session; [`history`](#history) is the
+log of *past* ones.)
 
 ```bash
 python3 m8shift.py recap [--turns N] [--memory N] [--tasks N]
+python3 m8shift.py recap --turns 6 --memory 5 --tasks 5
 ```
 
 ### `peek`
@@ -100,10 +103,13 @@ python3 m8shift.py log [--limit N] [--all] [--oneline]
 
 ### `history`
 
-Show prior sessions from `M8SHIFT.sessions.jsonl`.
+Show **prior sessions** (start / reset / done) folded from the append-only
+`M8SHIFT.sessions.jsonl` ledger — a readable, reproducible session log, not an automatic summary.
 
 ```bash
 python3 m8shift.py history [--limit N] [--oneline] [--json]
+python3 m8shift.py history --oneline
+python3 m8shift.py history --json
 ```
 
 ### `wait`
@@ -143,9 +149,10 @@ python3 m8shift.py claim <agent> [--force]
 python3 m8shift.py claim <agent> --check [--files CSV] [--turns N]
 ```
 
-Re-claiming a lock you already hold refreshes its 30-minute TTL. `--force` reclaims a
-stale lock only. `--check` is read-only: it reports readiness and advisory file overlap
-without taking the pen.
+Re-claiming a lock you already hold refreshes its 30-minute TTL — the **manual heartbeat** for a
+long `WORKING_<you>` (the agent or a headless wrapper re-runs it; no daemon does it for you).
+`--force` reclaims a stale lock only. `--check` is read-only: it reports readiness and advisory
+file overlap without taking the pen.
 
 ### `append`
 

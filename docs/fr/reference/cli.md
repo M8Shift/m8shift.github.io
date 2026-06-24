@@ -73,10 +73,13 @@ python3 m8shift.py doctor [--lint] [--json] [--severity-min info|warning|error]
 
 ### `recap`
 
-Affiche un briefing : verrou, derniers tours, mémoire et tâches ouvertes.
+Affiche un **briefing de la session courante** — verrou, derniers tours, mémoire et tâches
+ouvertes —, ce que lit un agent qui reprend. (`recap` = session *courante* ; [`history`](#history) =
+journal des sessions *passées*.)
 
 ```bash
 python3 m8shift.py recap [--turns N] [--memory N] [--tasks N]
+python3 m8shift.py recap --turns 6 --memory 5 --tasks 5
 ```
 
 ### `peek`
@@ -101,10 +104,13 @@ python3 m8shift.py log [--limit N] [--all] [--oneline]
 
 ### `history`
 
-Affiche les sessions précédentes depuis `M8SHIFT.sessions.jsonl`.
+Affiche les **sessions passées** (start / reset / done) repliées depuis le registre append-only
+`M8SHIFT.sessions.jsonl` — un journal de séance lisible et reproductible, pas un résumé automatique.
 
 ```bash
 python3 m8shift.py history [--limit N] [--oneline] [--json]
+python3 m8shift.py history --oneline
+python3 m8shift.py history --json
 ```
 
 ### `wait`
@@ -144,9 +150,10 @@ python3 m8shift.py claim <agent> [--force]
 python3 m8shift.py claim <agent> --check [--files CSV] [--turns N]
 ```
 
-Re-claim un verrou déjà détenu rafraîchit son TTL de 30 minutes. `--force` ne récupère
-qu'un verrou périmé. `--check` est en lecture seule : il signale la disponibilité et les
-chevauchements de fichiers indicatifs sans prendre le stylo.
+Re-claim un verrou déjà détenu rafraîchit son TTL de 30 minutes — le **heartbeat manuel** pour un
+long `WORKING_<vous>` (l'agent ou un wrapper headless le relance ; aucun daemon ne le fait à ta
+place). `--force` ne récupère qu'un verrou périmé. `--check` est en lecture seule : il signale la
+disponibilité et les chevauchements de fichiers indicatifs sans prendre le stylo.
 
 ### `append`
 

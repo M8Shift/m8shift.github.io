@@ -50,6 +50,9 @@ Le runner de référence existe parce que la boucle évidente comporte trois bug
 - **Un tour planté.** Si l'agent quitte alors que le stylo est encore `WORKING_<me>` (il a réclamé
   puis est mort sans `append`), c'est un crash → réessai jusqu'à un plafond, puis arrêt en laissant
   le stylo pour une récupération manuelle. Le runner ne **vole jamais de force** le stylo.
+- **Un tour long.** Si un seul tour peut dépasser le TTL de 30 minutes, le wrapper doit relancer
+  périodiquement `python3 m8shift.py claim <me>` pour rafraîchir `expires` — un **heartbeat
+  manuel** ; M8Shift ne rafraîchit jamais le verrou à ta place.
 
 Il utilise également un backoff borné et un `argv` statique (aucune évaluation par le shell de la
 commande de l'agent).
