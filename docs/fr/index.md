@@ -71,7 +71,12 @@ sequenceDiagram
 
 ## Comment fonctionne un relais
 
-Deux agents partagent un même dépôt. L'état vit en tête d'un unique fichier
+Les exemples utilisent `claude` et `codex` parce que ce sont des valeurs par défaut
+familières. Ils n'ont rien de spécial : remplacez-les par `gemini`, `vibe` ou tout
+agent coopératif capable de lire ses instructions, lancer la CLI et respecter
+`claim → travail → append`.
+
+Dans le relais le plus simple, deux agents partagent un même dépôt. L'état vit en tête d'un unique fichier
 (`M8SHIFT.md`), lisible ligne par ligne :
 
 ```text

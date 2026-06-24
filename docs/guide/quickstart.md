@@ -10,6 +10,12 @@ isolated parallel feature work.
 The CLI is `m8shift.py`; project files use `M8SHIFT.md` and `.m8shift.lock`.
 :::
 
+::: tip Agent names in examples
+`claude` and `codex` are placeholders for the default roster. Use `gemini`, `vibe`,
+or any other cooperative agent name if that agent can read its anchor, run the CLI,
+and follow `claim → work → append`.
+:::
+
 ```mermaid
 flowchart LR
     A["cp m8shift.py"] --> B["init --agents claude,codex"]

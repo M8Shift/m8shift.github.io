@@ -12,6 +12,9 @@ python3 m8shift.py init --agents claude,codex
 python3 m8shift.py status
 ```
 
+`claude,codex` is the default example roster. Use `gemini,vibe` or any cooperative
+agent names that match the tools you actually run.
+
 ## Option B — Git Bash
 
 Works the same, invoking Python explicitly:

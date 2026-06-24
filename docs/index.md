@@ -71,7 +71,11 @@ sequenceDiagram
 
 ## How a relay works
 
-Two agents share one repository. The state lives at the top of a single file
+The examples use `claude` and `codex` because they are familiar defaults. They are
+not special: replace them with `gemini`, `vibe`, or any cooperative agent that can
+read its instructions, run the CLI, and follow `claim → work → append`.
+
+In the simplest relay, two agents share one repository. The state lives at the top of a single file
 (`M8SHIFT.md`), readable line by line:
 
 ```text

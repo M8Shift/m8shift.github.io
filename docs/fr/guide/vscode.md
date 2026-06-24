@@ -5,6 +5,10 @@ panneaux *sont* les agents. La seule chose à bien intégrer : une interface de 
 n'est **pas** un processus en arrière-plan. `wait` bloque un shell ; il ne peut pas réveiller une
 conversation endormie. Un humain (ou une intégration hôte) relance l'agent suivant après chaque passation.
 
+Claude et Codex sont ici le couple d'UI concret. La même discipline fonctionne avec
+Gemini, Vibe ou toute autre UI d'agent coopératif capable de lire les instructions
+du projet, lancer des commandes shell et respecter `claim → travail → append`.
+
 ```mermaid
 flowchart LR
     CW["panneau claude<br/>next → travail → append --wait"] --> H1["humain ou hôte relance<br/>le panneau codex"]

@@ -4,6 +4,10 @@ The simplest M8Shift workflow uses two agents and one global pen.
 It is deliberately sequential: its value is not throughput, but predictable ownership and
 a durable handoff trail.
 
+This page uses `claude` and `codex` as concrete example names. The same two-agent
+loop works with `gemini`, `vibe`, or any cooperative agent pair that can run the
+relay commands and respect the handoff.
+
 ```mermaid
 sequenceDiagram
     autonumber

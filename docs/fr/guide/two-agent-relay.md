@@ -4,6 +4,10 @@ Le flux de travail M8Shift le plus simple utilise deux agents et un stylo global
 Il est délibérément séquentiel : sa valeur n'est pas le débit, mais une propriété prévisible et une
 trace de passation durable.
 
+Cette page utilise `claude` et `codex` comme noms d'exemple concrets. La même boucle
+à deux agents fonctionne avec `gemini`, `vibe` ou tout couple d'agents coopératifs
+capable de lancer les commandes du relais et de respecter la passation.
+
 ```mermaid
 sequenceDiagram
     autonumber

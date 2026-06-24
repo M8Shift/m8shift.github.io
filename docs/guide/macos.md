@@ -24,6 +24,9 @@ cd /path/to/project
 python3 m8shift.py init --agents claude,codex
 ```
 
+`claude,codex` is the default example roster. Use `gemini,vibe` or any cooperative
+agent names that match the tools you actually run.
+
 ## Run commands explicitly
 
 ```bash

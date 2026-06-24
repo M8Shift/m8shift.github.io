@@ -5,6 +5,9 @@ interactive agent UI. The only path to a hands-off relay is to drive a **headles
 CLI in a loop — for example `claude -p "<prompt>"` or `codex exec "<prompt>"` — where each
 invocation performs exactly one turn (claim → work → append).
 
+The command names are examples. Use the equivalent Gemini, Vibe, or other
+cooperative agent CLI as long as each invocation performs exactly one M8Shift turn.
+
 The repository ships a reference loop, `examples/headless_runner.py`, that runs **one**
 agent. Run one instance per headless agent; if the other side is an interactive UI, a
 human still resumes that side.

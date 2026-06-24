@@ -10,6 +10,12 @@ compagnon worktree seulement pour du travail de fonctionnalité parallèle et is
 La CLI est `m8shift.py` ; les fichiers de projet utilisent `M8SHIFT.md` et `.m8shift.lock`.
 :::
 
+::: tip Noms d'agents dans les exemples
+`claude` et `codex` sont des placeholders du roster par défaut. Utilisez `gemini`,
+`vibe` ou tout autre nom d'agent coopératif si cet agent peut lire son ancrage,
+lancer la CLI et respecter `claim → travail → append`.
+:::
+
 ```mermaid
 flowchart LR
     A["cp m8shift.py"] --> B["init --agents claude,codex"]

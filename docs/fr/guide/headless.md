@@ -5,6 +5,10 @@ une interface d'agent interactive. La seule voie vers un relais sans interventio
 une CLI d'agent **headless** dans une boucle — par exemple `claude -p "<prompt>"` ou
 `codex exec "<prompt>"` — où chaque invocation effectue exactement un tour (claim → travail → append).
 
+Les noms de commandes sont des exemples. Utilisez l'équivalent Gemini, Vibe ou une
+autre CLI d'agent coopératif tant que chaque invocation effectue exactement un tour
+M8Shift.
+
 Le dépôt fournit une boucle de référence, `examples/headless_runner.py`, qui exécute **un** agent.
 Lancez une instance par agent headless ; si l'autre côté est une interface interactive, un humain
 relance tout de même ce côté.
