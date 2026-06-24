@@ -2,11 +2,17 @@
 node_modules/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+docs/.vitepress/.temp/
 *.log
 
 # macOS / local
 .DS_Store
 .env
+
+# Local analysis / backup notes
+PROPOSITIONS_SITE_M8SHIFT.md
+docs/public/*.old
+docs/public/m8shift_logo_sans_texte_transparent.svg
 
 # Cloudflare Workers
 .wrangler/

@@ -29,7 +29,7 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.svg' }]
   ],
   themeConfig: {
-    logo: '/logo.svg',
+    logo: '/logo.png',
     siteTitle: 'M8Shift',
     search: { provider: 'local' },
     socialLinks: [
@@ -104,7 +104,7 @@ export default defineConfig({
           ]
         },
         editLink: {
-          pattern: 'https://github.com/TheLazyGeekGuy/M8Shift-site/_edit/main/docs/:path',
+          pattern: 'https://github.com/M8Shift/M8Shift-site/edit/main/docs/:path',
           text: 'Edit this page'
         },
         footer: {
@@ -182,7 +182,7 @@ export default defineConfig({
           ]
         },
         editLink: {
-          pattern: 'https://github.com/TheLazyGeekGuy/M8Shift-site/_edit/main/docs/:path',
+          pattern: 'https://github.com/M8Shift/M8Shift-site/edit/main/docs/:path',
           text: 'Modifier cette page'
         },
         footer: {
