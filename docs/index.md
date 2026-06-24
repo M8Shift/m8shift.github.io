@@ -58,11 +58,11 @@ features:
     <div class="m8-quickstart__badge">local install</div>
   </div>
   <div class="m8-quickstart__body">
-    <p class="m8-quickstart__comment"># Downloads the CLI + worktree toolbox into the current repository, then runs init.</p>
-    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+    <p class="m8-quickstart__comment"># Verifies the CLI + worktree toolbox, installs them locally, then runs init.</p>
+    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex</code></pre>
   </div>
   <div class="m8-quickstart__foot">
-    <span>No sudo. No global PATH change. No hosted runtime.</span>
+    <span>SHA256-checked. No sudo. No global PATH change. No hosted runtime.</span>
     <a href="/guide/windows">Windows guide</a>
   </div>
 </div>

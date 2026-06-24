@@ -32,12 +32,20 @@ Installez M8Shift dans un projet :
 
 ```bash
 cd /path/to/project
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
 ```
 
 L'installateur télécharge `m8shift.py` et la boîte à outils `m8shift-worktree.py`
-dans le répertoire courant, puis lance `init`. Il n'utilise pas `sudo`, ne modifie
-pas votre PATH global et ne démarre aucun service d'arrière-plan.
+dans le répertoire courant, les vérifie avec `checksums.sha256`, puis lance `init`.
+Il n'utilise pas `sudo`, ne modifie pas votre PATH global et ne démarre aucun
+service d'arrière-plan.
+
+Pour une release épinglée, téléchargez l'installateur depuis le tag et passez la même ref :
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh | \
+  bash -s -- --ref vX.Y.Z --verify --agents claude,codex
+```
 
 Vous préférez l'adoption manuelle ? Copiez `m8shift.py` dans le projet, puis lancez
 `python3 m8shift.py init --agents claude,codex`.
