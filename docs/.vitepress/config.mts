@@ -66,8 +66,7 @@ export default defineConfig({
               { text: 'Quickstart', link: '/guide/quickstart' },
               { text: 'VS Code', link: '/guide/vscode' },
               { text: 'Headless runner', link: '/guide/headless' },
-              { text: 'Windows', link: '/guide/windows' },
-              { text: 'Cloudflare deployment', link: '/guide/cloudflare' }
+              { text: 'Windows', link: '/guide/windows' }
             ] },
             { text: 'Workflows', items: [
               { text: 'Two-agent relay', link: '/guide/two-agent-relay' },
@@ -140,8 +139,7 @@ export default defineConfig({
               { text: 'Démarrage rapide', link: '/fr/guide/quickstart' },
               { text: 'VS Code', link: '/fr/guide/vscode' },
               { text: 'Exécution headless', link: '/fr/guide/headless' },
-              { text: 'Windows', link: '/fr/guide/windows' },
-              { text: 'Déploiement Cloudflare', link: '/fr/guide/cloudflare' }
+              { text: 'Windows', link: '/fr/guide/windows' }
             ] },
             { text: 'Flux de travail', items: [
               { text: 'Relais à deux agents', link: '/fr/guide/two-agent-relay' },

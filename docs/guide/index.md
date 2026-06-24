@@ -8,5 +8,4 @@ Start with the [quickstart](./quickstart), then choose:
 - [two-agent relay](./two-agent-relay) for strict alternation — the shipped workflow;
 - [multi-agent workflow](./multi-agent) for an N-agent roster with one shared pen.
 
-Then read the [VS Code guide](./vscode) to drive the relay from your editor, or the
-[Cloudflare guide](./cloudflare) to deploy this site.
+Then read the [VS Code guide](./vscode) to drive the relay from your editor.
