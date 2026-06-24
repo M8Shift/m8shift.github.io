@@ -65,8 +65,12 @@ export default defineConfig({
               { text: 'Why M8Shift', link: '/guide/why' },
               { text: 'Quickstart', link: '/guide/quickstart' },
               { text: 'VS Code', link: '/guide/vscode' },
-              { text: 'Headless runner', link: '/guide/headless' },
-              { text: 'Windows', link: '/guide/windows' }
+              { text: 'Headless runner', link: '/guide/headless' }
+            ] },
+            { text: 'Installation', items: [
+              { text: 'Windows', link: '/guide/windows' },
+              { text: 'Linux', link: '/guide/linux' },
+              { text: 'macOS', link: '/guide/macos' }
             ] },
             { text: 'Workflows', items: [
               { text: 'Two-agent relay', link: '/guide/two-agent-relay' },
@@ -139,8 +143,12 @@ export default defineConfig({
               { text: 'Pourquoi M8Shift', link: '/fr/guide/why' },
               { text: 'Démarrage rapide', link: '/fr/guide/quickstart' },
               { text: 'VS Code', link: '/fr/guide/vscode' },
-              { text: 'Exécution headless', link: '/fr/guide/headless' },
-              { text: 'Windows', link: '/fr/guide/windows' }
+              { text: 'Exécution headless', link: '/fr/guide/headless' }
+            ] },
+            { text: 'Installation', items: [
+              { text: 'Windows', link: '/fr/guide/windows' },
+              { text: 'Linux', link: '/fr/guide/linux' },
+              { text: 'macOS', link: '/fr/guide/macos' }
             ] },
             { text: 'Flux de travail', items: [
               { text: 'Relais à deux agents', link: '/fr/guide/two-agent-relay' },
