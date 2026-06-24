@@ -108,8 +108,8 @@ export default defineConfig({
           text: 'Edit this page'
         },
         footer: {
-          message: 'Released under the Apache 2.0 License.',
-          copyright: 'Copyright © 2026 M8Shift contributors'
+          message: 'Built by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a> · Released under the Apache 2.0 License.',
+          copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }
     },
@@ -186,8 +186,8 @@ export default defineConfig({
           text: 'Modifier cette page'
         },
         footer: {
-          message: 'Publié sous licence Apache 2.0.',
-          copyright: 'Copyright © 2026 les contributeurs de M8Shift'
+          message: 'Built by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a> · Released under the Apache 2.0 License.',
+          copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }
     }
