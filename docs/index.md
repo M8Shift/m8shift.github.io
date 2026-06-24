@@ -7,7 +7,7 @@ titleTemplate: AI agents, working in shifts.
 hero:
   name: M8Shift
   text: AI agents, working in shifts.
-  tagline: Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
+  tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
   image:
     src: /logo.svg
     alt: M8Shift logo
@@ -37,7 +37,7 @@ features:
     details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
   - icon: 🪶
     title: One file, zero dependencies
-    details: A single Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
+    details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: 🧪
     title: Auditable by design
     details: Append-only turns, memory notes, tasks, session history, and readable local-time status keep the relay inspectable without a service.
@@ -48,6 +48,8 @@ features:
 
 M8Shift is a coordination layer for AI agents already running in your terminal, IDE,
 desktop application, or automation environment.
+
+It is **free and open source**, released under the Apache License 2.0.
 
 It does not need to become the model provider, the agent runtime, the project manager,
 the chat application, and the coffee machine. It focuses on a narrower problem:

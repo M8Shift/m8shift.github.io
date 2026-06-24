@@ -1,6 +1,7 @@
 # License
 
-M8Shift is released under the **Apache License, Version 2.0**.
+M8Shift is **free and open source**, released under the
+**Apache License, Version 2.0**.
 
 ```text
 Copyright 2026 M8Shift contributors

@@ -7,7 +7,7 @@ titleTemplate: Des agents IA, travaillant par roulements.
 hero:
   name: M8Shift
   text: Des agents IA, travaillant par roulements.
-  tagline: Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue.
+  tagline: Libre et open source. Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue.
   image:
     src: /logo.svg
     alt: Logo M8Shift
@@ -37,7 +37,7 @@ features:
     details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. M8Shift ne devient jamais le fournisseur de modèle, le runtime, ni un plan de contrôle hébergé.
   - icon: 🪶
     title: Un seul fichier, zéro dépendance
-    details: Un unique script Python, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
+    details: Un script Python libre et open source, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
   - icon: 🧪
     title: Auditable par conception
     details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale gardent le relais inspectable sans service.
@@ -48,6 +48,8 @@ features:
 
 M8Shift est une couche de coordination pour les agents IA déjà en cours d'exécution dans votre terminal, votre IDE,
 votre application de bureau ou votre environnement d'automatisation.
+
+Il est **libre et open source**, publié sous licence Apache 2.0.
 
 Il n'a pas besoin de devenir le fournisseur de modèle, le runtime des agents, le gestionnaire de projet,
 l'application de discussion et la machine à café. Il se concentre sur un problème plus étroit :

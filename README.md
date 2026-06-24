@@ -1,8 +1,9 @@
 # M8Shift website proposal
 
 A Markdown-first, bilingual (English/French) website and documentation structure for
-**M8Shift**, built with [VitePress](https://vitepress.dev/) and deployable to Cloudflare
-Pages or a Cloudflare Worker.
+**M8Shift**, a free and open-source project built with
+[VitePress](https://vitepress.dev/) and deployable to Cloudflare Pages or a
+Cloudflare Worker.
 
 ## Positioning
 
