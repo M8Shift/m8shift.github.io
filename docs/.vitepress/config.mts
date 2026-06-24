@@ -70,7 +70,8 @@ export default defineConfig({
             ] },
             { text: 'Workflows', items: [
               { text: 'Two-agent relay', link: '/guide/two-agent-relay' },
-              { text: 'Multi-agent workflow', link: '/guide/multi-agent' }
+              { text: 'Multi-agent workflow', link: '/guide/multi-agent' },
+              { text: 'Worktree toolbox', link: '/guide/worktree-toolbox' }
             ] }
           ],
           '/concepts/': [
@@ -143,7 +144,8 @@ export default defineConfig({
             ] },
             { text: 'Flux de travail', items: [
               { text: 'Relais à deux agents', link: '/fr/guide/two-agent-relay' },
-              { text: 'Flux multi-agents', link: '/fr/guide/multi-agent' }
+              { text: 'Flux multi-agents', link: '/fr/guide/multi-agent' },
+              { text: 'Boîte à outils worktree', link: '/fr/guide/worktree-toolbox' }
             ] }
           ],
           '/fr/concepts/': [
