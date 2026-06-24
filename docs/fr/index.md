@@ -7,7 +7,7 @@ titleTemplate: Des agents IA, travaillant par roulements.
 hero:
   name: M8Shift
   text: Des agents IA, travaillant par roulements.
-  tagline: Coordonnez Claude, Codex, Gemini et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue.
+  tagline: Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue.
   image:
     src: /logo.svg
     alt: Logo M8Shift
@@ -72,7 +72,7 @@ sequenceDiagram
 ## Comment fonctionne un relais
 
 Deux agents partagent un même dépôt. L'état vit en tête d'un unique fichier
-(`M8SHIFT.md`, ou `COWORK.md` sur les projets existants), lisible ligne par ligne :
+(`M8SHIFT.md`), lisible ligne par ligne :
 
 ```text
 <!-- M8SHIFT:LOCK:BEGIN -->
@@ -111,8 +111,7 @@ mais ne les exécute pas et ne les applique pas.
 
 ## État actuel
 
-M8Shift évolue à partir de la conception originelle du relais CoWork. L'implémentation livrée et
-les étapes de protocole planifiées sont étiquetées séparément :
+L'implémentation livrée de M8Shift et les étapes de protocole planifiées sont étiquetées séparément :
 
 - **disponible maintenant :** relais à claim exclusif, verrou partagé avec récupération
   de verrou périmé, journal de tours immuable, archivage borné, roster configurable,

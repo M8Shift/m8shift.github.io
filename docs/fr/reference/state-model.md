@@ -1,7 +1,7 @@
 # Modèle d'état
 
 Tout l'état du relais réside au même endroit : le **bloc de verrou** en tête de
-`M8SHIFT.md` (`COWORK.md` sur les projets hérités), entre `<!-- M8SHIFT:LOCK:BEGIN -->` et
+`M8SHIFT.md`, entre `<!-- M8SHIFT:LOCK:BEGIN -->` et
 `<!-- M8SHIFT:LOCK:END -->`. Ce sont de simples lignes `key: value`, une par champ, ce qui
 le maintient greppable et diffable.
 
@@ -71,6 +71,11 @@ stateDiagram-v2
   autre membre du roster.
 - `claim --force` ne réclame un verrou **qu'**une fois qu'il a dépassé `expires` (périmé) ;
   il est refusé sur un verrou actif.
+- Le TTL de `WORKING_<self>` est de **30 minutes**. Le détenteur le rafraîchit en relançant
+  `claim <self>`, ce qui remet `expires` à `now + 30 min` — un **heartbeat manuel**, déclenché par
+  l'agent ou un wrapper headless. M8Shift ne tourne **aucun daemon** en arrière-plan : rien ne
+  renouvelle le verrou à ta place, et une fois `expires` dépassé, le verrou devient simplement
+  réclamable via `claim --force`.
 - Les timestamps sont stockés en UTC. Les commandes humaines affichent aussi un libellé
   en heure locale ; le JSON conserve les valeurs UTC.
 

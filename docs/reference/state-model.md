@@ -1,7 +1,7 @@
 # State model
 
-All relay state lives in one place: the **lock block** at the top of `M8SHIFT.md`
-(`COWORK.md` on legacy projects), between `<!-- M8SHIFT:LOCK:BEGIN -->` and
+All relay state lives in one place: the **lock block** at the top of `M8SHIFT.md`,
+between `<!-- M8SHIFT:LOCK:BEGIN -->` and
 `<!-- M8SHIFT:LOCK:END -->`. It is plain `key: value` lines, one per field, so it stays
 greppable and diffable.
 
@@ -71,6 +71,10 @@ stateDiagram-v2
   roster member.
 - `claim --force` reclaims a lock **only** once it is past `expires` (stale); it is
   refused on a live lock.
+- The `WORKING_<self>` TTL is **30 minutes**. The holder refreshes it by re-running
+  `claim <self>`, which resets `expires` to `now + 30 min` — a **manual heartbeat**, run by the
+  agent or a headless wrapper. M8Shift runs **no background daemon**: nothing renews the lock for
+  you, and once a lock is past `expires` it simply becomes reclaimable with `claim --force`.
 - Timestamps are stored in UTC. Human-facing commands also show local-time labels;
   JSON keeps UTC values only.
 

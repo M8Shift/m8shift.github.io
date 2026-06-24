@@ -7,7 +7,7 @@ titleTemplate: AI agents, working in shifts.
 hero:
   name: M8Shift
   text: AI agents, working in shifts.
-  tagline: Coordinate Claude, Codex, Gemini and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
+  tagline: Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
   image:
     src: /logo.svg
     alt: M8Shift logo
@@ -72,7 +72,7 @@ sequenceDiagram
 ## How a relay works
 
 Two agents share one repository. The state lives at the top of a single file
-(`M8SHIFT.md`, or `COWORK.md` on existing projects), readable line by line:
+(`M8SHIFT.md`), readable line by line:
 
 ```text
 <!-- M8SHIFT:LOCK:BEGIN -->
@@ -111,8 +111,7 @@ enforce them.
 
 ## Current status
 
-M8Shift evolves from the original CoWork relay design. The shipped implementation and
-the planned protocol stages are labelled separately:
+M8Shift's shipped implementation and the planned protocol stages are labelled separately:
 
 - **available now:** exclusive-claim relay, shared lock with stale-lock recovery, the
   immutable turn journal, bounded archiving, configurable roster, structured handoffs,

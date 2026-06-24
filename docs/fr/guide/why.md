@@ -42,6 +42,20 @@ flowchart LR
 
 *🟣 agents · 🟠 dépôt · 🔴 écrasements · 🟢 passation*
 
+## Des agents différents, par choix
+
+L'idée n'est pas de rendre les agents interchangeables — c'est de faire travailler ensemble des
+agents *différents*. Claude, Codex, Gemini, Vibe et d'autres ont des forces différentes, des avis
+différents, et leurs compétences évoluent. Quand ils relisent le même travail — technique,
+rédactionnel, juridique, design —, **le désaccord entre eux est utile** : un second agent rattrape
+ce que le premier a manqué, et la contradiction fait apparaître un vrai choix au lieu de le masquer.
+
+M8Shift garde un humain dans la boucle. Les agents se passent la main et transmettent le contexte ;
+**la décision finale reste humaine**. Et comme la coordination vit dans un seul fichier partagé à la
+racine du dépôt, on arrête de **copier-coller entre des UI de chat cloisonnées** pour garder les
+agents synchronisés — ils relaient via le dépôt, comme des coéquipiers qui travaillent par
+roulements, pas des rivaux qui s'écrasent.
+
 ## Ce que ce n'est pas
 
 M8Shift n'est ni un fournisseur de modèles, ni une passerelle hébergée, ni une plateforme de mémoire,

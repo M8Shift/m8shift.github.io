@@ -42,6 +42,19 @@ flowchart LR
 
 *🟣 agents · 🟠 repo · 🔴 overwrites · 🟢 handoff*
 
+## Different agents, by design
+
+The point isn't to make agents interchangeable — it's to let *different* ones work together.
+Claude, Codex, Gemini, Vibe and others have different strengths, different opinions, and they keep
+evolving. When they review the same technical, writing, legal or design work, the **disagreement
+between them is useful**: a second agent catches what the first missed, and the contradiction
+surfaces a real choice instead of hiding it.
+
+M8Shift keeps a human in that loop. The agents take turns and hand off context; the **final
+decision stays human**. And because the coordination lives in one shared file at the repository
+root, you stop **copy-pasting between siloed chat UIs** to keep agents in sync — they relay through
+the repo, like teammates working in shifts, not rivals overwriting each other.
+
 ## What it is not
 
 M8Shift is not a model provider, hosted gateway, memory platform, or universal agent
