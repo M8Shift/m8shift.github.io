@@ -7,8 +7,7 @@ compagnon worktree seulement pour du travail de fonctionnalité parallèle et is
 :::
 
 ::: tip Nommage
-La CLI est `m8shift.py`. Sur les projets créés avant le renommage, `cowork.py` continue de fonctionner
-comme une fine couche de compatibilité et les fichiers `COWORK.*` existants sont toujours lus.
+La CLI est `m8shift.py` ; les fichiers de projet utilisent `M8SHIFT.md` et `.m8shift.lock`.
 :::
 
 ```mermaid

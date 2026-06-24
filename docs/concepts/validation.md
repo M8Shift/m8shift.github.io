@@ -9,7 +9,7 @@ Before any write, `m8shift.py` enforces guardrails that keep the journal trustwo
 - **Claim-before-write** — an `append` is accepted only from `WORKING_<self>`.
 - **Single-line fields** — `from`/`to`/`ask`/`done`/`files` reject newlines and reserved
   markers, so a turn cannot forge a lock or another turn.
-- **Body neutralisation** — fake `M8SHIFT:*` / `COWORK:*` markers in a free-text body are
+- **Body neutralisation** — fake `M8SHIFT:*` markers in a free-text body are
   neutralised.
 - **Roster checks** — a handoff `--to` an agent outside the roster is refused.
 - **Immutable turns** — a closed turn is never rewritten.

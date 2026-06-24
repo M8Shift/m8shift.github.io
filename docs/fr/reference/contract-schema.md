@@ -35,8 +35,8 @@ handoff: codex
 | `handoff` | dérivé de `--to` | délibérément redondant avec `to`, pour faciliter le grep |
 
 La ligne d'en-tête et chaque champ tiennent sur **une seule ligne** : les sauts de ligne et
-les marqueurs réservés (`M8SHIFT:TURN`, `M8SHIFT:LOCK`, `M8SHIFT:STANZA`, ainsi que les
-équivalents `COWORK:*`) sont rejetés. Le contenu multi-lignes va dans le corps en texte
+les marqueurs réservés (`M8SHIFT:TURN`, `M8SHIFT:LOCK` et `M8SHIFT:STANZA`) sont rejetés.
+Le contenu multi-lignes va dans le corps en texte
 libre via `--body PATH` ou `--body -` (stdin), où tout faux marqueur est neutralisé.
 
 `peek <agent>` lit la dernière passation adressée à cet agent sans prendre le stylo. Il

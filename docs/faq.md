@@ -34,5 +34,4 @@ No. Interactive UIs require a human or host integration to resume the next agent
 ## Why the name M8Shift?
 
 “M8” reads as “mate”, while “shift” describes work moving between AI teammates. The
-name covers sequential turns and parallel specialist shifts without reusing the now
-crowded “cowork” terminology.
+name covers sequential turns and parallel specialist shifts.

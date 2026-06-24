@@ -21,7 +21,7 @@ Each agent gets a canonical **anchor** file where the protocol stanza is injecte
 | `gemini` | `GEMINI.md` |
 
 The stanza is injected idempotently at the top of the file; the previous content is
-backed up to `<anchor>.cowork.bak`.
+backed up to `<anchor>.m8shift.bak`.
 
 ```mermaid
 flowchart LR

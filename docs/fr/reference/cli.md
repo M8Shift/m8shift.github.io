@@ -1,9 +1,7 @@
 # Référence CLI
 
 La CLI est un fichier unique, `m8shift.py` 3.9.0 (Python 3.8+, bibliothèque standard
-uniquement). Lancez-la depuis la racine d'un projet. Sur les projets créés avant le
-renommage, `cowork.py` peut rester un shim de compatibilité autour du même modèle de
-relais.
+uniquement). Lancez-la depuis la racine d'un projet.
 
 Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de succès,
 `1` en cas de refus ou d'erreur d'exécution, et `2` en cas d'erreur d'argument. Les

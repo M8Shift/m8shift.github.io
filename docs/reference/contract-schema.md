@@ -35,7 +35,7 @@ handoff: codex
 | `handoff` | derived from `--to` | deliberately redundant with `to`, for easy grep |
 
 The header line and every field are **single-line**: line breaks and reserved markers
-(`M8SHIFT:TURN`, `M8SHIFT:LOCK`, `M8SHIFT:STANZA`, and the `COWORK:*` equivalents) are
+(`M8SHIFT:TURN`, `M8SHIFT:LOCK`, and `M8SHIFT:STANZA`) are
 rejected. Multi-line content goes in the free-text body via `--body PATH` or `--body -`
 (stdin), where any fake markers are neutralised.
 

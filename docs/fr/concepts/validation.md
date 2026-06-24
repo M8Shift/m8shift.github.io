@@ -12,7 +12,7 @@ journal :
 - **Champs sur une seule ligne** — `from`/`to`/`ask`/`done`/`files` rejettent les retours à
   la ligne et les marqueurs réservés, de sorte qu'un tour ne peut pas forger un verrou ou un
   autre tour.
-- **Neutralisation du corps** — les faux marqueurs `M8SHIFT:*` / `COWORK:*` dans un corps en
+- **Neutralisation du corps** — les faux marqueurs `M8SHIFT:*` dans un corps en
   texte libre sont neutralisés.
 - **Vérifications du roster** — une passation `--to` un agent hors du roster est refusée.
 - **Tours immuables** — un tour clos n'est jamais réécrit.

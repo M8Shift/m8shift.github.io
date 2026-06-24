@@ -34,5 +34,4 @@ Non. Les interfaces interactives requièrent un humain ou une intégration hôte
 ## Pourquoi le nom M8Shift ?
 
 « M8 » se lit comme « mate », tandis que « shift » décrit le travail qui passe d'un coéquipier IA à l'autre. Le
-nom couvre les tours séquentiels et les roulements de spécialistes en parallèle sans réutiliser la
-terminologie « cowork » désormais saturée.
+nom couvre les tours séquentiels et les roulements de spécialistes en parallèle.

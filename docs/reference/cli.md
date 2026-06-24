@@ -1,8 +1,7 @@
 # CLI reference
 
 The CLI is a single file, `m8shift.py` 3.9.0 (Python 3.8+, standard library only).
-Run it from a project root. On projects created before the rename, `cowork.py` can
-remain as a compatibility shim around the same relay model.
+Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
 runtime error, and `2` on an argument error. Readiness checks such as `wait --once`,

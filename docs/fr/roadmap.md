@@ -16,14 +16,13 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - couple d'agents configurable ;
 - fichiers d'ancrage et protocole générés.
 
-## Étape 2 — Renommage M8Shift et compatibilité
+## Étape 2 — Cœur M8Shift
 
 <span class="m8-badge">Disponible</span>
 
-- CLI renommée `cowork.py` → `m8shift.py` ;
-- `cowork.py` conservé comme fine couche de compatibilité ;
-- fichiers générés `COWORK.*` → `M8SHIFT.*`, les anciens `COWORK.*` restant lus ;
-- fichiers d'ancrage, documentation et tests mis à jour ;
+- CLI `m8shift.py` ;
+- fichiers générés `M8SHIFT.*` ;
+- fichiers d'ancrage, documentation et tests ;
 - ce site web.
 
 ## Étape 3 — Relais dirigé à N agents

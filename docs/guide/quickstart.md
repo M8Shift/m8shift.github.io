@@ -7,8 +7,7 @@ isolated parallel feature work.
 :::
 
 ::: tip Naming
-The CLI is `m8shift.py`. On projects created before the rename, `cowork.py` keeps working
-as a thin compatibility shim and existing `COWORK.*` files are still read.
+The CLI is `m8shift.py`; project files use `M8SHIFT.md` and `.m8shift.lock`.
 :::
 
 ```mermaid

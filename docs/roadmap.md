@@ -16,14 +16,13 @@ this radical act of honesty.
 - configurable agent pair;
 - generated anchors and protocol.
 
-## Stage 2 — M8Shift rename and compatibility
+## Stage 2 — M8Shift core
 
 <span class="m8-badge">Available</span>
 
-- CLI renamed `cowork.py` → `m8shift.py`;
-- `cowork.py` kept as a thin compatibility shim;
-- generated files `COWORK.*` → `M8SHIFT.*`, with legacy `COWORK.*` still read;
-- updated anchors, documentation, and tests;
+- `m8shift.py` CLI;
+- generated files `M8SHIFT.*`;
+- anchors, documentation, and tests;
 - this website.
 
 ## Stage 3 — N-agent directed relay

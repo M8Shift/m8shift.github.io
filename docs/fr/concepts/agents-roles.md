@@ -22,7 +22,7 @@ injectée :
 | `gemini` | `GEMINI.md` |
 
 La strophe est injectée de façon idempotente en tête du fichier ; le contenu précédent est
-sauvegardé dans `<anchor>.cowork.bak`.
+sauvegardé dans `<anchor>.m8shift.bak`.
 
 ```mermaid
 flowchart LR

@@ -1,9 +1,8 @@
 # Generated files
 
 `m8shift.py init` writes the core relay files at the project root. Other ledgers are
-created on demand by the command that owns them. New projects use the `M8SHIFT.*`
-names; projects created before the rename keep their `COWORK.*` files, which are
-detected and read automatically.
+created on demand by the command that owns them. Generated files use the `M8SHIFT.*`
+names.
 
 ```mermaid
 flowchart TD
@@ -36,11 +35,9 @@ flowchart TD
 | `AGENTS.md` | Codex and generic-agent anchor; `AGENTS.override.md` is synced if present |
 | `GEMINI.md` | Gemini anchor, when `gemini` is in the roster |
 
-::: tip Legacy compatibility
-On existing projects the equivalents `COWORK.md`, `COWORK.protocol.md`,
-`COWORK.archive.md` and `.cowork.lock` keep working — `m8shift.py` reads both the new
-`M8SHIFT:*` and the old `COWORK:*` markers. The anchor stanza is idempotent: the prior
-file is backed up to `<anchor>.cowork.bak` before injection.
+::: tip Idempotent anchors
+The anchor stanza is idempotent: the prior file is backed up to `<anchor>.m8shift.bak`
+before injection.
 :::
 
 ::: tip On-demand ledgers

@@ -1,9 +1,8 @@
 # Fichiers générés
 
 `m8shift.py init` écrit les fichiers cœur du relais à la racine du projet. Les autres
-registres sont créés à la demande par la commande qui les utilise. Les nouveaux projets
-utilisent les noms `M8SHIFT.*` ; les projets créés avant le renommage conservent leurs
-fichiers `COWORK.*`, qui sont détectés et lus automatiquement.
+registres sont créés à la demande par la commande qui les utilise. Les fichiers générés
+utilisent les noms `M8SHIFT.*`.
 
 ```mermaid
 flowchart TD
@@ -36,12 +35,9 @@ flowchart TD
 | `AGENTS.md` | ancre Codex et agents génériques ; `AGENTS.override.md` est synchronisé s'il est présent |
 | `GEMINI.md` | ancre Gemini, lorsque `gemini` est dans le roster |
 
-::: tip Compatibilité héritée
-Sur les projets existants, les équivalents `COWORK.md`, `COWORK.protocol.md`,
-`COWORK.archive.md` et `.cowork.lock` continuent de fonctionner — `m8shift.py` lit à la fois
-les nouveaux marqueurs `M8SHIFT:*` et les anciens `COWORK:*`. La strophe d'ancre est
-idempotente : le fichier précédent est sauvegardé dans `<anchor>.cowork.bak` avant
-injection.
+::: tip Ancres idempotentes
+La strophe d'ancre est idempotente : le fichier précédent est sauvegardé dans
+`<anchor>.m8shift.bak` avant injection.
 :::
 
 ::: tip Registres à la demande
