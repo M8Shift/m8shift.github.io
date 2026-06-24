@@ -9,7 +9,7 @@ hero:
   text: AI agents, working in shifts.
   tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost (subject, naturally, to good agent cooperation).
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: M8Shift logo
   actions:
     - theme: brand

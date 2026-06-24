@@ -9,7 +9,7 @@ hero:
   text: Des agents IA, travaillant par roulements.
   tagline: Libre et open source. Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue (sous réserve, bien sûr, de bonne coopération de l'agent).
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: Logo M8Shift
   actions:
     - theme: brand
