@@ -18,7 +18,7 @@ lancer la CLI et respecter `claim → travail → append`.
 
 ```mermaid
 flowchart LR
-    A["cp m8shift.py"] --> B["init --agents claude,codex"]
+    A["install.sh"] --> B["init --agents claude,codex"]
     B --> C["next claude"]
     C --> D["travail"]
     D --> E["append --wait --to codex"]
@@ -28,13 +28,19 @@ flowchart LR
 
 *🟣 mise en place → première passation*
 
-Copiez la CLI dans un projet :
+Installez M8Shift dans un projet :
 
 ```bash
-cp m8shift.py /path/to/project/
 cd /path/to/project
-python3 m8shift.py init --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 ```
+
+L'installateur télécharge `m8shift.py` et la boîte à outils `m8shift-worktree.py`
+dans le répertoire courant, puis lance `init`. Il n'utilise pas `sudo`, ne modifie
+pas votre PATH global et ne démarre aucun service d'arrière-plan.
+
+Vous préférez l'adoption manuelle ? Copiez `m8shift.py` dans le projet, puis lancez
+`python3 m8shift.py init --agents claude,codex`.
 
 Vérifiez l'état :
 

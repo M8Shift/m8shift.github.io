@@ -44,6 +44,29 @@ features:
 
 ---
 
+## Démarrage rapide
+
+<div class="m8-quickstart">
+  <div class="m8-quickstart__bar">
+    <div class="m8-quickstart__lights" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="m8-quickstart__tabs">
+      <span class="is-active">One-liner</span>
+      <span>macOS &amp; Linux</span>
+    </div>
+    <div class="m8-quickstart__badge">install local</div>
+  </div>
+  <div class="m8-quickstart__body">
+    <p class="m8-quickstart__comment"># Télécharge la CLI + la boîte à outils worktree dans le dépôt courant, puis lance init.</p>
+    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+  </div>
+  <div class="m8-quickstart__foot">
+    <span>Pas de sudo. Pas de PATH global. Pas de runtime hébergé.</span>
+    <a href="/fr/guide/windows">Guide Windows</a>
+  </div>
+</div>
+
 ## De la coordination, pas une énième plateforme d'agents
 
 M8Shift est une couche de coordination pour les agents IA déjà en cours d'exécution dans votre terminal, votre IDE,
