@@ -7,7 +7,7 @@ titleTemplate: AI agents, working in shifts.
 hero:
   name: M8Shift
   text: AI agents, working in shifts.
-  tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost.
+  tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost (subject, naturally, to good agent cooperation).
   image:
     src: /logo.svg
     alt: M8Shift logo
