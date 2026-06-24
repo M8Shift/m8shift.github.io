@@ -124,7 +124,8 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
   generated output;
 - **available as an opt-in companion:** `m8shift-worktree.py` for isolated feature
   worktrees plus one serialized integration pen;
-- **still future RFC:** a hosted/runtime control plane, provider management, and true
-  degree > 1 writes in one shared working tree.
+- **specified future RFCs:** hosted/runtime control plane and provider management as
+  optional companions; true degree > 1 writes in one shared working tree as a research
+  topic rejected for the core in favor of isolated worktrees.
 
 [Read the roadmap →](/roadmap)

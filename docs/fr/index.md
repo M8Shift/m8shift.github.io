@@ -125,7 +125,8 @@ L'implémentation livrée de M8Shift et les étapes de protocole planifiées son
   affichage en heure locale, et sortie générée EN/FR ;
 - **disponible via compagnon opt-in :** `m8shift-worktree.py` pour des worktrees de
   fonctionnalité isolés avec un stylo d'intégration sérialisé ;
-- **reste en future RFC :** plan de contrôle runtime/hébergé, gestion des fournisseurs,
-  et véritables écritures de degré > 1 dans un même répertoire de travail.
+- **future RFCs spécifiées :** plan de contrôle runtime/hébergé et gestion des fournisseurs
+  comme compagnons optionnels ; véritables écritures de degré > 1 dans un même working tree
+  comme sujet de recherche rejeté pour le cœur au profit des worktrees isolés.
 
 [Lire la roadmap →](/fr/roadmap)

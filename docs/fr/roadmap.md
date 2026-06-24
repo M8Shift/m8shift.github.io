@@ -51,7 +51,8 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - `m8shift-worktree.py` pour branches/worktrees par tâche ;
 - stylo d'intégration sérialisé ;
 - opérations status, claim, done, integrate et drop ;
-- reste futur : ordonnanceur complet de dépendances et runtime hébergé.
+- future RFC spécifiée : le vrai degré > 1 dans un même working tree reste rejeté
+  pour le cœur ; les worktrees isolés restent le modèle de parallélisme supporté.
 
 ## Étape 6 — Intégrations
 
@@ -62,4 +63,6 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - adaptateur MCP ;
 - intégration d'orchestrateur ;
 - notifications locales optionnelles ;
+- future RFCs spécifiées : plan de contrôle runtime/hébergé et gestion des fournisseurs
+  comme compagnons optionnels hors du cœur passif ;
 - artefacts de release et distribution par paquets.

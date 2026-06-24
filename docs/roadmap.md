@@ -51,7 +51,8 @@ this radical act of honesty.
 - `m8shift-worktree.py` for branches/worktrees per task;
 - serialized integration pen;
 - status, claim, done, integrate, and drop operations;
-- still future: a full dependency scheduler and hosted runtime.
+- specified future RFC: true degree > 1 writes in one shared working tree remains
+  rejected for the core; isolated worktrees stay the supported parallelism model.
 
 ## Stage 6 — Integrations
 
@@ -62,4 +63,6 @@ this radical act of honesty.
 - MCP adapter;
 - orchestrator integration;
 - optional local notifications;
+- specified future RFCs: hosted/runtime control plane and provider management as
+  optional companions outside the passive core;
 - release artifacts and package distribution.
