@@ -47,6 +47,11 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh |
   bash -s -- --ref vX.Y.Z --verify --agents claude,codex
 ```
 
+Limite de sécurité : `--verify` vérifie les fichiers téléchargés avec le manifeste
+de la ref choisie. Cela détecte une corruption ou une incohérence. Pour une confiance
+hors bande face à une origine compromise, épinglez des digests relus avec
+`--sha256 FILE:HEX` ou utilisez un tag de release signé.
+
 Vous préférez l'adoption manuelle ? Copiez `m8shift.py` dans le projet, puis lancez
 `python3 m8shift.py init --agents claude,codex`.
 

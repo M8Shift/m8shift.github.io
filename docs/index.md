@@ -62,7 +62,7 @@ features:
     <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex</code></pre>
   </div>
   <div class="m8-quickstart__foot">
-    <span>SHA256-checked. No sudo. No global PATH change. No hosted runtime.</span>
+    <span>SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
     <a href="/guide/windows">Windows guide</a>
   </div>
 </div>

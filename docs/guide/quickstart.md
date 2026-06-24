@@ -47,6 +47,11 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh |
   bash -s -- --ref vX.Y.Z --verify --agents claude,codex
 ```
 
+Security boundary: `--verify` checks downloaded files against the manifest from the
+selected ref. It catches corruption or mismatch. For out-of-band trust against a
+compromised origin, pin reviewed digests with `--sha256 FILE:HEX` or use a signed
+release tag.
+
 Prefer manual adoption? Copy `m8shift.py` into the project and run
 `python3 m8shift.py init --agents claude,codex`.
 
