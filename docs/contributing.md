@@ -1,7 +1,8 @@
 # Contributing
 
-There are two repositories: this **website** and the **M8Shift CLI** itself. Send changes
-to the right one.
+There are two repositories: this **website** and the **M8Shift CLI** itself. The CLI
+source repository is [M8Shift/M8Shift](https://github.com/M8Shift/M8Shift). Send
+changes to the right one.
 
 ## This website
 

@@ -3,10 +3,6 @@ import { defineConfig } from 'vitepress'
 // Render ```mermaid fences via a client-side <Mermaid> component (no plugin needed).
 let mermaidCount = 0
 
-const forgeIcon = {
-  svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M416 160c0-35.3-28.7-64-64-64s-64 28.7-64 64c0 23.7 12.9 44.4 32 55.4l0 .6c0 35.3-28.7 64-64 64l-64 0c-24.5 0-47 8.2-65.1 22.1l0-119.4c19.1-11.1 32-31.7 32-55.4c0-35.3-28.7-64-64-64S64 124.7 64 160c0 23.7 12.9 44.4 32 55.4L96 296.6c-19.1 11.1-32 31.7-32 55.4c0 35.3 28.7 64 64 64s64-28.7 64-64c0-23.7-12.9-44.3-32-55.4l0-.6c0-35.3 28.7-64 64-64l64 0c61.9 0 112-50.1 112-112l0-.6c19.1-11.1 32-31.7 32-55.4zM128 144a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM112 352a16 16 0 1 1 32 0 16 16 0 1 1 -32 0zM352 144a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/></svg>'
-}
-
 export default defineConfig({
   title: 'M8Shift',
   description: 'Coordinate AI coding agents across turns, roles, and reviews — one writer at a time.',
@@ -37,7 +33,7 @@ export default defineConfig({
     siteTitle: 'M8Shift',
     search: { provider: 'local' },
     socialLinks: [
-      { icon: forgeIcon, link: 'https://github.com/TheLazyGeekGuy/M8Shift', ariaLabel: 'M8Shift source repository' }
+      { icon: 'github', link: 'https://github.com/M8Shift/M8Shift', ariaLabel: 'M8Shift GitHub repository' }
     ]
   },
   locales: {

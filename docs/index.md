@@ -20,7 +20,7 @@ hero:
       link: /concepts/
     - theme: alt
       text: View the source
-      link: https://github.com/TheLazyGeekGuy/M8Shift
+      link: https://github.com/M8Shift/M8Shift
 
 features:
   - icon: 🖊️

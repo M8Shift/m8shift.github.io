@@ -20,4 +20,4 @@ limitations under the License.
 ```
 
 The full license text and `NOTICE` file live in the
-[source repository](https://github.com/TheLazyGeekGuy/M8Shift).
+[M8Shift/M8Shift GitHub repository](https://github.com/M8Shift/M8Shift).
