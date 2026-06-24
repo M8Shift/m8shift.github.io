@@ -1,17 +1,16 @@
 # Agents et rôles
 
-## Le roster (livré)
+## Le roster
 
 Vous déclarez les agents du relais lors du `init` :
 
 ```bash
-python3 m8shift.py init --agents claude,codex
+python3 m8shift.py init --agents claude,codex,gemini
 ```
 
-La liste est stockée dans le champ `agents:` du verrou. Les **deux premiers** forment la
-paire active ; les éventuels suivants sont enregistrés mais inactifs (réservés à un futur
-mode N-agents). Le relais est strictement de degré un — deux agents, un stylo, en
-alternance.
+La liste est stockée dans le champ `agents:` du verrou. Tout agent listé peut recevoir le
+stylo partagé ; le relais reste de degré 1, donc un seul agent écrit dans le dépôt partagé
+à la fois.
 
 Chaque agent dispose d'un fichier d'ancrage canonique où la strophe de protocole est
 injectée :
@@ -39,11 +38,9 @@ flowchart LR
 
 *🟣 agents · 🟠 fichiers d'ancrage*
 
-## Rôles (spécifié)
+## Les rôles sont des conventions
 
-::: tip Spécifié, pas encore livré
-Un vocabulaire de **rôles** plus riche — un agent agissant comme architecte, réalisateur,
-relecteur ou intégrateur, avec un seul rôle actif par tour — est une direction de la
-[roadmap](/fr/roadmap). Dans le relais livré, un agent n'est que son identité de roster ;
-« qui fait quoi » s'exprime dans le `ask` du tour, et non dans un champ de rôle formel.
-:::
+M8Shift enregistre l'identité de roster qui détient ou reçoit le stylo. Les rôles de plus
+haut niveau — architecte, implémenteur, relecteur, intégrateur — sont des conventions
+exprimées dans le `ask`, le `next`, le registre de tâches ou le prompt. La CLI cœur
+n'applique pas de permissions de rôle.

@@ -30,8 +30,8 @@ features:
     title: Structured handoffs
     details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
   - icon: 🎭
-    title: Configurable agent pair
-    details: Declare which two agents relay (claude, codex, gemini, le chat…). The first two are active; the protocol stays a strict degree-1 relay.
+    title: Configurable roster
+    details: Declare the agents that may take turns (claude, codex, gemini, le chat…). Any active member can receive the pen; the core stays a strict degree-1 relay.
   - icon: 🧩
     title: Provider-neutral
     details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
@@ -40,7 +40,7 @@ features:
     details: A single Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: 🧪
     title: Auditable by design
-    details: An append-only turn trail you can read with a text editor or grep — and bound with one archive command when it grows.
+    details: Append-only turns, memory notes, tasks, session history, and readable local-time status keep the relay inspectable without a service.
 
 ---
 
@@ -105,8 +105,9 @@ handoff: codex
 <!-- M8SHIFT:TURN 4 claude END -->
 ```
 
-Richer turn fields (branch, commit, tests, next) are **specified, not yet shipped** —
-see the [roadmap](/roadmap).
+Richer turn fields (`branch`, `commit`, `tests`, `next`, `blocked_on`, custom
+`x_*` fields) are advisory metadata: M8Shift records them, but does not execute or
+enforce them.
 
 ## Current status
 
@@ -114,10 +115,13 @@ M8Shift evolves from the original CoWork relay design. The shipped implementatio
 the planned protocol stages are labelled separately:
 
 - **available now:** exclusive-claim relay, shared lock with stale-lock recovery, the
-  immutable turn journal, bounded archiving, the configurable agent pair (roster), a
-  local single-file CLI, and EN/FR output;
-- **specified next:** shared memory and recap, structured turn fields with `peek`,
-  and a timeline / JSON status;
-- **future RFC:** more than two simultaneous agents (degree > 1).
+  immutable turn journal, bounded archiving, configurable roster, structured handoffs,
+  `peek`, `recap`, `log`, `history`, `status --json`, `status --for`, `next`,
+  `append --wait`, shared memory notes, task ledger, local-time display, and EN/FR
+  generated output;
+- **available as an opt-in companion:** `m8shift-worktree.py` for isolated feature
+  worktrees plus one serialized integration pen;
+- **still future RFC:** a hosted/runtime control plane, provider management, and true
+  degree > 1 writes in one shared working tree.
 
 [Read the roadmap →](/roadmap)

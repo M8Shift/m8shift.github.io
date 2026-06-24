@@ -2,25 +2,19 @@
 
 A **relation** answers "why is the pen moving from this agent to that one?"
 
-## Shipped: the `ask`
+## Shipped: `ask`, `next`, tasks, and advisory fields
 
-Today the relation is carried by the handoff's free-text `ask` field — what the next
-agent is expected to do:
+The primary relation is carried by the handoff's free-text `ask` field — what the next
+agent is expected to do. You can refine it with `--next`, `--blocked-on`, custom
+`--field key=value` metadata, and the append-only task ledger.
 
 ```bash
 python3 m8shift.py append claude --to codex \
   --done "Defined the parser contract." \
-  --ask "Implement the parser and keep legacy behaviour."
+  --ask "Implement the parser and keep legacy behaviour." \
+  --next "Return to claude for review." \
+  --field x_relation=implement
 ```
 
-That single, human-readable instruction *is* the relation. It is attached to the turn,
-not permanently to either agent.
-
-## Specified: a relation vocabulary
-
-::: tip Specified, not shipped
-A controlled vocabulary (`delegate`, `consult`, `implement`, `review`, `revise`,
-`verify`, `integrate`, `unblock`, `document`, `continue`…) is part of the multi-agent
-[roadmap](/roadmap). It would let tools reason about handoffs without parsing prose — but
-it is not part of the current relay.
-:::
+Those fields remain data. M8Shift records them for humans and tools, but does not infer
+or enforce a controlled workflow from them.

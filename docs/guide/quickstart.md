@@ -1,8 +1,9 @@
 # Quickstart
 
-::: warning Status
-The commands below are the shipped two-agent relay. Richer multi-agent contracts remain
-specification targets until implemented and tested — see the [roadmap](/roadmap).
+::: tip Status
+The commands below are the shipped degree-1 relay: one shared pen, any configured
+roster member, one writer at a time. Use the worktree companion only when you need
+isolated parallel feature work.
 :::
 
 ::: tip Naming
@@ -13,9 +14,9 @@ as a thin compatibility shim and existing `COWORK.*` files are still read.
 ```mermaid
 flowchart LR
     A["cp m8shift.py"] --> B["init --agents claude,codex"]
-    B --> C["claim claude"]
+    B --> C["next claude"]
     C --> D["work"]
-    D --> E["append --to codex"]
+    D --> E["append --wait --to codex"]
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
     class A,B,C,D,E agent;
 ```
@@ -33,13 +34,14 @@ python3 m8shift.py init --agents claude,codex
 Check the state:
 
 ```bash
-python3 m8shift.py status
+python3 m8shift.py status --for claude
 ```
 
-Claim before working:
+Claim before working. In real agent loops, prefer `next`: it waits if needed,
+then performs the normal `claim` and prints the latest handoff.
 
 ```bash
-python3 m8shift.py claim claude
+python3 m8shift.py next claude
 ```
 
 Close the turn and hand off:
@@ -48,15 +50,19 @@ Close the turn and hand off:
 python3 m8shift.py append claude --to codex \
   --done "Defined the parser contract and added tests." \
   --ask "Implement the parser and preserve legacy behavior." \
-  --files "docs/spec.md,tests/test_parser.py"
+  --files "docs/spec.md,tests/test_parser.py" \
+  --wait
 ```
 
 The next agent then runs:
 
 ```bash
-python3 m8shift.py wait codex --once
-python3 m8shift.py claim codex
+python3 m8shift.py next codex
 ```
+
+Before stopping a panel or automation loop, run `status --for <agent>`. If the relay
+is not `DONE`, the safe action is to keep waiting, claim, append, release, or close
+explicitly.
 
 ## Golden rule
 

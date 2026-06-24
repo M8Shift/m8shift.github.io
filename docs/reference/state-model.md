@@ -24,7 +24,7 @@ lang: en
 | --- | --- | --- |
 | `holder` | an active agent \| `none` | who currently holds the pen |
 | `state` | `IDLE` \| `WORKING_<X>` \| `AWAITING_<X>` \| `DONE` | the relay state |
-| `agents` | CSV, e.g. `claude,codex` | the roster; the **first two** are the active pair |
+| `agents` | CSV, e.g. `claude,codex,gemini` | active roster; any listed agent may receive the degree-1 pen |
 | `turn` | integer | number of the last closed turn |
 | `since` | ISO-8601 UTC | when the current state began |
 | `expires` | ISO-8601 UTC \| `-` | TTL deadline; carries a date **only** during `WORKING_*` (30 min) |
@@ -33,7 +33,7 @@ lang: en
 
 ## States
 
-- **`IDLE`** — the pen is free; anyone in the pair may claim it.
+- **`IDLE`** — the pen is free; any roster member may claim it.
 - **`WORKING_<X>`** — agent X holds the pen and is the only one allowed to write.
 - **`AWAITING_<X>`** — X has been handed the pen and is expected to claim and continue.
 - **`DONE`** — the relay is finished.
@@ -46,8 +46,8 @@ stateDiagram-v2
     IDLE --> WORKING_X: claim X
     WORKING_X --> AWAITING_Y: append X --to Y
     AWAITING_Y --> WORKING_Y: claim Y
-    WORKING_Y --> AWAITING_X: append Y --to X
-    AWAITING_X --> WORKING_X: claim X
+    WORKING_Y --> AWAITING_Z: append Y --to Z
+    AWAITING_Z --> WORKING_Z: claim Z
     WORKING_X --> WORKING_X: re-claim X · refresh TTL (+30 min)
     WORKING_X --> WORKING_Y: claim Y --force · only if X is stale
     WORKING_X --> DONE: done X
@@ -58,8 +58,8 @@ stateDiagram-v2
     classDef wait fill:#94a3b822,stroke:#64748b;
     classDef ok fill:#22c55e22,stroke:#16a34a;
     class IDLE wait
-    class WORKING_X,WORKING_Y working
-    class AWAITING_X,AWAITING_Y awaiting
+    class WORKING_X,WORKING_Y,WORKING_Z working
+    class AWAITING_Y,AWAITING_Z awaiting
     class DONE ok
 ```
 
@@ -67,12 +67,15 @@ stateDiagram-v2
 
 - `claim` is the only acquisition and is **exclusive**: two simultaneous claims yield
   exactly one winner.
-- `append` is accepted **only** from `WORKING_<self>`, and `--to` must be the other agent.
+- `append` is accepted **only** from `WORKING_<self>`, and `--to` must be another
+  roster member.
 - `claim --force` reclaims a lock **only** once it is past `expires` (stale); it is
   refused on a live lock.
+- Timestamps are stored in UTC. Human-facing commands also show local-time labels;
+  JSON keeps UTC values only.
 
-::: tip Specified, not shipped
-A richer per-task state machine (`PENDING`, `READY`, `BLOCKED`, `NEEDS_REVIEW`,
-`APPROVED`…) belongs to the multi-agent direction on the [roadmap](/roadmap), not the
-current relay.
+::: tip Degree 1 by default
+The core relay supports an N-agent roster, but still only one shared pen. Parallel
+feature work is handled by the optional worktree companion, not by simultaneous writes
+inside the same working tree.
 :::

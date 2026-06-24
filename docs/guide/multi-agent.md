@@ -1,44 +1,49 @@
 # Multi-agent workflow
 
-::: warning Specified, not yet shipped
-M8Shift ships a strict **two-agent** relay (a configurable pair, degree 1). The
-role-and-dependency workflow below is a **specified** direction for more than two
-simultaneous agents — it is a future RFC, not a runnable feature today. See the
-[roadmap](/roadmap).
-:::
+M8Shift now supports a configurable roster with more than two agents, while keeping a
+single shared pen. That is the important distinction:
 
-A multi-agent workflow assigns roles and dependencies without requiring a permanent
-manager hierarchy.
+- **shipped:** N agents can be named in `--agents`, and a turn can hand off to any other
+  roster member;
+- **still degree 1:** only one agent writes in the shared repository at a time;
+- **parallel feature work:** use `m8shift-worktree.py`, which creates isolated git
+  worktrees and serializes integration through one integration pen.
 
-```yaml
-workflow:
-  coordinator: { agent: claude, role: coordinator }
-  tasks:
-    - id: architecture
-      target: { agent: claude, role: architect }
-    - id: implementation
-      depends_on: { all: [architecture] }
-      target: { agent: codex, role: implementer }
-    - id: review
-      depends_on: { all: [implementation] }
-      target: { agent: gemini, role: reviewer }
+```bash
+python3 m8shift.py init --agents claude,codex,gemini
+python3 m8shift.py next claude
+python3 m8shift.py append claude --to codex --ask "Implement the parser." --done "Specified it."
+python3 m8shift.py next codex
+python3 m8shift.py append codex --to gemini --ask "Review implementation." --done "Implemented parser."
 ```
-
-That declaration is a dependency graph: each task waits for its prerequisites before its
-target agent picks it up.
 
 ```mermaid
 flowchart LR
-    A["architecture<br/>claude · architect"] --> I["implementation<br/>codex · implementer"]
-    I --> R["review<br/>gemini · reviewer"]
+    C["claude<br/>architect"] -->|"append --to codex"| X["codex<br/>implementer"]
+    X -->|"append --to gemini"| G["gemini<br/>reviewer"]
+    G -->|"append --to claude"| C
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
-    classDef ok fill:#22c55e22,stroke:#16a34a;
-    class A,I agent;
-    class R ok;
+    class C,X,G agent;
 ```
 
-*🟣 agents · 🟢 review*
+*🟣 N-agent roster · one shared pen*
 
-The coordinator is a role used for one phase. The same agent may later become the
-integrator, but should not approve its own produced work when independent validation
-is required.
+## Roles are conventions
+
+The core CLI records handoffs, asks, done summaries, files, branches, commits, tests,
+and custom fields. It does not enforce role permissions or dependency graphs. If you
+need an architect/reviewer/integrator split, write that contract into the `--ask`,
+`--next`, task ledger, or protocol prompt.
+
+## When you need real parallelism
+
+Use the worktree companion for isolated branches:
+
+```bash
+python3 m8shift-worktree.py claim feature-parser codex --base main
+python3 m8shift-worktree.py status
+python3 m8shift-worktree.py integrate feature-parser claude --into main --to codex
+```
+
+The companion keeps feature work isolated and still serializes the merge/integration
+step. It does not turn one shared directory into a safe multi-writer workspace.

@@ -30,8 +30,8 @@ features:
     title: Des passations structurées
     details: Chaque tour est un contrat numéroté et immuable — qui a écrit, ce qui a été fait, ce qui est demandé ensuite, et quels fichiers ont changé — ajouté à un journal exploitable par grep.
   - icon: 🎭
-    title: Couple d'agents configurable
-    details: Déclarez quels deux agents font le relais (claude, codex, gemini, le chat…). Les deux premiers sont actifs ; le protocole reste un strict relais de degré 1.
+    title: Roster configurable
+    details: Déclarez les agents autorisés à prendre un tour (claude, codex, gemini, le chat…). Tout membre actif peut recevoir le stylo ; le cœur reste un strict relais de degré 1.
   - icon: 🧩
     title: Neutre vis-à-vis des fournisseurs
     details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. M8Shift ne devient jamais le fournisseur de modèle, le runtime, ni un plan de contrôle hébergé.
@@ -40,7 +40,7 @@ features:
     details: Un unique script Python, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
   - icon: 🧪
     title: Auditable par conception
-    details: Une piste de tours en ajout seul, lisible avec un éditeur de texte ou grep — et bornée par une seule commande d'archivage quand elle grandit.
+    details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale gardent le relais inspectable sans service.
 
 ---
 
@@ -105,19 +105,23 @@ handoff: codex
 <!-- M8SHIFT:TURN 4 claude END -->
 ```
 
-Des champs de tour plus riches (branch, commit, tests, next) sont **spécifiés, pas encore livrés** —
-voir la [roadmap](/fr/roadmap).
+Des champs de tour plus riches (`branch`, `commit`, `tests`, `next`, `blocked_on`,
+champs personnalisés `x_*`) sont des métadonnées indicatives : M8Shift les enregistre,
+mais ne les exécute pas et ne les applique pas.
 
 ## État actuel
 
 M8Shift évolue à partir de la conception originelle du relais CoWork. L'implémentation livrée et
 les étapes de protocole planifiées sont étiquetées séparément :
 
-- **disponible maintenant :** le relais à claim exclusif, le verrou partagé avec récupération de verrou périmé, le
-  journal de tours immuable, l'archivage borné, le couple d'agents configurable (roster), une
-  CLI locale mono-fichier, et la sortie EN/FR ;
-- **spécifié pour la suite :** la mémoire partagée et le récapitulatif, les champs de tour structurés avec `peek`,
-  et une chronologie / un statut JSON ;
-- **future RFC :** plus de deux agents simultanés (degré > 1).
+- **disponible maintenant :** relais à claim exclusif, verrou partagé avec récupération
+  de verrou périmé, journal de tours immuable, archivage borné, roster configurable,
+  passations structurées, `peek`, `recap`, `log`, `history`, `status --json`,
+  `status --for`, `next`, `append --wait`, mémoire partagée, registre de tâches,
+  affichage en heure locale, et sortie générée EN/FR ;
+- **disponible via compagnon opt-in :** `m8shift-worktree.py` pour des worktrees de
+  fonctionnalité isolés avec un stylo d'intégration sérialisé ;
+- **reste en future RFC :** plan de contrôle runtime/hébergé, gestion des fournisseurs,
+  et véritables écritures de degré > 1 dans un même répertoire de travail.
 
 [Lire la roadmap →](/fr/roadmap)

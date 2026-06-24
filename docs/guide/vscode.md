@@ -7,9 +7,9 @@ background process. `wait` blocks a shell; it cannot wake a sleeping conversatio
 
 ```mermaid
 flowchart LR
-    CW["claude panel<br/>claim → work → append"] --> H1["human resumes<br/>codex panel"]
-    H1 --> XW["codex panel<br/>claim → work → append"]
-    XW --> H2["human resumes<br/>claude panel"]
+    CW["claude panel<br/>next → work → append --wait"] --> H1["human or host resumes<br/>codex panel"]
+    H1 --> XW["codex panel<br/>next → work → append --wait"]
+    XW --> H2["human or host resumes<br/>claude panel"]
     H2 --> CW
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
     classDef wait fill:#94a3b822,stroke:#64748b;
@@ -38,16 +38,23 @@ flowchart LR
 
 Give each agent a short loop prompt, Claude first:
 
-> Run `python3 m8shift.py status`. If it is your turn, `claim claude`, do the next step,
-> then `append claude --to codex` with a clear `--ask`. Otherwise stop and tell me.
+> Run `python3 m8shift.py next claude`. If it claims the pen, do exactly one scoped
+> step, then `append claude --to codex --wait` with a clear `--ask`. Before any final
+> answer to the human, run `python3 m8shift.py status --for claude`; if the relay is
+> not `DONE`, keep following the safe next action.
 
-Then Codex, symmetrically (`claim codex`, `append codex --to claude`).
+Then Codex, symmetrically (`next codex`, `append codex --to claude --wait`,
+`status --for codex`).
 
 ## Keeping it moving
 
 - After each handoff, **resume the target panel**: "Resume the M8Shift loop from
-  `python3 m8shift.py status`."
+  `python3 m8shift.py next <agent>`."
+- Prefer `append --wait` when an agent hands off: it keeps that process blocked until
+  its next turn or `DONE`, so a premature final message is harder to miss.
 - Keep `M8SHIFT.md` open beside the source — the lock block tells you whose turn it is.
+- Use `python3 m8shift.py status --for <agent>` whenever a human interrupts a panel; it
+  prints the safe next action instead of relying on memory.
 - If a panel crashed mid-turn and left a stale lock, recover with
   `python3 m8shift.py claim <agent> --force` (only works once the lock is past its
   30-minute TTL).

@@ -26,6 +26,12 @@ handoff: codex
 | `ask` | `--ask` | what the next agent should do — should be actionable (`—` if nothing) |
 | `done` | `--done` | what was completed in this turn |
 | `files` | `--files` | comma-separated files touched |
+| `branch` | `--branch` | advisory branch name |
+| `commit` | `--commit` | advisory commit reference |
+| `tests` | `--tests` | advisory validation command/result |
+| `next` | `--next` | advisory next step |
+| `blocked_on` | `--blocked-on` | advisory blocker |
+| `x_*` | `--field key=value` | custom advisory metadata |
 | `handoff` | derived from `--to` | deliberately redundant with `to`, for easy grep |
 
 The header line and every field are **single-line**: line breaks and reserved markers
@@ -33,8 +39,5 @@ The header line and every field are **single-line**: line breaks and reserved ma
 rejected. Multi-line content goes in the free-text body via `--body PATH` or `--body -`
 (stdin), where any fake markers are neutralised.
 
-::: tip Specified, not shipped
-Structured fields such as `branch`, `commit`, `tests`, and `next`, plus a `peek` command
-to read the next contract without claiming, are on the [roadmap](/roadmap). There is no
-YAML/JSON contract document today — the turn block above is the whole schema.
-:::
+`peek <agent>` reads the latest handoff addressed to that agent without claiming. There
+is still no separate YAML/JSON contract document: the turn block above is the schema.

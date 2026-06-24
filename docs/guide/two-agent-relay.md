@@ -1,6 +1,6 @@
 # Two-agent relay
 
-The simplest — and only shipped — M8Shift workflow uses two agents and one global pen.
+The simplest M8Shift workflow uses two agents and one global pen.
 It is deliberately sequential: its value is not throughput, but predictable ownership and
 a durable handoff trail.
 
@@ -10,10 +10,10 @@ sequenceDiagram
     participant C as claude
     participant P as 🖊️ pen
     participant X as codex
-    C->>P: claim
+    C->>P: next / claim
     Note over C: work (holds the pen)
     C->>X: append --to codex (done + ask)
-    X->>P: wait --once → claim
+    X->>P: next
     Note over X: work (holds the pen)
     X->>C: append --to claude (done + ask)
     Note over C,X: strict alternation…
@@ -35,21 +35,21 @@ python3 m8shift.py init --agents claude,codex
 Each agent repeats the same cycle. Claude's first turn:
 
 ```bash
-python3 m8shift.py claim claude        # acquire the pen (exclusive)
+python3 m8shift.py next claude         # wait if needed, then claim
 # … edit files, run tests …
 python3 m8shift.py append claude --to codex \
   --done "Added the parser contract and tests." \
   --ask "Implement the parser; keep legacy behaviour." \
-  --files "docs/spec.md,tests/test_parser.py"
+  --files "docs/spec.md,tests/test_parser.py" \
+  --wait
 ```
 
 Codex then takes over:
 
 ```bash
-python3 m8shift.py wait codex --once   # rc 0 = your turn, rc 3 = not yet
-python3 m8shift.py claim codex
+python3 m8shift.py next codex
 # … work …
-python3 m8shift.py append codex --to claude --done "…" --ask "…"
+python3 m8shift.py append codex --to claude --done "…" --ask "…" --wait
 ```
 
 When the work is finished, the agent holding the pen closes the relay:

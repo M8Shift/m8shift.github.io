@@ -20,11 +20,9 @@ journal :
 Ce sont des garde-fous de correction, pas une frontière de sécurité — voir le
 [modèle de menaces](/fr/security/threat-model).
 
-## Spécifié : revue indépendante
+## Revue indicative
 
-::: tip Spécifié, pas encore livré
-Un flux de revue explicite — un validateur indépendant et obligatoire pouvant approuver,
-demander des changements, rejeter ou dispenser un tour avant l'intégration — fait partie de
-la [roadmap](/fr/roadmap) multi-agents. Lorsque l'indépendance est requise, le producteur et
-le validateur doivent différer. Rien de tout cela n'est dans le relais actuel.
-:::
+La revue indépendante se modélise aujourd'hui en passant le stylo à un autre membre du
+roster et en consignant l'attente dans `--ask`, `--next`, les tâches ou les champs
+personnalisés. M8Shift enregistre ce contrat, mais n'applique pas encore de chemins
+d'approbation ni de validation de schéma.

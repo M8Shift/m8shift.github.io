@@ -7,15 +7,15 @@ the agents or own their provider credentials.
 
 ## Can agents work concurrently?
 
-No. M8Shift is a strict degree-one relay: exactly one agent writes at a time, in
-alternation. Task graphs, branch isolation and concurrent writers are a **future RFC**,
-not a shipped feature — see the [roadmap](/roadmap).
+In one shared working tree, no: M8Shift remains a degree-one relay and exactly one
+agent writes at a time. For isolated parallel feature work, use the shipped
+`m8shift-worktree.py` companion, which creates git worktrees and serializes integration.
 
 ## Can one agent have several roles?
 
-In the shipped relay, an agent is simply one of the two declared in the pair. A richer
-role vocabulary (architect, implementer, reviewer, coordinator…) is **specified, not yet
-shipped**.
+Yes as a convention. The core relay records roster identities; roles such as architect,
+implementer, reviewer, or coordinator are expressed in `--ask`, `--next`, tasks, or
+custom fields, not enforced by the CLI.
 
 ## Can an agent generate images?
 

@@ -10,10 +10,11 @@ failure modes:
 - “parallel” tasks quietly share the same files;
 - commits and test results are described more confidently than they occurred.
 
-M8Shift addresses the first three directly today: explicit, exclusive ownership (the
-pen), an immutable turn journal, and a claim-before-write rule. Richer answers to the
-rest — structured contracts, dependency-aware tasks, and independent validation — are a
-specified [roadmap](/roadmap) direction, not yet shipped.
+M8Shift addresses those points pragmatically today: explicit exclusive ownership (the
+pen), an immutable turn journal, a claim-before-write rule, structured advisory fields,
+shared memory, tasks, session history, loop guardrails, and an optional worktree companion
+for isolated parallel feature work. What it still does not do is enforce a hosted runtime
+or a full dependency scheduler.
 
 ```mermaid
 flowchart LR

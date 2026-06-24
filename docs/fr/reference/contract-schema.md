@@ -26,6 +26,12 @@ handoff: codex
 | `ask` | `--ask` | ce que l'agent suivant doit faire — doit être actionnable (`—` si rien) |
 | `done` | `--done` | ce qui a été achevé dans ce tour |
 | `files` | `--files` | fichiers touchés, séparés par des virgules |
+| `branch` | `--branch` | nom de branche indicatif |
+| `commit` | `--commit` | référence de commit indicative |
+| `tests` | `--tests` | commande/résultat de validation indicatif |
+| `next` | `--next` | prochaine étape indicative |
+| `blocked_on` | `--blocked-on` | blocage indicatif |
+| `x_*` | `--field key=value` | métadonnée personnalisée indicative |
 | `handoff` | dérivé de `--to` | délibérément redondant avec `to`, pour faciliter le grep |
 
 La ligne d'en-tête et chaque champ tiennent sur **une seule ligne** : les sauts de ligne et
@@ -33,9 +39,6 @@ les marqueurs réservés (`M8SHIFT:TURN`, `M8SHIFT:LOCK`, `M8SHIFT:STANZA`, ains
 équivalents `COWORK:*`) sont rejetés. Le contenu multi-lignes va dans le corps en texte
 libre via `--body PATH` ou `--body -` (stdin), où tout faux marqueur est neutralisé.
 
-::: tip Spécifié, pas encore livré
-Des champs structurés tels que `branch`, `commit`, `tests` et `next`, ainsi qu'une commande
-`peek` pour lire le prochain contrat sans réclamer, figurent dans la
-[feuille de route](/fr/roadmap). Il n'existe aujourd'hui aucun document de contrat
-YAML/JSON — le bloc de tour ci-dessus constitue l'intégralité du schéma.
-:::
+`peek <agent>` lit la dernière passation adressée à cet agent sans prendre le stylo. Il
+n'existe toujours pas de document de contrat YAML/JSON séparé : le bloc de tour ci-dessus
+constitue le schéma.

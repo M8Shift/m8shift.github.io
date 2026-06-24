@@ -7,9 +7,9 @@ conversation endormie. Un humain (ou une intégration hôte) relance l'agent sui
 
 ```mermaid
 flowchart LR
-    CW["panneau claude<br/>claim → travail → append"] --> H1["humain relance<br/>le panneau codex"]
-    H1 --> XW["panneau codex<br/>claim → travail → append"]
-    XW --> H2["humain relance<br/>le panneau claude"]
+    CW["panneau claude<br/>next → travail → append --wait"] --> H1["humain ou hôte relance<br/>le panneau codex"]
+    H1 --> XW["panneau codex<br/>next → travail → append --wait"]
+    XW --> H2["humain ou hôte relance<br/>le panneau claude"]
     H2 --> CW
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
     classDef wait fill:#94a3b822,stroke:#64748b;
@@ -38,16 +38,23 @@ flowchart LR
 
 Donnez à chaque agent une courte invite de boucle, Claude en premier :
 
-> Exécute `python3 m8shift.py status`. Si c'est ton tour, `claim claude`, effectue l'étape suivante,
-> puis `append claude --to codex` avec un `--ask` clair. Sinon, arrête-toi et préviens-moi.
+> Exécute `python3 m8shift.py next claude`. Si tu prends le stylo, fais exactement
+> une étape bornée, puis `append claude --to codex --wait` avec un `--ask` clair.
+> Avant toute réponse finale à l'humain, lance `python3 m8shift.py status --for claude` ;
+> si le relais n'est pas `DONE`, continue avec l'action sûre indiquée.
 
-Puis Codex, de manière symétrique (`claim codex`, `append codex --to claude`).
+Puis Codex, de manière symétrique (`next codex`, `append codex --to claude --wait`,
+`status --for codex`).
 
 ## Maintenir le mouvement
 
 - Après chaque passation, **relancez le panneau cible** : « Reprends la boucle M8Shift à partir de
-  `python3 m8shift.py status`. »
+  `python3 m8shift.py next <agent>`. »
+- Préférez `append --wait` lorsqu'un agent passe la main : le processus reste bloqué
+  jusqu'à son prochain tour ou `DONE`, ce qui réduit les sorties prématurées.
 - Gardez `M8SHIFT.md` ouvert à côté de la source — le bloc de verrou indique à qui est le tour.
+- Utilisez `python3 m8shift.py status --for <agent>` lorsqu'un humain interrompt un
+  panneau ; la commande imprime l'action sûre au lieu de dépendre de la mémoire.
 - Si un panneau a planté en plein tour et a laissé un verrou périmé, récupérez avec
   `python3 m8shift.py claim <agent> --force` (ne fonctionne qu'une fois le verrou au-delà de son
   TTL de 30 minutes).

@@ -7,13 +7,12 @@
 | `0` | success |
 | `1` | refusal or error — a guardrail, an invalid state, or invalid input |
 | `2` | argument error (argparse usage) |
-| `3` | `wait --once` only: it is not your turn yet |
+| `3` | readiness check: not your turn / no handoff for you yet |
 
-The `0` / `3` split is what makes `wait --once` scriptable in a headless loop:
+The `0` / `3` split is what makes readiness checks scriptable in a headless loop:
 
 ```bash
-if python3 m8shift.py wait codex --once; then
-  python3 m8shift.py claim codex
+if python3 m8shift.py next codex --once; then
   # … do the work, then append the handoff …
 fi
 ```

@@ -1,21 +1,25 @@
 # Référence CLI
 
-La CLI est un fichier unique, `m8shift.py` (Python 3.8+, bibliothèque standard
+La CLI est un fichier unique, `m8shift.py` 3.9.0 (Python 3.8+, bibliothèque standard
 uniquement). Lancez-la depuis la racine d'un projet. Sur les projets créés avant le
-renommage, `cowork.py` est un fin shim qui exécute le même code.
+renommage, `cowork.py` peut rester un shim de compatibilité autour du même modèle de
+relais.
 
-Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de succès, `1`
-en cas de refus ou d'erreur, `2` en cas d'erreur d'argument, et `wait --once` renvoie `3`
-lorsque ce n'est pas votre tour.
+Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de succès,
+`1` en cas de refus ou d'erreur d'exécution, et `2` en cas d'erreur d'argument. Les
+contrôles de disponibilité comme `wait --once`, `next --once` et `peek` renvoient `3`
+quand l'agent ne doit pas encore continuer.
 
 ```mermaid
 flowchart LR
-    INIT["init"] --> ST["status / wait"]
+    INIT["init"] --> ST["status --for / next"]
     ST --> CL["claim"]
-    CL --> WK["work"]
-    WK --> AP["append --to other"]
-    AP -->|"… alternance …"| ST
+    CL --> WK["travail"]
+    WK --> AP["append --to autre"]
+    AP -->|"append --wait"| ST
     AP --> DONE["done"]
+    READ["doctor / recap / peek / log / history"] -.-> ST
+    MEM["remember / task"] -.-> ST
     ARCH["archive"] -.-> ST
 
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
@@ -24,38 +28,85 @@ flowchart LR
     classDef store fill:#ff7a1822,stroke:#fb923c;
     class CL,AP,WK agent
     class DONE ok
-    class ST wait
-    class ARCH store
-    class INIT wait
+    class ST,READ wait
+    class ARCH,MEM,INIT store
 ```
 
-*🟣 claim / append / work · 🟢 fin · ⚪ init / status / wait · 🟠 archive*
+*🟣 claim / append / travail · 🟢 done · ⚪ status / next / vues lecture seule · 🟠 registres*
 
 ## Commandes livrées
 
 ### `init`
 
-Génère (ou régénère) le kit dans le dossier courant.
+Génère ou régénère le kit dans le dossier courant.
 
 ```bash
-python3 m8shift.py init [--name NAME] [--agents a,b] [--lang en|fr] [--force]
+python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force]
 ```
 
 | Drapeau | Défaut | Signification |
 | --- | --- | --- |
 | `--name` | nom du dossier | nom du projet inscrit dans les fichiers générés |
-| `--agents` | `claude,codex` | le roster du relais ; les **deux premiers** forment la paire active |
-| `--lang` | `en` | langue des fichiers générés (`en` ou `fr`) |
-| `--force` | off | réinitialise aussi le fichier de relais (sinon un fichier existant est conservé) |
-
-`init` est idempotent et ne change jamais la marque d'un fichier — voir [`migrate-brand`](#migrate-brand).
+| `--agents` | `claude,codex` | roster du relais ; au moins deux noms ; un stylo partagé de degré 1 |
+| `--lang` | `en` | langue des fichiers générés (`en` ou `fr` dans la version intégrée) |
+| `--force` | off | réinitialise aussi le fichier de relais ; sinon l'existant est conservé |
 
 ### `status`
 
-Affiche le verrou courant : holder, state, turn, roster et minutage.
+Affiche le verrou courant : détenteur, état, tour, roster, session, timestamps UTC et
+libellés lisibles en heure locale.
 
 ```bash
-python3 m8shift.py status
+python3 m8shift.py status [--for agent] [--json]
+```
+
+- `--for agent` ajoute l'action sûre suivante pour cet agent.
+- `--json` émet un statut lisible par machine avec timestamps UTC.
+
+### `doctor`
+
+Exécute des contrôles de santé/lint en lecture seule.
+
+```bash
+python3 m8shift.py doctor [--lint] [--json] [--severity-min info|warning|error]
+```
+
+`--lint` sort en erreur si des findings au moins aussi sévères que le seuil existent.
+
+### `recap`
+
+Affiche un briefing : verrou, derniers tours, mémoire et tâches ouvertes.
+
+```bash
+python3 m8shift.py recap [--turns N] [--memory N] [--tasks N]
+```
+
+### `peek`
+
+Lit la dernière passation adressée à un agent sans prendre le stylo.
+
+```bash
+python3 m8shift.py peek <agent>
+```
+
+Renvoie `3` si le relais n'attend pas cet agent.
+
+### `log`
+
+Affiche la chronologie du relais.
+
+```bash
+python3 m8shift.py log [--limit N] [--all] [--oneline]
+```
+
+`--all` inclut les tours archivés.
+
+### `history`
+
+Affiche les sessions précédentes depuis `M8SHIFT.sessions.jsonl`.
+
+```bash
+python3 m8shift.py history [--limit N] [--oneline] [--json]
 ```
 
 ### `wait`
@@ -68,11 +119,23 @@ python3 m8shift.py wait <agent> [--once] [--interval N]
 
 | Drapeau | Défaut | Signification |
 | --- | --- | --- |
-| `--once` | off | vérifie une seule fois puis sort — `rc 0` si vous pouvez prendre le stylo, `rc 3` sinon |
+| `--once` | off | vérifie une seule fois — `rc 0` si vous pouvez prendre le stylo, `rc 3` sinon |
 | `--interval` | `60` | secondes entre deux sondages en mode bloquant |
 
-`wait` bloque un *processus* ; il ne réveille pas une interface interactive. Voir le
+`wait` bloque un processus ; il ne réveille pas une interface interactive. Voir le
 [guide VS Code](/fr/guide/vscode).
+
+### `next`
+
+Commande de reprise sûre : attend si besoin, effectue le `claim` normal, puis affiche
+la dernière passation.
+
+```bash
+python3 m8shift.py next <agent> [--once] [--interval N] [--force]
+```
+
+`--once` ne mute rien si ce n'est pas votre tour. `--force` ne récupère qu'un verrou
+`WORKING_*` périmé.
 
 ### `claim`
 
@@ -80,34 +143,60 @@ Prend le stylo de manière exclusive. C'est le seul moyen de commencer à écrir
 
 ```bash
 python3 m8shift.py claim <agent> [--force]
+python3 m8shift.py claim <agent> --check [--files CSV] [--turns N]
 ```
 
-Re-réclamer un verrou que vous détenez déjà rafraîchit son TTL de 30 minutes. `--force` ne
-réclame qu'un verrou **périmé** (un verrou ayant dépassé son `expires`) ; il est refusé sur
-un verrou actif.
+Re-claim un verrou déjà détenu rafraîchit son TTL de 30 minutes. `--force` ne récupère
+qu'un verrou périmé. `--check` est en lecture seule : il signale la disponibilité et les
+chevauchements de fichiers indicatifs sans prendre le stylo.
 
 ### `append`
 
-Clôt votre tour et passe le stylo à un autre agent. Exige que vous déteniez actuellement le
-stylo (`state == WORKING_<you>`).
+Clôt votre tour et passe le stylo à un autre membre du roster. Exige que vous déteniez
+actuellement le stylo (`state == WORKING_<you>`).
 
 ```bash
-python3 m8shift.py append <agent> --to <other> \
-  [--ask "what the next agent should do"] \
-  [--done "what you completed"] \
+python3 m8shift.py append <agent> --to <autre> \
+  [--ask "ce que l'agent suivant doit faire"] \
+  [--done "ce que vous avez terminé"] \
   [--files "a.py,b.md"] \
-  [--body PATH|-]
+  [--body PATH|-] \
+  [--wait] [--wait-interval N] \
+  [--branch B] [--commit SHA] [--tests "cmd"] \
+  [--next "étape suivante"] [--blocked-on "raison"] \
+  [--field key=value]
 ```
 
-`--to` est requis et doit désigner l'**autre** agent (pas d'auto-passation). `--body -` lit
-le corps de tour en texte libre depuis stdin ; `--body file.md` le lit depuis un fichier.
+`--to` est requis et ne peut pas être égal à l'émetteur. `--body -` lit stdin.
+`--wait` garde l'appelant bloqué après la passation jusqu'à son prochain tour ou `DONE`,
+ce qui évite les sorties prématurées d'UI ou d'automatisation.
+
+### `remember`
+
+Ajoute une note durable de mémoire partagée. Ne nécessite pas le stylo.
+
+```bash
+python3 m8shift.py remember <agent> "note"
+```
+
+### `task`
+
+Maintient un registre de tâches en ajout seul. Ne nécessite pas le stylo.
+
+```bash
+python3 m8shift.py task add <agent> "description" [--for assigné] [--blocked-on raison]
+python3 m8shift.py task done <agent> <id>
+python3 m8shift.py task drop <agent> <id>
+python3 m8shift.py task list [--all]
+python3 m8shift.py task show <id>
+```
 
 ### `release`
 
-Passe la main sans enregistrer de tour numéroté (n'incrémente pas `turn`).
+Passe la main sans enregistrer de tour numéroté ; n'incrémente pas `turn`.
 
 ```bash
-python3 m8shift.py release <agent> --to <other> [--force]
+python3 m8shift.py release <agent> --to <autre> [--force]
 ```
 
 ### `done`
@@ -120,7 +209,7 @@ python3 m8shift.py done <agent> [--force]
 
 ### `archive`
 
-Déplace les tours plus anciens vers `M8SHIFT.archive.md`, en conservant le verrou et les
+Déplace les anciens tours vers `M8SHIFT.archive.md`, en conservant le verrou et les
 tours les plus récents.
 
 ```bash
@@ -129,26 +218,15 @@ python3 m8shift.py archive [--keep N]
 
 `--keep` vaut `6` par défaut. Le tour #0 n'est jamais archivé.
 
-### `migrate-brand`
+## Compagnon worktree optionnel
 
-Conversion ponctuelle et explicite d'un projet existant des noms `COWORK.*` vers les noms
-`M8SHIFT.*`. `init` ne le fait jamais automatiquement.
+`m8shift-worktree.py` est un compagnon séparé pour le travail parallèle isolé. Il crée
+des worktrees git par tâche et sérialise l'intégration finale via un stylo
+d'intégration unique.
 
 ```bash
-python3 m8shift.py migrate-brand [--dry-run] [--no-backup]
+python3 m8shift-worktree.py claim|done|integrate|drop|status ...
 ```
 
-`--dry-run` indique ce qui changerait sans rien écrire ; `--no-backup` saute les copies de
-sauvegarde. Les fichiers `COWORK.*` hérités continuent de fonctionner sans migration.
-
-## Spécifié — pas encore livré
-
-Ces éléments figurent dans la [feuille de route](/fr/roadmap) et ne sont **pas** des
-commandes opérationnelles aujourd'hui :
-
-```text
-remember / recap        # shared memory
-peek                    # read the next turn's contract without claiming
-log / status --json     # timeline and machine-readable status
-claim --check <globs>   # advisory file-overlap probe
-```
+Utilisez-le lorsque vous avez besoin de branches/worktrees parallèles. Le relais cœur
+`m8shift.py` reste de degré 1 dans le dépôt partagé.

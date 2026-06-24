@@ -10,10 +10,11 @@ modes de défaillance prévisibles :
 - les tâches « parallèles » partagent discrètement les mêmes fichiers ;
 - les commits et les résultats de tests sont décrits avec plus d'assurance qu'ils ne se sont déroulés.
 
-M8Shift répond directement aux trois premiers points aujourd'hui : une propriété explicite et
-exclusive (le stylo), un journal des tours immuable et une règle « réclamer avant d'écrire ». Des
-réponses plus riches au reste — contrats structurés, tâches sensibles aux dépendances et validation
-indépendante — constituent une direction spécifiée de la [roadmap](/fr/roadmap), pas encore livrée.
+M8Shift répond pragmatiquement à ces points aujourd'hui : propriété exclusive explicite
+(le stylo), journal de tours immuable, règle « réclamer avant d'écrire », champs
+indicatifs structurés, mémoire, tâches, historique de sessions, garde-fous de boucle et
+compagnon worktree optionnel pour du travail parallèle isolé. Ce qu'il ne fait toujours
+pas : imposer un runtime hébergé ou un ordonnanceur complet de dépendances.
 
 ```mermaid
 flowchart LR

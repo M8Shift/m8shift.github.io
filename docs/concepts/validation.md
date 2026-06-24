@@ -17,11 +17,8 @@ Before any write, `m8shift.py` enforces guardrails that keep the journal trustwo
 These are correctness guardrails, not a security boundary — see the
 [threat model](/security/threat-model).
 
-## Specified: independent review
+## Advisory review
 
-::: tip Specified, not shipped
-An explicit review workflow — a required, independent validator that can approve, request
-changes, reject, or waive a turn before integration — is part of the multi-agent
-[roadmap](/roadmap). When independence is required, the producer and validator must
-differ. None of this is in the current relay.
-:::
+Independent review is modeled today by routing the pen to a different roster member and
+recording the expectation in `--ask`, `--next`, tasks, or custom fields. M8Shift records
+that contract, but does not enforce approval paths or schema-level validation yet.

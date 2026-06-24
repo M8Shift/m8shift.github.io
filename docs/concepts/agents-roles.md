@@ -1,16 +1,16 @@
 # Agents and roles
 
-## The roster (shipped)
+## The roster
 
 You declare the relay's agents at `init`:
 
 ```bash
-python3 m8shift.py init --agents claude,codex
+python3 m8shift.py init --agents claude,codex,gemini
 ```
 
-The list is stored in the lock's `agents:` field. The **first two** are the active pair;
-any extras are recorded but inactive (reserved for a future N-agent mode). The relay is
-strictly degree one — two agents, one pen, in alternation.
+The list is stored in the lock's `agents:` field. Any listed agent can receive the
+shared pen; the relay remains degree 1, so exactly one agent writes in the shared
+repository at a time.
 
 Each agent gets a canonical **anchor** file where the protocol stanza is injected:
 
@@ -37,11 +37,9 @@ flowchart LR
 
 *🟣 agents · 🟠 anchor files*
 
-## Roles (specified)
+## Roles are conventions
 
-::: tip Specified, not shipped
-A richer **role** vocabulary — an agent acting as architect, implementer, reviewer or
-integrator, with one active role per turn — is a [roadmap](/roadmap) direction. In the
-shipped relay, an agent is simply its roster identity; "who does what" is expressed in
-the turn's `ask`, not a formal role field.
-:::
+M8Shift records the roster identity that holds or receives the pen. Higher-level roles
+such as architect, implementer, reviewer, or integrator are conventions expressed in the
+turn's `ask`, `next`, task ledger, or prompt. The core CLI does not enforce role
+permissions.

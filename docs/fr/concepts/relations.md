@@ -3,25 +3,20 @@
 Une **relation** répond à la question « pourquoi le stylo passe-t-il de cet agent à
 celui-là ? »
 
-## Livré : le `ask`
+## Livré : `ask`, `next`, tâches et champs indicatifs
 
-Aujourd'hui, la relation est portée par le champ `ask` en texte libre de la passation — ce
-que l'agent suivant est censé faire :
+La relation principale est portée par le champ `ask` en texte libre de la passation — ce
+que l'agent suivant est censé faire. Vous pouvez la préciser avec `--next`,
+`--blocked-on`, des métadonnées personnalisées `--field key=value`, et le registre de
+tâches en ajout seul.
 
 ```bash
 python3 m8shift.py append claude --to codex \
   --done "Defined the parser contract." \
-  --ask "Implement the parser and keep legacy behaviour."
+  --ask "Implement the parser and keep legacy behaviour." \
+  --next "Return to claude for review." \
+  --field x_relation=implement
 ```
 
-Cette unique instruction, lisible par un humain, *est* la relation. Elle est attachée au
-tour, et non de façon permanente à l'un ou l'autre des agents.
-
-## Spécifié : un vocabulaire de relations
-
-::: tip Spécifié, pas encore livré
-Un vocabulaire contrôlé (`delegate`, `consult`, `implement`, `review`, `revise`,
-`verify`, `integrate`, `unblock`, `document`, `continue`…) fait partie de la
-[roadmap](/fr/roadmap) multi-agents. Il permettrait aux outils de raisonner sur les
-passations sans analyser de la prose — mais il ne fait pas partie du relais actuel.
-:::
+Ces champs restent des données. M8Shift les enregistre pour les humains et les outils,
+mais n'en déduit pas et n'applique pas un workflow contrôlé.

@@ -28,37 +28,31 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 
 ## Étape 3 — Relais dirigé à N agents
 
-<span class="m8-badge">Spécifié</span>
+<span class="m8-badge">Disponible</span>
 
 - roster de N agents ;
-- plusieurs rôles par agent ;
-- un seul rôle actif par tour ;
-- passations dirigées ;
-- vocabulaire de relations ;
-- sorties structurées ;
-- récapitulatif et journal ciblés.
+- passation dirigée vers tout autre membre du roster ;
+- champs de tour structurés et indicatifs ;
+- mémoire partagée, registre de tâches, récapitulatif, peek, log, statut JSON et historique de sessions ;
+- garde-fous de boucle : `next`, `status --for` et `append --wait`.
 
 ## Étape 4 — Contrats et validation
 
-<span class="m8-badge">Spécifié</span>
+<span class="m8-badge">Partiellement disponible / partiellement spécifié</span>
 
-- rôles source et cible explicites ;
-- permissions indicatives/hôte/mixtes ;
-- sorties requises ;
-- relecteur indépendant ;
-- chemins d'approbation, de révision, de rejet et de dérogation ;
-- validation de schéma.
+- disponible : champs indicatifs branch/commit/tests/next/blocked et champs personnalisés `x_*` ;
+- disponible : sonde indicative `claim --check` pour les chevauchements de fichiers ;
+- spécifié : rôles source/cible appliqués, sorties requises, chemins approve/revise/reject
+  et validation de schéma.
 
 ## Étape 5 — Concurrence isolée
 
-<span class="m8-badge">Future RFC</span>
+<span class="m8-badge">Disponible via compagnon</span>
 
-- graphe de tâches et dépendances ;
-- branches/worktrees par tâche ;
-- stylos d'espace de travail ;
-- stylo d'intégration exclusif ;
-- rôles de coordinateur et d'intégrateur ;
-- workflows parallèles de rédaction/image/test/recherche.
+- `m8shift-worktree.py` pour branches/worktrees par tâche ;
+- stylo d'intégration sérialisé ;
+- opérations status, claim, done, integrate et drop ;
+- reste futur : ordonnanceur complet de dépendances et runtime hébergé.
 
 ## Étape 6 — Intégrations
 

@@ -1,9 +1,9 @@
 # Démarrage rapide
 
-::: warning Statut
-Les commandes ci-dessous correspondent au relais à deux agents livré. Les contrats multi-agents plus
-riches restent des objectifs de spécification jusqu'à leur implémentation et leur test — voir la
-[roadmap](/fr/roadmap).
+::: tip Statut
+Les commandes ci-dessous correspondent au relais de degré 1 livré : un stylo partagé,
+n'importe quel membre du roster configuré, un seul rédacteur à la fois. Utilisez le
+compagnon worktree seulement pour du travail de fonctionnalité parallèle et isolé.
 :::
 
 ::: tip Nommage
@@ -14,9 +14,9 @@ comme une fine couche de compatibilité et les fichiers `COWORK.*` existants son
 ```mermaid
 flowchart LR
     A["cp m8shift.py"] --> B["init --agents claude,codex"]
-    B --> C["claim claude"]
+    B --> C["next claude"]
     C --> D["travail"]
-    D --> E["append --to codex"]
+    D --> E["append --wait --to codex"]
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
     class A,B,C,D,E agent;
 ```
@@ -34,13 +34,15 @@ python3 m8shift.py init --agents claude,codex
 Vérifiez l'état :
 
 ```bash
-python3 m8shift.py status
+python3 m8shift.py status --for claude
 ```
 
-Réclamez le stylo avant de travailler :
+Réclamez le stylo avant de travailler. Dans une boucle agent réelle, préférez
+`next` : il attend si besoin, effectue le `claim` normal, puis affiche la dernière
+passation.
 
 ```bash
-python3 m8shift.py claim claude
+python3 m8shift.py next claude
 ```
 
 Clôturez le tour et passez la main :
@@ -49,15 +51,19 @@ Clôturez le tour et passez la main :
 python3 m8shift.py append claude --to codex \
   --done "Defined the parser contract and added tests." \
   --ask "Implement the parser and preserve legacy behavior." \
-  --files "docs/spec.md,tests/test_parser.py"
+  --files "docs/spec.md,tests/test_parser.py" \
+  --wait
 ```
 
 L'agent suivant exécute alors :
 
 ```bash
-python3 m8shift.py wait codex --once
-python3 m8shift.py claim codex
+python3 m8shift.py next codex
 ```
+
+Avant d'arrêter un panneau ou une boucle d'automatisation, lancez
+`status --for <agent>`. Si le relais n'est pas `DONE`, l'action sûre est de continuer
+à attendre, claim, append, release, ou clôturer explicitement.
 
 ## Règle d'or
 

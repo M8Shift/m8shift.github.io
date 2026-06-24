@@ -28,37 +28,31 @@ this radical act of honesty.
 
 ## Stage 3 — N-agent directed relay
 
-<span class="m8-badge">Specified</span>
+<span class="m8-badge">Available</span>
 
 - N-agent roster;
-- multiple roles per agent;
-- one active role per turn;
-- directed handoffs;
-- relation vocabulary;
-- structured outputs;
-- targeted recap and log.
+- directed handoffs to any other roster member;
+- structured advisory turn fields;
+- shared memory, task ledger, recap, peek, log, status JSON, and session history;
+- loop guardrails: `next`, `status --for`, and `append --wait`.
 
 ## Stage 4 — Contracts and validation
 
-<span class="m8-badge">Specified</span>
+<span class="m8-badge">Partly available / partly specified</span>
 
-- explicit source and target roles;
-- advisory/host/mixed permissions;
-- required outputs;
-- independent reviewer;
-- approve, revise, reject, and waive paths;
-- schema validation.
+- available: advisory branch/commit/tests/next/blocked fields and custom `x_*` fields;
+- available: `claim --check` advisory overlap probe;
+- specified: enforced source/target roles, required outputs, approve/revise/reject paths,
+  and schema validation.
 
 ## Stage 5 — Isolated concurrency
 
-<span class="m8-badge">Future RFC</span>
+<span class="m8-badge">Available as companion</span>
 
-- task graph and dependencies;
-- branches/worktrees per task;
-- workspace pens;
-- exclusive integration pen;
-- coordinator and integrator roles;
-- parallel writer/image/test/research workflows.
+- `m8shift-worktree.py` for branches/worktrees per task;
+- serialized integration pen;
+- status, claim, done, integrate, and drop operations;
+- still future: a full dependency scheduler and hosted runtime.
 
 ## Stage 6 — Integrations
 

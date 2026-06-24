@@ -7,15 +7,15 @@ les agents ni de détenir leurs identifiants de fournisseur.
 
 ## Les agents peuvent-ils travailler en parallèle ?
 
-Non. M8Shift est un strict relais de degré 1 : exactement un agent écrit à la fois, en
-alternance. Les graphes de tâches, l'isolation par branche et les rédacteurs concurrents sont une **future RFC**,
-pas une fonctionnalité livrée — voir la [roadmap](/fr/roadmap).
+Dans un même répertoire de travail partagé, non : M8Shift reste un relais de degré 1 et
+un seul agent écrit à la fois. Pour du travail parallèle isolé, utilisez le compagnon
+livré `m8shift-worktree.py`, qui crée des worktrees git et sérialise l'intégration.
 
 ## Un agent peut-il avoir plusieurs rôles ?
 
-Dans le relais livré, un agent est simplement l'un des deux déclarés dans le couple. Un vocabulaire de
-rôles plus riche (architecte, implémenteur, relecteur, coordinateur…) est **spécifié, pas encore
-livré**.
+Oui, comme convention. Le relais cœur enregistre les identités du roster ; les rôles
+comme architecte, implémenteur, relecteur ou coordinateur s'expriment dans `--ask`,
+`--next`, les tâches ou les champs personnalisés, sans être imposés par la CLI.
 
 ## Un agent peut-il générer des images ?
 
