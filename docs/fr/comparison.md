@@ -10,8 +10,8 @@
 | État | journal local lisible | sessions, bases de données, état d'exécution |
 | Propriété du dépôt | un stylo explicite unique (mutex de degré 1) | dépend de la conception du runtime/outil |
 | Passations | journal de tours immuable | généralement propre au runtime |
-| Lancement de modèles | non | oui |
-| Complémentaire ? | oui | oui |
+| Lancement de modèles | ❌ | ✅ |
+| Complémentaire ? | ✅ | ✅ |
 
 Un runtime d'agents complet est typiquement une passerelle auto-hébergée dotée de sessions, d'outils, de mémoire,
 de canaux et de routage multi-agents. M8Shift se situe plus bas dans la pile, comme une couche de
