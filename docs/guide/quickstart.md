@@ -18,7 +18,7 @@ and follow `claim → work → append`.
 
 ```mermaid
 flowchart LR
-    A["install.sh"] --> B["init --agents claude,codex"]
+    A["install.sh / install.ps1"] --> B["init --agents claude,codex"]
     B --> C["next claude"]
     C --> D["work"]
     D --> E["append --wait --to codex"]
@@ -28,16 +28,23 @@ flowchart LR
 
 *🟣 setup → first handoff*
 
-Install M8Shift into a project:
+Install M8Shift into a project on macOS, Linux, WSL, or Git Bash:
 
 ```bash
 cd /path/to/project
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
 ```
 
-The installer downloads `m8shift.py` and the `m8shift-worktree.py` toolbox into the
-current directory, verifies them against `checksums.sha256`, then runs `init`. It
-does not use `sudo`, does not modify your global PATH, and does not start a
+On native Windows PowerShell:
+
+```powershell
+cd C:\path\to\project
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
+```
+
+The installers download `m8shift.py` and the `m8shift-worktree.py` toolbox into the
+current directory, verify them against `checksums.sha256`, then run `init`. They
+do not use `sudo`, do not modify your global PATH, and do not start a
 background service.
 
 For a pinned release, fetch the installer from the tag and pass the same ref:
@@ -47,10 +54,15 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh |
   bash -s -- --ref vX.Y.Z --verify --agents claude,codex
 ```
 
-Security boundary: `--verify` checks downloaded files against the manifest from the
-selected ref. It catches corruption or mismatch. For out-of-band trust against a
-compromised origin, pin reviewed digests with `--sha256 FILE:HEX` or use a signed
-release tag.
+```powershell
+$env:M8SHIFT_INSTALL_REF = "vX.Y.Z"
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.ps1 | iex
+```
+
+Security boundary: Bash `--verify` and PowerShell's default verification check
+downloaded files against the manifest from the selected ref. It catches corruption or
+mismatch. For out-of-band trust against a compromised origin, pin reviewed digests
+with `--sha256 FILE:HEX` or use a signed release tag.
 
 Prefer manual adoption? Copy `m8shift.py` into the project and run
 `python3 m8shift.py init --agents claude,codex`.

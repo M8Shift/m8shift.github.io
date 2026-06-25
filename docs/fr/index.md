@@ -54,12 +54,14 @@ features:
     <div class="m8-quickstart__tabs">
       <span class="is-active">One-liner</span>
       <span>macOS &amp; Linux</span>
+      <span>Windows</span>
     </div>
     <div class="m8-quickstart__badge">install local</div>
   </div>
   <div class="m8-quickstart__body">
     <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Vérifie la CLI + la boîte à outils worktree, les installe localement, puis lance init.</p>
-    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex</code></pre>
+    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+<span class="m8-prompt">PS&gt;</span> irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex</code></pre>
   </div>
   <div class="m8-quickstart__foot">
     <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Vérifié SHA256 sur la ref choisie. Pas de sudo. Pas de PATH global.</span>

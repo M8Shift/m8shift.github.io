@@ -18,7 +18,7 @@ lancer la CLI et respecter `claim → travail → append`.
 
 ```mermaid
 flowchart LR
-    A["install.sh"] --> B["init --agents claude,codex"]
+    A["install.sh / install.ps1"] --> B["init --agents claude,codex"]
     B --> C["next claude"]
     C --> D["travail"]
     D --> E["append --wait --to codex"]
@@ -28,17 +28,24 @@ flowchart LR
 
 *🟣 mise en place → première passation*
 
-Installez M8Shift dans un projet :
+Installez M8Shift dans un projet sur macOS, Linux, WSL ou Git Bash :
 
 ```bash
 cd /path/to/project
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
 ```
 
-L'installateur télécharge `m8shift.py` et la boîte à outils `m8shift-worktree.py`
-dans le répertoire courant, les vérifie avec `checksums.sha256`, puis lance `init`.
-Il n'utilise pas `sudo`, ne modifie pas votre PATH global et ne démarre aucun
-service d'arrière-plan.
+Sur Windows PowerShell natif :
+
+```powershell
+cd C:\path\to\project
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
+```
+
+Les installateurs téléchargent `m8shift.py` et la boîte à outils `m8shift-worktree.py`
+dans le répertoire courant, les vérifient avec `checksums.sha256`, puis lancent
+`init`. Ils n'utilisent pas `sudo`, ne modifient pas votre PATH global et ne
+démarrent aucun service d'arrière-plan.
 
 Pour une release épinglée, téléchargez l'installateur depuis le tag et passez la même ref :
 
@@ -47,10 +54,16 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh |
   bash -s -- --ref vX.Y.Z --verify --agents claude,codex
 ```
 
-Limite de sécurité : `--verify` vérifie les fichiers téléchargés avec le manifeste
-de la ref choisie. Cela détecte une corruption ou une incohérence. Pour une confiance
-hors bande face à une origine compromise, épinglez des digests relus avec
-`--sha256 FILE:HEX` ou utilisez un tag de release signé.
+```powershell
+$env:M8SHIFT_INSTALL_REF = "vX.Y.Z"
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.ps1 | iex
+```
+
+Limite de sécurité : `--verify` côté Bash et la vérification par défaut côté
+PowerShell contrôlent les fichiers téléchargés avec le manifeste de la ref choisie.
+Cela détecte une corruption ou une incohérence. Pour une confiance hors bande face à
+une origine compromise, épinglez des digests relus avec `--sha256 FILE:HEX` ou
+utilisez un tag de release signé.
 
 Vous préférez l'adoption manuelle ? Copiez `m8shift.py` dans le projet, puis lancez
 `python3 m8shift.py init --agents claude,codex`.

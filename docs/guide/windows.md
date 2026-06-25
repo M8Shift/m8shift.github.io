@@ -29,12 +29,31 @@ python m8shift.py status
 
 ## Option C — native PowerShell / cmd
 
+In PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
+python m8shift.py status
+```
+
+From `cmd.exe`:
+
+```bat
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex"
+python m8shift.py status
+```
+
+The PowerShell installer downloads `m8shift.py` plus `m8shift-worktree.py`, verifies
+them with `checksums.sha256` by default, and runs `init`.
+
+Manual fallback:
+
 ```powershell
 py m8shift.py init --agents claude,codex
 ```
 
-PowerShell does not run the Bash installer. Download or copy `m8shift.py` first;
-add `m8shift-worktree.py` next to it only if you need isolated parallel work.
+If you do not use the installer, download or copy `m8shift.py` first; add
+`m8shift-worktree.py` next to it only if you need isolated parallel work.
 
 Invoke through the interpreter (`python m8shift.py …` / `py m8shift.py …`); do **not**
 rely on `./m8shift.py`.
