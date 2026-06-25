@@ -65,7 +65,7 @@
   margin: 0 0 18px;
 }
 
-/* Home feature cards: use the page width and make each icon a full-width banner. */
+/* Home feature cards: compact icon marks with a distinct accent per feature. */
 .VPHomeFeatures .VPFeatures {
   padding-right: clamp(24px, 4vw, 72px);
   padding-left: clamp(24px, 4vw, 72px);
@@ -75,30 +75,110 @@
   max-width: none;
 }
 
-.VPHomeFeatures .VPFeature .icon {
-  justify-content: flex-start;
-  box-sizing: border-box;
-  padding: 0 20px;
-  width: 100%;
-  height: 64px;
-  border: 1px solid rgba(93, 38, 242, .18);
+.VPHomeFeatures .VPFeature,
+.m8-faq-card,
+.m8-usecase-card {
+  --m8-card-accent: var(--color-shift-purple);
+  --m8-card-accent-2: var(--color-relay-pink);
+}
+
+.VPHomeFeatures .item:nth-child(1) .VPFeature,
+.m8-faq-card:nth-child(1),
+.m8-usecase-card:nth-child(1) {
+  --m8-card-accent: var(--color-m8-orange);
+  --m8-card-accent-2: var(--color-flow-coral);
+}
+
+.VPHomeFeatures .item:nth-child(2) .VPFeature,
+.m8-faq-card:nth-child(2),
+.m8-usecase-card:nth-child(2) {
+  --m8-card-accent: var(--color-flow-coral);
+  --m8-card-accent-2: var(--color-relay-pink);
+}
+
+.VPHomeFeatures .item:nth-child(3) .VPFeature,
+.m8-faq-card:nth-child(3),
+.m8-usecase-card:nth-child(3) {
+  --m8-card-accent: var(--color-relay-pink);
+  --m8-card-accent-2: var(--color-electric-violet);
+}
+
+.VPHomeFeatures .item:nth-child(4) .VPFeature,
+.m8-usecase-card:nth-child(4) {
+  --m8-card-accent: var(--color-shift-purple);
+  --m8-card-accent-2: var(--color-deep-violet);
+}
+
+.VPHomeFeatures .item:nth-child(5) .VPFeature {
+  --m8-card-accent: var(--color-electric-violet);
+  --m8-card-accent-2: var(--color-soft-lavender);
+}
+
+.VPHomeFeatures .item:nth-child(6) .VPFeature {
+  --m8-card-accent: var(--color-soft-lavender);
+  --m8-card-accent-2: var(--color-shift-purple);
+}
+
+.VPHomeFeatures .VPFeature {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
   background:
-    linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .10) 34%, rgba(242, 82, 191, .12) 58%, rgba(93, 38, 242, .14)),
-    var(--vp-c-default-soft);
+    radial-gradient(circle at 18% 8%, color-mix(in srgb, var(--m8-card-accent) 14%, transparent), transparent 32%),
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 92%, transparent), var(--vp-c-bg-alt));
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.VPHomeFeatures .VPFeature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--m8-card-accent), var(--m8-card-accent-2), transparent 82%);
+  opacity: .85;
+}
+
+.VPHomeFeatures .VPFeature:hover {
+  border-color: color-mix(in srgb, var(--m8-card-accent) 48%, var(--vp-c-divider));
+  box-shadow: 0 18px 42px rgba(17, 24, 39, .10);
+  transform: translateY(-2px);
+}
+
+.VPHomeFeatures .VPFeature .icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  width: 58px;
+  height: 58px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 24%, var(--vp-c-divider));
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .45), transparent 42%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m8-card-accent) 22%, transparent), color-mix(in srgb, var(--m8-card-accent-2) 12%, transparent)),
+    var(--vp-c-bg);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--m8-card-accent) 18%, transparent);
   font-size: 30px;
 }
 
 .VPHomeFeatures .VPFeature .icon::after {
   content: "";
-  flex: 1;
-  margin-left: 16px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(93, 38, 242, .45), transparent);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--m8-card-accent-2);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--m8-card-accent-2) 14%, transparent);
 }
 
 .VPHomeFeatures .VPFeature .icon .fa-solid {
-  color: var(--vp-c-brand-1);
-  font-size: 32px;
+  color: var(--m8-card-accent);
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -135,23 +215,36 @@
 }
 
 .m8-faq-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-height: 210px;
   padding: 22px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 20%, var(--vp-c-divider));
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
   border-radius: 22px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(242, 82, 191, .12), transparent 38%),
-    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 92%, transparent), var(--vp-c-bg-alt));
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--m8-card-accent-2) 15%, transparent), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 93%, transparent), var(--vp-c-bg-alt));
   color: inherit;
   text-decoration: none;
   transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
+.m8-faq-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--m8-card-accent), var(--m8-card-accent-2), transparent 84%);
+  opacity: .85;
+}
+
 .m8-faq-card:hover {
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 52%, var(--vp-c-divider));
+  border-color: color-mix(in srgb, var(--m8-card-accent) 48%, var(--vp-c-divider));
   box-shadow: 0 18px 42px rgba(17, 24, 39, .10);
   transform: translateY(-2px);
 }
@@ -162,9 +255,18 @@
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .12), rgba(242, 82, 191, .14), rgba(93, 38, 242, .16));
-  color: var(--vp-c-brand-1);
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .42), transparent 44%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m8-card-accent) 22%, transparent), color-mix(in srgb, var(--m8-card-accent-2) 12%, transparent)),
+    var(--vp-c-bg);
+  color: var(--m8-card-accent);
   font-size: 22px;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.m8-faq-card:hover i {
+  transform: translateY(-1px) scale(1.04);
 }
 
 .m8-faq-card strong {
@@ -185,23 +287,37 @@
 }
 
 .m8-usecase-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-height: 230px;
   padding: 22px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-divider));
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
   border-radius: 22px;
   background:
-    linear-gradient(150deg, rgba(255, 122, 24, .10), rgba(251, 111, 116, .08) 34%, rgba(242, 82, 191, .08) 58%, rgba(93, 38, 242, .10)),
+    radial-gradient(circle at 88% 14%, color-mix(in srgb, var(--m8-card-accent-2) 14%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 94%, transparent), var(--vp-c-bg-alt)),
     var(--vp-c-bg-soft);
   color: inherit;
   text-decoration: none;
   transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
+.m8-usecase-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--m8-card-accent), var(--m8-card-accent-2), transparent 84%);
+  opacity: .9;
+}
+
 .m8-usecase-card:hover {
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 48%, var(--vp-c-divider));
+  border-color: color-mix(in srgb, var(--m8-card-accent) 48%, var(--vp-c-divider));
   box-shadow: 0 18px 42px rgba(17, 24, 39, .10);
   transform: translateY(-2px);
 }
@@ -212,9 +328,18 @@
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .12), rgba(242, 82, 191, .14), rgba(93, 38, 242, .16));
-  color: var(--vp-c-brand-1);
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .42), transparent 44%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m8-card-accent) 22%, transparent), color-mix(in srgb, var(--m8-card-accent-2) 12%, transparent)),
+    var(--vp-c-bg);
+  color: var(--m8-card-accent);
   font-size: 22px;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.m8-usecase-card:hover i {
+  transform: translateY(-1px) scale(1.04);
 }
 
 .m8-usecase-card strong {
@@ -225,6 +350,20 @@
 .m8-usecase-card span {
   color: var(--vp-c-text-2);
   line-height: 1.65;
+}
+
+.vp-doc a.m8-faq-card,
+.vp-doc a.m8-faq-card:hover,
+.vp-doc a.m8-faq-card:focus,
+.vp-doc a.m8-usecase-card,
+.vp-doc a.m8-usecase-card:hover,
+.vp-doc a.m8-usecase-card:focus {
+  text-decoration: none !important;
+}
+
+.vp-doc a.m8-faq-card *,
+.vp-doc a.m8-usecase-card * {
+  text-decoration: none !important;
 }
 
 .m8-quickstart {

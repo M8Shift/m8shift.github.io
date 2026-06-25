@@ -123,7 +123,7 @@ export default defineConfig({
           text: 'Edit this page'
         },
         footer: {
-          message: 'Built by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a> · Released under the Apache 2.0 License.',
+          message: 'Built with ❤️ and M8Shift by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a>',
           copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }
@@ -216,7 +216,7 @@ export default defineConfig({
           text: 'Modifier cette page'
         },
         footer: {
-          message: 'Built by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a> · Released under the Apache 2.0 License.',
+          message: 'Built with ❤️ and M8Shift by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a>',
           copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }

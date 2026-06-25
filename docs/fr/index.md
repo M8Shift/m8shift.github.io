@@ -7,7 +7,7 @@ titleTemplate: Des agents IA, travaillant par roulements.
 hero:
   name: ""
   text: <img src="/logo-wordmark.png" alt="Logo texte M8Shift" id="m8shift-title" />Des agents IA,<br/>travaillant en roulements.
-  tagline: Libre et open source. Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue (sous réserve, bien sûr, de bonne coopération de l'agent).
+  tagline: "À prononcer mate-shift — des coéquipiers IA qui travaillent en roulements. Libre et open source. Coordonnez vos coéquipiers IA — Claude, Codex, Gemini, Vibe et d'autres agents de codage — sur un même dépôt : un seul écrit à la fois, et chaque passation reste enregistrée."
   image:
     src: /logo.png
     alt: Logo M8Shift
@@ -16,8 +16,8 @@ hero:
       text: Démarrer
       link: /fr/guide/quickstart
     - theme: alt
-      text: Explorer les concepts
-      link: /fr/concepts/
+      text: Lire la documentation
+      link: /fr/guide/
     - theme: alt
       text: Voir le code source
       link: https://github.com/M8Shift/M8Shift
@@ -26,7 +26,7 @@ features:
   - icon: <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
     title: Un seul rédacteur à la fois
     details: Un unique « stylo » exclusif garde le dépôt. Un agent doit le réclamer avant de toucher aux fichiers ; un second claim attend simplement. Un mutex coopératif, pas une mêlée générale.
-  - icon: <i class="fa-solid fa-right-left" aria-hidden="true"></i>
+  - icon: <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
     title: Des passations structurées
     details: Chaque tour est un contrat numéroté et immuable — qui a écrit, ce qui a été fait, ce qui est demandé ensuite, et quels fichiers ont changé — ajouté à un journal exploitable par grep.
   - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
@@ -35,7 +35,7 @@ features:
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Neutre vis-à-vis des fournisseurs
     details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. M8Shift ne devient jamais le fournisseur de modèle, le runtime, ni un plan de contrôle hébergé.
-  - icon: <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+  - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
     title: Un seul fichier, zéro dépendance
     details: Un script Python libre et open source, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
@@ -90,22 +90,22 @@ features:
 
 <div class="m8-usecase-grid">
   <a class="m8-usecase-card" href="/fr/use-cases#construire-du-logiciel">
-    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Construire du logiciel</strong>
     <span>Séparez planification, implémentation, revue, tests, documentation et notes de release entre agents spécialisés.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#ecrire-un-livre">
-    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
     <strong>Écrire des contenus longs</strong>
     <span>Utilisez des rôles de coordination, rédaction, revue et édition pour produire des chapitres sans perdre structure ni ton.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#concevoir-un-site-web">
-    <i class="fa-solid fa-window-maximize" aria-hidden="true"></i>
+    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
     <strong>Concevoir un site web</strong>
     <span>Coordonnez architecture d'information, landing page, documentation, FAQ et contenus prêts à intégrer.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#revue-et-controle-qualite">
-    <i class="fa-solid fa-magnifying-glass-check" aria-hidden="true"></i>
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     <strong>Relire et valider</strong>
     <span>Séparez production et validation pour éviter que l'agent qui produit soit le seul à approuver.</span>
   </a>
@@ -113,77 +113,31 @@ features:
 
 [Explorer tous les cas d'usage →](/fr/use-cases)
 
-## De la coordination, pas une énième plateforme d'agents
+## Documentation pour humains et agents
 
-M8Shift est une couche de coordination pour les agents IA déjà en cours d'exécution dans votre terminal, votre IDE,
-votre application de bureau ou votre environnement d'automatisation.
+<p class="m8-section-lead">La page d'accueil explique le produit. Le reste du site sert de manuel opératoire pour les humains et les agents IA qui ont besoin d'une façon commune de communiquer, passer le relais et inspecter l'état.</p>
 
-Il est **libre et open source**, publié sous licence Apache 2.0.
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/fr/guide/quickstart">
+    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+    <strong>Démarrer un relais</strong>
+    <span>Installez localement, initialisez un dépôt et lancez une première passation entre agents de codage.</span>
+  </a>
+  <a class="m8-faq-card" href="/fr/concepts/">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>Comprendre le protocole</strong>
+    <span>Lisez les concepts autour du stylo, des rôles, relations, validations et passations immuables.</span>
+  </a>
+  <a class="m8-faq-card" href="/fr/reference/cli">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Automatiser avec la CLI</strong>
+    <span>Utilisez commandes, codes de sortie, statut JSON, contrats et fichiers générés depuis scripts ou agents.</span>
+  </a>
+</div>
 
-Il n'a pas besoin de devenir le fournisseur de modèle, le runtime des agents, le gestionnaire de projet,
-l'application de discussion et la machine à café. Il se concentre sur un problème plus étroit :
-**rendre le travail coopératif explicite, sérialisé et révisable.**
-
-```mermaid
-sequenceDiagram
-    participant C as claude
-    participant Pen as 🖊️ le stylo
-    participant X as codex
-    C->>Pen: claim (exclusif)
-    Note over C: détient le stylo — seul rédacteur
-    C->>X: append --to codex · tour clos & immuable
-    X->>Pen: claim (exclusif)
-    Note over X: détient le stylo — seul rédacteur
-    X->>C: append --to claude
-    Note over C,X: alternance stricte jusqu'à done
-```
-
-*🟣 agents · 🩷 le stylo*
-
-## Comment fonctionne un relais
-
-Les exemples utilisent `claude` et `codex` parce que ce sont des valeurs par défaut
-familières. Ils n'ont rien de spécial : remplacez-les par `gemini`, `vibe` ou tout
-agent coopératif capable de lire ses instructions, lancer la CLI et respecter
-`claim → travail → append`.
-
-Dans le relais le plus simple, deux agents partagent un même dépôt. L'état vit en tête d'un unique fichier
-(`M8SHIFT.md`), lisible ligne par ligne :
-
-```text
-<!-- M8SHIFT:LOCK:BEGIN -->
-holder: claude
-state: WORKING_CLAUDE
-agents: claude,codex
-turn: 3
-since: 2026-06-22T18:00:00Z
-expires: 2026-06-22T18:30:00Z
-lang: en
-<!-- M8SHIFT:LOCK:END -->
-```
-
-La règle qui rend cela sûr tient en une phrase : **ne jamais modifier le dépôt avant un
-`claim` réussi.** Lorsqu'un agent a terminé son tour, il `append` une passation et
-passe le stylo à l'autre agent.
-
-## Ce qu'enregistre une passation
-
-Chaque tour est un bloc numéroté — une fois fermé, il n'est jamais réécrit :
-
-```text
-<!-- M8SHIFT:TURN 4 claude BEGIN -->
-from: claude
-to: codex
-ask: Implement the parser and keep legacy behaviour.
-done: Defined the parser contract and added tests.
-files: docs/spec.md, tests/test_parser.py
-handoff: codex
-<!-- M8SHIFT:TURN 4 claude END -->
-```
-
-Des champs de tour plus riches (`branch`, `commit`, `tests`, `next`, `blocked_on`,
-champs personnalisés `x_*`) sont des métadonnées indicatives : M8Shift les enregistre,
-mais ne les exécute pas et ne les applique pas.
+M8Shift reste volontairement étroit : il n'héberge pas les modèles, ne remplace pas
+votre IDE et ne devient pas le chef de projet. Il donne aux coéquipiers — humains ou IA —
+un relais local et inspectable.
 
 ## Questions fréquentes
 
@@ -201,7 +155,7 @@ mais ne les exécute pas et ne les applique pas.
     <span>Le cœur ne fait aucun appel modèle et ne stocke aucun identifiant fournisseur. Chaque hôte d'agent garde sa propre auth.</span>
   </a>
   <a class="m8-faq-card" href="/fr/guide/worktree-toolbox">
-    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
     <strong>Parallélisme via worktrees</strong>
     <span>Un même working tree reste en degré 1 ; le travail isolé utilise la boîte à outils worktree livrée.</span>
   </a>
@@ -209,21 +163,24 @@ mais ne les exécute pas et ne les applique pas.
 
 [Lire la FAQ complète →](/fr/faq)
 
-## État actuel
+## État du projet
 
-L'implémentation livrée de M8Shift et les étapes de protocole planifiées sont étiquetées séparément :
+<p class="m8-section-lead">M8Shift est une CLI locale, libre et open source. La roadmap sépare ce qui est livré aujourd'hui des étapes de protocole encore en cours de spécification.</p>
 
-- **disponible maintenant :** relais à claim exclusif, verrou partagé avec récupération
-  de verrou périmé, journal de tours immuable, archivage borné, roster configurable,
-  passations structurées, `peek`, `recap`, `log`, `history`, `status --json`,
-  `status --for`, `next`, `append --wait`, mémoire partagée, registre de tâches,
-  affichage en heure locale préfixé par le fuseau, validation des contrats Stage 4
-  (`contract validate`, `doctor --contracts`) et sortie générée EN/FR ;
-- **disponible via compagnon opt-in :** [`m8shift-worktree.py`](/fr/guide/worktree-toolbox)
-  pour des worktrees de fonctionnalité isolés avec un stylo d'intégration sérialisé ;
-- **Stage 6 partiellement implémenté :** scripts d'installation, checksums, `watch`,
-  synchronisation site/docs et runner headless de référence avec IDs/events sont disponibles ;
-  gestion des fournisseurs, adaptateurs IDE/MCP, notifications optionnelles et plan de contrôle
-  runtime/hébergé restent des travaux compagnons.
-
-[Lire les releases / roadmap →](/fr/roadmap)
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/fr/roadmap">
+    <i class="fa-solid fa-route" aria-hidden="true"></i>
+    <strong>Releases et roadmap</strong>
+    <span>Consultez la version courante, les étapes livrées, les travaux prévus et la direction du protocole.</span>
+  </a>
+  <a class="m8-faq-card" href="/fr/comparison">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>Pourquoi pas une plateforme ?</strong>
+    <span>Comparez un relais local avec runtimes hébergés, bases de données, files et systèmes d'orchestration.</span>
+  </a>
+  <a class="m8-faq-card" href="https://github.com/M8Shift/M8Shift">
+    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <strong>Code source</strong>
+    <span>Inspectez l'implémentation, les scripts d'installation, les fichiers de protocole générés et l'historique.</span>
+  </a>
+</div>

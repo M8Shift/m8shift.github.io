@@ -7,7 +7,7 @@ titleTemplate: AI agents, working in shifts.
 hero:
   name: ""
   text: <img src="/logo-wordmark.png" alt="M8Shift wordmark" id="m8shift-title" />AI agents,<br>Working in shifts.
-  tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost (subject, naturally, to good agent cooperation).
+  tagline: "Pronounced mate-shift — AI team mates working in shifts. Free and open source. Coordinate your AI teammates — Claude, Codex, Gemini, Vibe, and other coding agents — on one repository: exactly one writes at a time, and every handoff stays recorded."
   image:
     src: /logo.png
     alt: M8Shift logo
@@ -16,8 +16,8 @@ hero:
       text: Get started
       link: /guide/quickstart
     - theme: alt
-      text: Explore the concepts
-      link: /concepts/
+      text: Read the docs
+      link: /guide/
     - theme: alt
       text: View the source
       link: https://github.com/M8Shift/M8Shift
@@ -26,7 +26,7 @@ features:
   - icon: <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
     title: One writer at a time
     details: A single exclusive "pen" guards the repository. An agent must claim it before touching files; a second claim simply waits. A cooperative mutex, not a free-for-all.
-  - icon: <i class="fa-solid fa-right-left" aria-hidden="true"></i>
+  - icon: <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
     title: Structured handoffs
     details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
   - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
@@ -35,7 +35,7 @@ features:
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Provider-neutral
     details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
-  - icon: <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+  - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
     title: One file, zero dependencies
     details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
@@ -90,22 +90,22 @@ features:
 
 <div class="m8-usecase-grid">
   <a class="m8-usecase-card" href="/use-cases#build-software">
-    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Build software</strong>
     <span>Split planning, implementation, review, tests, documentation, and release notes between specialized agents.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#write-a-book">
-    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
     <strong>Write long-form content</strong>
     <span>Use coordinator, writer, reviewer, and editor roles to draft chapters without losing structure or tone.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#design-a-website">
-    <i class="fa-solid fa-window-maximize" aria-hidden="true"></i>
+    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
     <strong>Design a website</strong>
     <span>Coordinate information architecture, landing page copy, docs, FAQ, and implementation-ready content.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#review-and-quality-control">
-    <i class="fa-solid fa-magnifying-glass-check" aria-hidden="true"></i>
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     <strong>Review and validate</strong>
     <span>Separate production from validation so the agent that creates the work is not the only one approving it.</span>
   </a>
@@ -113,76 +113,30 @@ features:
 
 [Explore all use cases →](/use-cases)
 
-## Coordination, not another agent platform
+## Documentation for humans and agents
 
-M8Shift is a coordination layer for AI agents already running in your terminal, IDE,
-desktop application, or automation environment.
+<p class="m8-section-lead">The homepage explains the product. The rest of the site is the operating manual for humans and AI agents that need a shared way to communicate, hand off work, and inspect state.</p>
 
-It is **free and open source**, released under the Apache License 2.0.
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/guide/quickstart">
+    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+    <strong>Start a relay</strong>
+    <span>Install locally, initialize a repository, and run a first handoff between coding agents.</span>
+  </a>
+  <a class="m8-faq-card" href="/concepts/">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>Understand the protocol</strong>
+    <span>Read the concepts behind the pen, roles, relations, validation, and immutable handoffs.</span>
+  </a>
+  <a class="m8-faq-card" href="/reference/cli">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Automate from the CLI</strong>
+    <span>Use commands, exit codes, JSON status, contracts, and generated files from scripts or agents.</span>
+  </a>
+</div>
 
-It does not need to become the model provider, the agent runtime, the project manager,
-the chat application, and the coffee machine. It focuses on a narrower problem:
-**making cooperative work explicit, serialized, and reviewable.**
-
-```mermaid
-sequenceDiagram
-    participant C as claude
-    participant Pen as 🖊️ the pen
-    participant X as codex
-    C->>Pen: claim (exclusive)
-    Note over C: holds the pen — sole writer
-    C->>X: append --to codex · turn closed & immutable
-    X->>Pen: claim (exclusive)
-    Note over X: holds the pen — sole writer
-    X->>C: append --to claude
-    Note over C,X: strict alternation until done
-```
-
-*🟣 agents · 🩷 the pen*
-
-## How a relay works
-
-The examples use `claude` and `codex` because they are familiar defaults. They are
-not special: replace them with `gemini`, `vibe`, or any cooperative agent that can
-read its instructions, run the CLI, and follow `claim → work → append`.
-
-In the simplest relay, two agents share one repository. The state lives at the top of a single file
-(`M8SHIFT.md`), readable line by line:
-
-```text
-<!-- M8SHIFT:LOCK:BEGIN -->
-holder: claude
-state: WORKING_CLAUDE
-agents: claude,codex
-turn: 3
-since: 2026-06-22T18:00:00Z
-expires: 2026-06-22T18:30:00Z
-lang: en
-<!-- M8SHIFT:LOCK:END -->
-```
-
-The rule that makes it safe is one sentence: **never modify the repository before a
-successful `claim`.** When an agent is done with its turn, it `append`s a handoff and
-passes the pen to the other agent.
-
-## What a handoff records
-
-Each turn is a numbered block — once closed, it is never rewritten:
-
-```text
-<!-- M8SHIFT:TURN 4 claude BEGIN -->
-from: claude
-to: codex
-ask: Implement the parser and keep legacy behaviour.
-done: Defined the parser contract and added tests.
-files: docs/spec.md, tests/test_parser.py
-handoff: codex
-<!-- M8SHIFT:TURN 4 claude END -->
-```
-
-Richer turn fields (`branch`, `commit`, `tests`, `next`, `blocked_on`, custom
-`x_*` fields) are advisory metadata: M8Shift records them, but does not execute or
-enforce them.
+M8Shift is deliberately narrow: it does not host models, replace your IDE, or become
+the project manager. It gives teammates — human or AI — a local, inspectable relay.
 
 ## Frequently asked questions
 
@@ -200,7 +154,7 @@ enforce them.
     <span>The core makes no model calls and stores no provider credentials. Your agent hosts keep their own auth.</span>
   </a>
   <a class="m8-faq-card" href="/guide/worktree-toolbox">
-    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
     <strong>Parallelism via worktrees</strong>
     <span>One shared tree stays degree-1; isolated feature work uses the shipped worktree toolbox.</span>
   </a>
@@ -208,21 +162,24 @@ enforce them.
 
 [Read the full FAQ →](/faq)
 
-## Current status
+## Project status
 
-M8Shift's shipped implementation and the planned protocol stages are labelled separately:
+<p class="m8-section-lead">M8Shift is a free and open-source local CLI. The roadmap separates what is shipped today from the protocol stages still being specified.</p>
 
-- **available now:** exclusive-claim relay, shared lock with stale-lock recovery, the
-  immutable turn journal, bounded archiving, configurable roster, structured handoffs,
-  `peek`, `recap`, `log`, `history`, `status --json`, `status --for`, `next`,
-  `append --wait`, shared memory notes, task ledger, timezone-prefixed local-time
-  display, Stage-4 contract validation (`contract validate`, `doctor --contracts`),
-  and EN/FR generated output;
-- **available as an opt-in companion:** [`m8shift-worktree.py`](/guide/worktree-toolbox)
-  for isolated feature worktrees plus one serialized integration pen;
-- **partially implemented Stage 6:** install scripts, checksums, `watch`, site/docs sync,
-  and the reference headless runner with run IDs/lifecycle events are available; provider
-  management, IDE/MCP adapters, optional notifications, and hosted/runtime control plane remain
-  companion work.
-
-[Read releases / roadmap →](/roadmap)
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/roadmap">
+    <i class="fa-solid fa-route" aria-hidden="true"></i>
+    <strong>Releases and roadmap</strong>
+    <span>See the current version, shipped stages, planned work, and protocol direction.</span>
+  </a>
+  <a class="m8-faq-card" href="/comparison">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>Why not an agent platform?</strong>
+    <span>Compare a local relay with hosted runtimes, databases, queues, and orchestration systems.</span>
+  </a>
+  <a class="m8-faq-card" href="https://github.com/M8Shift/M8Shift">
+    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <strong>Source code</strong>
+    <span>Inspect the implementation, install scripts, generated protocol files, and project history.</span>
+  </a>
+</div>
