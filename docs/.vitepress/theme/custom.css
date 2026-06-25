@@ -398,6 +398,31 @@
   border-collapse: collapse;
 }
 
+.vp-doc .m8-feature-table--fit table {
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.vp-doc .m8-feature-table--fit th:first-child,
+.vp-doc .m8-feature-table--fit td:first-child {
+  width: 20%;
+}
+
+.vp-doc .m8-feature-table--fit th:nth-child(2),
+.vp-doc .m8-feature-table--fit td:nth-child(2) {
+  width: 32%;
+}
+
+.vp-doc .m8-feature-table--fit th:nth-child(3),
+.vp-doc .m8-feature-table--fit td:nth-child(3) {
+  width: 48%;
+}
+
+.vp-doc .m8-feature-table--fit code {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .vp-doc .m8-feature-table th {
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--color-m8-orange) 12%, transparent), color-mix(in srgb, var(--color-shift-purple) 10%, transparent)),
@@ -430,6 +455,7 @@
   display: inline-flex;
   gap: 10px;
   align-items: center;
+  min-width: 0;
   color: var(--vp-c-text-1);
   font-weight: 800;
 }
@@ -836,5 +862,10 @@
 
   .m8-usecase-card {
     min-height: 0;
+  }
+
+  .vp-doc .m8-feature-table--fit table {
+    min-width: 760px;
+    table-layout: auto;
   }
 }

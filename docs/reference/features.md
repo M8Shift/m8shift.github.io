@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="m8-feature-table">
+<div class="m8-feature-table m8-feature-table--fit">
 <table>
   <thead>
     <tr>
@@ -60,7 +60,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Done state</span></td>
       <td>Marks the relay finished with <code>done</code>, allowing humans and automation to stop cleanly.</td>
     </tr>
-
     <tr>
       <td>Handoffs</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Numbered turns</span></td>
@@ -106,7 +105,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-tags" aria-hidden="true"></i> Custom fields</span></td>
       <td>Accepts namespaced advisory metadata through <code>--field key=value</code>, including <code>x_*</code> fields for local conventions.</td>
     </tr>
-
     <tr>
       <td>Read views</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Status</span></td>
@@ -157,7 +155,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> History</span></td>
       <td>Reads prior session start, reset, and done events from <code>M8SHIFT.sessions.jsonl</code>.</td>
     </tr>
-
     <tr>
       <td>Audit</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Archive</span></td>
@@ -178,7 +175,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-file-code" aria-hidden="true"></i> Generated files</span></td>
       <td>Keeps relay state, protocol, archive, memory, tasks, sessions, and temporary lock files in the repository or local workspace.</td>
     </tr>
-
     <tr>
       <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Doctor</span></td>
@@ -199,7 +195,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Strict mode</span></td>
       <td>Lets validation commands exit non-zero when findings meet the selected severity threshold.</td>
     </tr>
-
     <tr>
       <td>Setup</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Init kit</span></td>
@@ -230,7 +225,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Checksum verification</span></td>
       <td>Verifies downloaded scripts against <code>checksums.sha256</code> during installer-based adoption.</td>
     </tr>
-
     <tr>
       <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Exit codes</span></td>

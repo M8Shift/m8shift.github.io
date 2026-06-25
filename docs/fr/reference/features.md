@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="m8-feature-table">
+<div class="m8-feature-table m8-feature-table--fit">
 <table>
   <thead>
     <tr>
@@ -60,7 +60,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> État terminé</span></td>
       <td>Marque le relais comme terminé avec <code>done</code>, pour que les humains et les automatisations puissent s'arrêter proprement.</td>
     </tr>
-
     <tr>
       <td>Passations</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Tours numérotés</span></td>
@@ -106,7 +105,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-tags" aria-hidden="true"></i> Champs personnalisés</span></td>
       <td>Accepte des métadonnées indicatives via <code>--field key=value</code>, dont les champs <code>x_*</code> pour les conventions locales.</td>
     </tr>
-
     <tr>
       <td>Vues lecture</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Status</span></td>
@@ -157,7 +155,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> History</span></td>
       <td>Lit les événements de sessions passées, démarrages, resets et fins depuis <code>M8SHIFT.sessions.jsonl</code>.</td>
     </tr>
-
     <tr>
       <td>Audit</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Archive</span></td>
@@ -178,7 +175,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-file-code" aria-hidden="true"></i> Fichiers générés</span></td>
       <td>Garde état du relais, protocole, archive, mémoire, tâches, sessions et verrou temporaire dans le dépôt ou l'espace local.</td>
     </tr>
-
     <tr>
       <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Doctor</span></td>
@@ -199,7 +195,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Mode strict</span></td>
       <td>Permet aux commandes de validation de sortir en erreur quand les constats atteignent le seuil de sévérité choisi.</td>
     </tr>
-
     <tr>
       <td>Setup</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Kit init</span></td>
@@ -230,7 +225,6 @@
       <td><span class="m8-feature-name"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Vérification checksum</span></td>
       <td>Vérifie les scripts téléchargés avec <code>checksums.sha256</code> lors de l'adoption via installateur.</td>
     </tr>
-
     <tr>
       <td>Automatisation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Codes de sortie</span></td>
