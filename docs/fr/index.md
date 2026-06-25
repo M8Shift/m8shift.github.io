@@ -156,7 +156,7 @@ mais ne les exécute pas et ne les applique pas.
     <strong>Aucune clé API M8Shift</strong>
     <span>Le cœur ne fait aucun appel modèle et ne stocke aucun identifiant fournisseur. Chaque hôte d'agent garde sa propre auth.</span>
   </a>
-  <a class="m8-faq-card" href="/fr/faq#les-agents-peuvent-ils-travailler-en-parallele">
+  <a class="m8-faq-card" href="/fr/guide/worktree-toolbox">
     <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
     <strong>Parallélisme via worktrees</strong>
     <span>Un même working tree reste en degré 1 ; le travail isolé utilise la boîte à outils worktree livrée.</span>
@@ -174,8 +174,8 @@ L'implémentation livrée de M8Shift et les étapes de protocole planifiées son
   passations structurées, `peek`, `recap`, `log`, `history`, `status --json`,
   `status --for`, `next`, `append --wait`, mémoire partagée, registre de tâches,
   affichage en heure locale préfixé par le fuseau, et sortie générée EN/FR ;
-- **disponible via compagnon opt-in :** `m8shift-worktree.py` pour des worktrees de
-  fonctionnalité isolés avec un stylo d'intégration sérialisé ;
+- **disponible via compagnon opt-in :** [`m8shift-worktree.py`](/fr/guide/worktree-toolbox)
+  pour des worktrees de fonctionnalité isolés avec un stylo d'intégration sérialisé ;
 - **future RFCs spécifiées :** plan de contrôle runtime/hébergé et gestion des fournisseurs
   comme compagnons optionnels ; véritables écritures de degré > 1 dans un même working tree
   comme sujet de recherche rejeté pour le cœur au profit des worktrees isolés.

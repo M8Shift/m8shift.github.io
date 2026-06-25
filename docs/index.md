@@ -155,7 +155,7 @@ enforce them.
     <strong>No M8Shift API key</strong>
     <span>The core makes no model calls and stores no provider credentials. Your agent hosts keep their own auth.</span>
   </a>
-  <a class="m8-faq-card" href="/faq#can-agents-work-concurrently">
+  <a class="m8-faq-card" href="/guide/worktree-toolbox">
     <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
     <strong>Parallelism via worktrees</strong>
     <span>One shared tree stays degree-1; isolated feature work uses the shipped worktree toolbox.</span>
@@ -173,8 +173,8 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
   `peek`, `recap`, `log`, `history`, `status --json`, `status --for`, `next`,
   `append --wait`, shared memory notes, task ledger, timezone-prefixed local-time
   display, and EN/FR generated output;
-- **available as an opt-in companion:** `m8shift-worktree.py` for isolated feature
-  worktrees plus one serialized integration pen;
+- **available as an opt-in companion:** [`m8shift-worktree.py`](/guide/worktree-toolbox)
+  for isolated feature worktrees plus one serialized integration pen;
 - **specified future RFCs:** hosted/runtime control plane and provider management as
   optional companions; true degree > 1 writes in one shared working tree as a research
   topic rejected for the core in favor of isolated worktrees.

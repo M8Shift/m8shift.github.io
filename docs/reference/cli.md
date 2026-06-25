@@ -224,9 +224,9 @@ python3 m8shift.py archive [--keep N]
 
 ## Optional worktree companion
 
-`m8shift-worktree.py` is a separate companion for isolated parallel feature work. It
-creates per-task git worktrees and serializes integration back through one integration
-pen.
+[`m8shift-worktree.py`](/guide/worktree-toolbox) is a separate companion for
+isolated parallel feature work. It creates per-task git worktrees and serializes
+integration back through one integration pen.
 
 ```bash
 python3 m8shift-worktree.py claim|done|integrate|drop|status ...

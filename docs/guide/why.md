@@ -13,8 +13,8 @@ failure modes:
 M8Shift addresses those points pragmatically today: explicit exclusive ownership (the
 pen), an immutable turn journal, a claim-before-write rule, structured advisory fields,
 shared memory, tasks, session history, loop guardrails, and an optional worktree companion
-for isolated parallel feature work. What it still does not do is enforce a hosted runtime
-or a full dependency scheduler.
+for [isolated parallel feature work](./worktree-toolbox). What it still does not do is
+enforce a hosted runtime or a full dependency scheduler.
 
 ```mermaid
 flowchart LR

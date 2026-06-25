@@ -3,7 +3,8 @@
 ::: tip Statut
 Les commandes ci-dessous correspondent au relais de degré 1 livré : un stylo partagé,
 n'importe quel membre du roster configuré, un seul rédacteur à la fois. Utilisez le
-compagnon worktree seulement pour du travail de fonctionnalité parallèle et isolé.
+[compagnon worktree](./worktree-toolbox) seulement pour du travail de fonctionnalité
+parallèle et isolé.
 :::
 
 ::: tip Nommage

@@ -226,9 +226,9 @@ python3 m8shift.py archive [--keep N]
 
 ## Compagnon worktree optionnel
 
-`m8shift-worktree.py` est un compagnon séparé pour le travail parallèle isolé. Il crée
-des worktrees git par tâche et sérialise l'intégration finale via un stylo
-d'intégration unique.
+[`m8shift-worktree.py`](/fr/guide/worktree-toolbox) est un compagnon séparé pour le
+travail parallèle isolé. Il crée des worktrees git par tâche et sérialise
+l'intégration finale via un stylo d'intégration unique.
 
 ```bash
 python3 m8shift-worktree.py claim|done|integrate|drop|status ...

@@ -6,8 +6,9 @@ gardant un seul stylo partagé. La distinction importante est celle-ci :
 - **livré :** N agents peuvent être déclarés dans `--agents`, et un tour peut passer la
   main à n'importe quel autre membre du roster ;
 - **toujours degré 1 :** un seul agent écrit dans le dépôt partagé à la fois ;
-- **travail parallèle de fonctionnalités :** utilisez `m8shift-worktree.py`, qui crée
-  des worktrees git isolés et sérialise l'intégration via un stylo d'intégration.
+- **travail parallèle de fonctionnalités :** utilisez
+  [`m8shift-worktree.py`](./worktree-toolbox), qui crée des worktrees git isolés et
+  sérialise l'intégration via un stylo d'intégration.
 
 ```bash
 python3 m8shift.py init --agents claude,codex,gemini
@@ -37,7 +38,7 @@ ce contrat dans `--ask`, `--next`, le registre de tâches ou le prompt de protoc
 
 ## Quand vous avez besoin de vrai parallélisme
 
-Utilisez le compagnon worktree pour des branches isolées :
+Utilisez le [compagnon worktree](./worktree-toolbox) pour des branches isolées :
 
 ```bash
 python3 m8shift-worktree.py claim feature-parser codex --base main

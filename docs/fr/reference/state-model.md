@@ -82,6 +82,7 @@ stateDiagram-v2
 
 ::: tip Degré 1 par défaut
 Le relais cœur accepte un roster N agents, mais conserve un seul stylo partagé. Le
-travail parallèle de fonctionnalités passe par le compagnon worktree optionnel, pas par
-des écritures simultanées dans le même répertoire de travail.
+travail parallèle de fonctionnalités passe par le
+[compagnon worktree optionnel](/fr/guide/worktree-toolbox), pas par des écritures
+simultanées dans le même répertoire de travail.
 :::

@@ -6,8 +6,8 @@ single shared pen. That is the important distinction:
 - **shipped:** N agents can be named in `--agents`, and a turn can hand off to any other
   roster member;
 - **still degree 1:** only one agent writes in the shared repository at a time;
-- **parallel feature work:** use `m8shift-worktree.py`, which creates isolated git
-  worktrees and serializes integration through one integration pen.
+- **parallel feature work:** use [`m8shift-worktree.py`](./worktree-toolbox), which
+  creates isolated git worktrees and serializes integration through one integration pen.
 
 ```bash
 python3 m8shift.py init --agents claude,codex,gemini
@@ -37,7 +37,7 @@ need an architect/reviewer/integrator split, write that contract into the `--ask
 
 ## When you need real parallelism
 
-Use the worktree companion for isolated branches:
+Use the [worktree companion](./worktree-toolbox) for isolated branches:
 
 ```bash
 python3 m8shift-worktree.py claim feature-parser codex --base main

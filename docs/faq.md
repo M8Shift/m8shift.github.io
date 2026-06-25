@@ -39,9 +39,10 @@ agent decides how to act using its own tools and permissions.
 In one shared working tree, no: M8Shift remains a degree-1 relay and exactly one
 agent writes at a time.
 
-For isolated parallel feature work, use the shipped `m8shift-worktree.py` companion.
-It creates separate git worktrees for concurrent workers and keeps integration
-serialized through one shared pen.
+For isolated parallel feature work, use the shipped
+[`m8shift-worktree.py` companion](/guide/worktree-toolbox). It creates separate git
+worktrees for concurrent workers and keeps integration serialized through one shared
+pen.
 
 ## Does M8Shift guarantee that no handoff is ever lost?
 

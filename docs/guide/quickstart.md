@@ -2,8 +2,9 @@
 
 ::: tip Status
 The commands below are the shipped degree-1 relay: one shared pen, any configured
-roster member, one writer at a time. Use the worktree companion only when you need
-isolated parallel feature work.
+roster member, one writer at a time. Use the
+[worktree companion](./worktree-toolbox) only when you need isolated parallel feature
+work.
 :::
 
 ::: tip Naming

@@ -81,6 +81,6 @@ stateDiagram-v2
 
 ::: tip Degree 1 by default
 The core relay supports an N-agent roster, but still only one shared pen. Parallel
-feature work is handled by the optional worktree companion, not by simultaneous writes
-inside the same working tree.
+feature work is handled by the optional [worktree companion](/guide/worktree-toolbox),
+not by simultaneous writes inside the same working tree.
 :::

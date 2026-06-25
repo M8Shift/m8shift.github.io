@@ -53,7 +53,8 @@ py m8shift.py init --agents claude,codex
 ```
 
 If you do not use the installer, download or copy `m8shift.py` first; add
-`m8shift-worktree.py` next to it only if you need isolated parallel work.
+[`m8shift-worktree.py`](./worktree-toolbox) next to it only if you need isolated
+parallel work.
 
 Invoke through the interpreter (`python m8shift.py …` / `py m8shift.py …`); do **not**
 rely on `./m8shift.py`.

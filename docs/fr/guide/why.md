@@ -13,8 +13,9 @@ modes de défaillance prévisibles :
 M8Shift répond pragmatiquement à ces points aujourd'hui : propriété exclusive explicite
 (le stylo), journal de tours immuable, règle « réclamer avant d'écrire », champs
 indicatifs structurés, mémoire, tâches, historique de sessions, garde-fous de boucle et
-compagnon worktree optionnel pour du travail parallèle isolé. Ce qu'il ne fait toujours
-pas : imposer un runtime hébergé ou un ordonnanceur complet de dépendances.
+[compagnon worktree optionnel](./worktree-toolbox) pour du travail parallèle isolé. Ce
+qu'il ne fait toujours pas : imposer un runtime hébergé ou un ordonnanceur complet de
+dépendances.
 
 ```mermaid
 flowchart LR

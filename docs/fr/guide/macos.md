@@ -25,8 +25,9 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | b
 
 L'installateur télécharge le relais cœur et la boîte à outils worktree optionnelle,
 les vérifie avec `checksums.sha256`, puis lance `init`. Pour une adoption manuelle,
-copiez `m8shift.py` dans le projet et ajoutez `m8shift-worktree.py` à côté seulement
-si vous utilisez le travail parallèle isolé.
+copiez `m8shift.py` dans le projet et ajoutez
+[`m8shift-worktree.py`](./worktree-toolbox) à côté seulement si vous utilisez le
+travail parallèle isolé.
 
 `claude,codex` est le roster d'exemple par défaut. Utilisez `gemini,vibe` ou tout
 nom d'agent coopératif correspondant aux outils que vous lancez réellement.

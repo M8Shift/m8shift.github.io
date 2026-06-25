@@ -41,9 +41,10 @@ destinataire décide comment agir avec ses propres outils et permissions.
 Dans un même répertoire de travail partagé, non : M8Shift reste un relais de degré 1
 et un seul agent écrit à la fois.
 
-Pour du travail parallèle isolé, utilisez le compagnon livré `m8shift-worktree.py`.
-Il crée des worktrees git séparés pour les workers concurrents et garde l'intégration
-sérialisée par un seul stylo partagé.
+Pour du travail parallèle isolé, utilisez le
+[compagnon livré `m8shift-worktree.py`](/fr/guide/worktree-toolbox). Il crée des
+worktrees git séparés pour les workers concurrents et garde l'intégration sérialisée
+par un seul stylo partagé.
 
 ## M8Shift garantit-il qu'aucune passation n'est jamais perdue ?
 
