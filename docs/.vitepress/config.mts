@@ -46,7 +46,7 @@ export default defineConfig({
           { text: 'Concepts', link: '/concepts/' },
           { text: 'Reference', link: '/reference/' },
           { text: 'Security', link: '/security/' },
-          { text: 'Roadmap', link: '/roadmap' },
+          { text: 'Releases / Roadmap', link: '/roadmap' },
           { text: 'More', items: [
             { text: 'Comparison', link: '/comparison' },
             { text: 'FAQ', link: '/faq' },
@@ -124,7 +124,7 @@ export default defineConfig({
           { text: 'Concepts', link: '/fr/concepts/' },
           { text: 'Référence', link: '/fr/reference/' },
           { text: 'Sécurité', link: '/fr/security/' },
-          { text: 'Feuille de route', link: '/fr/roadmap' },
+          { text: 'Releases / Roadmap', link: '/fr/roadmap' },
           { text: 'Plus', items: [
             { text: 'Comparaison', link: '/fr/comparison' },
             { text: 'FAQ', link: '/fr/faq' },

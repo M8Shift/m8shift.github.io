@@ -179,4 +179,4 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
   optional companions; true degree > 1 writes in one shared working tree as a research
   topic rejected for the core in favor of isolated worktrees.
 
-[Read the roadmap →](/roadmap)
+[Read releases / roadmap →](/roadmap)

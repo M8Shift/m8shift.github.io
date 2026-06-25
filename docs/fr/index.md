@@ -180,4 +180,4 @@ L'implémentation livrée de M8Shift et les étapes de protocole planifiées son
   comme compagnons optionnels ; véritables écritures de degré > 1 dans un même working tree
   comme sujet de recherche rejeté pour le cœur au profit des worktrees isolés.
 
-[Lire la roadmap →](/fr/roadmap)
+[Lire les releases / roadmap →](/fr/roadmap)
