@@ -140,6 +140,30 @@ Richer turn fields (`branch`, `commit`, `tests`, `next`, `blocked_on`, custom
 `x_*` fields) are advisory metadata: M8Shift records them, but does not execute or
 enforce them.
 
+## Frequently asked questions
+
+<p class="m8-section-lead">Common questions about M8Shift and how it works.</p>
+
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/faq#is-m8shift-model-agnostic">
+    <i class="fa-solid fa-robot" aria-hidden="true"></i>
+    <strong>Model-agnostic</strong>
+    <span>Claude, Codex, Gemini, Vibe, local tools — any cooperative agent that can run the relay loop.</span>
+  </a>
+  <a class="m8-faq-card" href="/faq#does-m8shift-need-api-keys">
+    <i class="fa-solid fa-key" aria-hidden="true"></i>
+    <strong>No M8Shift API key</strong>
+    <span>The core makes no model calls and stores no provider credentials. Your agent hosts keep their own auth.</span>
+  </a>
+  <a class="m8-faq-card" href="/faq#can-agents-work-concurrently">
+    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <strong>Parallelism via worktrees</strong>
+    <span>One shared tree stays degree-1; isolated feature work uses the shipped worktree toolbox.</span>
+  </a>
+</div>
+
+[Read the full FAQ →](/faq)
+
 ## Current status
 
 M8Shift's shipped implementation and the planned protocol stages are labelled separately:

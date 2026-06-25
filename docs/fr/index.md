@@ -141,6 +141,30 @@ Des champs de tour plus riches (`branch`, `commit`, `tests`, `next`, `blocked_on
 champs personnalisés `x_*`) sont des métadonnées indicatives : M8Shift les enregistre,
 mais ne les exécute pas et ne les applique pas.
 
+## Questions fréquentes
+
+<p class="m8-section-lead">Questions courantes sur M8Shift et son fonctionnement.</p>
+
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/fr/faq#m8shift-est-il-agnostique-niveau-modeles">
+    <i class="fa-solid fa-robot" aria-hidden="true"></i>
+    <strong>Agnostique niveau modèles</strong>
+    <span>Claude, Codex, Gemini, Vibe, outils locaux — tout agent coopératif capable de suivre la boucle du relais.</span>
+  </a>
+  <a class="m8-faq-card" href="/fr/faq#m8shift-a-t-il-besoin-de-cles-api">
+    <i class="fa-solid fa-key" aria-hidden="true"></i>
+    <strong>Aucune clé API M8Shift</strong>
+    <span>Le cœur ne fait aucun appel modèle et ne stocke aucun identifiant fournisseur. Chaque hôte d'agent garde sa propre auth.</span>
+  </a>
+  <a class="m8-faq-card" href="/fr/faq#les-agents-peuvent-ils-travailler-en-parallele">
+    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <strong>Parallélisme via worktrees</strong>
+    <span>Un même working tree reste en degré 1 ; le travail isolé utilise la boîte à outils worktree livrée.</span>
+  </a>
+</div>
+
+[Lire la FAQ complète →](/fr/faq)
+
 ## État actuel
 
 L'implémentation livrée de M8Shift et les étapes de protocole planifiées sont étiquetées séparément :
