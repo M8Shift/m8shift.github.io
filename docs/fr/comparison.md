@@ -62,3 +62,107 @@ flowchart TD
 ```
 
 *🟠 runtime · 🟣 agents · 🩷 M8Shift · 🟢 dépôt gardé*
+
+## Outils nommés et positionnement
+
+<div class="m8-callout m8-callout--orange">
+  <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+  <div>
+    <strong>Ce n'est pas un benchmark</strong>
+    <p>Ce tableau positionne les outils, il ne les classe pas en qualité. La plupart résolvent une autre couche de la pile : construire, héberger, exécuter, router ou automatiser des agents. M8Shift répond seulement à la coordination du dépôt et à la propriété des passations.</p>
+  </div>
+</div>
+
+<div class="m8-feature-table">
+<table>
+  <thead>
+    <tr>
+      <th>Outil</th>
+      <th>Ce que c'est</th>
+      <th>Comparable à M8Shift ?</th>
+      <th>Comment l'utiliser avec M8Shift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://openclaw.ai/">OpenClaw</a></td>
+      <td>Assistant IA personnel et gateway locale pour agir via des canaux comme messageries, inbox, calendrier, apps de l'appareil et skills.</td>
+      <td><strong>Non.</strong> C'est un produit d'assistant et un plan de contrôle. M8Shift est un relais local au dépôt.</td>
+      <td>Utilisez OpenClaw pour exécuter ou exposer un assistant ; utilisez M8Shift dans un dépôt de code quand cet assistant doit se coordonner avec des agents de codage.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph</a></td>
+      <td>Runtime d'orchestration bas niveau pour agents longs et stateful, avec exécution durable, persistance, streaming et human-in-the-loop.</td>
+      <td><strong>Partiellement, mais à une autre couche.</strong> LangGraph orchestre l'exécution des agents ; M8Shift sérialise la propriété d'écriture du dépôt.</td>
+      <td>Utilisez LangGraph pour décider quelle étape d'agent tourne ensuite, puis faites passer les étapes qui écrivent dans le dépôt par M8Shift.</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/microsoft/autogen">AutoGen</a></td>
+      <td>Framework Microsoft multi-agents pour applications IA autonomes ou assistées par humain. Le projet GitHub est désormais marqué en maintenance mode.</td>
+      <td><strong>Historique/partiel.</strong> AutoGen modélise conversations et runtimes d'agents ; il ne remplace pas un stylo au niveau du dépôt.</td>
+      <td>Des agents AutoGen existants peuvent appeler M8Shift avant de toucher un dépôt partagé. Pour les nouveaux projets Microsoft, comparez aussi <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a>.</td>
+    </tr>
+    <tr>
+      <td><a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a></td>
+      <td>Direction successeur pour l'orchestration Microsoft : agents .NET/Python, workflows, état, télémétrie et patterns multi-agents.</td>
+      <td><strong>Complémentaire.</strong> C'est un framework applicatif/runtime ; M8Shift est une primitive de coordination du dépôt.</td>
+      <td>Utilisez Agent Framework pour l'orchestration de workflows et M8Shift comme contrat local pour savoir qui peut écrire dans le dépôt à un instant donné.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.crewai.com/">CrewAI</a></td>
+      <td>Framework/plateforme pour agents, crews, flows, outils, mémoire, knowledge, guardrails, observabilité et automatisations.</td>
+      <td><strong>Partiellement, mais plus large.</strong> CrewAI coordonne le travail d'agents ; M8Shift coordonne l'accès en écriture et le journal des passations d'un dépôt.</td>
+      <td>Laissez CrewAI gérer rôles et tâches ; exigez que tout membre qui modifie le dépôt claim, append et enregistre ses preuves via M8Shift.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.openhands.dev/">OpenHands</a></td>
+      <td>Plateforme d'agents de développement logiciel qui exécute des agents autonomes, souvent en environnements locaux, VM, cloud ou entreprise isolés.</td>
+      <td><strong>Le plus proche côté domaine.</strong> Il vise le travail de code de bout en bout ; M8Shift est plus petit et garde seulement la coordination du dépôt partagé.</td>
+      <td>Utilisez OpenHands si vous voulez une plateforme complète d'agents de code. Utilisez M8Shift si plusieurs agents, y compris des agents de type OpenHands, ont besoin d'un mutex simple et d'une trace d'audit.</td>
+    </tr>
+    <tr>
+      <td><a href="https://developers.openai.com/api/docs/guides/agents">OpenAI Agents SDK</a></td>
+      <td>SDK pour applications qui possèdent l'orchestration d'agents, l'exécution d'outils, les validations, l'état et la collaboration multi-agents.</td>
+      <td><strong>Complémentaire.</strong> Il construit des applications d'agents ; M8Shift garde les passations de dépôt explicites et locales.</td>
+      <td>Utilisez le SDK pour l'orchestration modèle/outils. Ajoutez les commandes M8Shift autour des mutations de fichiers quand plusieurs agents partagent un dépôt.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.dify.ai/en/home">Dify</a></td>
+      <td>Plateforme open source pour applications IA, agents, workflows agentiques, chatbots, apps avec données et publication d'API.</td>
+      <td><strong>Non, sauf comme infrastructure adjacente.</strong> Dify construit et sert des apps IA ; M8Shift coordonne le travail sur dépôt.</td>
+      <td>Utilisez Dify pour des workflows IA orientés produit. Si une exécution déclenchée par Dify édite un dépôt, faites-lui respecter M8Shift.</td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.n8n.io/advanced-ai/">Workflows IA n8n</a></td>
+      <td>Plateforme d'automatisation de workflows avec nœuds IA, chatbot, LangChain et intégrations.</td>
+      <td><strong>Non.</strong> n8n est une infrastructure d'automatisation déterministe ; M8Shift est un protocole local de tour de rôle pour agents de code.</td>
+      <td>Utilisez n8n pour déclencher jobs, notifications et intégrations. Utilisez M8Shift seulement quand ces jobs entrent dans un dépôt de code partagé.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+## Version courte
+
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/fr/reference/features">
+    <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+    <strong>M8Shift</strong>
+    <span>À choisir quand la vraie question est qui possède l'écriture dans le dépôt et comment la passation est tracée.</span>
+  </a>
+  <a class="m8-doc-card" href="https://docs.langchain.com/oss/python/langgraph/overview">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>LangGraph / MAF</strong>
+    <span>À choisir quand la vraie question est l'orchestration durable de graphes ou workflows.</span>
+  </a>
+  <a class="m8-doc-card" href="https://docs.crewai.com/">
+    <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+    <strong>CrewAI / AutoGen</strong>
+    <span>À choisir quand la vraie question est la collaboration entre agents, rôles, outils et conversations.</span>
+  </a>
+  <a class="m8-doc-card" href="https://www.openhands.dev/">
+    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <strong>OpenHands</strong>
+    <span>À choisir quand la vraie question est l'exécution d'agents de code autonomes comme plateforme.</span>
+  </a>
+</div>
