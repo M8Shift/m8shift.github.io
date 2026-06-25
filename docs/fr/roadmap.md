@@ -5,27 +5,25 @@ survivra peut-être à cet acte radical d'honnêteté.
 
 ## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Releases
 
-De la plus récente à la plus ancienne. `tagged` signifie qu'un tag Git existe dans le
-dépôt source ; `main` signifie que la version est présente sur la branche principale
-actuelle et attend le prochain tag public.
+De la plus récente à la plus ancienne. La version courante est indiquée par un badge.
 
 | Version | Statut | Contenu livré |
 |---------|--------|---------------|
-| `v3.13.0` | `main` / tag en attente | Validation des contrats Stage 4 : `contract validate`, `doctor --contracts`, flags contrat dédiés sur `append`, IDs/events du runner headless, checksums mis à jour et documentation alignée. |
-| `v3.12.1` | historique mainline | Horodatages humains préfixés par le fuseau (`CEST 2026-…`, fallback `local`), installateur PowerShell Windows, checksums mis à jour, FAQ enrichie, docs release/install, liens vers la boîte à outils worktree, et rafraîchissement du site. |
-| `v3.9.0` | tagged | Garde-fous de boucle : `next`, `status --for`, `append --wait`, plus le refus de live-lock sur `next --force` avec verrou actif. |
-| `v3.8.0` | tagged | Historique de sessions et affichage de l'heure locale humaine à côté de l'UTC. |
-| `v3.7.0` | tagged | `doctor`, socle de l'historique de sessions, version lockstep sur les scripts distribués, renommage des tests, RFC runtime/session, et hygiène documentaire. |
-| `v3.5.0` | tagged | Compagnon opt-in `m8shift-worktree.py` : worktrees git isolés pour le travail parallèle et stylo d'intégration sérialisé. |
-| `v3.4.x` | tagged | Registre de tâches, version stamp / `--version`, corrections de revue sur runner et `claim --check`, et nettoyage d'audit autour de la doc N-agent. |
-| `v3.3.0` | tagged | `claim --check`, sonde consultative en lecture seule pour les chevauchements de fichiers touchés par d'autres agents. |
-| `v3.2.0` | tagged | Mémoire partagée via `remember`, notes durables et titres de mémoire dans `recap`. |
-| `v3.1.0` | tagged | Champs indicatifs sur `append` : branch, commit, tests, next, blocked-on, et champs personnalisés `x_*`. |
-| `v3.0.0` | tagged | Renommage M8Shift-only, cœur anglais, packs de langues injectables et outillage de build localisé. |
-| `v2.4.0` | tagged | Relais N-agent de l'étape 2 : roster configurable et passations dirigées vers tout agent actif. |
-| `v2.3.0` | tagged | Surfaces de lecture : `recap`, `peek`, `log` et `status --json`. |
-| `v2.2.x` / `v2.1.x` / `v2.0.0` | tagged | Phases de rebrand M8Shift, renommage technique, transition rétrocompatible, i18n EN/FR et structure de dépôt public. |
-| `v1.x` | tagged | Protocole de relais initial : claim-before-work, stylo exclusif, ancrages canoniques, fichiers ponts et premières docs VS Code/utilisateur. |
+| `v3.13.0` | <Badge type="tip" text="current" /> | Validation des contrats Stage 4 : `contract validate`, `doctor --contracts`, flags contrat dédiés sur `append`, IDs/events du runner headless, checksums mis à jour et documentation alignée. |
+| `v3.12.1` | | Horodatages humains préfixés par le fuseau (`CEST 2026-…`, fallback `local`), installateur PowerShell Windows, checksums mis à jour, FAQ enrichie, docs release/install, liens vers la boîte à outils worktree, et rafraîchissement du site. |
+| `v3.9.0` | | Garde-fous de boucle : `next`, `status --for`, `append --wait`, plus le refus de live-lock sur `next --force` avec verrou actif. |
+| `v3.8.0` | | Historique de sessions et affichage de l'heure locale humaine à côté de l'UTC. |
+| `v3.7.0` | | `doctor`, socle de l'historique de sessions, version lockstep sur les scripts distribués, renommage des tests, RFC runtime/session, et hygiène documentaire. |
+| `v3.5.0` | | Compagnon opt-in `m8shift-worktree.py` : worktrees git isolés pour le travail parallèle et stylo d'intégration sérialisé. |
+| `v3.4.x` | | Registre de tâches, version stamp / `--version`, corrections de revue sur runner et `claim --check`, et nettoyage d'audit autour de la doc N-agent. |
+| `v3.3.0` | | `claim --check`, sonde consultative en lecture seule pour les chevauchements de fichiers touchés par d'autres agents. |
+| `v3.2.0` | | Mémoire partagée via `remember`, notes durables et titres de mémoire dans `recap`. |
+| `v3.1.0` | | Champs indicatifs sur `append` : branch, commit, tests, next, blocked-on, et champs personnalisés `x_*`. |
+| `v3.0.0` | | Renommage M8Shift-only, cœur anglais, packs de langues injectables et outillage de build localisé. |
+| `v2.4.0` | | Relais N-agent de l'étape 2 : roster configurable et passations dirigées vers tout agent actif. |
+| `v2.3.0` | | Surfaces de lecture : `recap`, `peek`, `log` et `status --json`. |
+| `v2.2.x` / `v2.1.x` / `v2.0.0` | | Phases de rebrand M8Shift, renommage technique, transition rétrocompatible, i18n EN/FR et structure de dépôt public. |
+| `v1.x` | | Protocole de relais initial : claim-before-work, stylo exclusif, ancrages canoniques, fichiers ponts et premières docs VS Code/utilisateur. |
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Étapes de roadmap
 

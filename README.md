@@ -71,6 +71,7 @@ API key, or server runtime is required.
 ## Included content
 
 - product homepage;
+- practical use cases;
 - why M8Shift;
 - five-minute quickstart;
 - core concepts (pen, agents/roster, relations, handoff contracts, validation);

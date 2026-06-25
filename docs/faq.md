@@ -5,7 +5,7 @@ Common questions about M8Shift and how it works.
 ## Is M8Shift model-agnostic?
 
 Yes. M8Shift coordinates **agents**, not models. It works with Claude, Codex,
-Gemini, Vibe, Le Chat, local model tools, or any other cooperative coding agent that
+Gemini, Vibe, local model tools, or any other cooperative coding agent that
 can read its instructions, run a shell command, and respect the `claim → work →
 append` loop.
 

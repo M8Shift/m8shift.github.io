@@ -5,26 +5,25 @@ this radical act of honesty.
 
 ## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Releases
 
-Newest first. `tagged` means a Git tag exists in the source repository; `main` means
-the version is present on the current mainline and is awaiting the next public tag.
+Newest first. The current version is marked with a badge.
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.13.0` | `main` / pending tag | Stage-4 contract validation: `contract validate`, `doctor --contracts`, dedicated contract flags on `append`, headless runner run IDs/lifecycle events, updated checksums, and documentation alignment. |
-| `v3.12.1` | mainline history | Timezone-prefixed human timestamps (`CEST 2026-…`, fallback `local`), Windows PowerShell installer, checksum refresh, FAQ expansion, release/install docs, worktree toolbox links, and site documentation refresh. |
-| `v3.9.0` | tagged | Relay loop guardrails: `next`, `status --for`, `append --wait`, plus the `next --force` live-lock refusal fix. |
-| `v3.8.0` | tagged | Session history and human local-time display next to UTC. |
-| `v3.7.0` | tagged | `doctor`, session history groundwork, version lockstep across distributed scripts, test rename, runtime/session RFCs, and documentation hygiene. |
-| `v3.5.0` | tagged | Opt-in `m8shift-worktree.py` companion: isolated git worktrees for parallel feature work and one serialized integration pen. |
-| `v3.4.x` | tagged | Task ledger, version stamp / `--version`, runner and claim-check review fixes, and audit cleanup around N-agent documentation. |
-| `v3.3.0` | tagged | `claim --check`, a read-only advisory overlap probe for files touched by other agents. |
-| `v3.2.0` | tagged | Shared memory via `remember`, durable notes, and recap headlines. |
-| `v3.1.0` | tagged | Advisory turn fields on `append`: branch, commit, tests, next, blocked-on, and custom `x_*` fields. |
-| `v3.0.0` | tagged | M8Shift-only rename, English core, injectable language packs, and localized build tooling. |
-| `v2.4.0` | tagged | Stage-2 N-agent relay: configurable roster and directed handoffs to any active agent. |
-| `v2.3.0` | tagged | Read surfaces: `recap`, `peek`, `log`, and `status --json`. |
-| `v2.2.x` / `v2.1.x` / `v2.0.0` | tagged | M8Shift rebrand phases, technical rename, backwards-compatible transition, i18n EN/FR, and public repository layout. |
-| `v1.x` | tagged | Original relay protocol: claim-before-work, exclusive pen, canonical anchors, bridge files, and early VS Code/user documentation. |
+| `v3.13.0` | <Badge type="tip" text="current" /> | Stage-4 contract validation: `contract validate`, `doctor --contracts`, dedicated contract flags on `append`, headless runner run IDs/lifecycle events, updated checksums, and documentation alignment. |
+| `v3.12.1` | | Timezone-prefixed human timestamps (`CEST 2026-…`, fallback `local`), Windows PowerShell installer, checksum refresh, FAQ expansion, release/install docs, worktree toolbox links, and site documentation refresh. |
+| `v3.9.0` | | Relay loop guardrails: `next`, `status --for`, `append --wait`, plus the `next --force` live-lock refusal fix. |
+| `v3.8.0` | | Session history and human local-time display next to UTC. |
+| `v3.7.0` | | `doctor`, session history groundwork, version lockstep across distributed scripts, test rename, runtime/session RFCs, and documentation hygiene. |
+| `v3.5.0` | | Opt-in `m8shift-worktree.py` companion: isolated git worktrees for parallel feature work and one serialized integration pen. |
+| `v3.4.x` | | Task ledger, version stamp / `--version`, runner and claim-check review fixes, and audit cleanup around N-agent documentation. |
+| `v3.3.0` | | `claim --check`, a read-only advisory overlap probe for files touched by other agents. |
+| `v3.2.0` | | Shared memory via `remember`, durable notes, and recap headlines. |
+| `v3.1.0` | | Advisory turn fields on `append`: branch, commit, tests, next, blocked-on, and custom `x_*` fields. |
+| `v3.0.0` | | M8Shift-only rename, English core, injectable language packs, and localized build tooling. |
+| `v2.4.0` | | Stage-2 N-agent relay: configurable roster and directed handoffs to any active agent. |
+| `v2.3.0` | | Read surfaces: `recap`, `peek`, `log`, and `status --json`. |
+| `v2.2.x` / `v2.1.x` / `v2.0.0` | | M8Shift rebrand phases, technical rename, backwards-compatible transition, i18n EN/FR, and public repository layout. |
+| `v1.x` | | Original relay protocol: claim-before-work, exclusive pen, canonical anchors, bridge files, and early VS Code/user documentation. |
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Roadmap stages
 

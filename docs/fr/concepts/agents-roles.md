@@ -18,7 +18,7 @@ injectée :
 | Agent | Fichier d'ancrage |
 | --- | --- |
 | `claude` | `CLAUDE.md` |
-| `codex`, `lechat`, `mistral` | `AGENTS.md` (+ `AGENTS.override.md` s'il est présent) |
+| `codex`, `vibe`, `mistral` | `AGENTS.md` (+ `AGENTS.override.md` s'il est présent) |
 | `gemini` | `GEMINI.md` |
 
 La strophe est injectée de façon idempotente en tête du fichier ; le contenu précédent est

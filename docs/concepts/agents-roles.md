@@ -17,7 +17,7 @@ Each agent gets a canonical **anchor** file where the protocol stanza is injecte
 | Agent | Anchor |
 | --- | --- |
 | `claude` | `CLAUDE.md` |
-| `codex`, `lechat`, `mistral` | `AGENTS.md` (+ `AGENTS.override.md` if present) |
+| `codex`, `vibe`, `mistral` | `AGENTS.md` (+ `AGENTS.override.md` if present) |
 | `gemini` | `GEMINI.md` |
 
 The stanza is injected idempotently at the top of the file; the previous content is

@@ -6,7 +6,7 @@ titleTemplate: AI agents, working in shifts.
 
 hero:
   name: ""
-  text: <img src="/logo-wordmark.svg" alt="M8Shift wordmark" />AI agents,<br>Working in shifts.
+  text: <img src="/logo-wordmark.png" alt="M8Shift wordmark" id="m8shift-title" />AI agents,<br>Working in shifts.
   tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost (subject, naturally, to good agent cooperation).
   image:
     src: /logo.png
@@ -31,7 +31,7 @@ features:
     details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
   - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
     title: Configurable roster
-    details: Declare the agents that may take turns (claude, codex, gemini, le chat…). Any active member can receive the pen; the core stays a strict degree-1 relay.
+    details: Declare the agents that may take turns (claude, codex, gemini, vibe…). Any active member can receive the pen; the core stays a strict degree-1 relay.
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Provider-neutral
     details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
@@ -47,27 +47,71 @@ features:
 ## Quick Start
 
 <div class="m8-quickstart">
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-macos" checked>
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-linux">
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-windows">
   <div class="m8-quickstart__bar">
     <div class="m8-quickstart__lights" aria-hidden="true">
       <span></span><span></span><span></span>
     </div>
     <div class="m8-quickstart__tabs">
-      <span class="is-active">One-liner</span>
-      <span>macOS &amp; Linux</span>
-      <span>Windows</span>
+      <label for="m8-quickstart-en-macos">macOS</label>
+      <label for="m8-quickstart-en-linux">Linux</label>
+      <label for="m8-quickstart-en-windows">Windows</label>
     </div>
     <div class="m8-quickstart__badge">local install</div>
   </div>
   <div class="m8-quickstart__body">
-    <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Verifies the CLI + worktree toolbox, installs them locally, then runs init.</p>
-    <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
+    <div class="m8-quickstart__panel m8-quickstart__panel--macos">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Terminal install for macOS. Verifies files, installs locally, then runs init.</p>
+      <pre><code><span class="m8-prompt">$</span> cd /path/to/project
+<span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+    </div>
+    <div class="m8-quickstart__panel m8-quickstart__panel--linux">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change.</p>
+      <pre><code><span class="m8-prompt">$</span> cd /path/to/project
+<span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+    </div>
+    <div class="m8-quickstart__panel m8-quickstart__panel--windows">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Native PowerShell install for Windows. Verification is enabled by default.</p>
+      <pre><code><span class="m8-prompt">PS&gt;</span> cd C:\path\to\project
 <span class="m8-prompt">PS&gt;</span> irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex</code></pre>
+    </div>
   </div>
   <div class="m8-quickstart__foot">
     <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
-    <a href="/guide/windows">Windows guide</a>
+    <span class="m8-quickstart__links"><a href="/guide/macos">macOS</a><a href="/guide/linux">Linux</a><a href="/guide/windows">Windows</a></span>
   </div>
 </div>
+
+## Practical Use Cases
+
+<p class="m8-section-lead">M8Shift helps when one assistant is not enough and the work benefits from explicit roles, handoffs, and review.</p>
+
+<div class="m8-usecase-grid">
+  <a class="m8-usecase-card" href="/use-cases#build-software">
+    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <strong>Build software</strong>
+    <span>Split planning, implementation, review, tests, documentation, and release notes between specialized agents.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#write-a-book">
+    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <strong>Write long-form content</strong>
+    <span>Use coordinator, writer, reviewer, and editor roles to draft chapters without losing structure or tone.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#design-a-website">
+    <i class="fa-solid fa-window-maximize" aria-hidden="true"></i>
+    <strong>Design a website</strong>
+    <span>Coordinate information architecture, landing page copy, docs, FAQ, and implementation-ready content.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#review-and-quality-control">
+    <i class="fa-solid fa-magnifying-glass-check" aria-hidden="true"></i>
+    <strong>Review and validate</strong>
+    <span>Separate production from validation so the agent that creates the work is not the only one approving it.</span>
+  </a>
+</div>
+
+[Explore all use cases →](/use-cases)
 
 ## Coordination, not another agent platform
 
@@ -176,9 +220,9 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
   and EN/FR generated output;
 - **available as an opt-in companion:** [`m8shift-worktree.py`](/guide/worktree-toolbox)
   for isolated feature worktrees plus one serialized integration pen;
-- **Stage 6 local integration layer shipped:** install scripts, checksums, verify-by-default,
-  `watch`, site/docs sync, and the reference headless runner with run IDs/lifecycle events;
-  provider management, IDE/MCP adapters, optional notifications, and hosted/runtime control plane
-  are deferred to post-Stage-6 companions.
+- **partially implemented Stage 6:** install scripts, checksums, `watch`, site/docs sync,
+  and the reference headless runner with run IDs/lifecycle events are available; provider
+  management, IDE/MCP adapters, optional notifications, and hosted/runtime control plane remain
+  companion work.
 
 [Read releases / roadmap →](/roadmap)

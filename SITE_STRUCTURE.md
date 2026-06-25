@@ -34,6 +34,7 @@ docs/
 │   ├── index.md
 │   ├── threat-model.md
 │   └── permissions.md
+├── use-cases.md
 ├── comparison.md
 ├── faq.md
 ├── roadmap.md
@@ -48,7 +49,7 @@ docs/
 Guide | Concepts | Reference | Security | Roadmap | More ▾ | language ▾
 ```
 
-`More ▾` holds Comparison, FAQ, Contributing, License.
+`More ▾` holds Use cases, Comparison, FAQ, Contributing, License.
 
 ## Homepage message hierarchy
 

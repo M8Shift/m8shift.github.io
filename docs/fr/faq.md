@@ -5,7 +5,7 @@ Questions courantes sur M8Shift et son fonctionnement.
 ## M8Shift est-il agnostique niveau modèles ?
 
 Oui. M8Shift coordonne des **agents**, pas des modèles. Il fonctionne avec Claude,
-Codex, Gemini, Vibe, Le Chat, des outils de modèles locaux, ou n'importe quel autre
+Codex, Gemini, Vibe, des outils de modèles locaux, ou n'importe quel autre
 agent de codage coopératif capable de lire ses instructions, lancer une commande
 shell et respecter la boucle `claim → travail → append`.
 

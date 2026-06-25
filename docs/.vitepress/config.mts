@@ -26,10 +26,10 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'M8Shift — AI agents, working in shifts.' }],
     ['meta', { property: 'og:description', content: 'A local coordination layer for AI coding agents.' }],
-    ['link', { rel: 'icon', href: '/favicon.svg' }]
+    ['link', { rel: 'icon', href: '/M8Shift-icone-white.png' }]
   ],
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/M8Shift-icone-white.png',
     siteTitle: 'M8Shift',
     search: { provider: 'local' },
     socialLinks: [
@@ -47,60 +47,75 @@ export default defineConfig({
           { text: 'Reference', link: '/reference/' },
           { text: 'Security', link: '/security/' },
           { text: 'Releases / Roadmap', link: '/roadmap' },
-          { text: 'More', items: [
-            { text: 'Comparison', link: '/comparison' },
-            { text: 'FAQ', link: '/faq' },
-            { text: 'Contributing', link: '/contributing' },
-            { text: 'License', link: '/license' }
-          ] }
+          {
+            text: 'More', items: [
+              { text: 'Use cases', link: '/use-cases' },
+              { text: 'Comparison', link: '/comparison' },
+              { text: 'FAQ', link: '/faq' },
+              { text: 'Contributing', link: '/contributing' },
+              { text: 'License', link: '/license' }
+            ]
+          }
         ],
         sidebar: {
           '/guide/': [
-            { text: 'Getting started', items: [
-              { text: 'Overview', link: '/guide/' },
-              { text: 'Why M8Shift', link: '/guide/why' },
-              { text: 'Quickstart', link: '/guide/quickstart' },
-              { text: 'VS Code', link: '/guide/vscode' },
-              { text: 'Headless runner', link: '/guide/headless' }
-            ] },
-            { text: 'Installation', items: [
-              { text: 'Windows', link: '/guide/windows' },
-              { text: 'Linux', link: '/guide/linux' },
-              { text: 'macOS', link: '/guide/macos' }
-            ] },
-            { text: 'Workflows', items: [
-              { text: 'Two-agent relay', link: '/guide/two-agent-relay' },
-              { text: 'Multi-agent workflow', link: '/guide/multi-agent' },
-              { text: 'Worktree toolbox', link: '/guide/worktree-toolbox' }
-            ] }
+            {
+              text: 'Getting started', items: [
+                { text: 'Overview', link: '/guide/' },
+                { text: 'Why M8Shift', link: '/guide/why' },
+                { text: 'Quickstart', link: '/guide/quickstart' },
+                { text: 'VS Code', link: '/guide/vscode' },
+                { text: 'Headless runner', link: '/guide/headless' }
+              ]
+            },
+            {
+              text: 'Installation', items: [
+                { text: 'Windows', link: '/guide/windows' },
+                { text: 'Linux', link: '/guide/linux' },
+                { text: 'macOS', link: '/guide/macos' }
+              ]
+            },
+            {
+              text: 'Workflows', items: [
+                { text: 'Two-agent relay', link: '/guide/two-agent-relay' },
+                { text: 'Multi-agent workflow', link: '/guide/multi-agent' },
+                { text: 'Worktree toolbox', link: '/guide/worktree-toolbox' }
+              ]
+            }
           ],
           '/concepts/': [
-            { text: 'Core concepts', items: [
-              { text: 'Overview', link: '/concepts/' },
-              { text: 'The pen', link: '/concepts/pen' },
-              { text: 'Agents and roles', link: '/concepts/agents-roles' },
-              { text: 'Relations', link: '/concepts/relations' },
-              { text: 'Handoff contracts', link: '/concepts/handoff-contracts' },
-              { text: 'Validation', link: '/concepts/validation' }
-            ] }
+            {
+              text: 'Core concepts', items: [
+                { text: 'Overview', link: '/concepts/' },
+                { text: 'The pen', link: '/concepts/pen' },
+                { text: 'Agents and roles', link: '/concepts/agents-roles' },
+                { text: 'Relations', link: '/concepts/relations' },
+                { text: 'Handoff contracts', link: '/concepts/handoff-contracts' },
+                { text: 'Validation', link: '/concepts/validation' }
+              ]
+            }
           ],
           '/reference/': [
-            { text: 'Reference', items: [
-              { text: 'Overview', link: '/reference/' },
-              { text: 'CLI', link: '/reference/cli' },
-              { text: 'State model', link: '/reference/state-model' },
-              { text: 'Turn schema', link: '/reference/contract-schema' },
-              { text: 'Generated files', link: '/reference/generated-files' },
-              { text: 'Exit codes', link: '/reference/exit-codes' },
-              { text: 'Limitations', link: '/reference/limitations' }
-            ] }
+            {
+              text: 'Reference', items: [
+                { text: 'Overview', link: '/reference/' },
+                { text: 'CLI', link: '/reference/cli' },
+                { text: 'State model', link: '/reference/state-model' },
+                { text: 'Turn schema', link: '/reference/contract-schema' },
+                { text: 'Generated files', link: '/reference/generated-files' },
+                { text: 'Exit codes', link: '/reference/exit-codes' },
+                { text: 'Limitations', link: '/reference/limitations' }
+              ]
+            }
           ],
           '/security/': [
-            { text: 'Security', items: [
-              { text: 'Security model', link: '/security/' },
-              { text: 'Threat model', link: '/security/threat-model' },
-              { text: 'Permissions', link: '/security/permissions' }
-            ] }
+            {
+              text: 'Security', items: [
+                { text: 'Security model', link: '/security/' },
+                { text: 'Threat model', link: '/security/threat-model' },
+                { text: 'Permissions', link: '/security/permissions' }
+              ]
+            }
           ]
         },
         editLink: {
@@ -125,60 +140,75 @@ export default defineConfig({
           { text: 'Référence', link: '/fr/reference/' },
           { text: 'Sécurité', link: '/fr/security/' },
           { text: 'Releases / Roadmap', link: '/fr/roadmap' },
-          { text: 'Plus', items: [
-            { text: 'Comparaison', link: '/fr/comparison' },
-            { text: 'FAQ', link: '/fr/faq' },
-            { text: 'Contribuer', link: '/fr/contributing' },
-            { text: 'Licence', link: '/fr/license' }
-          ] }
+          {
+            text: 'Plus', items: [
+              { text: "Cas d'usage", link: '/fr/use-cases' },
+              { text: 'Comparaison', link: '/fr/comparison' },
+              { text: 'FAQ', link: '/fr/faq' },
+              { text: 'Contribuer', link: '/fr/contributing' },
+              { text: 'Licence', link: '/fr/license' }
+            ]
+          }
         ],
         sidebar: {
           '/fr/guide/': [
-            { text: 'Prise en main', items: [
-              { text: 'Aperçu', link: '/fr/guide/' },
-              { text: 'Pourquoi M8Shift', link: '/fr/guide/why' },
-              { text: 'Démarrage rapide', link: '/fr/guide/quickstart' },
-              { text: 'VS Code', link: '/fr/guide/vscode' },
-              { text: 'Exécution headless', link: '/fr/guide/headless' }
-            ] },
-            { text: 'Installation', items: [
-              { text: 'Windows', link: '/fr/guide/windows' },
-              { text: 'Linux', link: '/fr/guide/linux' },
-              { text: 'macOS', link: '/fr/guide/macos' }
-            ] },
-            { text: 'Flux de travail', items: [
-              { text: 'Relais à deux agents', link: '/fr/guide/two-agent-relay' },
-              { text: 'Flux multi-agents', link: '/fr/guide/multi-agent' },
-              { text: 'Boîte à outils worktree', link: '/fr/guide/worktree-toolbox' }
-            ] }
+            {
+              text: 'Prise en main', items: [
+                { text: 'Aperçu', link: '/fr/guide/' },
+                { text: 'Pourquoi M8Shift', link: '/fr/guide/why' },
+                { text: 'Démarrage rapide', link: '/fr/guide/quickstart' },
+                { text: 'VS Code', link: '/fr/guide/vscode' },
+                { text: 'Exécution headless', link: '/fr/guide/headless' }
+              ]
+            },
+            {
+              text: 'Installation', items: [
+                { text: 'Windows', link: '/fr/guide/windows' },
+                { text: 'Linux', link: '/fr/guide/linux' },
+                { text: 'macOS', link: '/fr/guide/macos' }
+              ]
+            },
+            {
+              text: 'Flux de travail', items: [
+                { text: 'Relais à deux agents', link: '/fr/guide/two-agent-relay' },
+                { text: 'Flux multi-agents', link: '/fr/guide/multi-agent' },
+                { text: 'Boîte à outils worktree', link: '/fr/guide/worktree-toolbox' }
+              ]
+            }
           ],
           '/fr/concepts/': [
-            { text: 'Concepts clés', items: [
-              { text: 'Aperçu', link: '/fr/concepts/' },
-              { text: 'Le stylo', link: '/fr/concepts/pen' },
-              { text: 'Agents et rôles', link: '/fr/concepts/agents-roles' },
-              { text: 'Relations', link: '/fr/concepts/relations' },
-              { text: 'Contrats de passation', link: '/fr/concepts/handoff-contracts' },
-              { text: 'Validation', link: '/fr/concepts/validation' }
-            ] }
+            {
+              text: 'Concepts clés', items: [
+                { text: 'Aperçu', link: '/fr/concepts/' },
+                { text: 'Le stylo', link: '/fr/concepts/pen' },
+                { text: 'Agents et rôles', link: '/fr/concepts/agents-roles' },
+                { text: 'Relations', link: '/fr/concepts/relations' },
+                { text: 'Contrats de passation', link: '/fr/concepts/handoff-contracts' },
+                { text: 'Validation', link: '/fr/concepts/validation' }
+              ]
+            }
           ],
           '/fr/reference/': [
-            { text: 'Référence', items: [
-              { text: 'Aperçu', link: '/fr/reference/' },
-              { text: 'CLI', link: '/fr/reference/cli' },
-              { text: 'Modèle d’états', link: '/fr/reference/state-model' },
-              { text: 'Schéma de tour', link: '/fr/reference/contract-schema' },
-              { text: 'Fichiers générés', link: '/fr/reference/generated-files' },
-              { text: 'Codes de sortie', link: '/fr/reference/exit-codes' },
-              { text: 'Limites', link: '/fr/reference/limitations' }
-            ] }
+            {
+              text: 'Référence', items: [
+                { text: 'Aperçu', link: '/fr/reference/' },
+                { text: 'CLI', link: '/fr/reference/cli' },
+                { text: 'Modèle d’états', link: '/fr/reference/state-model' },
+                { text: 'Schéma de tour', link: '/fr/reference/contract-schema' },
+                { text: 'Fichiers générés', link: '/fr/reference/generated-files' },
+                { text: 'Codes de sortie', link: '/fr/reference/exit-codes' },
+                { text: 'Limites', link: '/fr/reference/limitations' }
+              ]
+            }
           ],
           '/fr/security/': [
-            { text: 'Sécurité', items: [
-              { text: 'Modèle de sécurité', link: '/fr/security/' },
-              { text: 'Modèle de menaces', link: '/fr/security/threat-model' },
-              { text: 'Permissions', link: '/fr/security/permissions' }
-            ] }
+            {
+              text: 'Sécurité', items: [
+                { text: 'Modèle de sécurité', link: '/fr/security/' },
+                { text: 'Modèle de menaces', link: '/fr/security/threat-model' },
+                { text: 'Permissions', link: '/fr/security/permissions' }
+              ]
+            }
           ]
         },
         editLink: {
