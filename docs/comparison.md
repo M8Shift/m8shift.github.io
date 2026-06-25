@@ -1,3 +1,7 @@
+---
+aside: false
+---
+
 # Comparison
 
 <div class="m8-doc-grid">
@@ -69,77 +73,47 @@ flowchart TD
   <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
   <div>
     <strong>Not a benchmark</strong>
-    <p>This is a positioning table, not a quality ranking. Most tools below solve a different layer of the stack: they build, host, run, route, or automate agents. M8Shift only answers repository coordination and handoff ownership.</p>
+    <p>This is a positioning guide, not a quality ranking. Most tools below solve a different layer of the stack: they build, host, run, route, or automate agents. M8Shift only answers repository coordination and handoff ownership.</p>
   </div>
 </div>
 
-<div class="m8-feature-table">
-<table>
-  <thead>
-    <tr>
-      <th>Tool</th>
-      <th>What it is</th>
-      <th>Comparable to M8Shift?</th>
-      <th>How to use with M8Shift</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://openclaw.ai/">OpenClaw</a></td>
-      <td>Personal AI assistant and local gateway for actions across channels such as chat apps, inbox, calendar, device apps, and skills.</td>
-      <td><strong>No.</strong> It is an assistant product/control plane. M8Shift is a repository-local relay.</td>
-      <td>Use OpenClaw to run or expose an assistant; use M8Shift inside a code repository when that assistant must coordinate with coding agents.</td>
-    </tr>
-    <tr>
-      <td><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph</a></td>
-      <td>Low-level orchestration runtime for long-running, stateful agents with durable execution, persistence, streaming, and human-in-the-loop support.</td>
-      <td><strong>Partly, but at another layer.</strong> LangGraph orchestrates agent execution; M8Shift serializes repository write ownership.</td>
-      <td>Use LangGraph to decide which agent step runs next, then make repository-writing steps acquire and hand off through M8Shift.</td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/microsoft/autogen">AutoGen</a></td>
-      <td>Microsoft multi-agent framework for autonomous or human-assisted AI applications. The GitHub project is now marked maintenance mode.</td>
-      <td><strong>Historical/partial.</strong> AutoGen models agent conversations and runtimes; it does not replace a repo-level pen.</td>
-      <td>Existing AutoGen agents can call M8Shift before touching a shared repository. For new Microsoft work, also compare <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a>.</td>
-    </tr>
-    <tr>
-      <td><a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a></td>
-      <td>Successor direction for Microsoft agent orchestration, with .NET/Python agents, workflows, state management, telemetry, and multi-agent patterns.</td>
-      <td><strong>Complementary.</strong> It is an application/runtime framework; M8Shift is a repository coordination primitive.</td>
-      <td>Use Agent Framework for workflow orchestration and M8Shift as the local contract for who may write to a repo at a given moment.</td>
-    </tr>
-    <tr>
-      <td><a href="https://docs.crewai.com/">CrewAI</a></td>
-      <td>Framework/platform for agents, crews, flows, tools, memory, knowledge, guardrails, observability, and automations.</td>
-      <td><strong>Partly, but broader.</strong> CrewAI coordinates agent work; M8Shift coordinates write access and handoff records for one repository.</td>
-      <td>Let CrewAI manage roles and tasks; require any crew member that changes the repo to claim, append, and record evidence through M8Shift.</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.openhands.dev/">OpenHands</a></td>
-      <td>Software-development agent platform that runs autonomous coding agents, often in isolated local, VM, cloud, or enterprise environments.</td>
-      <td><strong>Closest domain overlap.</strong> It targets end-to-end coding work; M8Shift is smaller and only guards shared repository coordination.</td>
-      <td>Use OpenHands when you want a full coding-agent platform. Use M8Shift when multiple agents, including OpenHands-style agents, need a simple shared-repo mutex and audit trail.</td>
-    </tr>
-    <tr>
-      <td><a href="https://developers.openai.com/api/docs/guides/agents">OpenAI Agents SDK</a></td>
-      <td>SDK for applications that own agent orchestration, tool execution, approvals, state, and multi-agent collaboration.</td>
-      <td><strong>Complementary.</strong> It builds agent applications; M8Shift keeps repository handoffs explicit and local.</td>
-      <td>Use the SDK for model/tool orchestration. Add M8Shift commands around filesystem mutations when several agents share a repository.</td>
-    </tr>
-    <tr>
-      <td><a href="https://docs.dify.ai/en/home">Dify</a></td>
-      <td>Open-source platform for AI applications, agents, agentic workflows, chatbots, data-backed apps, and API publishing.</td>
-      <td><strong>No, except as adjacent workflow infrastructure.</strong> Dify builds and serves AI apps; M8Shift coordinates repository work.</td>
-      <td>Use Dify for product-facing AI workflows. If a Dify-triggered agent edits a repo, have that execution respect M8Shift.</td>
-    </tr>
-    <tr>
-      <td><a href="https://docs.n8n.io/advanced-ai/">n8n AI workflows</a></td>
-      <td>Workflow automation platform with AI workflow, chatbot, LangChain, and integration nodes.</td>
-      <td><strong>No.</strong> n8n is deterministic/automation infrastructure; M8Shift is a local protocol for coding-agent turn-taking.</td>
-      <td>Use n8n to trigger jobs, notifications, and integrations. Use M8Shift only when those jobs enter a shared code repository.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="m8-tool-grid">
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-robot" aria-hidden="true"></i><h3><a href="https://openclaw.ai/">OpenClaw</a></h3><span>No</span></header>
+    <dl><div><dt>What it is</dt><dd>Personal AI assistant and local gateway for actions across channels such as chat apps, inbox, calendar, device apps, and skills.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>No.</strong> It is an assistant product/control plane. M8Shift is a repository-local relay.</dd></div><div><dt>Use with M8Shift</dt><dd>Use OpenClaw to run or expose an assistant; use M8Shift inside a code repository when that assistant must coordinate with coding agents.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><h3><a href="https://docs.langchain.com/oss/python/langgraph/overview">LangGraph</a></h3><span>Partial</span></header>
+    <dl><div><dt>What it is</dt><dd>Low-level orchestration runtime for long-running, stateful agents with durable execution, persistence, streaming, and human-in-the-loop support.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Partly, but at another layer.</strong> LangGraph orchestrates agent execution; M8Shift serializes repository write ownership.</dd></div><div><dt>Use with M8Shift</dt><dd>Use LangGraph to decide which agent step runs next, then make repository-writing steps acquire and hand off through M8Shift.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-comments" aria-hidden="true"></i><h3><a href="https://github.com/microsoft/autogen">AutoGen</a></h3><span>Historical</span></header>
+    <dl><div><dt>What it is</dt><dd>Microsoft multi-agent framework for autonomous or human-assisted AI applications. The GitHub project is now marked maintenance mode.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Historical/partial.</strong> AutoGen models agent conversations and runtimes; it does not replace a repo-level pen.</dd></div><div><dt>Use with M8Shift</dt><dd>Existing AutoGen agents can call M8Shift before touching a shared repository. For new Microsoft work, also compare <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a>.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-sitemap" aria-hidden="true"></i><h3><a href="https://learn.microsoft.com/en-us/agent-framework/overview/">Microsoft Agent Framework</a></h3><span>Complementary</span></header>
+    <dl><div><dt>What it is</dt><dd>Successor direction for Microsoft agent orchestration, with .NET/Python agents, workflows, state management, telemetry, and multi-agent patterns.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Complementary.</strong> It is an application/runtime framework; M8Shift is a repository coordination primitive.</dd></div><div><dt>Use with M8Shift</dt><dd>Use Agent Framework for workflow orchestration and M8Shift as the local contract for who may write to a repo at a given moment.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-users-gear" aria-hidden="true"></i><h3><a href="https://docs.crewai.com/">CrewAI</a></h3><span>Partial</span></header>
+    <dl><div><dt>What it is</dt><dd>Framework/platform for agents, crews, flows, tools, memory, knowledge, guardrails, observability, and automations.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Partly, but broader.</strong> CrewAI coordinates agent work; M8Shift coordinates write access and handoff records for one repository.</dd></div><div><dt>Use with M8Shift</dt><dd>Let CrewAI manage roles and tasks; require any crew member that changes the repo to claim, append, and record evidence through M8Shift.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-code" aria-hidden="true"></i><h3><a href="https://www.openhands.dev/">OpenHands</a></h3><span>Closest</span></header>
+    <dl><div><dt>What it is</dt><dd>Software-development agent platform that runs autonomous coding agents, often in isolated local, VM, cloud, or enterprise environments.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Closest domain overlap.</strong> It targets end-to-end coding work; M8Shift is smaller and only guards shared repository coordination.</dd></div><div><dt>Use with M8Shift</dt><dd>Use OpenHands when you want a full coding-agent platform. Use M8Shift when multiple agents, including OpenHands-style agents, need a simple shared-repo mutex and audit trail.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-cubes" aria-hidden="true"></i><h3><a href="https://developers.openai.com/api/docs/guides/agents">OpenAI Agents SDK</a></h3><span>Complementary</span></header>
+    <dl><div><dt>What it is</dt><dd>SDK for applications that own agent orchestration, tool execution, approvals, state, and multi-agent collaboration.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>Complementary.</strong> It builds agent applications; M8Shift keeps repository handoffs explicit and local.</dd></div><div><dt>Use with M8Shift</dt><dd>Use the SDK for model/tool orchestration. Add M8Shift commands around filesystem mutations when several agents share a repository.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-layer-group" aria-hidden="true"></i><h3><a href="https://docs.dify.ai/en/home">Dify</a></h3><span>No</span></header>
+    <dl><div><dt>What it is</dt><dd>Open-source platform for AI applications, agents, agentic workflows, chatbots, data-backed apps, and API publishing.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>No, except as adjacent workflow infrastructure.</strong> Dify builds and serves AI apps; M8Shift coordinates repository work.</dd></div><div><dt>Use with M8Shift</dt><dd>Use Dify for product-facing AI workflows. If a Dify-triggered agent edits a repo, have that execution respect M8Shift.</dd></div></dl>
+  </article>
+  <article class="m8-tool-card">
+    <header><i class="fa-solid fa-shuffle" aria-hidden="true"></i><h3><a href="https://docs.n8n.io/advanced-ai/">n8n AI workflows</a></h3><span>No</span></header>
+    <dl><div><dt>What it is</dt><dd>Workflow automation platform with AI workflow, chatbot, LangChain, and integration nodes.</dd></div><div><dt>Comparable to M8Shift?</dt><dd><strong>No.</strong> n8n is deterministic/automation infrastructure; M8Shift is a local protocol for coding-agent turn-taking.</dd></div><div><dt>Use with M8Shift</dt><dd>Use n8n to trigger jobs, notifications, and integrations. Use M8Shift only when those jobs enter a shared code repository.</dd></div></dl>
+  </article>
 </div>
 
 ## Short version
