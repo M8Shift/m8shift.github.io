@@ -16,7 +16,7 @@ flowchart LR
     WK --> AP["append --to autre"]
     AP -->|"append --wait"| ST
     AP --> DONE["done"]
-    READ["doctor / contract validate / recap / peek / log / history"] -.-> ST
+    READ["watch / doctor / contract validate / recap / peek / log / history"] -.-> ST
     MEM["remember / task"] -.-> ST
     ARCH["archive"] -.-> ST
 
@@ -61,6 +61,18 @@ python3 m8shift.py status [--for agent] [--json]
 
 - `--for agent` ajoute l'action sûre suivante pour cet agent.
 - `--json` émet un statut lisible par machine avec timestamps UTC.
+
+### `watch`
+
+Réaffiche [`status`](#status) en continu jusqu'à interruption — une vue live, en lecture
+seule, du relais qui évolue. N'écrit jamais, ne `claim` pas, ne vole pas le stylo.
+
+```bash
+python3 m8shift.py watch [--for agent] [--interval N] [--clear] [--changes-only]
+```
+
+- `--interval N` règle l'intervalle de rafraîchissement ; `--changes-only` ne réaffiche
+  qu'au changement ; `--clear` redessine sur place.
 
 ### `doctor`
 
