@@ -23,7 +23,7 @@ the version is present on the current mainline and is awaiting the next public t
 | `v2.4.0` | tagged | Stage-2 N-agent relay: configurable roster and directed handoffs to any active agent. |
 | `v2.3.0` | tagged | Read surfaces: `recap`, `peek`, `log`, and `status --json`. |
 | `v2.2.x` / `v2.1.x` / `v2.0.0` | tagged | M8Shift rebrand phases, technical rename, backwards-compatible transition, i18n EN/FR, and public repository layout. |
-| `v1.x` | tagged | Original CoWork protocol: claim-before-work, exclusive pen, canonical anchors, bridge files, and early VS Code/user documentation. |
+| `v1.x` | tagged | Original relay protocol: claim-before-work, exclusive pen, canonical anchors, bridge files, and early VS Code/user documentation. |
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Roadmap stages
 

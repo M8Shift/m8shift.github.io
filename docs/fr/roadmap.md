@@ -24,7 +24,7 @@ actuelle et attend le prochain tag public.
 | `v2.4.0` | tagged | Relais N-agent de l'étape 2 : roster configurable et passations dirigées vers tout agent actif. |
 | `v2.3.0` | tagged | Surfaces de lecture : `recap`, `peek`, `log` et `status --json`. |
 | `v2.2.x` / `v2.1.x` / `v2.0.0` | tagged | Phases de rebrand M8Shift, renommage technique, transition rétrocompatible, i18n EN/FR et structure de dépôt public. |
-| `v1.x` | tagged | Protocole CoWork initial : claim-before-work, stylo exclusif, ancrages canoniques, fichiers ponts et premières docs VS Code/utilisateur. |
+| `v1.x` | tagged | Protocole de relais initial : claim-before-work, stylo exclusif, ancrages canoniques, fichiers ponts et premières docs VS Code/utilisateur. |
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Étapes de roadmap
 
