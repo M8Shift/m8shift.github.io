@@ -7,6 +7,20 @@ this radical act of honesty.
 
 Newest first. The current version is marked with a badge.
 
+### <i class="fa-solid fa-tags m8-heading-icon" aria-hidden="true"></i> Why the first public release is not `v0.1` or `v1.0`
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+  <div>
+    <strong>The public release does not reset the project history.</strong>
+    <p>M8Shift has already gone through months of cumulative versions while being used to coordinate its own work. The first public release is therefore the version that is actually available and stabilized at publication time, not an artificial <code>v0.1</code> or marketing <code>v1.0</code>.</p>
+  </div>
+</div>
+
+Version numbers follow the working artifact: shipped relay behavior, install scripts,
+checksums, documentation, and validation features. Publishing the project publicly makes
+that accumulated state visible; it does not make the software begin from zero.
+
 | Version | Status | What shipped |
 |---------|--------|--------------|
 | `v3.13.0` | <Badge type="tip" text="current" /> | Stage-4 contract validation: `contract validate`, `doctor --contracts`, dedicated contract flags on `append`, headless runner run IDs/lifecycle events, updated checksums, and documentation alignment. |

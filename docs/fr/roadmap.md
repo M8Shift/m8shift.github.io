@@ -7,6 +7,20 @@ survivra peut-être à cet acte radical d'honnêteté.
 
 De la plus récente à la plus ancienne. La version courante est indiquée par un badge.
 
+### <i class="fa-solid fa-tags m8-heading-icon" aria-hidden="true"></i> Pourquoi la première version publique n'est pas `v0.1` ou `v1.0`
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+  <div>
+    <strong>La publication publique ne remet pas l'historique à zéro.</strong>
+    <p>M8Shift a déjà traversé des mois de versions cumulées en étant utilisé pour coordonner son propre travail. La première version publique est donc la version réellement disponible et stabilisée au moment de la publication, pas un <code>v0.1</code> artificiel ni un <code>v1.0</code> marketing.</p>
+  </div>
+</div>
+
+La numérotation suit l'artefact de travail : comportement du relais livré, scripts
+d'installation, checksums, documentation et fonctions de validation. Publier le projet
+rend cet état accumulé visible ; cela ne fait pas repartir le logiciel de zéro.
+
 | Version | Statut | Contenu livré |
 |---------|--------|---------------|
 | `v3.13.0` | <Badge type="tip" text="current" /> | Validation des contrats Stage 4 : `contract validate`, `doctor --contracts`, flags contrat dédiés sur `append`, IDs/events du runner headless, checksums mis à jour et documentation alignée. |
