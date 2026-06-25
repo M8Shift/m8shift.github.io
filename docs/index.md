@@ -40,7 +40,7 @@ features:
     details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable by design
-    details: Append-only turns, memory notes, tasks, session history, and readable local-time status keep the relay inspectable without a service.
+    details: Append-only turns, memory notes, tasks, session history, and timezone-prefixed local-time status keep the relay inspectable without a service.
 
 ---
 
@@ -171,8 +171,8 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
 - **available now:** exclusive-claim relay, shared lock with stale-lock recovery, the
   immutable turn journal, bounded archiving, configurable roster, structured handoffs,
   `peek`, `recap`, `log`, `history`, `status --json`, `status --for`, `next`,
-  `append --wait`, shared memory notes, task ledger, local-time display, and EN/FR
-  generated output;
+  `append --wait`, shared memory notes, task ledger, timezone-prefixed local-time
+  display, and EN/FR generated output;
 - **available as an opt-in companion:** `m8shift-worktree.py` for isolated feature
   worktrees plus one serialized integration pen;
 - **specified future RFCs:** hosted/runtime control plane and provider management as

@@ -76,8 +76,9 @@ stateDiagram-v2
   l'agent ou un wrapper headless. M8Shift ne tourne **aucun daemon** en arrière-plan : rien ne
   renouvelle le verrou à ta place, et une fois `expires` dépassé, le verrou devient simplement
   réclamable via `claim --force`.
-- Les timestamps sont stockés en UTC. Les commandes humaines affichent aussi un libellé
-  en heure locale ; le JSON conserve les valeurs UTC.
+- Les timestamps sont stockés en UTC. Les commandes humaines affichent aussi l'heure
+  locale préfixée par le nom/offset de fuseau quand disponible (sinon `local`) ; le
+  JSON conserve les valeurs UTC.
 
 ::: tip Degré 1 par défaut
 Le relais cœur accepte un roster N agents, mais conserve un seul stylo partagé. Le

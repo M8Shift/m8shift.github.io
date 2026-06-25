@@ -51,7 +51,8 @@ python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force]
 ### `status`
 
 Print the current lock: holder, state, turn, roster, session, UTC timestamps, and
-human-facing local-time labels.
+human-facing local time prefixed by the timezone name/offset when available
+(otherwise `local`).
 
 ```bash
 python3 m8shift.py status [--for agent] [--json]

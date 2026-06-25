@@ -52,7 +52,8 @@ python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force]
 ### `status`
 
 Affiche le verrou courant : détenteur, état, tour, roster, session, timestamps UTC et
-libellés lisibles en heure locale.
+heure locale lisible préfixée par le nom/offset de fuseau quand disponible
+(sinon `local`).
 
 ```bash
 python3 m8shift.py status [--for agent] [--json]

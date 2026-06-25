@@ -75,8 +75,9 @@ stateDiagram-v2
   `claim <self>`, which resets `expires` to `now + 30 min` — a **manual heartbeat**, run by the
   agent or a headless wrapper. M8Shift runs **no background daemon**: nothing renews the lock for
   you, and once a lock is past `expires` it simply becomes reclaimable with `claim --force`.
-- Timestamps are stored in UTC. Human-facing commands also show local-time labels;
-  JSON keeps UTC values only.
+- Timestamps are stored in UTC. Human-facing commands also show local time prefixed
+  by the timezone name/offset when available (otherwise `local`); JSON keeps UTC
+  values only.
 
 ::: tip Degree 1 by default
 The core relay supports an N-agent roster, but still only one shared pen. Parallel

@@ -40,7 +40,7 @@ features:
     details: Un script Python libre et open source, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable par conception
-    details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale gardent le relais inspectable sans service.
+    details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale préfixé par le fuseau gardent le relais inspectable sans service.
 
 ---
 
@@ -173,7 +173,7 @@ L'implémentation livrée de M8Shift et les étapes de protocole planifiées son
   de verrou périmé, journal de tours immuable, archivage borné, roster configurable,
   passations structurées, `peek`, `recap`, `log`, `history`, `status --json`,
   `status --for`, `next`, `append --wait`, mémoire partagée, registre de tâches,
-  affichage en heure locale, et sortie générée EN/FR ;
+  affichage en heure locale préfixé par le fuseau, et sortie générée EN/FR ;
 - **disponible via compagnon opt-in :** `m8shift-worktree.py` pour des worktrees de
   fonctionnalité isolés avec un stylo d'intégration sérialisé ;
 - **future RFCs spécifiées :** plan de contrôle runtime/hébergé et gestion des fournisseurs
