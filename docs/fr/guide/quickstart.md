@@ -33,7 +33,7 @@ Installez M8Shift dans un projet sur macOS, Linux, WSL ou Git Bash :
 
 ```bash
 cd /path/to/project
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 ```
 
 Sur Windows PowerShell natif :
@@ -52,7 +52,7 @@ Pour une release épinglée, téléchargez l'installateur depuis le tag et passe
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.sh | \
-  bash -s -- --ref vX.Y.Z --verify --agents claude,codex
+  bash -s -- --ref vX.Y.Z --agents claude,codex
 ```
 
 ```powershell
@@ -60,8 +60,8 @@ $env:M8SHIFT_INSTALL_REF = "vX.Y.Z"
 irm https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.ps1 | iex
 ```
 
-Limite de sécurité : `--verify` côté Bash et la vérification par défaut côté
-PowerShell contrôlent les fichiers téléchargés avec le manifeste de la ref choisie.
+Limite de sécurité : Bash et PowerShell vérifient les fichiers téléchargés par défaut
+(`--no-verify` pour désactiver) avec le manifeste de la ref choisie.
 Cela détecte une corruption ou une incohérence. Pour une confiance hors bande face à
 une origine compromise, épinglez des digests relus avec `--sha256 FILE:HEX` ou
 utilisez un tag de release signé.

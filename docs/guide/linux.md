@@ -17,7 +17,7 @@ without it.
 
 ```bash
 cd /path/to/project
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 ```
 
 The installer downloads the core relay and the optional worktree toolbox, verifies

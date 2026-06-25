@@ -8,7 +8,7 @@ M8Shift est un unique fichier Python n'utilisant que la bibliothèque standard ;
 Utilisez une distribution WSL et traitez-la exactement comme Linux :
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 python3 m8shift.py status
 ```
 
@@ -23,7 +23,7 @@ nom d'agent coopératif correspondant aux outils que vous lancez réellement.
 Fonctionne de la même manière, en invoquant Python explicitement :
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 python m8shift.py status
 ```
 

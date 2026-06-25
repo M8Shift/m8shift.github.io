@@ -20,7 +20,7 @@ xcode-select --install
 
 ```bash
 cd /chemin/du/projet
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 ```
 
 L'installateur télécharge le relais cœur et la boîte à outils worktree optionnelle,

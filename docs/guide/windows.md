@@ -8,7 +8,7 @@ M8Shift is a single Python file using only the standard library, so there is not
 Use a WSL distribution and treat it exactly like Linux:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 python3 m8shift.py status
 ```
 
@@ -23,7 +23,7 @@ agent names that match the tools you actually run.
 Works the same, invoking Python explicitly:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 python m8shift.py status
 ```
 

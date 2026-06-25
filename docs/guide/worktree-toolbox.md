@@ -33,7 +33,7 @@ verifies them with `checksums.sha256`, then runs `init`:
 
 ```bash
 cd /my/project
-curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 ```
 
 `python3 m8shift.py init` generates the relay (`M8SHIFT.md`, the protocol, the
