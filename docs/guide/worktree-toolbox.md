@@ -26,10 +26,18 @@ flowchart TB
 
 *🟣 isolated worktrees · 🟢 one serialized integration pen · 🟠 target branch*
 
-## Install — `init` does **not** copy the companion
+## Install — installer first, `init` second
 
-`python3 m8shift.py init` generates the relay (`M8SHIFT.md`, the protocol, the anchors) — it does
-**not** install `m8shift-worktree.py`. The companion is a separate toolbox file. To use it, copy
+The one-line installer downloads both `m8shift.py` and `m8shift-worktree.py`,
+verifies them with `checksums.sha256`, then runs `init`:
+
+```bash
+cd /my/project
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+```
+
+`python3 m8shift.py init` generates the relay (`M8SHIFT.md`, the protocol, the
+anchors), but it does **not** copy scripts by itself. If you adopt manually, copy
 **both** files into your project (or keep them on your `PATH`):
 
 ```bash

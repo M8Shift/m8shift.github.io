@@ -8,9 +8,12 @@ M8Shift est un unique fichier Python n'utilisant que la bibliothèque standard ;
 Utilisez une distribution WSL et traitez-la exactement comme Linux :
 
 ```bash
-python3 m8shift.py init --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
 python3 m8shift.py status
 ```
+
+L'installateur télécharge `m8shift.py` et `m8shift-worktree.py`, les vérifie avec
+`checksums.sha256`, puis lance `init`.
 
 `claude,codex` est le roster d'exemple par défaut. Utilisez `gemini,vibe` ou tout
 nom d'agent coopératif correspondant aux outils que vous lancez réellement.
@@ -20,7 +23,8 @@ nom d'agent coopératif correspondant aux outils que vous lancez réellement.
 Fonctionne de la même manière, en invoquant Python explicitement :
 
 ```bash
-python m8shift.py init --agents claude,codex
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+python m8shift.py status
 ```
 
 ## Option C — PowerShell / cmd natifs
@@ -28,6 +32,10 @@ python m8shift.py init --agents claude,codex
 ```powershell
 py m8shift.py init --agents claude,codex
 ```
+
+PowerShell ne lance pas l'installateur Bash. Téléchargez ou copiez d'abord
+`m8shift.py` ; ajoutez `m8shift-worktree.py` à côté seulement si vous utilisez le
+travail parallèle isolé.
 
 Invoquez via l'interpréteur (`python m8shift.py …` / `py m8shift.py …`) ; ne vous reposez **pas**
 sur `./m8shift.py`.

@@ -26,11 +26,19 @@ flowchart TB
 
 *🟣 worktrees isolés · 🟢 un stylo d'intégration sérialisé · 🟠 branche cible*
 
-## Installation — `init` ne copie **pas** le compagnon
+## Installation — installateur d'abord, `init` ensuite
 
-`python3 m8shift.py init` génère le relais (`M8SHIFT.md`, le protocole, les ancres) — il
-n'installe **pas** `m8shift-worktree.py`. Le compagnon est un fichier boîte à outils distinct. Pour
-l'utiliser, copie **les deux** fichiers dans ton projet (ou garde-les dans ton `PATH`) :
+L'installateur en une ligne télécharge `m8shift.py` et `m8shift-worktree.py`, les
+vérifie avec `checksums.sha256`, puis lance `init` :
+
+```bash
+cd /mon/projet
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex
+```
+
+`python3 m8shift.py init` génère le relais (`M8SHIFT.md`, le protocole, les ancres),
+mais il ne copie **pas** les scripts tout seul. Pour une adoption manuelle, copie
+**les deux** fichiers dans ton projet (ou garde-les dans ton `PATH`) :
 
 ```bash
 cp m8shift.py m8shift-worktree.py /mon/projet/   # le cœur + la boîte à outils
