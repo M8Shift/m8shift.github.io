@@ -382,6 +382,70 @@
   font-weight: 900;
 }
 
+.m8-feature-table {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-divider));
+  border-radius: 18px;
+  background: var(--vp-c-bg);
+}
+
+.vp-doc .m8-feature-table table {
+  display: table;
+  width: 100%;
+  min-width: 880px;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.vp-doc .m8-feature-table th {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-m8-orange) 12%, transparent), color-mix(in srgb, var(--color-shift-purple) 10%, transparent)),
+    var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.vp-doc .m8-feature-table th,
+.vp-doc .m8-feature-table td {
+  padding: 14px 16px;
+  border-color: var(--vp-c-divider);
+  vertical-align: top;
+}
+
+.vp-doc .m8-feature-table td:first-child {
+  width: 18%;
+  color: var(--vp-c-brand-1);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.vp-doc .m8-feature-table td:nth-child(2) {
+  width: 28%;
+}
+
+.m8-feature-name {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--vp-c-text-1);
+  font-weight: 800;
+}
+
+.m8-feature-name i {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+  color: var(--vp-c-brand-1);
+  font-size: 15px;
+}
+
 .m8-faq-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

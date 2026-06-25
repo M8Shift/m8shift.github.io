@@ -49,6 +49,7 @@ export default defineConfig({
           { text: 'Releases / Roadmap', link: '/roadmap' },
           {
             text: 'More', items: [
+              { text: 'Features', link: '/reference/features' },
               { text: 'Use cases', link: '/use-cases' },
               { text: 'Comparison', link: '/comparison' },
               { text: 'FAQ', link: '/faq' },
@@ -99,6 +100,7 @@ export default defineConfig({
             {
               text: 'Reference', items: [
                 { text: 'Overview', link: '/reference/' },
+                { text: 'Feature matrix', link: '/reference/features' },
                 { text: 'CLI', link: '/reference/cli' },
                 { text: 'State model', link: '/reference/state-model' },
                 { text: 'Turn schema', link: '/reference/contract-schema' },
@@ -142,6 +144,7 @@ export default defineConfig({
           { text: 'Releases / Roadmap', link: '/fr/roadmap' },
           {
             text: 'Plus', items: [
+              { text: 'Fonctionnalités', link: '/fr/reference/features' },
               { text: "Cas d'usage", link: '/fr/use-cases' },
               { text: 'Comparaison', link: '/fr/comparison' },
               { text: 'FAQ', link: '/fr/faq' },
@@ -192,6 +195,7 @@ export default defineConfig({
             {
               text: 'Référence', items: [
                 { text: 'Aperçu', link: '/fr/reference/' },
+                { text: 'Matrice fonctionnelle', link: '/fr/reference/features' },
                 { text: 'CLI', link: '/fr/reference/cli' },
                 { text: 'Modèle d’états', link: '/fr/reference/state-model' },
                 { text: 'Schéma de tour', link: '/fr/reference/contract-schema' },

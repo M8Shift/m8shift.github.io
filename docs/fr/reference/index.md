@@ -12,6 +12,11 @@ rester marquées comme prévues tant que le code et les tests n'existent pas.
 </div>
 
 <div class="m8-doc-grid">
+  <a class="m8-doc-card" href="./features">
+    <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+    <strong>Matrice fonctionnelle</strong>
+    <span>Un tableau complet des capacités livrées et de ce que chacune fait.</span>
+  </a>
   <a class="m8-doc-card" href="./cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>CLI</strong>

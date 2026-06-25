@@ -117,18 +117,23 @@ features:
 
 <p class="m8-section-lead">The homepage explains the product. The rest of the site is the operating manual for humans and AI agents that need a shared way to communicate, hand off work, and inspect state.</p>
 
-<div class="m8-faq-strip">
-  <a class="m8-faq-card" href="/guide/quickstart">
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/guide/quickstart">
     <i class="fa-solid fa-rocket" aria-hidden="true"></i>
     <strong>Start a relay</strong>
     <span>Install locally, initialize a repository, and run a first handoff between coding agents.</span>
   </a>
-  <a class="m8-faq-card" href="/concepts/">
+  <a class="m8-doc-card" href="/reference/features">
+    <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+    <strong>Feature matrix</strong>
+    <span>Scan the complete list of shipped features and what each capability does.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/">
     <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
     <strong>Understand the protocol</strong>
     <span>Read the concepts behind the pen, roles, relations, validation, and immutable handoffs.</span>
   </a>
-  <a class="m8-faq-card" href="/reference/cli">
+  <a class="m8-doc-card" href="/reference/cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Automate from the CLI</strong>
     <span>Use commands, exit codes, JSON status, contracts, and generated files from scripts or agents.</span>

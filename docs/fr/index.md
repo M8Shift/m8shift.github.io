@@ -117,18 +117,23 @@ features:
 
 <p class="m8-section-lead">La page d'accueil explique le produit. Le reste du site sert de manuel opératoire pour les humains et les agents IA qui ont besoin d'une façon commune de communiquer, passer le relais et inspecter l'état.</p>
 
-<div class="m8-faq-strip">
-  <a class="m8-faq-card" href="/fr/guide/quickstart">
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/fr/guide/quickstart">
     <i class="fa-solid fa-rocket" aria-hidden="true"></i>
     <strong>Démarrer un relais</strong>
     <span>Installez localement, initialisez un dépôt et lancez une première passation entre agents de codage.</span>
   </a>
-  <a class="m8-faq-card" href="/fr/concepts/">
+  <a class="m8-doc-card" href="/fr/reference/features">
+    <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+    <strong>Matrice fonctionnelle</strong>
+    <span>Parcourez la liste complète des fonctionnalités livrées et ce que chacune apporte.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/concepts/">
     <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
     <strong>Comprendre le protocole</strong>
     <span>Lisez les concepts autour du stylo, des rôles, relations, validations et passations immuables.</span>
   </a>
-  <a class="m8-faq-card" href="/fr/reference/cli">
+  <a class="m8-doc-card" href="/fr/reference/cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Automatiser avec la CLI</strong>
     <span>Utilisez commandes, codes de sortie, statut JSON, contrats et fichiers générés depuis scripts ou agents.</span>

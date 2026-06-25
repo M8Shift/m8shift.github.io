@@ -12,6 +12,11 @@ as planned until code and tests exist.
 </div>
 
 <div class="m8-doc-grid">
+  <a class="m8-doc-card" href="./features">
+    <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+    <strong>Feature matrix</strong>
+    <span>A full table of shipped capabilities and what each one does.</span>
+  </a>
   <a class="m8-doc-card" href="./cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>CLI</strong>
