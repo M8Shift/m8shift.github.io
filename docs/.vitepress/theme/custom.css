@@ -15,14 +15,11 @@
   max-width: 760px;
 }
 
-.m8-badge {
-  display: inline-block;
-  padding: .2rem .55rem;
-  border-radius: 999px;
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-  font-size: .8rem;
-  font-weight: 700;
+.VPHomeHero .text img {
+  display: block;
+  width: min(460px, 82vw);
+  height: auto;
+  margin: 0 0 18px;
 }
 
 /* Home feature cards: use the page width and make each icon a full-width banner. */
@@ -54,6 +51,31 @@
   margin-left: 16px;
   height: 1px;
   background: linear-gradient(90deg, rgba(124, 58, 237, .45), transparent);
+}
+
+.VPHomeFeatures .VPFeature .icon .fa-solid {
+  color: var(--vp-c-brand-1);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.m8-heading-icon {
+  margin-right: .35em;
+  color: var(--vp-c-brand-1);
+  font-size: .9em;
+}
+
+.m8-quickstart .fa-solid {
+  margin-right: .45em;
+  color: var(--vp-c-brand-1);
+}
+
+.m8-ok {
+  color: var(--vp-c-green-1);
+}
+
+.m8-no {
+  color: var(--vp-c-red-1);
 }
 
 .m8-quickstart {

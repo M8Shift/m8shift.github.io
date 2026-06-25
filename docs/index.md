@@ -5,8 +5,8 @@ title: M8Shift
 titleTemplate: AI agents, working in shifts.
 
 hero:
-  name: M8Shift
-  text: AI agents,<br>Working in shifts.
+  name: ""
+  text: <img src="/logo-wordmark.svg" alt="M8Shift wordmark" />AI agents,<br>Working in shifts.
   tagline: Free and open source. Coordinate Claude, Codex, Gemini, Vibe and other coding agents on one repository — exactly one writes at a time, and the handoff is never lost (subject, naturally, to good agent cooperation).
   image:
     src: /logo.png
@@ -23,22 +23,22 @@ hero:
       link: https://github.com/M8Shift/M8Shift
 
 features:
-  - icon: 🖊️
+  - icon: <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
     title: One writer at a time
     details: A single exclusive "pen" guards the repository. An agent must claim it before touching files; a second claim simply waits. A cooperative mutex, not a free-for-all.
-  - icon: 🔁
+  - icon: <i class="fa-solid fa-right-left" aria-hidden="true"></i>
     title: Structured handoffs
     details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
-  - icon: 🎭
+  - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
     title: Configurable roster
     details: Declare the agents that may take turns (claude, codex, gemini, le chat…). Any active member can receive the pen; the core stays a strict degree-1 relay.
-  - icon: 🧩
+  - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Provider-neutral
     details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
-  - icon: 🪶
+  - icon: <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
     title: One file, zero dependencies
     details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
-  - icon: 🧪
+  - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable by design
     details: Append-only turns, memory notes, tasks, session history, and readable local-time status keep the relay inspectable without a service.
 
@@ -58,11 +58,11 @@ features:
     <div class="m8-quickstart__badge">local install</div>
   </div>
   <div class="m8-quickstart__body">
-    <p class="m8-quickstart__comment"># Verifies the CLI + worktree toolbox, installs them locally, then runs init.</p>
+    <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Verifies the CLI + worktree toolbox, installs them locally, then runs init.</p>
     <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex</code></pre>
   </div>
   <div class="m8-quickstart__foot">
-    <span>SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
+    <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
     <a href="/guide/windows">Windows guide</a>
   </div>
 </div>

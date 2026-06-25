@@ -5,8 +5,8 @@ title: M8Shift
 titleTemplate: Des agents IA, travaillant par roulements.
 
 hero:
-  name: M8Shift
-  text: Des agents IA, travaillant par roulements.
+  name: ""
+  text: <img src="/logo-wordmark.svg" alt="Logo texte M8Shift" />Des agents IA,<br/>travaillant en roulements.
   tagline: Libre et open source. Coordonnez Claude, Codex, Gemini, Vibe et d'autres agents de codage sur un même dépôt — un seul écrit à la fois, et la passation n'est jamais perdue (sous réserve, bien sûr, de bonne coopération de l'agent).
   image:
     src: /logo.png
@@ -23,22 +23,22 @@ hero:
       link: https://github.com/M8Shift/M8Shift
 
 features:
-  - icon: 🖊️
+  - icon: <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
     title: Un seul rédacteur à la fois
     details: Un unique « stylo » exclusif garde le dépôt. Un agent doit le réclamer avant de toucher aux fichiers ; un second claim attend simplement. Un mutex coopératif, pas une mêlée générale.
-  - icon: 🔁
+  - icon: <i class="fa-solid fa-right-left" aria-hidden="true"></i>
     title: Des passations structurées
     details: Chaque tour est un contrat numéroté et immuable — qui a écrit, ce qui a été fait, ce qui est demandé ensuite, et quels fichiers ont changé — ajouté à un journal exploitable par grep.
-  - icon: 🎭
+  - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
     title: Roster configurable
     details: Déclarez les agents autorisés à prendre un tour (claude, codex, gemini, le chat…). Tout membre actif peut recevoir le stylo ; le cœur reste un strict relais de degré 1.
-  - icon: 🧩
+  - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Neutre vis-à-vis des fournisseurs
     details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. M8Shift ne devient jamais le fournisseur de modèle, le runtime, ni un plan de contrôle hébergé.
-  - icon: 🪶
+  - icon: <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
     title: Un seul fichier, zéro dépendance
     details: Un script Python libre et open source, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
-  - icon: 🧪
+  - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable par conception
     details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale gardent le relais inspectable sans service.
 
@@ -58,11 +58,11 @@ features:
     <div class="m8-quickstart__badge">install local</div>
   </div>
   <div class="m8-quickstart__body">
-    <p class="m8-quickstart__comment"># Vérifie la CLI + la boîte à outils worktree, les installe localement, puis lance init.</p>
+    <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Vérifie la CLI + la boîte à outils worktree, les installe localement, puis lance init.</p>
     <pre><code><span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --verify --agents claude,codex</code></pre>
   </div>
   <div class="m8-quickstart__foot">
-    <span>Vérifié SHA256 sur la ref choisie. Pas de sudo. Pas de PATH global.</span>
+    <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Vérifié SHA256 sur la ref choisie. Pas de sudo. Pas de PATH global.</span>
     <a href="/fr/guide/windows">Guide Windows</a>
   </div>
 </div>

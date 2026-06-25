@@ -10,8 +10,8 @@
 | State | local readable journal | sessions, databases, runtime state |
 | Repository ownership | one explicit pen (degree-1 mutex) | depends on runtime/tool design |
 | Handoffs | immutable turn journal | usually runtime-specific |
-| Model launching | ❌ | ✅ |
-| Complementary? | ✅ | ✅ |
+| Model launching | <i class="fa-solid fa-xmark m8-no" aria-label="No"></i> | <i class="fa-solid fa-check m8-ok" aria-label="Yes"></i> |
+| Complementary? | <i class="fa-solid fa-check m8-ok" aria-label="Yes"></i> | <i class="fa-solid fa-check m8-ok" aria-label="Yes"></i> |
 
 A full agent runtime is typically a self-hosted gateway with sessions, tools, memory,
 channels, and multi-agent routing. M8Shift sits lower in the stack as a repository

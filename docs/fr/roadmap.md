@@ -3,9 +3,7 @@
 La roadmap distingue le comportement livré des spécifications. La civilisation survivra peut-être
 à cet acte radical d'honnêteté.
 
-## Étape 1 — Fondation du relais
-
-<span class="m8-badge">Disponible / hérité</span>
+## <i class="fa-solid fa-flag-checkered m8-heading-icon" aria-hidden="true"></i> Étape 1 — Fondation du relais <Badge type="tip" text="disponible" />
 
 - CLI locale passive ;
 - stylo partagé unique ;
@@ -16,18 +14,14 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - couple d'agents configurable ;
 - fichiers d'ancrage et protocole générés.
 
-## Étape 2 — Cœur M8Shift
-
-<span class="m8-badge">Disponible</span>
+## <i class="fa-solid fa-cube m8-heading-icon" aria-hidden="true"></i> Étape 2 — Cœur M8Shift <Badge type="tip" text="disponible" />
 
 - CLI `m8shift.py` ;
 - fichiers générés `M8SHIFT.*` ;
 - fichiers d'ancrage, documentation et tests ;
 - ce site web.
 
-## Étape 3 — Relais dirigé à N agents
-
-<span class="m8-badge">Disponible</span>
+## <i class="fa-solid fa-people-arrows m8-heading-icon" aria-hidden="true"></i> Étape 3 — Relais dirigé à N agents <Badge type="tip" text="disponible" />
 
 - roster de N agents ;
 - passation dirigée vers tout autre membre du roster ;
@@ -35,18 +29,14 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - mémoire partagée, registre de tâches, récapitulatif, peek, log, statut JSON et historique de sessions ;
 - garde-fous de boucle : `next`, `status --for` et `append --wait`.
 
-## Étape 4 — Contrats et validation
-
-<span class="m8-badge">Partiellement disponible / partiellement spécifié</span>
+## <i class="fa-solid fa-file-signature m8-heading-icon" aria-hidden="true"></i> Étape 4 — Contrats et validation <Badge type="warning" text="partiel" />
 
 - disponible : champs indicatifs branch/commit/tests/next/blocked et champs personnalisés `x_*` ;
 - disponible : sonde indicative `claim --check` pour les chevauchements de fichiers ;
 - spécifié : rôles source/cible appliqués, sorties requises, chemins approve/revise/reject
   et validation de schéma.
 
-## Étape 5 — Concurrence isolée
-
-<span class="m8-badge">Disponible via compagnon</span>
+## <i class="fa-solid fa-code-branch m8-heading-icon" aria-hidden="true"></i> Étape 5 — Concurrence isolée <Badge type="tip" text="compagnon disponible" />
 
 - `m8shift-worktree.py` pour branches/worktrees par tâche ;
 - stylo d'intégration sérialisé ;
@@ -54,9 +44,7 @@ La roadmap distingue le comportement livré des spécifications. La civilisation
 - future RFC spécifiée : le vrai degré > 1 dans un même working tree reste rejeté
   pour le cœur ; les worktrees isolés restent le modèle de parallélisme supporté.
 
-## Étape 6 — Intégrations
-
-<span class="m8-badge">Exploratoire</span>
+## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Étape 6 — Intégrations <Badge type="info" text="exploratoire" />
 
 - exécuteurs headless ;
 - panneau de statut dans l'IDE ;
