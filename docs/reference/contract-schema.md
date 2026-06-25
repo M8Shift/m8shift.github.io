@@ -31,6 +31,16 @@ handoff: codex
 | `tests` | `--tests` | advisory validation command/result |
 | `next` | `--next` | advisory next step |
 | `blocked_on` | `--blocked-on` | advisory blocker |
+| `schema` | `--schema` / `--field schema=...` | contract schema marker; `stage4.v1` activates validation |
+| `role_from` | `--role-from` | advisory role used by the sender |
+| `role_to` | `--role-to` | advisory role expected from the receiver |
+| `relation` | `--relation` | `handoff`, `review_request`, `review_result`, or `escalation` |
+| `requires` | `--requires` | checks or outputs expected from the receiver |
+| `expected_output` | `--expected-output` | concrete deliverable expected from the receiver |
+| `evidence` | `--evidence` | tests, commands, commits, or manual checks supporting the turn |
+| `decision` | `--decision` | review decision: `approve`, `revise`, `reject`, or `waive` |
+| `waiver_reason` | `--waiver-reason` | required when `decision=waive` |
+| `permissions` | `--permissions` | advisory permission intent, never enforced by the core |
 | `x_*` | `--field key=value` | custom advisory metadata |
 | `handoff` | derived from `--to` | deliberately redundant with `to`, for easy grep |
 
@@ -41,3 +51,13 @@ rejected. Multi-line content goes in the free-text body via `--body PATH` or `--
 
 `peek <agent>` reads the latest handoff addressed to that agent without claiming. There
 is still no separate YAML/JSON contract document: the turn block above is the schema.
+
+Stage-4 validation is explicit and read-only:
+
+```bash
+python3 m8shift.py contract validate [--strict] [--json] [--all]
+python3 m8shift.py doctor --contracts
+```
+
+Validation can report missing or invalid contract fields, but it never routes work,
+grants permissions, runs tools, or mutates the `LOCK`.

@@ -31,6 +31,16 @@ handoff: codex
 | `tests` | `--tests` | commande/résultat de validation indicatif |
 | `next` | `--next` | prochaine étape indicative |
 | `blocked_on` | `--blocked-on` | blocage indicatif |
+| `schema` | `--schema` / `--field schema=...` | marqueur de schéma ; `stage4.v1` active la validation |
+| `role_from` | `--role-from` | rôle indicatif utilisé par l'émetteur |
+| `role_to` | `--role-to` | rôle indicatif attendu du destinataire |
+| `relation` | `--relation` | `handoff`, `review_request`, `review_result` ou `escalation` |
+| `requires` | `--requires` | contrôles ou livrables attendus du destinataire |
+| `expected_output` | `--expected-output` | livrable concret attendu du destinataire |
+| `evidence` | `--evidence` | tests, commandes, commits ou vérifications manuelles |
+| `decision` | `--decision` | décision de revue : `approve`, `revise`, `reject` ou `waive` |
+| `waiver_reason` | `--waiver-reason` | requis quand `decision=waive` |
+| `permissions` | `--permissions` | intention de permission indicative, jamais appliquée par le cœur |
 | `x_*` | `--field key=value` | métadonnée personnalisée indicative |
 | `handoff` | dérivé de `--to` | délibérément redondant avec `to`, pour faciliter le grep |
 
@@ -42,3 +52,14 @@ libre via `--body PATH` ou `--body -` (stdin), où tout faux marqueur est neutra
 `peek <agent>` lit la dernière passation adressée à cet agent sans prendre le stylo. Il
 n'existe toujours pas de document de contrat YAML/JSON séparé : le bloc de tour ci-dessus
 constitue le schéma.
+
+La validation Stage 4 est explicite et read-only :
+
+```bash
+python3 m8shift.py contract validate [--strict] [--json] [--all]
+python3 m8shift.py doctor --contracts
+```
+
+La validation peut signaler des champs de contrat manquants ou invalides, mais elle ne
+route jamais le travail, ne donne pas de permissions, ne lance pas d'outils et ne mute pas
+le `LOCK`.

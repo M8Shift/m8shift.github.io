@@ -1,7 +1,7 @@
 # Validation
 
-« Validation » désigne deux choses différentes dans M8Shift. L'une est livrée aujourd'hui ;
-l'autre est spécifiée.
+« Validation » désigne deux choses différentes dans M8Shift : contrôles forts d'entrée/état
+et contrôles read-only des contrats.
 
 ## Livré : validation des entrées et de l'état
 
@@ -20,9 +20,14 @@ journal :
 Ce sont des garde-fous de correction, pas une frontière de sécurité — voir le
 [modèle de menaces](/fr/security/threat-model).
 
-## Revue indicative
+## Validation read-only des contrats
 
 La revue indépendante se modélise aujourd'hui en passant le stylo à un autre membre du
-roster et en consignant l'attente dans `--ask`, `--next`, les tâches ou les champs
-personnalisés. M8Shift enregistre ce contrat, mais n'applique pas encore de chemins
-d'approbation ni de validation de schéma.
+roster et en consignant l'attente dans `--ask`, `--next`, les tâches, les champs personnalisés
+ou les champs de contrat Stage 4 comme `schema=stage4.v1`, `relation`, `requires`,
+`expected_output`, `evidence` et `decision`.
+
+`contract validate` et `doctor --contracts` vérifient ces contrats explicitement et en
+lecture seule. Ils peuvent signaler des avertissements ou erreurs strictes, mais ils
+n'imposent toujours pas de chemins d'approbation, ne donnent pas de permissions, ne lancent
+pas de tests et ne routent pas le travail.

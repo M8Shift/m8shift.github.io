@@ -172,11 +172,12 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
   immutable turn journal, bounded archiving, configurable roster, structured handoffs,
   `peek`, `recap`, `log`, `history`, `status --json`, `status --for`, `next`,
   `append --wait`, shared memory notes, task ledger, timezone-prefixed local-time
-  display, and EN/FR generated output;
+  display, Stage-4 contract validation (`contract validate`, `doctor --contracts`),
+  and EN/FR generated output;
 - **available as an opt-in companion:** [`m8shift-worktree.py`](/guide/worktree-toolbox)
   for isolated feature worktrees plus one serialized integration pen;
-- **specified future RFCs:** hosted/runtime control plane and provider management as
-  optional companions; true degree > 1 writes in one shared working tree as a research
-  topic rejected for the core in favor of isolated worktrees.
+- **partially implemented Stage 6:** install scripts, checksums, `watch`, site/docs sync,
+  and the reference headless runner are available; provider management, IDE/MCP adapters,
+  optional notifications, and hosted/runtime control plane remain companion work.
 
 [Read releases / roadmap →](/roadmap)

@@ -1,6 +1,7 @@
 # Validation
 
-"Validation" means two different things in M8Shift. One ships today; one is specified.
+"Validation" means two different things in M8Shift: hard input/state checks and
+read-only contract checks.
 
 ## Shipped: input and state validation
 
@@ -17,8 +18,13 @@ Before any write, `m8shift.py` enforces guardrails that keep the journal trustwo
 These are correctness guardrails, not a security boundary — see the
 [threat model](/security/threat-model).
 
-## Advisory review
+## Read-only contract validation
 
 Independent review is modeled today by routing the pen to a different roster member and
-recording the expectation in `--ask`, `--next`, tasks, or custom fields. M8Shift records
-that contract, but does not enforce approval paths or schema-level validation yet.
+recording the expectation in `--ask`, `--next`, tasks, custom fields, or Stage-4 contract
+fields such as `schema=stage4.v1`, `relation`, `requires`, `expected_output`,
+`evidence`, and `decision`.
+
+`contract validate` and `doctor --contracts` check those contracts explicitly and
+read-only. They can report warnings or strict errors, but they still do not enforce
+approval paths, grant permissions, run tests, or route work.

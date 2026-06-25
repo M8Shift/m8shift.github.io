@@ -1,6 +1,6 @@
 # Référence CLI
 
-La CLI est un fichier unique, `m8shift.py` 3.9.0 (Python 3.8+, bibliothèque standard
+La CLI est un fichier unique, `m8shift.py` 3.13.0 (Python 3.8+, bibliothèque standard
 uniquement). Lancez-la depuis la racine d'un projet.
 
 Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de succès,
@@ -16,7 +16,7 @@ flowchart LR
     WK --> AP["append --to autre"]
     AP -->|"append --wait"| ST
     AP --> DONE["done"]
-    READ["doctor / recap / peek / log / history"] -.-> ST
+    READ["doctor / contract validate / recap / peek / log / history"] -.-> ST
     MEM["remember / task"] -.-> ST
     ARCH["archive"] -.-> ST
 
@@ -67,10 +67,28 @@ python3 m8shift.py status [--for agent] [--json]
 Exécute des contrôles de santé/lint en lecture seule.
 
 ```bash
-python3 m8shift.py doctor [--lint] [--json] [--severity-min info|warning|error]
+python3 m8shift.py doctor [--lint] [--json] [--security] [--contracts] \
+  [--severity-min info|warning|error]
 ```
 
 `--lint` sort en erreur si des findings au moins aussi sévères que le seuil existent.
+`--security` ajoute des contrôles sécurité locaux. `--contracts` ajoute les findings
+de validation des contrats Stage 4.
+
+### `contract validate`
+
+Valide les contrats de passation Stage 4 dans le journal de tours. C'est en lecture
+seule : aucun claim, aucun routage, aucune permission, aucun test lancé, aucune mutation
+du `LOCK`.
+
+```bash
+python3 m8shift.py contract validate [--strict] [--json] [--all] \
+  [--severity-min info|warning|error]
+```
+
+`schema=stage4.v1` active la validation pour un tour. Le mode par défaut affiche les
+findings et réussit sauf erreur d'exécution. `--strict` sort en erreur si des findings
+au moins aussi sévères que le seuil existent.
 
 ### `recap`
 
@@ -170,12 +188,22 @@ python3 m8shift.py append <agent> --to <autre> \
   [--wait] [--wait-interval N] \
   [--branch B] [--commit SHA] [--tests "cmd"] \
   [--next "étape suivante"] [--blocked-on "raison"] \
+  [--schema stage4.v1] [--relation review_request|review_result|handoff|escalation] \
+  [--role-from rôle] [--role-to rôle] \
+  [--requires "contrôles requis"] [--expected-output "livrable"] \
+  [--evidence "tests ou commandes"] \
+  [--decision approve|revise|reject|waive] [--waiver-reason "pourquoi"] \
+  [--permissions "intention"] \
   [--field key=value]
 ```
 
 `--to` est requis et ne peut pas être égal à l'émetteur. `--body -` lit stdin.
 `--wait` garde l'appelant bloqué après la passation jusqu'à son prochain tour ou `DONE`,
 ce qui évite les sorties prématurées d'UI ou d'automatisation.
+
+Les flags Stage 4 sont sérialisés comme de simples champs consultatifs. Ils ne sont
+vérifiés que par `contract validate` / `doctor --contracts` ; le relais route toujours
+exclusivement sur le `LOCK`.
 
 ### `remember`
 

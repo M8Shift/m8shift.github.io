@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.9.0 (Python 3.8+, standard library only).
+The CLI is a single file, `m8shift.py` 3.13.0 (Python 3.8+, standard library only).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
@@ -15,7 +15,7 @@ flowchart LR
     WK --> AP["append --to other"]
     AP -->|"append --wait"| ST
     AP --> DONE["done"]
-    READ["doctor / recap / peek / log / history"] -.-> ST
+    READ["doctor / contract validate / recap / peek / log / history"] -.-> ST
     MEM["remember / task"] -.-> ST
     ARCH["archive"] -.-> ST
 
@@ -66,10 +66,27 @@ python3 m8shift.py status [--for agent] [--json]
 Run read-only health and lint checks.
 
 ```bash
-python3 m8shift.py doctor [--lint] [--json] [--severity-min info|warning|error]
+python3 m8shift.py doctor [--lint] [--json] [--security] [--contracts] \
+  [--severity-min info|warning|error]
 ```
 
 `--lint` exits non-zero when findings at or above the selected severity exist.
+`--security` adds local security checks. `--contracts` adds Stage-4 contract
+validation findings.
+
+### `contract validate`
+
+Validate Stage-4 handoff contracts in the turn journal. This is read-only: it never
+claims, routes, grants permissions, runs tests, or mutates the `LOCK`.
+
+```bash
+python3 m8shift.py contract validate [--strict] [--json] [--all] \
+  [--severity-min info|warning|error]
+```
+
+`schema=stage4.v1` activates validation for a turn. Default mode reports findings and
+returns success unless the command itself fails. `--strict` exits non-zero when findings
+at or above the selected severity exist.
 
 ### `recap`
 
@@ -169,12 +186,22 @@ python3 m8shift.py append <agent> --to <other> \
   [--wait] [--wait-interval N] \
   [--branch B] [--commit SHA] [--tests "cmd"] \
   [--next "next step"] [--blocked-on "reason"] \
+  [--schema stage4.v1] [--relation review_request|review_result|handoff|escalation] \
+  [--role-from role] [--role-to role] \
+  [--requires "required checks"] [--expected-output "deliverable"] \
+  [--evidence "tests or commands"] \
+  [--decision approve|revise|reject|waive] [--waiver-reason "why"] \
+  [--permissions "intent"] \
   [--field key=value]
 ```
 
 `--to` is required and cannot equal the sender. `--body -` reads from stdin. `--wait`
 keeps the caller blocked after handoff until its next turn or `DONE`, which prevents
 premature UI/automation exits.
+
+Stage-4 flags serialize to plain advisory turn fields. They are checked only by
+`contract validate` / `doctor --contracts`; the relay still routes exclusively on the
+`LOCK`.
 
 ### `remember`
 
