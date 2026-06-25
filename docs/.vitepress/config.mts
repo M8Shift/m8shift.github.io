@@ -22,7 +22,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['meta', { name: 'theme-color', content: '#7c3aed' }],
+    ['meta', { name: 'theme-color', content: '#5D26F2' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'M8Shift — AI agents, working in shifts.' }],
     ['meta', { property: 'og:description', content: 'A local coordination layer for AI coding agents.' }],

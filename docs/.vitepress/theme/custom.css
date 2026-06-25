@@ -1,19 +1,34 @@
 :root {
-  --vp-c-brand-1: #7c3aed;
-  --vp-c-brand-2: #6d28d9;
-  --vp-c-brand-3: #5b21b6;
-  --vp-c-brand-soft: rgba(124, 58, 237, 0.14);
+  --color-m8-orange: #FF7A18;
+  --color-flow-coral: #FB6F74;
+  --color-relay-pink: #F252BF;
+  --color-shift-purple: #5D26F2;
+  --color-deep-violet: #2D09A4;
+  --color-electric-violet: #8B47F9;
+  --color-soft-lavender: #BA68F3;
+
+  --vp-c-brand-1: var(--color-shift-purple);
+  --vp-c-brand-2: var(--color-deep-violet);
+  --vp-c-brand-3: var(--color-electric-violet);
+  --vp-c-brand-soft: rgba(93, 38, 242, 0.14);
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #ff7a18 8%, #f0509c 50%, #7c3aed 92%);
+  --vp-home-hero-name-background: linear-gradient(120deg, var(--color-m8-orange) 8%, var(--color-flow-coral) 35%, var(--color-relay-pink) 58%, var(--color-shift-purple) 92%);
   /* Disable VitePress' blurred hero halo by default. */
   --vp-home-hero-image-background-image: none;
   --vp-home-hero-image-filter: none;
 }
 
+.dark {
+  --vp-c-brand-1: var(--color-soft-lavender);
+  --vp-c-brand-2: var(--color-electric-violet);
+  --vp-c-brand-3: var(--color-shift-purple);
+  --vp-c-brand-soft: rgba(186, 104, 243, 0.16);
+}
+
 .VPHomeHero .text:has(#m8shift-title) {
   position: relative;
   isolation: isolate;
-  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(240, 80, 156, .30), rgba(124, 58, 237, .18) 45%, transparent 68%);
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(242, 82, 191, .30), rgba(93, 38, 242, .18) 45%, transparent 68%);
   --vp-home-hero-image-filter: blur(44px);
 }
 
@@ -66,9 +81,9 @@
   padding: 0 20px;
   width: 100%;
   height: 64px;
-  border: 1px solid rgba(124, 58, 237, .18);
+  border: 1px solid rgba(93, 38, 242, .18);
   background:
-    linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(240, 80, 156, .12) 45%, rgba(124, 58, 237, .14)),
+    linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .10) 34%, rgba(242, 82, 191, .12) 58%, rgba(93, 38, 242, .14)),
     var(--vp-c-default-soft);
   font-size: 30px;
 }
@@ -78,7 +93,7 @@
   flex: 1;
   margin-left: 16px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(124, 58, 237, .45), transparent);
+  background: linear-gradient(90deg, rgba(93, 38, 242, .45), transparent);
 }
 
 .VPHomeFeatures .VPFeature .icon .fa-solid {
@@ -128,7 +143,7 @@
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 20%, var(--vp-c-divider));
   border-radius: 22px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(240, 80, 156, .12), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(242, 82, 191, .12), transparent 38%),
     linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 92%, transparent), var(--vp-c-bg-alt));
   color: inherit;
   text-decoration: none;
@@ -147,7 +162,7 @@
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(240, 80, 156, .14), rgba(124, 58, 237, .16));
+  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .12), rgba(242, 82, 191, .14), rgba(93, 38, 242, .16));
   color: var(--vp-c-brand-1);
   font-size: 22px;
 }
@@ -178,7 +193,7 @@
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 18%, var(--vp-c-divider));
   border-radius: 22px;
   background:
-    linear-gradient(150deg, rgba(255, 122, 24, .10), rgba(240, 80, 156, .08) 45%, rgba(124, 58, 237, .10)),
+    linear-gradient(150deg, rgba(255, 122, 24, .10), rgba(251, 111, 116, .08) 34%, rgba(242, 82, 191, .08) 58%, rgba(93, 38, 242, .10)),
     var(--vp-c-bg-soft);
   color: inherit;
   text-decoration: none;
@@ -197,7 +212,7 @@
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(240, 80, 156, .14), rgba(124, 58, 237, .16));
+  background: linear-gradient(135deg, rgba(255, 122, 24, .16), rgba(251, 111, 116, .12), rgba(242, 82, 191, .14), rgba(93, 38, 242, .16));
   color: var(--vp-c-brand-1);
   font-size: 22px;
 }
@@ -220,7 +235,7 @@
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
   border-radius: 28px;
   background:
-    radial-gradient(circle at 82% 0%, rgba(240, 80, 156, .16), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(242, 82, 191, .16), transparent 34%),
     linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 86%, transparent), var(--vp-c-bg-alt));
   box-shadow: 0 24px 80px rgba(17, 24, 39, .12);
 }
@@ -271,10 +286,11 @@
 
 .m8-quickstart__tabs label {
   padding: 8px 13px;
+  border: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer;
   user-select: none;
-  transition: background .18s ease, color .18s ease, box-shadow .18s ease;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
 }
 
 .m8-quickstart__tabs label:hover {
@@ -288,7 +304,10 @@
 #m8-quickstart-fr-macos:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-macos"],
 #m8-quickstart-fr-linux:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-linux"],
 #m8-quickstart-fr-windows:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-windows"] {
-  background: linear-gradient(135deg, #ff7a18, #f0509c 48%, #7c3aed);
+  background:
+    linear-gradient(var(--color-shift-purple), var(--color-shift-purple)) padding-box,
+    linear-gradient(135deg, var(--color-m8-orange), var(--color-flow-coral) 34%, var(--color-relay-pink) 58%, var(--color-shift-purple)) border-box;
+  border-color: transparent;
   color: white;
   font-weight: 800;
 }
@@ -359,7 +378,7 @@
 
 .m8-prompt {
   margin-right: 12px;
-  color: #ff4d6d;
+  color: var(--color-flow-coral);
   font-weight: 900;
 }
 
