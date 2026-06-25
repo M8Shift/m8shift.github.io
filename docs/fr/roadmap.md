@@ -29,66 +29,12 @@ actuelle et attend le prochain tag public.
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Étapes de roadmap
 
-## <i class="fa-solid fa-flag-checkered m8-heading-icon" aria-hidden="true"></i> Étape 1 — Fondation du relais <Badge type="tip" text="disponible" />
-
-- CLI locale passive ;
-- stylo partagé unique ;
-- « réclamer avant d'écrire » ;
-- journal de tours immuable ;
-- écritures atomiques et verrou inter-processus ;
-- récupération de verrou périmé ;
-- couple d'agents configurable ;
-- fichiers d'ancrage et protocole générés.
-
-## <i class="fa-solid fa-cube m8-heading-icon" aria-hidden="true"></i> Étape 2 — Cœur M8Shift <Badge type="tip" text="disponible" />
-
-- CLI `m8shift.py` ;
-- fichiers générés `M8SHIFT.*` ;
-- fichiers d'ancrage, documentation et tests ;
-- ce site web.
-
-## <i class="fa-solid fa-people-arrows m8-heading-icon" aria-hidden="true"></i> Étape 3 — Relais dirigé à N agents <Badge type="tip" text="disponible" />
-
-- roster de N agents ;
-- passation dirigée vers tout autre membre du roster ;
-- champs de tour structurés et indicatifs ;
-- mémoire partagée, registre de tâches, récapitulatif, peek, log, statut JSON et historique de sessions ;
-- garde-fous de boucle : `next`, `status --for` et `append --wait`.
-
-## <i class="fa-solid fa-file-signature m8-heading-icon" aria-hidden="true"></i> Étape 4 — Contrats et validation <Badge type="tip" text="disponible" />
-
-- disponible : champs indicatifs branch/commit/tests/next/blocked et champs personnalisés `x_*` ;
-- disponible : sonde indicative `claim --check` pour les chevauchements de fichiers ;
-- disponible : champs de contrat Stage 4 typés sur `append`, dont schéma, rôles, relation,
-  exigences, livrable attendu, preuves, permissions, décision et raison de dérogation ;
-- disponible : validation read-only via `contract validate [--strict] [--json] [--all]`
-  et `doctor --contracts` ;
-- limite : la validation ne route jamais le travail, ne donne pas de permissions, ne lance pas
-  d'outils et ne mute pas le `LOCK`.
-
-## <i class="fa-solid fa-code-branch m8-heading-icon" aria-hidden="true"></i> Étape 5 — Concurrence isolée <Badge type="tip" text="compagnon disponible" />
-
-- `m8shift-worktree.py` pour branches/worktrees par tâche ;
-- stylo d'intégration sérialisé ;
-- opérations status, claim, done, integrate et drop ;
-- future RFC spécifiée : le vrai degré > 1 dans un même working tree reste rejeté
-  pour le cœur ; les worktrees isolés restent le modèle de parallélisme supporté.
-
-## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Étape 6 — Intégrations <Badge type="tip" text="livré" />
-
-La **couche d'intégration locale** de l'Étape 6, autour du cœur passif, est livrée :
-
-- scripts d'installation, checksums, vérification par défaut, `watch`, synchronisation site/docs ;
-- runner headless de référence avec `--once`, `M8SHIFT_RUN_ID`, heartbeat et
-  événements de cycle de vie `.m8shift/runtime/runs.jsonl` ;
-- artefacts de release et distribution par paquets restent des couches de commodité autour du
-  cœur mono-fichier.
-
-### Post-Étape 6 / compagnons futurs <Badge type="info" text="différé" />
-
-Couches optionnelles côté hôte, hors du cœur passif, reprises seulement une fois la couche locale
-éprouvée et régies par leurs RFCs :
-
-- format stable de run-plan, registre de fournisseurs, recettes/panneau IDE, adaptateur MCP
-  read-only, recettes orchestrateurs et notifications locales optionnelles ;
-- plan de contrôle runtime/hébergé et gestion des fournisseurs.
+| Étape | Statut | Livré | Restant / limite |
+|-------|--------|-------|------------------|
+| <i class="fa-solid fa-flag-checkered m8-heading-icon" aria-hidden="true"></i> **Étape 1 — Fondation du relais** | <Badge type="tip" text="disponible" /> | CLI locale passive ; stylo partagé unique ; « réclamer avant d'écrire » ; journal de tours immuable ; écritures atomiques et verrou inter-processus ; récupération de verrou périmé ; couple d'agents configurable ; fichiers d'ancrage et protocole générés. | Invariant cœur : un seul rédacteur à la fois. |
+| <i class="fa-solid fa-cube m8-heading-icon" aria-hidden="true"></i> **Étape 2 — Cœur M8Shift** | <Badge type="tip" text="disponible" /> | CLI `m8shift.py` ; fichiers générés `M8SHIFT.*` ; fichiers d'ancrage ; documentation ; tests ; ce site web. | Le cœur reste un relais mono-fichier portable. |
+| <i class="fa-solid fa-people-arrows m8-heading-icon" aria-hidden="true"></i> **Étape 3 — Relais dirigé à N agents** | <Badge type="tip" text="disponible" /> | Roster de N agents ; passation dirigée vers tout autre membre du roster ; champs de tour structurés et indicatifs ; mémoire partagée ; registre de tâches ; récapitulatif ; peek ; log ; statut JSON ; historique de sessions ; garde-fous via `next`, `status --for` et `append --wait`. | La coordination reste coopérative et indicative ; les agents doivent suivre le protocole. |
+| <i class="fa-solid fa-file-signature m8-heading-icon" aria-hidden="true"></i> **Étape 4 — Contrats et validation** | <Badge type="tip" text="disponible" /> | Champs indicatifs branch/commit/tests/next/blocked et champs personnalisés `x_*` ; `claim --check` ; champs de contrat Stage 4 typés sur `append` ; validation read-only via `contract validate [--strict] [--json] [--all]` et `doctor --contracts`. | La validation ne route jamais le travail, ne donne pas de permissions, ne lance pas d'outils et ne mute pas le `LOCK`. |
+| <i class="fa-solid fa-code-branch m8-heading-icon" aria-hidden="true"></i> **Étape 5 — Concurrence isolée** | <Badge type="tip" text="compagnon disponible" /> | `m8shift-worktree.py` pour branches/worktrees par tâche ; stylo d'intégration sérialisé ; opérations status, claim, done, integrate et drop. | Le vrai degré > 1 dans un même working tree reste rejeté pour le cœur ; les worktrees isolés restent le modèle de parallélisme supporté. |
+| <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> **Étape 6 — Intégrations** | <Badge type="tip" text="livré" /> | Couche d'intégration locale : scripts d'installation ; checksums ; vérification par défaut ; `watch` ; synchronisation site/docs ; runner headless de référence avec `--once`, `M8SHIFT_RUN_ID`, heartbeat et événements de cycle de vie `.m8shift/runtime/runs.jsonl`. | Les artefacts de release et la distribution par paquets restent des couches de commodité autour du cœur mono-fichier. |
+| <i class="fa-solid fa-layer-group m8-heading-icon" aria-hidden="true"></i> **Post-Étape 6 / compagnons futurs** | <Badge type="info" text="différé" /> | Direction régie par RFC uniquement ; pas dans le cœur passif aujourd'hui. | Format stable de run-plan ; registre de fournisseurs ; recettes/panneau IDE ; adaptateur MCP read-only ; recettes orchestrateurs ; notifications locales optionnelles ; plan de contrôle runtime/hébergé ; gestion des fournisseurs. |

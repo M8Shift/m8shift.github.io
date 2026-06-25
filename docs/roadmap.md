@@ -28,64 +28,12 @@ the version is present on the current mainline and is awaiting the next public t
 
 ## <i class="fa-solid fa-route m8-heading-icon" aria-hidden="true"></i> Roadmap stages
 
-## <i class="fa-solid fa-flag-checkered m8-heading-icon" aria-hidden="true"></i> Stage 1 — Relay foundation <Badge type="tip" text="available" />
-
-- local passive CLI;
-- single shared pen;
-- claim-before-work;
-- immutable turn journal;
-- atomic writes and inter-process lock;
-- stale-lock recovery;
-- configurable agent pair;
-- generated anchors and protocol.
-
-## <i class="fa-solid fa-cube m8-heading-icon" aria-hidden="true"></i> Stage 2 — M8Shift core <Badge type="tip" text="available" />
-
-- `m8shift.py` CLI;
-- generated files `M8SHIFT.*`;
-- anchors, documentation, and tests;
-- this website.
-
-## <i class="fa-solid fa-people-arrows m8-heading-icon" aria-hidden="true"></i> Stage 3 — N-agent directed relay <Badge type="tip" text="available" />
-
-- N-agent roster;
-- directed handoffs to any other roster member;
-- structured advisory turn fields;
-- shared memory, task ledger, recap, peek, log, status JSON, and session history;
-- loop guardrails: `next`, `status --for`, and `append --wait`.
-
-## <i class="fa-solid fa-file-signature m8-heading-icon" aria-hidden="true"></i> Stage 4 — Contracts and validation <Badge type="tip" text="available" />
-
-- available: advisory branch/commit/tests/next/blocked fields and custom `x_*` fields;
-- available: `claim --check` advisory overlap probe;
-- available: typed Stage-4 contract fields on `append`, including schema, roles, relation,
-  requirements, expected output, evidence, permissions, decision and waiver reason;
-- available: read-only validation via `contract validate [--strict] [--json] [--all]`
-  and `doctor --contracts`;
-- boundary: validation never routes work, grants permissions, runs tools, or mutates the `LOCK`.
-
-## <i class="fa-solid fa-code-branch m8-heading-icon" aria-hidden="true"></i> Stage 5 — Isolated concurrency <Badge type="tip" text="companion available" />
-
-- `m8shift-worktree.py` for branches/worktrees per task;
-- serialized integration pen;
-- status, claim, done, integrate, and drop operations;
-- specified future RFC: true degree > 1 writes in one shared working tree remains
-  rejected for the core; isolated worktrees stay the supported parallelism model.
-
-## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Stage 6 — Integrations <Badge type="tip" text="shipped" />
-
-Stage 6's **local integration layer** around the passive core is shipped:
-
-- install scripts, checksums, verify-by-default, `watch`, and site/docs sync;
-- reference headless runner with `--once`, `M8SHIFT_RUN_ID`, heartbeat, and
-  `.m8shift/runtime/runs.jsonl` lifecycle events;
-- release artifacts/package distribution remain convenience layers around the single-file core.
-
-### Post-Stage-6 / future companions <Badge type="info" text="deferred" />
-
-Optional, host-side layers outside the passive core, picked up only after the local layer
-proves value and governed by their RFCs:
-
-- stable run-plan format, provider registry, IDE recipes/panel, read-only MCP adapter,
-  orchestrator recipes, and optional local notifications;
-- hosted/runtime control plane and provider management.
+| Stage | Status | Delivered | Remaining / boundary |
+|-------|--------|-----------|----------------------|
+| <i class="fa-solid fa-flag-checkered m8-heading-icon" aria-hidden="true"></i> **Stage 1 — Relay foundation** | <Badge type="tip" text="available" /> | Local passive CLI; single shared pen; claim-before-work; immutable turn journal; atomic writes and inter-process lock; stale-lock recovery; configurable agent pair; generated anchors and protocol. | Core invariant: one writer at a time. |
+| <i class="fa-solid fa-cube m8-heading-icon" aria-hidden="true"></i> **Stage 2 — M8Shift core** | <Badge type="tip" text="available" /> | `m8shift.py` CLI; generated files `M8SHIFT.*`; anchors; documentation; tests; this website. | The core remains a portable single-file relay. |
+| <i class="fa-solid fa-people-arrows m8-heading-icon" aria-hidden="true"></i> **Stage 3 — N-agent directed relay** | <Badge type="tip" text="available" /> | N-agent roster; directed handoffs to any other roster member; structured advisory turn fields; shared memory; task ledger; recap; peek; log; status JSON; session history; loop guardrails via `next`, `status --for`, and `append --wait`. | Coordination is cooperative and advisory; agents still need to follow the protocol. |
+| <i class="fa-solid fa-file-signature m8-heading-icon" aria-hidden="true"></i> **Stage 4 — Contracts and validation** | <Badge type="tip" text="available" /> | Advisory branch/commit/tests/next/blocked fields and custom `x_*` fields; `claim --check`; typed Stage-4 contract fields on `append`; read-only validation via `contract validate [--strict] [--json] [--all]` and `doctor --contracts`. | Validation never routes work, grants permissions, runs tools, or mutates the `LOCK`. |
+| <i class="fa-solid fa-code-branch m8-heading-icon" aria-hidden="true"></i> **Stage 5 — Isolated concurrency** | <Badge type="tip" text="companion available" /> | `m8shift-worktree.py` for branches/worktrees per task; serialized integration pen; status, claim, done, integrate, and drop operations. | True degree > 1 writes in one shared working tree remain rejected for the core; isolated worktrees are the supported parallelism model. |
+| <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> **Stage 6 — Integrations** | <Badge type="tip" text="shipped" /> | Local integration layer: install scripts; checksums; verify-by-default; `watch`; site/docs sync; reference headless runner with `--once`, `M8SHIFT_RUN_ID`, heartbeat, and `.m8shift/runtime/runs.jsonl` lifecycle events. | Release artifacts and package distribution remain convenience layers around the single-file core. |
+| <i class="fa-solid fa-layer-group m8-heading-icon" aria-hidden="true"></i> **Post-Stage-6 / future companions** | <Badge type="info" text="deferred" /> | RFC-governed direction only; not part of the passive core today. | Stable run-plan format; provider registry; IDE recipes/panel; read-only MCP adapter; orchestrator recipes; optional local notifications; hosted/runtime control plane; provider management. |
