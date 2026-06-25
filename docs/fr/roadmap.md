@@ -74,13 +74,21 @@ actuelle et attend le prochain tag public.
 - future RFC spécifiée : le vrai degré > 1 dans un même working tree reste rejeté
   pour le cœur ; les worktrees isolés restent le modèle de parallélisme supporté.
 
-## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Étape 6 — Intégrations <Badge type="warning" text="partiel" />
+## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Étape 6 — Intégrations <Badge type="tip" text="livré" />
 
-- disponible : scripts d'installation, checksums, `watch`, synchronisation site/docs et runner
-  headless de référence avec `--once`, `M8SHIFT_RUN_ID`, heartbeat et `.m8shift/runtime/runs.jsonl` ;
-- restant : format stable de run-plan, registre de fournisseurs, recettes/panneau IDE,
-  adaptateur MCP read-only, recettes orchestrateurs et notifications locales optionnelles ;
-- future RFCs spécifiées : plan de contrôle runtime/hébergé et gestion des fournisseurs
-  comme compagnons optionnels hors du cœur passif ;
+La **couche d'intégration locale** de l'Étape 6, autour du cœur passif, est livrée :
+
+- scripts d'installation, checksums, vérification par défaut, `watch`, synchronisation site/docs ;
+- runner headless de référence avec `--once`, `M8SHIFT_RUN_ID`, heartbeat et
+  événements de cycle de vie `.m8shift/runtime/runs.jsonl` ;
 - artefacts de release et distribution par paquets restent des couches de commodité autour du
   cœur mono-fichier.
+
+### Post-Étape 6 / compagnons futurs <Badge type="info" text="différé" />
+
+Couches optionnelles côté hôte, hors du cœur passif, reprises seulement une fois la couche locale
+éprouvée et régies par leurs RFCs :
+
+- format stable de run-plan, registre de fournisseurs, recettes/panneau IDE, adaptateur MCP
+  read-only, recettes orchestrateurs et notifications locales optionnelles ;
+- plan de contrôle runtime/hébergé et gestion des fournisseurs.

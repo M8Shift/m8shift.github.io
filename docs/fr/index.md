@@ -177,9 +177,9 @@ L'implémentation livrée de M8Shift et les étapes de protocole planifiées son
   (`contract validate`, `doctor --contracts`) et sortie générée EN/FR ;
 - **disponible via compagnon opt-in :** [`m8shift-worktree.py`](/fr/guide/worktree-toolbox)
   pour des worktrees de fonctionnalité isolés avec un stylo d'intégration sérialisé ;
-- **Stage 6 partiellement implémenté :** scripts d'installation, checksums, `watch`,
-  synchronisation site/docs et runner headless de référence avec IDs/events sont disponibles ;
-  gestion des fournisseurs, adaptateurs IDE/MCP, notifications optionnelles et plan de contrôle
-  runtime/hébergé restent des travaux compagnons.
+- **Couche d'intégration locale de l'Étape 6 livrée :** scripts d'installation, checksums,
+  vérification par défaut, `watch`, synchronisation site/docs et runner headless de référence avec
+  IDs/events de cycle de vie ; gestion des fournisseurs, adaptateurs IDE/MCP, notifications
+  optionnelles et plan de contrôle runtime/hébergé sont différés à des compagnons post-Étape 6.
 
 [Lire les releases / roadmap →](/fr/roadmap)

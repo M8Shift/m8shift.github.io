@@ -72,12 +72,20 @@ the version is present on the current mainline and is awaiting the next public t
 - specified future RFC: true degree > 1 writes in one shared working tree remains
   rejected for the core; isolated worktrees stay the supported parallelism model.
 
-## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Stage 6 — Integrations <Badge type="warning" text="partial" />
+## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Stage 6 — Integrations <Badge type="tip" text="shipped" />
 
-- available: install scripts, checksums, `watch`, site/docs sync, and reference headless runner
-  with `--once`, `M8SHIFT_RUN_ID`, heartbeat and `.m8shift/runtime/runs.jsonl`;
-- remaining: stable run-plan format, provider registry, IDE recipes/panel, read-only MCP adapter,
-  orchestrator recipes, and optional local notifications;
-- specified future RFCs: hosted/runtime control plane and provider management as
-  optional companions outside the passive core;
+Stage 6's **local integration layer** around the passive core is shipped:
+
+- install scripts, checksums, verify-by-default, `watch`, and site/docs sync;
+- reference headless runner with `--once`, `M8SHIFT_RUN_ID`, heartbeat, and
+  `.m8shift/runtime/runs.jsonl` lifecycle events;
 - release artifacts/package distribution remain convenience layers around the single-file core.
+
+### Post-Stage-6 / future companions <Badge type="info" text="deferred" />
+
+Optional, host-side layers outside the passive core, picked up only after the local layer
+proves value and governed by their RFCs:
+
+- stable run-plan format, provider registry, IDE recipes/panel, read-only MCP adapter,
+  orchestrator recipes, and optional local notifications;
+- hosted/runtime control plane and provider management.
