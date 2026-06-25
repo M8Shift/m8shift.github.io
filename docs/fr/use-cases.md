@@ -7,6 +7,49 @@ Au lieu de demander à un agent de tout faire en une seule passe, M8Shift permet
 plusieurs coéquipiers IA de collaborer avec une propriété claire du travail, des
 passations, des notes de tâche et de la validation.
 
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="#ecrire-un-livre">
+    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
+    <strong>Écriture</strong>
+    <span>Coordonner plan, rédaction, relecture, édition et nettoyage du manuscrit.</span>
+  </a>
+  <a class="m8-doc-card" href="#construire-du-logiciel">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Logiciel</strong>
+    <span>Séparer planification, implémentation, revue, tests, docs et notes de release.</span>
+  </a>
+  <a class="m8-doc-card" href="#generer-de-la-documentation">
+    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <strong>Documentation</strong>
+    <span>Transformer des connaissances éparpillées en guides, références et onboarding.</span>
+  </a>
+  <a class="m8-doc-card" href="#concevoir-un-site-web">
+    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+    <strong>Sites web</strong>
+    <span>Coordonner architecture d'information, copy, docs, FAQ et contenus prêts à intégrer.</span>
+  </a>
+  <a class="m8-doc-card" href="#creer-du-contenu-marketing-et-produit">
+    <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+    <strong>Marketing</strong>
+    <span>Garder un message produit cohérent entre pages, annonces et comparaisons.</span>
+  </a>
+  <a class="m8-doc-card" href="#recherche-et-synthese">
+    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+    <strong>Recherche</strong>
+    <span>Collecter des sources, comparer des approches, identifier les risques et produire des notes.</span>
+  </a>
+  <a class="m8-doc-card" href="#revue-et-controle-qualite">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <strong>Revue</strong>
+    <span>Séparer production et validation pour éviter qu'un agent soit seul approbateur.</span>
+  </a>
+  <a class="m8-doc-card" href="#automatiser-des-workflows-multi-etapes">
+    <i class="fa-solid fa-gears" aria-hidden="true"></i>
+    <strong>Automatisation</strong>
+    <span>Découper le travail en tours, suivre l'avancement, valider la sortie et finaliser proprement.</span>
+  </a>
+</div>
+
 ```mermaid
 flowchart LR
     C["coordinateur<br/>cadre le travail"] --> P["producteur<br/>crée le livrable"]

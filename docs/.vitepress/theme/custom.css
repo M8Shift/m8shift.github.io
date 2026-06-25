@@ -76,6 +76,7 @@
 }
 
 .VPHomeFeatures .VPFeature,
+.m8-doc-card,
 .m8-faq-card,
 .m8-usecase-card {
   --m8-card-accent: var(--color-shift-purple);
@@ -83,6 +84,7 @@
 }
 
 .VPHomeFeatures .item:nth-child(1) .VPFeature,
+.m8-doc-card:nth-child(6n+1),
 .m8-faq-card:nth-child(1),
 .m8-usecase-card:nth-child(1) {
   --m8-card-accent: var(--color-m8-orange);
@@ -90,6 +92,7 @@
 }
 
 .VPHomeFeatures .item:nth-child(2) .VPFeature,
+.m8-doc-card:nth-child(6n+2),
 .m8-faq-card:nth-child(2),
 .m8-usecase-card:nth-child(2) {
   --m8-card-accent: var(--color-flow-coral);
@@ -97,6 +100,7 @@
 }
 
 .VPHomeFeatures .item:nth-child(3) .VPFeature,
+.m8-doc-card:nth-child(6n+3),
 .m8-faq-card:nth-child(3),
 .m8-usecase-card:nth-child(3) {
   --m8-card-accent: var(--color-relay-pink);
@@ -104,17 +108,20 @@
 }
 
 .VPHomeFeatures .item:nth-child(4) .VPFeature,
+.m8-doc-card:nth-child(6n+4),
 .m8-usecase-card:nth-child(4) {
   --m8-card-accent: var(--color-shift-purple);
   --m8-card-accent-2: var(--color-deep-violet);
 }
 
-.VPHomeFeatures .item:nth-child(5) .VPFeature {
+.VPHomeFeatures .item:nth-child(5) .VPFeature,
+.m8-doc-card:nth-child(6n+5) {
   --m8-card-accent: var(--color-electric-violet);
   --m8-card-accent-2: var(--color-soft-lavender);
 }
 
-.VPHomeFeatures .item:nth-child(6) .VPFeature {
+.VPHomeFeatures .item:nth-child(6) .VPFeature,
+.m8-doc-card:nth-child(6n) {
   --m8-card-accent: var(--color-soft-lavender);
   --m8-card-accent-2: var(--color-shift-purple);
 }
@@ -205,6 +212,174 @@
   margin-top: -8px;
   color: var(--vp-c-text-2);
   font-size: 18px;
+}
+
+.m8-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 28px;
+}
+
+.m8-doc-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.m8-doc-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.m8-doc-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 90% 4%, color-mix(in srgb, var(--m8-card-accent-2) 14%, transparent), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 94%, transparent), var(--vp-c-bg-alt));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.m8-doc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--m8-card-accent), var(--m8-card-accent-2), transparent 84%);
+  opacity: .86;
+}
+
+.m8-doc-card:hover {
+  border-color: color-mix(in srgb, var(--m8-card-accent) 48%, var(--vp-c-divider));
+  box-shadow: 0 16px 38px rgba(17, 24, 39, .09);
+  transform: translateY(-2px);
+}
+
+.m8-doc-card i {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .42), transparent 44%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m8-card-accent) 22%, transparent), color-mix(in srgb, var(--m8-card-accent-2) 12%, transparent)),
+    var(--vp-c-bg);
+  color: var(--m8-card-accent);
+  font-size: 21px;
+  transition: transform .18s ease;
+}
+
+.m8-doc-card:hover i {
+  transform: translateY(-1px) scale(1.04);
+}
+
+.m8-doc-card strong {
+  color: var(--vp-c-text-1);
+  font-size: 17px;
+}
+
+.m8-doc-card span {
+  color: var(--vp-c-text-2);
+  line-height: 1.58;
+}
+
+.m8-doc-card code {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+.m8-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  margin: 24px 0;
+  padding: 18px 20px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent, var(--vp-c-brand-1)) 24%, var(--vp-c-divider));
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--m8-card-accent-2, var(--color-relay-pink)) 12%, transparent), transparent 34%),
+    color-mix(in srgb, var(--vp-c-bg-soft) 88%, transparent);
+}
+
+.m8-callout i {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--m8-card-accent, var(--vp-c-brand-1)) 14%, transparent);
+  color: var(--m8-card-accent, var(--vp-c-brand-1));
+}
+
+.m8-callout strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--vp-c-text-1);
+}
+
+.m8-callout p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+}
+
+.m8-callout--orange {
+  --m8-card-accent: var(--color-m8-orange);
+  --m8-card-accent-2: var(--color-flow-coral);
+}
+
+.m8-callout--pink {
+  --m8-card-accent: var(--color-relay-pink);
+  --m8-card-accent-2: var(--color-electric-violet);
+}
+
+.m8-callout--purple {
+  --m8-card-accent: var(--color-shift-purple);
+  --m8-card-accent-2: var(--color-deep-violet);
+}
+
+.m8-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 22px 0;
+}
+
+.m8-path span,
+.m8-path a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 11px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 20%, var(--vp-c-divider));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 88%, transparent);
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.m8-path i {
+  color: var(--vp-c-brand-1);
+}
+
+.m8-path__arrow {
+  color: var(--vp-c-text-3);
+  font-weight: 900;
 }
 
 .m8-faq-strip {
@@ -352,6 +527,9 @@
   line-height: 1.65;
 }
 
+.vp-doc a.m8-doc-card,
+.vp-doc a.m8-doc-card:hover,
+.vp-doc a.m8-doc-card:focus,
 .vp-doc a.m8-faq-card,
 .vp-doc a.m8-faq-card:hover,
 .vp-doc a.m8-faq-card:focus,
@@ -361,6 +539,7 @@
   text-decoration: none !important;
 }
 
+.vp-doc a.m8-doc-card *,
 .vp-doc a.m8-faq-card *,
 .vp-doc a.m8-usecase-card * {
   text-decoration: none !important;
@@ -545,6 +724,11 @@
 }
 
 @media (max-width: 960px) {
+  .m8-doc-grid,
+  .m8-doc-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .m8-usecase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -574,10 +758,14 @@
     grid-template-columns: 1fr;
   }
 
+  .m8-doc-grid,
+  .m8-doc-grid--two,
+  .m8-doc-grid--four,
   .m8-usecase-grid {
     grid-template-columns: 1fr;
   }
 
+  .m8-doc-card,
   .m8-faq-card {
     min-height: 0;
   }

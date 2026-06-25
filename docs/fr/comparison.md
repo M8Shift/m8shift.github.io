@@ -1,5 +1,31 @@
 # Comparaison
 
+<div class="m8-doc-grid">
+  <a class="m8-doc-card" href="/fr/comparison">
+    <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+    <strong>M8Shift</strong>
+    <span>Coordination locale du dépôt, un rédacteur explicite, passations en ajout seul, aucun identifiant modèle.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/comparison">
+    <i class="fa-solid fa-server" aria-hidden="true"></i>
+    <strong>Runtime d'agents</strong>
+    <span>Sessions, outils, routage modèle, mémoire, identifiants et état hôte durable.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/guide/worktree-toolbox">
+    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <strong>Complémentaire</strong>
+    <span>Utilisez les runtimes pour lancer les agents et M8Shift pour garder la propriété du dépôt.</span>
+  </a>
+</div>
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+  <div>
+    <strong>Règle de décision</strong>
+    <p>Si la question est « qui peut écrire dans ce dépôt maintenant ? », M8Shift est dans le périmètre. Si la question est « quel modèle doit tourner ensuite ? », utilisez un runtime d'agents.</p>
+  </div>
+</div>
+
 ## M8Shift et les orchestrateurs d'agents
 
 | | M8Shift | Runtime / orchestrateur d'agents complet |

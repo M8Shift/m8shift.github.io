@@ -6,6 +6,49 @@ splitting the work between specialized roles produces better results.
 Instead of asking one agent to do everything in one pass, M8Shift lets multiple AI
 teammates collaborate with clear ownership, handoffs, task notes, and validation.
 
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="#write-a-book">
+    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
+    <strong>Writing</strong>
+    <span>Coordinate planning, drafting, reviewing, editing, and manuscript cleanup.</span>
+  </a>
+  <a class="m8-doc-card" href="#build-software">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Software</strong>
+    <span>Split planning, implementation, review, tests, docs, and release notes.</span>
+  </a>
+  <a class="m8-doc-card" href="#generate-documentation">
+    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+    <strong>Documentation</strong>
+    <span>Turn scattered project knowledge into guides, references, and onboarding material.</span>
+  </a>
+  <a class="m8-doc-card" href="#design-a-website">
+    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+    <strong>Websites</strong>
+    <span>Coordinate information architecture, copy, docs, FAQ, and implementation-ready content.</span>
+  </a>
+  <a class="m8-doc-card" href="#create-marketing-and-product-content">
+    <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+    <strong>Marketing</strong>
+    <span>Keep product messaging consistent across pages, launch notes, and comparisons.</span>
+  </a>
+  <a class="m8-doc-card" href="#research-and-synthesis">
+    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+    <strong>Research</strong>
+    <span>Gather sources, compare approaches, identify risks, and produce decision notes.</span>
+  </a>
+  <a class="m8-doc-card" href="#review-and-quality-control">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <strong>Review</strong>
+    <span>Separate production from validation so one agent is not the only approver.</span>
+  </a>
+  <a class="m8-doc-card" href="#automate-multi-step-workflows">
+    <i class="fa-solid fa-gears" aria-hidden="true"></i>
+    <strong>Automation</strong>
+    <span>Break complex work into turns, track progress, validate output, and finish cleanly.</span>
+  </a>
+</div>
+
 ```mermaid
 flowchart LR
     C["coordinator<br/>frames the work"] --> P["producer<br/>creates the artifact"]

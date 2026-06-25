@@ -1,5 +1,31 @@
 # Comparison
 
+<div class="m8-doc-grid">
+  <a class="m8-doc-card" href="/comparison">
+    <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+    <strong>M8Shift</strong>
+    <span>Local repository coordination, one explicit writer, append-only handoffs, no model credentials.</span>
+  </a>
+  <a class="m8-doc-card" href="/comparison">
+    <i class="fa-solid fa-server" aria-hidden="true"></i>
+    <strong>Agent runtime</strong>
+    <span>Sessions, tools, model routing, memory, credentials, and long-lived host state.</span>
+  </a>
+  <a class="m8-doc-card" href="/guide/worktree-toolbox">
+    <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+    <strong>Complementary</strong>
+    <span>Use runtimes to launch agents and M8Shift to guard shared repository ownership.</span>
+  </a>
+</div>
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+  <div>
+    <strong>Decision rule</strong>
+    <p>If the question is “who may write to this repository right now?”, M8Shift is in scope. If the question is “which model should run next?”, use an agent runtime.</p>
+  </div>
+</div>
+
 ## M8Shift and agent orchestrators
 
 | | M8Shift | Full agent runtime / orchestrator |
