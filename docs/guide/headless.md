@@ -18,6 +18,11 @@ examples/headless_runner.py claude \
   --start-on-idle --interval 30 --max-retries 3
 ```
 
+For supervised automation or tests, add `--once`: the runner executes one eligible turn and exits.
+Each launched turn receives `M8SHIFT_RUN_ID` in the child environment and appends lifecycle events
+to `.m8shift/runtime/runs.jsonl`. If your agent appends `--field x_run_id=$M8SHIFT_RUN_ID`, the
+runtime event and the M8Shift turn can be correlated without changing the core lock.
+
 ```mermaid
 flowchart TD
     S([start]) --> R{read lock state}
@@ -57,6 +62,8 @@ The reference runner exists because the obvious loop has three bugs:
 - **A long turn.** If a single turn can run past the 30-minute TTL, the wrapper should re-run
   `python3 m8shift.py claim <me>` periodically to refresh `expires` — a **manual heartbeat**;
   M8Shift never refreshes the lock for you.
+- **No auditable runtime id.** The runner emits `M8SHIFT_RUN_ID` and `runs.jsonl` so humans can
+  correlate a process run with the turn the agent eventually appends.
 
 It also uses bounded backoff and a static `argv` (no shell evaluation of the agent
 command).

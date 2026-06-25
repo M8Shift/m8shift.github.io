@@ -11,7 +11,7 @@ actuelle et attend le prochain tag public.
 
 | Version | Statut | Contenu livré |
 |---------|--------|---------------|
-| `v3.13.0` | `main` / tag en attente | Validation des contrats Stage 4 : `contract validate`, `doctor --contracts`, flags contrat dédiés sur `append`, checksums mis à jour et documentation alignée. |
+| `v3.13.0` | `main` / tag en attente | Validation des contrats Stage 4 : `contract validate`, `doctor --contracts`, flags contrat dédiés sur `append`, IDs/events du runner headless, checksums mis à jour et documentation alignée. |
 | `v3.12.1` | historique mainline | Horodatages humains préfixés par le fuseau (`CEST 2026-…`, fallback `local`), installateur PowerShell Windows, checksums mis à jour, FAQ enrichie, docs release/install, liens vers la boîte à outils worktree, et rafraîchissement du site. |
 | `v3.9.0` | tagged | Garde-fous de boucle : `next`, `status --for`, `append --wait`, plus le refus de live-lock sur `next --force` avec verrou actif. |
 | `v3.8.0` | tagged | Historique de sessions et affichage de l'heure locale humaine à côté de l'UTC. |
@@ -77,8 +77,8 @@ actuelle et attend le prochain tag public.
 ## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Étape 6 — Intégrations <Badge type="warning" text="partiel" />
 
 - disponible : scripts d'installation, checksums, `watch`, synchronisation site/docs et runner
-  headless de référence ;
-- restant : contrat runner headless durci, registre de fournisseurs, recettes/panneau IDE,
+  headless de référence avec `--once`, `M8SHIFT_RUN_ID`, heartbeat et `.m8shift/runtime/runs.jsonl` ;
+- restant : format stable de run-plan, registre de fournisseurs, recettes/panneau IDE,
   adaptateur MCP read-only, recettes orchestrateurs et notifications locales optionnelles ;
 - future RFCs spécifiées : plan de contrôle runtime/hébergé et gestion des fournisseurs
   comme compagnons optionnels hors du cœur passif ;

@@ -19,6 +19,12 @@ examples/headless_runner.py claude \
   --start-on-idle --interval 30 --max-retries 3
 ```
 
+Pour une automatisation supervisée ou des tests, ajoutez `--once` : le runner exécute un seul
+tour éligible puis quitte. Chaque tour lancé reçoit `M8SHIFT_RUN_ID` dans l'environnement enfant
+et ajoute des événements de cycle de vie dans `.m8shift/runtime/runs.jsonl`. Si l'agent ajoute
+`--field x_run_id=$M8SHIFT_RUN_ID`, l'événement runtime et le tour M8Shift peuvent être corrélés
+sans modifier le verrou du cœur.
+
 ```mermaid
 flowchart TD
     S([début]) --> R{lire l'état du verrou}
@@ -57,6 +63,8 @@ Le runner de référence existe parce que la boucle évidente comporte trois bug
 - **Un tour long.** Si un seul tour peut dépasser le TTL de 30 minutes, le wrapper doit relancer
   périodiquement `python3 m8shift.py claim <me>` pour rafraîchir `expires` — un **heartbeat
   manuel** ; M8Shift ne rafraîchit jamais le verrou à ta place.
+- **Pas d'identifiant runtime auditable.** Le runner émet `M8SHIFT_RUN_ID` et `runs.jsonl` pour
+  corréler un processus lancé avec le tour finalement ajouté par l'agent.
 
 Il utilise également un backoff borné et un `argv` statique (aucune évaluation par le shell de la
 commande de l'agent).

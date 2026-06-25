@@ -10,7 +10,7 @@ the version is present on the current mainline and is awaiting the next public t
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.13.0` | `main` / pending tag | Stage-4 contract validation: `contract validate`, `doctor --contracts`, dedicated contract flags on `append`, updated checksums, and documentation alignment. |
+| `v3.13.0` | `main` / pending tag | Stage-4 contract validation: `contract validate`, `doctor --contracts`, dedicated contract flags on `append`, headless runner run IDs/lifecycle events, updated checksums, and documentation alignment. |
 | `v3.12.1` | mainline history | Timezone-prefixed human timestamps (`CEST 2026-…`, fallback `local`), Windows PowerShell installer, checksum refresh, FAQ expansion, release/install docs, worktree toolbox links, and site documentation refresh. |
 | `v3.9.0` | tagged | Relay loop guardrails: `next`, `status --for`, `append --wait`, plus the `next --force` live-lock refusal fix. |
 | `v3.8.0` | tagged | Session history and human local-time display next to UTC. |
@@ -74,9 +74,10 @@ the version is present on the current mainline and is awaiting the next public t
 
 ## <i class="fa-solid fa-puzzle-piece m8-heading-icon" aria-hidden="true"></i> Stage 6 — Integrations <Badge type="warning" text="partial" />
 
-- available: install scripts, checksums, `watch`, site/docs sync, and reference headless runner;
-- remaining: hardened headless runner contract, provider registry, IDE recipes/panel,
-  read-only MCP adapter, orchestrator recipes, and optional local notifications;
+- available: install scripts, checksums, `watch`, site/docs sync, and reference headless runner
+  with `--once`, `M8SHIFT_RUN_ID`, heartbeat and `.m8shift/runtime/runs.jsonl`;
+- remaining: stable run-plan format, provider registry, IDE recipes/panel, read-only MCP adapter,
+  orchestrator recipes, and optional local notifications;
 - specified future RFCs: hosted/runtime control plane and provider management as
   optional companions outside the passive core;
 - release artifacts/package distribution remain convenience layers around the single-file core.

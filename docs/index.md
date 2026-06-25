@@ -177,7 +177,8 @@ M8Shift's shipped implementation and the planned protocol stages are labelled se
 - **available as an opt-in companion:** [`m8shift-worktree.py`](/guide/worktree-toolbox)
   for isolated feature worktrees plus one serialized integration pen;
 - **partially implemented Stage 6:** install scripts, checksums, `watch`, site/docs sync,
-  and the reference headless runner are available; provider management, IDE/MCP adapters,
-  optional notifications, and hosted/runtime control plane remain companion work.
+  and the reference headless runner with run IDs/lifecycle events are available; provider
+  management, IDE/MCP adapters, optional notifications, and hosted/runtime control plane remain
+  companion work.
 
 [Read releases / roadmap →](/roadmap)
