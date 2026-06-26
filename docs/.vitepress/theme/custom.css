@@ -546,7 +546,11 @@
 }
 
 .vp-doc .m8-tool-card h3 {
+  display: flex;
+  flex-wrap: wrap;
   flex: 1 1 260px;
+  gap: 8px;
+  align-items: center;
   margin: 0;
   line-height: 1.2;
 }
@@ -556,19 +560,31 @@
   text-decoration: none;
 }
 
-.m8-tool-card header span {
+.m8-tool-model,
+.m8-tool-verdict {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 5px 10px;
-  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 28%, var(--vp-c-divider));
   border-radius: 999px;
-  background: color-mix(in srgb, var(--m8-card-accent) 12%, transparent);
-  color: var(--m8-card-accent);
   font-size: 12px;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
+}
+
+.m8-tool-model {
+  min-height: 26px;
+  padding: 4px 9px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-text-3) 18%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 86%, transparent);
+  color: var(--vp-c-text-2);
+}
+
+.m8-tool-verdict {
+  min-height: 30px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 28%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--m8-card-accent) 12%, transparent);
+  color: var(--m8-card-accent);
 }
 
 .m8-tool-card dl {
