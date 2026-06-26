@@ -13,13 +13,37 @@ De la plus récente à la plus ancienne. La version courante est indiquée par u
   <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
   <div>
     <strong>La publication publique ne remet pas l'historique à zéro.</strong>
-    <p>M8Shift a déjà traversé des mois de versions cumulées en étant utilisé pour coordonner son propre travail. La première version publique est donc la version réellement disponible et stabilisée au moment de la publication, pas un <code>v0.1</code> artificiel ni un <code>v1.0</code> marketing.</p>
+    <p>M8Shift a été amorcé le <strong>21 juin 2026</strong> comme prototype de week-end et construit en jours, pas en mois — développé en se servant de M8Shift lui-même pour coordonner son propre travail. Deux agents IA travaillent en binôme : ils implémentent à tour de rôle et relisent chaque changement de façon croisée pour intercepter les régressions avant qu'elles n'arrivent. Cette relecture par les pairs, nourrie par la contradiction, compresse en heures ce qui prendrait des mois à une équipe. La première version publique n'est donc ni un <code>v0.1</code> artificiel ni un <code>v1.0</code> marketing : c'est la version réellement disponible et stabilisée au moment de la publication — déjà portée à l'état de l'art et partagée ouvertement.</p>
   </div>
 </div>
 
 La numérotation suit l'artefact de travail : comportement du relais livré, scripts
 d'installation, checksums, documentation et fonctions de validation. Publier le projet
 rend cet état accumulé visible ; cela ne fait pas repartir le logiciel de zéro.
+
+## <i class="fa-solid fa-flask-vial m8-heading-icon" aria-hidden="true"></i> Prouvé en se construisant lui-même
+
+::: tip Dogfoodé et prouvé par lui-même
+M8Shift sert à coordonner son propre développement — M8Shift écrit M8Shift — et à se déployer lui-même. Dans ses premiers jours, il a aussi coordonné d'autres types de travail : pipelines de clips vidéo, écriture de livres, rédaction juridique, et plus encore. La boucle « implémenter puis relire de façon adversariale » du relais est ce qui rend cette vitesse sûre. Le projet reste jeune, plutôt fin d'alpha, et le durcissement continue ; atteindre v3.26 en moins d'une semaine est déjà la preuve de la méthode.
+:::
+
+### <i class="fa-solid fa-chart-line m8-heading-icon" aria-hidden="true"></i> En chiffres — 5 premiers jours
+
+Du **21 juin 2026** au **26 juin 2026**, pour environ **120 $ d'IA payante** :
+
+| Preuve | Instantané |
+|--------|------------|
+| Outillage | ~6 900 lignes de code outil + ~3 550 lignes de tests (255 tests) |
+| Base de connaissance | 29 RFC · ~10 000 lignes de docs · site bilingue (70 pages, 9 langues) |
+| Rythme de release | 165 commits sur 25 releases (`v1.0.0` → `v3.26.0`) |
+
+::: warning Estimation équivalent humain
+Ceci est une estimation illustrative d'ordre de grandeur, pas un benchmark ferme. En supposant qu'un travail équivalent doive être testé, documenté, relu et internationalisé à un niveau comparable, cela représente environ **1 à 2 années-personnes** d'ingénierie qualifiée — une **équipe de 4 à 5 personnes pendant plusieurs mois** — compressées en 5 jours.
+
+Au même niveau d'approximation, **~120 $ d'IA payante** contre **~150k–300k $ de coût chargé équivalent** suggèrent une efficacité de coût de l'ordre de **~1 000×**. Le coût réel de l'IA est supérieur au prix payé ; c'est une illustration d'échelle, pas un fait absolu.
+:::
+
+M8Shift est partagé ouvertement afin que chacun puisse bénéficier de la méthode, pas seulement de ce code précis.
 
 | Version | Statut | Contenu livré |
 |---------|--------|---------------|

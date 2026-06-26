@@ -81,13 +81,9 @@ does not try to be the runtime that launches or reasons for every agent. It give
 shared repository a turn-taking protocol, a journal, and a human-readable trail so the
 multi-agent workflow stays reviewable.
 
-<div class="m8-callout m8-callout--purple">
-  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
-  <div>
-    <strong>Further reading</strong>
-    <p>The French Liora article on <a href="https://liora.io/crew-ai-tout-savoir">CrewAI and multi-agent workflows</a> frames the broader pattern well: isolated assistants are strong on punctual tasks, while complex projects benefit from roles, coordination, shared context, and human arbitration.</p>
-  </div>
-</div>
+::: tip Further reading
+Liora's article <a href="https://liora.io/en/all-about-crew-ai" target="_blank" rel="noopener noreferrer">Crew AI: the framework that transforms AIs into office colleagues</a> frames the broader pattern well: isolated assistants are strong on punctual tasks, while complex projects benefit from roles, coordination, shared context, and human arbitration.
+:::
 
 ## Different agents, by design
 

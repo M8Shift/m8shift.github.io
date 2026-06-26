@@ -83,13 +83,9 @@ il ne cherche pas à être le runtime qui lance ou raisonne pour chaque agent. I
 dépôt partagé un protocole de tour de rôle, un journal et une trace lisible afin que le
 workflow multi-agent reste relisible.
 
-<div class="m8-callout m8-callout--purple">
-  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
-  <div>
-    <strong>Lecture complémentaire</strong>
-    <p>L'article Liora sur <a href="https://liora.io/crew-ai-tout-savoir">CrewAI et les workflows multi-agents</a> résume bien le motif général : les assistants isolés sont forts sur les tâches ponctuelles, tandis que les projets complexes gagnent avec des rôles, de la coordination, du contexte partagé et un arbitrage humain.</p>
-  </div>
-</div>
+::: tip Lecture complémentaire
+L'article Liora <a href="https://liora.io/crew-ai-tout-savoir" target="_blank" rel="noopener noreferrer">Crew AI : le framework qui transforme les IA en collègues de bureau</a> résume bien le motif général : les assistants isolés sont forts sur les tâches ponctuelles, tandis que les projets complexes gagnent avec des rôles, de la coordination, du contexte partagé et un arbitrage humain.
+:::
 
 ## Des agents différents, par choix
 

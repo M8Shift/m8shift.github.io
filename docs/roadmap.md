@@ -13,13 +13,37 @@ Newest first. The current version is marked with a badge.
   <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
   <div>
     <strong>The public release does not reset the project history.</strong>
-    <p>M8Shift has already gone through months of cumulative versions while being used to coordinate its own work. The first public release is therefore the version that is actually available and stabilized at publication time, not an artificial <code>v0.1</code> or marketing <code>v1.0</code>.</p>
+    <p>M8Shift was bootstrapped on <strong>2026-06-21</strong> as a weekend prototype and built in days, not months — developed using M8Shift itself to coordinate its own work. Two AI agents work as buddies: they implement in turns and cross-review every change to catch regressions before they land. That contradiction-driven peer review compresses what would take a team months into hours. The first public release is therefore not an artificial <code>v0.1</code> or a marketing <code>v1.0</code>: it is the version actually available and stabilized at publication time — already iterated to a state-of-the-art tool and shared openly.</p>
   </div>
 </div>
 
 Version numbers follow the working artifact: shipped relay behavior, install scripts,
 checksums, documentation, and validation features. Publishing the project publicly makes
 that accumulated state visible; it does not make the software begin from zero.
+
+## <i class="fa-solid fa-flask-vial m8-heading-icon" aria-hidden="true"></i> Proven by building itself
+
+::: tip Dogfooded and proven by itself
+M8Shift is used to coordinate its own development — M8Shift writing M8Shift — and to deploy itself. In its first days it has also coordinated other kinds of work: video-clip pipelines, book writing, legal drafting, and more. The relay's implement-then-adversarially-review loop is what makes the speed safe. It is still early, think late-alpha, and hardening continues; reaching v3.26 in under a week is itself the proof of the method.
+:::
+
+### <i class="fa-solid fa-chart-line m8-heading-icon" aria-hidden="true"></i> In numbers — first 5 days
+
+From **2026-06-21** to **2026-06-26**, for about **$120 of paid AI**:
+
+| Evidence | Snapshot |
+|----------|----------|
+| Tooling | ~6,900 lines of tool code + ~3,550 lines of tests (255 tests) |
+| Knowledge base | 29 RFCs · ~10,000 lines of docs · bilingual site (70 pages, 9 languages) |
+| Release pace | 165 commits across 25 releases (`v1.0.0` → `v3.26.0`) |
+
+::: warning Human-equivalent estimate
+This is an illustrative order-of-magnitude estimate, not a hard benchmark. Under the assumption that equivalent work would need to be tested, documented, reviewed, and internationalized to a comparable standard, it represents roughly **1–2 person-years** of skilled engineering — a **4–5 person team for several months** — compressed into 5 days.
+
+At the same level of approximation, **~$120 of paid AI** versus **~$150k–300k of equivalent loaded labor** suggests cost efficiency on the order of **~1,000×**. The real cost of AI is higher than the price paid; this is a scale illustration, not an absolute fact.
+:::
+
+M8Shift is shared openly so anyone can benefit from the method, not just from this specific codebase.
 
 | Version | Status | What shipped |
 |---------|--------|--------------|

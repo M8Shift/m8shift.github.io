@@ -115,7 +115,7 @@ features:
   <i class="fa-solid fa-book-open" aria-hidden="true"></i>
   <div>
     <strong>Broader pattern</strong>
-    <p>Liora's article on <a href="https://liora.io/crew-ai-tout-savoir">CrewAI and multi-agent workflows</a> describes the same shift from one-off assistants toward specialized agents, shared context, coordination, and human arbitration.</p>
+    <p>Liora's article <a href="https://liora.io/en/all-about-crew-ai" target="_blank" rel="noopener noreferrer">Crew AI: the framework that transforms AIs into office colleagues</a> describes the same shift from one-off assistants toward specialized agents, shared context, coordination, and human arbitration.</p>
   </div>
 </div>
 

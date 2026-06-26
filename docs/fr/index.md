@@ -115,7 +115,7 @@ features:
   <i class="fa-solid fa-book-open" aria-hidden="true"></i>
   <div>
     <strong>Motif plus large</strong>
-    <p>L'article Liora sur <a href="https://liora.io/crew-ai-tout-savoir">CrewAI et les workflows multi-agents</a> décrit le même passage de l'assistant ponctuel vers des agents spécialisés, du contexte partagé, de la coordination et un arbitrage humain.</p>
+    <p>L'article Liora <a href="https://liora.io/crew-ai-tout-savoir" target="_blank" rel="noopener noreferrer">Crew AI : le framework qui transforme les IA en collègues de bureau</a> décrit le même passage de l'assistant ponctuel vers des agents spécialisés, du contexte partagé, de la coordination et un arbitrage humain.</p>
   </div>
 </div>
 
