@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Research and synthesis workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="22" x2="598" y2="338" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFFFF8"/>
+      <stop offset=".52" stop-color="#F1E9FF"/>
+      <stop offset="1" stop-color="#FFF2E7"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="108" y1="92" x2="536" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22C55E"/>
+      <stop offset=".48" stop-color="#8B47F9"/>
+      <stop offset="1" stop-color="#F252BF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="116" y="78" width="280" height="214" rx="24" fill="#fff" stroke="#E8DDF8"/>
+    <path d="M158 130h148M158 168h108M158 206h154M158 244h92" stroke="#2D09A4" stroke-width="12" stroke-linecap="round" opacity=".24"/>
+    <rect x="322" y="188" width="28" height="64" rx="10" fill="#FF7A18" opacity=".78"/>
+    <rect x="278" y="154" width="28" height="98" rx="10" fill="#F252BF" opacity=".76"/>
+    <rect x="234" y="212" width="28" height="40" rx="10" fill="#5D26F2" opacity=".74"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="420" cy="164" r="72" fill="#fff" stroke="url(#accent)" stroke-width="16"/>
+    <path d="M474 218l70 70" stroke="#2D09A4" stroke-width="24" stroke-linecap="round"/>
+    <path d="M390 160l22 22 44-56" fill="none" stroke="#22C55E" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <circle cx="112" cy="282" r="22" fill="#F252BF" opacity=".18"/>
+  <circle cx="534" cy="92" r="28" fill="#FF7A18" opacity=".16"/>
+</svg>

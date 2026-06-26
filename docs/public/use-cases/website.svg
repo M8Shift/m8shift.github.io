@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Website design workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="30" x2="596" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFFFF8"/>
+      <stop offset=".5" stop-color="#F2E9FF"/>
+      <stop offset="1" stop-color="#FFECEB"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="108" y1="92" x2="548" y2="286" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A18"/>
+      <stop offset=".5" stop-color="#F252BF"/>
+      <stop offset="1" stop-color="#5D26F2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="88" y="72" width="464" height="236" rx="26" fill="#fff" stroke="#E8DDF8"/>
+    <rect x="88" y="72" width="464" height="48" rx="26" fill="#2D09A4"/>
+    <circle cx="122" cy="96" r="7" fill="#FF7A18"/>
+    <circle cx="146" cy="96" r="7" fill="#FB6F74"/>
+    <circle cx="170" cy="96" r="7" fill="#BA68F3"/>
+    <rect x="126" y="152" width="188" height="84" rx="18" fill="url(#accent)" opacity=".84"/>
+    <path d="M344 154h136M344 184h98M344 214h122" stroke="#5D26F2" stroke-width="12" stroke-linecap="round" opacity=".38"/>
+    <rect x="126" y="260" width="88" height="28" rx="14" fill="#FFF0E7" stroke="#FFB86B"/>
+    <rect x="234" y="260" width="88" height="28" rx="14" fill="#FDE9F7" stroke="#F6A3DF"/>
+    <rect x="342" y="260" width="88" height="28" rx="14" fill="#F0E9FF" stroke="#CDBBFF"/>
+  </g>
+  <path d="M482 244l34 30 50-78" fill="none" stroke="#22C55E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

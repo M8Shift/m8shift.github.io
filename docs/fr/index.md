@@ -90,21 +90,25 @@ features:
 
 <div class="m8-usecase-grid">
   <a class="m8-usecase-card" href="/fr/use-cases#construire-du-logiciel">
+    <img class="m8-usecase-card__image" src="/use-cases/build-software.svg" alt="">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Construire du logiciel</strong>
     <span>Séparez planification, implémentation, revue, tests, documentation et notes de release entre agents spécialisés.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#ecrire-un-livre">
+    <img class="m8-usecase-card__image" src="/use-cases/write-book.svg" alt="">
     <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
     <strong>Écrire des contenus longs</strong>
     <span>Utilisez des rôles de coordination, rédaction, revue et édition pour produire des chapitres sans perdre structure ni ton.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#concevoir-un-site-web">
+    <img class="m8-usecase-card__image" src="/use-cases/website.svg" alt="">
     <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
     <strong>Concevoir un site web</strong>
     <span>Coordonnez architecture d'information, landing page, documentation, FAQ et contenus prêts à intégrer.</span>
   </a>
   <a class="m8-usecase-card" href="/fr/use-cases#revue-et-controle-qualite">
+    <img class="m8-usecase-card__image" src="/use-cases/review.svg" alt="">
     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     <strong>Relire et valider</strong>
     <span>Séparez production et validation pour éviter que l'agent qui produit soit le seul à approuver.</span>

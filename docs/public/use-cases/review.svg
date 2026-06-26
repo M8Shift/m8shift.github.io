@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Review and validation workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="42" y1="26" x2="594" y2="334" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0FFF8"/>
+      <stop offset=".48" stop-color="#F3E9FF"/>
+      <stop offset="1" stop-color="#FFECEA"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="112" y1="78" x2="526" y2="304" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22C55E"/>
+      <stop offset=".48" stop-color="#8B47F9"/>
+      <stop offset="1" stop-color="#F252BF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <path d="M316 64l136 54v80c0 74-48 120-136 146-88-26-136-72-136-146v-80z" fill="#fff" stroke="url(#accent)" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M260 190l42 42 88-116" fill="none" stroke="#22C55E" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="92" y="102" width="144" height="166" rx="22" fill="#fff" stroke="#E8DDF8"/>
+    <path d="M126 144h72M126 180h58M126 216h76" stroke="#5D26F2" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+    <path d="M112 144l8 8 16-22M112 180l8 8 16-22M112 216l8 8 16-22" fill="none" stroke="#22C55E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="438" y="132" width="112" height="110" rx="22" fill="#fff" stroke="#E8DDF8"/>
+    <path d="M468 174h52M468 204h34" stroke="#F252BF" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

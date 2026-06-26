@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Marketing content workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="42" y1="22" x2="596" y2="338" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3E5"/>
+      <stop offset=".48" stop-color="#FFE6F4"/>
+      <stop offset="1" stop-color="#EFE8FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="116" y1="104" x2="520" y2="274" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A18"/>
+      <stop offset=".48" stop-color="#F252BF"/>
+      <stop offset="1" stop-color="#5D26F2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <path d="M138 192l190-72v122l-190-42z" fill="#fff" stroke="url(#accent)" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M328 120c56 12 92 42 112 92-20 48-56 78-112 90z" fill="url(#accent)" opacity=".86"/>
+    <rect x="118" y="180" width="58" height="58" rx="18" fill="#2D09A4"/>
+    <path d="M160 230l32 56" stroke="#2D09A4" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="414" y="82" width="116" height="70" rx="18" fill="#fff" stroke="#E8DDF8"/>
+    <rect x="450" y="186" width="116" height="70" rx="18" fill="#fff" stroke="#E8DDF8"/>
+    <path d="M438 112h62M474 216h62" stroke="#F252BF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M438 134h42M474 238h38" stroke="#FF7A18" stroke-width="8" stroke-linecap="round" opacity=".68"/>
+  </g>
+  <path d="M78 106l20 20M96 84l8 28M522 286l24 18M548 262l14 30" stroke="#5D26F2" stroke-width="9" stroke-linecap="round" opacity=".62"/>
+</svg>

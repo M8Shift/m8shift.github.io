@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Software build workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="32" y1="24" x2="608" y2="336" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0E7"/>
+      <stop offset=".48" stop-color="#F7E8FF"/>
+      <stop offset="1" stop-color="#EDE7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="120" y1="92" x2="520" y2="288" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A18"/>
+      <stop offset=".45" stop-color="#F252BF"/>
+      <stop offset="1" stop-color="#5D26F2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <circle cx="528" cy="68" r="86" fill="#F252BF" opacity=".10"/>
+  <circle cx="116" cy="290" r="98" fill="#FF7A18" opacity=".10"/>
+  <g filter="url(#shadow)">
+    <rect x="78" y="78" width="360" height="214" rx="22" fill="#fff" stroke="#E8DDF8"/>
+    <rect x="78" y="78" width="360" height="48" rx="22" fill="#2D09A4"/>
+    <circle cx="112" cy="102" r="7" fill="#FF7A18"/>
+    <circle cx="136" cy="102" r="7" fill="#FB6F74"/>
+    <circle cx="160" cy="102" r="7" fill="#BA68F3"/>
+    <path d="M124 162h92M124 194h144M124 226h112" stroke="#5D26F2" stroke-width="14" stroke-linecap="round" opacity=".82"/>
+    <path d="M286 162h74M286 194h48M286 226h86" stroke="#F252BF" stroke-width="14" stroke-linecap="round" opacity=".72"/>
+    <path d="M116 260h266" stroke="#E8DDF8" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="398" y="150" width="166" height="112" rx="24" fill="#fff" stroke="#E8DDF8"/>
+    <path d="M438 188h82M438 224h54" stroke="url(#accent)" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="426" cy="188" r="8" fill="#FF7A18"/>
+    <circle cx="426" cy="224" r="8" fill="#F252BF"/>
+  </g>
+  <path d="M314 286c42 34 92 34 134 0" fill="none" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M438 282l22 4-13 18" fill="none" stroke="#5D26F2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

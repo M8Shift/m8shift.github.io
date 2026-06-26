@@ -90,21 +90,25 @@ features:
 
 <div class="m8-usecase-grid">
   <a class="m8-usecase-card" href="/use-cases#build-software">
+    <img class="m8-usecase-card__image" src="/use-cases/build-software.svg" alt="">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>Build software</strong>
     <span>Split planning, implementation, review, tests, documentation, and release notes between specialized agents.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#write-a-book">
+    <img class="m8-usecase-card__image" src="/use-cases/write-book.svg" alt="">
     <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
     <strong>Write long-form content</strong>
     <span>Use coordinator, writer, reviewer, and editor roles to draft chapters without losing structure or tone.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#design-a-website">
+    <img class="m8-usecase-card__image" src="/use-cases/website.svg" alt="">
     <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
     <strong>Design a website</strong>
     <span>Coordinate information architecture, landing page copy, docs, FAQ, and implementation-ready content.</span>
   </a>
   <a class="m8-usecase-card" href="/use-cases#review-and-quality-control">
+    <img class="m8-usecase-card__image" src="/use-cases/review.svg" alt="">
     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     <strong>Review and validate</strong>
     <span>Separate production from validation so the agent that creates the work is not the only one approving it.</span>

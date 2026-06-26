@@ -79,6 +79,7 @@
 .m8-doc-card,
 .m8-faq-card,
 .m8-usecase-card,
+.m8-usecase-image-card,
 .m8-tool-card {
   --m8-card-accent: var(--color-shift-purple);
   --m8-card-accent-2: var(--color-relay-pink);
@@ -88,6 +89,7 @@
 .m8-doc-card:nth-child(6n+1),
 .m8-faq-card:nth-child(1),
 .m8-usecase-card:nth-child(1),
+.m8-usecase-image-card:nth-child(6n+1),
 .m8-tool-card:nth-child(6n+1) {
   --m8-card-accent: var(--color-m8-orange);
   --m8-card-accent-2: var(--color-flow-coral);
@@ -97,6 +99,7 @@
 .m8-doc-card:nth-child(6n+2),
 .m8-faq-card:nth-child(2),
 .m8-usecase-card:nth-child(2),
+.m8-usecase-image-card:nth-child(6n+2),
 .m8-tool-card:nth-child(6n+2) {
   --m8-card-accent: var(--color-flow-coral);
   --m8-card-accent-2: var(--color-relay-pink);
@@ -106,6 +109,7 @@
 .m8-doc-card:nth-child(6n+3),
 .m8-faq-card:nth-child(3),
 .m8-usecase-card:nth-child(3),
+.m8-usecase-image-card:nth-child(6n+3),
 .m8-tool-card:nth-child(6n+3) {
   --m8-card-accent: var(--color-relay-pink);
   --m8-card-accent-2: var(--color-electric-violet);
@@ -114,6 +118,7 @@
 .VPHomeFeatures .item:nth-child(4) .VPFeature,
 .m8-doc-card:nth-child(6n+4),
 .m8-usecase-card:nth-child(4),
+.m8-usecase-image-card:nth-child(6n+4),
 .m8-tool-card:nth-child(6n+4) {
   --m8-card-accent: var(--color-shift-purple);
   --m8-card-accent-2: var(--color-deep-violet);
@@ -121,6 +126,7 @@
 
 .VPHomeFeatures .item:nth-child(5) .VPFeature,
 .m8-doc-card:nth-child(6n+5),
+.m8-usecase-image-card:nth-child(6n+5),
 .m8-tool-card:nth-child(6n+5) {
   --m8-card-accent: var(--color-electric-violet);
   --m8-card-accent-2: var(--color-soft-lavender);
@@ -128,6 +134,7 @@
 
 .VPHomeFeatures .item:nth-child(6) .VPFeature,
 .m8-doc-card:nth-child(6n),
+.m8-usecase-image-card:nth-child(6n),
 .m8-tool-card:nth-child(6n) {
   --m8-card-accent: var(--color-soft-lavender);
   --m8-card-accent-2: var(--color-shift-purple);
@@ -683,6 +690,100 @@
   margin: 24px 0 22px;
 }
 
+.m8-usecase-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 26px 0 34px;
+}
+
+.m8-usecase-image-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 304px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 90% 4%, color-mix(in srgb, var(--m8-card-accent-2) 14%, transparent), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 94%, transparent), var(--vp-c-bg-alt));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.m8-usecase-image-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: 3px;
+  background: linear-gradient(90deg, var(--m8-card-accent), var(--m8-card-accent-2), transparent 84%);
+  opacity: .9;
+}
+
+.m8-usecase-image-card:hover {
+  border-color: color-mix(in srgb, var(--m8-card-accent) 48%, var(--vp-c-divider));
+  box-shadow: 0 18px 42px rgba(17, 24, 39, .10);
+  transform: translateY(-2px);
+}
+
+.m8-usecase-image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid color-mix(in srgb, var(--m8-card-accent) 20%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--m8-card-accent) 8%, var(--vp-c-bg-soft));
+  object-fit: cover;
+}
+
+.m8-usecase-image-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.m8-usecase-image-card__title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.m8-usecase-image-card__title i {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 22%, var(--vp-c-divider));
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .42), transparent 44%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m8-card-accent) 22%, transparent), color-mix(in srgb, var(--m8-card-accent-2) 12%, transparent)),
+    var(--vp-c-bg);
+  color: var(--m8-card-accent);
+  font-size: 16px;
+}
+
+.m8-usecase-image-card__title strong {
+  min-width: 0;
+  color: var(--vp-c-text-1);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.m8-usecase-image-card__text {
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.58;
+}
+
 .m8-usecase-card {
   position: relative;
   overflow: hidden;
@@ -700,6 +801,17 @@
   color: inherit;
   text-decoration: none;
   transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.m8-usecase-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 4px;
+  border: 1px solid color-mix(in srgb, var(--m8-card-accent) 18%, var(--vp-c-divider));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--m8-card-accent) 8%, var(--vp-c-bg-soft));
+  object-fit: cover;
 }
 
 .m8-usecase-card::before {
@@ -755,6 +867,9 @@
 .vp-doc a.m8-faq-card,
 .vp-doc a.m8-faq-card:hover,
 .vp-doc a.m8-faq-card:focus,
+.vp-doc a.m8-usecase-image-card,
+.vp-doc a.m8-usecase-image-card:hover,
+.vp-doc a.m8-usecase-image-card:focus,
 .vp-doc a.m8-usecase-card,
 .vp-doc a.m8-usecase-card:hover,
 .vp-doc a.m8-usecase-card:focus {
@@ -763,6 +878,7 @@
 
 .vp-doc a.m8-doc-card *,
 .vp-doc a.m8-faq-card *,
+.vp-doc a.m8-usecase-image-card *,
 .vp-doc a.m8-usecase-card * {
   text-decoration: none !important;
 }
@@ -987,6 +1103,7 @@
   .m8-doc-grid,
   .m8-doc-grid--two,
   .m8-doc-grid--four,
+  .m8-usecase-gallery,
   .m8-usecase-grid {
     grid-template-columns: 1fr;
   }

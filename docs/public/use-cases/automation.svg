@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Automation workflow illustration">
+  <defs>
+    <linearGradient id="bg" x1="42" y1="24" x2="596" y2="336" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2E6"/>
+      <stop offset=".5" stop-color="#F0E8FF"/>
+      <stop offset="1" stop-color="#EFFFF8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="92" y1="96" x2="548" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A18"/>
+      <stop offset=".46" stop-color="#F252BF"/>
+      <stop offset="1" stop-color="#5D26F2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2D09A4" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="34" fill="url(#bg)"/>
+  <path d="M156 180h116M368 180h116M320 130v100" stroke="url(#accent)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M260 180l22-16v32zM472 180l22-16v32zM320 218l16 22h-32z" fill="#5D26F2"/>
+  <g filter="url(#shadow)">
+    <rect x="76" y="128" width="112" height="104" rx="26" fill="#fff" stroke="#E8DDF8"/>
+    <circle cx="132" cy="180" r="26" fill="#FF7A18" opacity=".18"/>
+    <path d="M118 180h28M132 166v28" stroke="#FF7A18" stroke-width="10" stroke-linecap="round"/>
+    <rect x="264" y="80" width="112" height="104" rx="26" fill="#fff" stroke="#E8DDF8"/>
+    <circle cx="320" cy="132" r="28" fill="#F252BF" opacity=".18"/>
+    <path d="M306 132h28M320 118v28" stroke="#F252BF" stroke-width="10" stroke-linecap="round"/>
+    <rect x="264" y="204" width="112" height="104" rx="26" fill="#fff" stroke="#E8DDF8"/>
+    <circle cx="320" cy="256" r="28" fill="#22C55E" opacity=".18"/>
+    <path d="M306 256l12 12 28-36" fill="none" stroke="#16A34A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="452" y="128" width="112" height="104" rx="26" fill="#fff" stroke="#E8DDF8"/>
+    <circle cx="508" cy="180" r="28" fill="#5D26F2" opacity=".16"/>
+    <path d="M494 180h28M508 166v28" stroke="#5D26F2" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>

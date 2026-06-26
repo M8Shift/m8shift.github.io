@@ -6,46 +6,62 @@ splitting the work between specialized roles produces better results.
 Instead of asking one agent to do everything in one pass, M8Shift lets multiple AI
 teammates collaborate with clear ownership, handoffs, task notes, and validation.
 
-<div class="m8-doc-grid m8-doc-grid--four">
-  <a class="m8-doc-card" href="#write-a-book">
-    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
-    <strong>Writing</strong>
-    <span>Coordinate planning, drafting, reviewing, editing, and manuscript cleanup.</span>
+<div class="m8-usecase-gallery">
+  <a class="m8-usecase-image-card" href="#write-a-book">
+    <img src="/use-cases/write-book.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-pen-fancy" aria-hidden="true"></i><strong>Writing</strong></span>
+      <span class="m8-usecase-image-card__text">Coordinate planning, drafting, reviewing, editing, and manuscript cleanup.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#build-software">
-    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
-    <strong>Software</strong>
-    <span>Split planning, implementation, review, tests, docs, and release notes.</span>
+  <a class="m8-usecase-image-card" href="#build-software">
+    <img src="/use-cases/build-software.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-terminal" aria-hidden="true"></i><strong>Software</strong></span>
+      <span class="m8-usecase-image-card__text">Split planning, implementation, review, tests, docs, and release notes.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#generate-documentation">
-    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
-    <strong>Documentation</strong>
-    <span>Turn scattered project knowledge into guides, references, and onboarding material.</span>
+  <a class="m8-usecase-image-card" href="#generate-documentation">
+    <img src="/use-cases/documentation.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-book-open" aria-hidden="true"></i><strong>Documentation</strong></span>
+      <span class="m8-usecase-image-card__text">Turn scattered project knowledge into guides, references, and onboarding material.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#design-a-website">
-    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-    <strong>Websites</strong>
-    <span>Coordinate information architecture, copy, docs, FAQ, and implementation-ready content.</span>
+  <a class="m8-usecase-image-card" href="#design-a-website">
+    <img src="/use-cases/website.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><strong>Websites</strong></span>
+      <span class="m8-usecase-image-card__text">Coordinate information architecture, copy, docs, FAQ, and implementation-ready content.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#create-marketing-and-product-content">
-    <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
-    <strong>Marketing</strong>
-    <span>Keep product messaging consistent across pages, launch notes, and comparisons.</span>
+  <a class="m8-usecase-image-card" href="#create-marketing-and-product-content">
+    <img src="/use-cases/marketing.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><strong>Marketing</strong></span>
+      <span class="m8-usecase-image-card__text">Keep product messaging consistent across pages, launch notes, and comparisons.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#research-and-synthesis">
-    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
-    <strong>Research</strong>
-    <span>Gather sources, compare approaches, identify risks, and produce decision notes.</span>
+  <a class="m8-usecase-image-card" href="#research-and-synthesis">
+    <img src="/use-cases/research.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><strong>Research</strong></span>
+      <span class="m8-usecase-image-card__text">Gather sources, compare approaches, identify risks, and produce decision notes.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#review-and-quality-control">
-    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-    <strong>Review</strong>
-    <span>Separate production from validation so one agent is not the only approver.</span>
+  <a class="m8-usecase-image-card" href="#review-and-quality-control">
+    <img src="/use-cases/review.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>Review</strong></span>
+      <span class="m8-usecase-image-card__text">Separate production from validation so one agent is not the only approver.</span>
+    </span>
   </a>
-  <a class="m8-doc-card" href="#automate-multi-step-workflows">
-    <i class="fa-solid fa-gears" aria-hidden="true"></i>
-    <strong>Automation</strong>
-    <span>Break complex work into turns, track progress, validate output, and finish cleanly.</span>
+  <a class="m8-usecase-image-card" href="#automate-multi-step-workflows">
+    <img src="/use-cases/automation.svg" alt="">
+    <span class="m8-usecase-image-card__body">
+      <span class="m8-usecase-image-card__title"><i class="fa-solid fa-gears" aria-hidden="true"></i><strong>Automation</strong></span>
+      <span class="m8-usecase-image-card__text">Break complex work into turns, track progress, validate output, and finish cleanly.</span>
+    </span>
   </a>
 </div>
 
