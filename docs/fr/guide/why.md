@@ -101,6 +101,27 @@ racine du dépôt, on arrête de **copier-coller entre des UI de chat cloisonné
 agents synchronisés — ils relaient via le dépôt, comme des coéquipiers qui travaillent par
 roulements, pas des rivaux qui s'écrasent.
 
+## <i class="fa-solid fa-seedling m8-heading-icon" aria-hidden="true"></i> Preuve vivante de cette session
+
+::: tip M8Shift construit avec M8Shift
+Ce site ne décrit pas un workflow hypothétique depuis l'extérieur. Le train de release actuel est coordonné par M8Shift lui-même : les agents utilisent le relais pour implémenter, contredire, relire, fusionner et passer le travail suivant pendant que le shift reste vivant.
+:::
+
+Le vrai gain n'est pas seulement la vitesse ; c'est la vitesse avec une trace auditable. Dans cette session, la relecture contradictoire a permis au projet de continuer à livrer tout en gardant le contexte entre les tours et une trace lisible de qui a demandé quoi, de ce qui a changé et des preuves produites.
+
+| Observation issue de cette session | Ce que cela montre |
+|------------------------------------|--------------------|
+| ~7 h de travail | Estimation mainteneur pour une séquence dense d'implémentation, revue, release, documentation et déploiement. |
+| ~44 tours de relais | Les échanges vont de quelques minutes à environ 45 minutes, avec des retours de revue complexes et des attentes utilisateur. |
+| 6 incréments de version livrés à la volée (`v3.21` → `v3.26`) | Le relais a continué à coordonner pendant que l'outil évoluait sous lui, sans casser le shift en cours. |
+| Shift encore en cours et stable au moment de publier | La preuve est opérationnelle : la même boucle de coordination qui a produit la fonctionnalité porte déjà la passation suivante. |
+
+::: warning Observation illustrative, pas benchmark
+Ces chiffres sont des observations de session, pas un benchmark contrôlé. Ils dépendent du périmètre projet, de la qualité des agents, de l'attention du mainteneur, du contexte déjà disponible et du niveau de revue requis. Le statut honnête reste late-alpha : M8Shift est assez utile pour se construire et se déployer lui-même, mais le durcissement continue.
+:::
+
+Pour le cadrage économique plus large, voir la section roadmap [preuve par construction et ROI](/fr/roadmap#prouve-en-se-construisant-lui-meme).
+
 ## Ce que ce n'est pas
 
 M8Shift n'est ni un fournisseur de modèles, ni une passerelle hébergée, ni une plateforme de mémoire,
