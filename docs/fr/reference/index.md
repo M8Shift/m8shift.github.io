@@ -17,6 +17,11 @@ rester marquées comme prévues tant que le code et les tests n'existent pas.
     <strong>Matrice fonctionnelle</strong>
     <span>Un tableau complet des capacités livrées et de ce que chacune fait.</span>
   </a>
+  <a class="m8-doc-card" href="./rfc">
+    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+    <strong>Référence RFC</strong>
+    <span>Toutes les RFC 001-029 avec statut, version, date et notes d'implémentation.</span>
+  </a>
   <a class="m8-doc-card" href="./cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>
     <strong>CLI</strong>
