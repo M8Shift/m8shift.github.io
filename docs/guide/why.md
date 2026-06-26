@@ -42,6 +42,53 @@ flowchart LR
 
 *🟣 agents · 🟠 repo · 🔴 overwrites · 🟢 handoff*
 
+## Why multi-agent work helps
+
+A single assistant is useful for a prompt-sized task: explain, summarize, draft, or make
+one focused change. Longer work is different. It has planning, implementation, review,
+correction, documentation, and final arbitration. When one agent tries to hold all of
+that at once, the user often becomes the hidden project manager: re-prompting, copying
+context, checking claims, and stitching partial outputs together.
+
+Multi-agent work is useful when roles stay explicit:
+
+<div class="m8-doc-grid m8-doc-grid--two">
+  <a class="m8-doc-card" href="/use-cases#build-software">
+    <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+    <strong>Long tasks need structure</strong>
+    <span>Planning, prioritizing, coding, testing, documenting, and releasing are different responsibilities. Splitting them makes the workflow easier to inspect.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/agents-roles">
+    <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+    <strong>Specialized roles reduce blur</strong>
+    <span>A planner, implementer, reviewer, editor, or tester can optimize for one job instead of producing one broad generic answer.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/handoff-contracts">
+    <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
+    <strong>Handoffs preserve context</strong>
+    <span>Each turn should say what changed, what evidence exists, and what the next agent is expected to do.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/validation">
+    <i class="fa-solid fa-check-double" aria-hidden="true"></i>
+    <strong>Review is a separate job</strong>
+    <span>The agent that produced the work should not be the only one validating it. A second pass catches missed requirements and weak assumptions.</span>
+  </a>
+</div>
+
+The trade-off is real: more agents can mean more cost, more chatter, and more chances
+for agents to misunderstand each other. M8Shift's answer is intentionally narrow: it
+does not try to be the runtime that launches or reasons for every agent. It gives the
+shared repository a turn-taking protocol, a journal, and a human-readable trail so the
+multi-agent workflow stays reviewable.
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+  <div>
+    <strong>Further reading</strong>
+    <p>The French Liora article on <a href="https://liora.io/crew-ai-tout-savoir">CrewAI and multi-agent workflows</a> frames the broader pattern well: isolated assistants are strong on punctual tasks, while complex projects benefit from roles, coordination, shared context, and human arbitration.</p>
+  </div>
+</div>
+
 ## Different agents, by design
 
 The point isn't to make agents interchangeable — it's to let *different* ones work together.
