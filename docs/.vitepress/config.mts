@@ -85,6 +85,14 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'Référence CLI M8Shift — commandes du relais pour agents IA',
     description: 'Référence des commandes M8Shift : init, status, claim, next, append, done, memory, tasks, sessions, doctor et validation de contrats.'
   },
+  '/reference/rfc': {
+    title: 'M8Shift RFC Reference — statuses, versions and implementation notes',
+    description: 'Complete M8Shift RFC reference from 001 to 029, including status, implementation version, implementation date and notes.'
+  },
+  '/fr/reference/rfc': {
+    title: 'Référence RFC M8Shift — statuts, versions et notes d’implémentation',
+    description: 'Référence complète des RFC M8Shift de 001 à 029, avec statut, version d’implémentation, date et notes.'
+  },
   '/security/': {
     title: 'M8Shift Security Model — local files, locks and permissions',
     description: 'Understand M8Shift security boundaries: local repository state, file locks, generated files, permissions, threat model and operational guardrails.'
@@ -132,6 +140,7 @@ const alternatePairs = [
   ['/concepts/validation', '/fr/concepts/validation'],
   ['/reference/', '/fr/reference/'],
   ['/reference/features', '/fr/reference/features'],
+  ['/reference/rfc', '/fr/reference/rfc'],
   ['/reference/cli', '/fr/reference/cli'],
   ['/reference/state-model', '/fr/reference/state-model'],
   ['/reference/contract-schema', '/fr/reference/contract-schema'],
@@ -386,6 +395,7 @@ export default defineConfig({
           {
             text: 'More', items: [
               { text: 'Features', link: '/reference/features' },
+              { text: 'RFC reference', link: '/reference/rfc' },
               { text: 'Use cases', link: '/use-cases' },
               { text: 'Comparison', link: '/comparison' },
               { text: 'FAQ', link: '/faq' },
@@ -437,6 +447,7 @@ export default defineConfig({
               text: 'Reference', items: [
                 { text: 'Overview', link: '/reference/' },
                 { text: 'Feature matrix', link: '/reference/features' },
+                { text: 'RFC reference', link: '/reference/rfc' },
                 { text: 'CLI', link: '/reference/cli' },
                 { text: 'State model', link: '/reference/state-model' },
                 { text: 'Turn schema', link: '/reference/contract-schema' },
@@ -481,6 +492,7 @@ export default defineConfig({
           {
             text: 'Plus', items: [
               { text: 'Fonctionnalités', link: '/fr/reference/features' },
+              { text: 'Référence RFC', link: '/fr/reference/rfc' },
               { text: "Cas d'usage", link: '/fr/use-cases' },
               { text: 'Comparaison', link: '/fr/comparison' },
               { text: 'FAQ', link: '/fr/faq' },
@@ -532,6 +544,7 @@ export default defineConfig({
               text: 'Référence', items: [
                 { text: 'Aperçu', link: '/fr/reference/' },
                 { text: 'Matrice fonctionnelle', link: '/fr/reference/features' },
+                { text: 'Référence RFC', link: '/fr/reference/rfc' },
                 { text: 'CLI', link: '/fr/reference/cli' },
                 { text: 'Modèle d’états', link: '/fr/reference/state-model' },
                 { text: 'Schéma de tour', link: '/fr/reference/contract-schema' },
