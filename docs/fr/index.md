@@ -84,6 +84,41 @@ features:
   </div>
 </div>
 
+## Pourquoi le multi-agent
+
+<p class="m8-section-lead">Les assistants isolés sont forts sur les tâches ponctuelles. Le travail long sur dépôt a besoin d'une petite forme d'équipe : planifier, produire, relire, corriger, documenter et arbitrer sans perdre le contexte.</p>
+
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/fr/guide/why#pourquoi-le-multi-agent-aide">
+    <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+    <strong>Le travail long a besoin de structure</strong>
+    <span>Les projets complexes dérapent quand planification, implémentation, tests et documentation restent dans un seul prompt généraliste.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/concepts/agents-roles">
+    <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+    <strong>Les rôles réduisent le flou</strong>
+    <span>Un planificateur, codeur, relecteur, testeur ou éditeur peut optimiser une responsabilité plutôt qu'une réponse générique.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/concepts/handoff-contracts">
+    <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
+    <strong>Les passations évitent la dérive</strong>
+    <span>Chaque agent doit savoir ce qui a changé, quelles preuves existent et ce que le prochain tour doit faire.</span>
+  </a>
+  <a class="m8-doc-card" href="/fr/concepts/validation">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>L'humain arbitre toujours</strong>
+    <span>Plus d'agents peut ajouter coût et bavardage. M8Shift garde une trace lisible pour relire et décider.</span>
+  </a>
+</div>
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+  <div>
+    <strong>Motif plus large</strong>
+    <p>L'article Liora sur <a href="https://liora.io/crew-ai-tout-savoir">CrewAI et les workflows multi-agents</a> décrit le même passage de l'assistant ponctuel vers des agents spécialisés, du contexte partagé, de la coordination et un arbitrage humain.</p>
+  </div>
+</div>
+
 ## Cas d'usage pratiques
 
 <p class="m8-section-lead">M8Shift aide quand un seul assistant ne suffit pas et que le travail gagne à être séparé en rôles, passations et revues explicites.</p>

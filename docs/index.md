@@ -84,6 +84,41 @@ features:
   </div>
 </div>
 
+## Why Multi-Agent
+
+<p class="m8-section-lead">Single assistants are strong on punctual tasks. Multi-step repository work needs a small team shape: plan, produce, review, correct, document, and arbitrate without losing context.</p>
+
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/guide/why#why-multi-agent-work-helps">
+    <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+    <strong>Long work needs structure</strong>
+    <span>Complex projects fail when planning, implementation, testing, and documentation stay inside one broad prompt.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/agents-roles">
+    <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+    <strong>Roles reduce blur</strong>
+    <span>A planner, coder, reviewer, tester, or editor can optimize for one responsibility instead of one generic answer.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/handoff-contracts">
+    <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
+    <strong>Handoffs prevent drift</strong>
+    <span>Every agent needs to know what changed, what evidence exists, and what the next turn is expected to do.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/validation">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>Humans still arbitrate</strong>
+    <span>More agents can add cost and chatter. M8Shift keeps the repo trail readable so humans can review and decide.</span>
+  </a>
+</div>
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+  <div>
+    <strong>Broader pattern</strong>
+    <p>Liora's article on <a href="https://liora.io/crew-ai-tout-savoir">CrewAI and multi-agent workflows</a> describes the same shift from one-off assistants toward specialized agents, shared context, coordination, and human arbitration.</p>
+  </div>
+</div>
+
 ## Practical Use Cases
 
 <p class="m8-section-lead">M8Shift helps when one assistant is not enough and the work benefits from explicit roles, handoffs, and review.</p>
