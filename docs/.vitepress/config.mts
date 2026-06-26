@@ -468,7 +468,7 @@ export default defineConfig({
           ]
         },
         editLink: {
-          pattern: 'https://github.com/M8Shift/M8Shift-site/edit/main/docs/:path',
+          pattern: 'https://github.com/M8Shift/m8shift.github.io/edit/main/docs/:path',
           text: 'Edit this page'
         },
         footer: {
@@ -565,7 +565,7 @@ export default defineConfig({
           ]
         },
         editLink: {
-          pattern: 'https://github.com/M8Shift/M8Shift-site/edit/main/docs/:path',
+          pattern: 'https://github.com/M8Shift/m8shift.github.io/edit/main/docs/:path',
           text: 'Modifier cette page'
         },
         footer: {
