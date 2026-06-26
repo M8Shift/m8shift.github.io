@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run docs:build
         env:
-          M8SHIFT_SITE_URL: ${{ vars.M8SHIFT_SITE_URL || 'https://m8shift.github.io' }}
+          M8SHIFT_SITE_URL: ${{ vars.M8SHIFT_SITE_URL || 'https://m8shift.ai' }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

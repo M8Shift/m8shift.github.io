@@ -2,99 +2,228 @@
 layout: home
 
 title: M8Shift
-titleTemplate: Official site coming soon
+titleTemplate: AI agents, working in shifts.
 
 hero:
-  name: M8Shift
-  text: The official site is coming soon.
-  tagline: "A free, open-source local relay for coordinating multiple AI agents on the same repository: one writer at a time, explicit handoffs, a readable turn journal, and no server or M8Shift API key."
+  name: ""
+  text: <img src="/logo-wordmark.png" alt="M8Shift wordmark" id="m8shift-title" />AI agents,<br>Working in shifts.
+  tagline: "Pronounced mate-shift — AI team mates working in shifts. Free and open source. Coordinate your AI teammates — Claude, Codex, Gemini, Vibe, and other coding agents — on one repository: exactly one writes at a time, and every handoff stays recorded."
   image:
     src: /logo.png
     alt: M8Shift logo
   actions:
     - theme: brand
-      text: View the GitHub project
-      link: https://github.com/M8Shift/M8Shift
+      text: Get started
+      link: /guide/quickstart
     - theme: alt
-      text: Follow the site launch
-      link: https://github.com/M8Shift/m8shift.github.io
+      text: Read the docs
+      link: /guide/
+    - theme: alt
+      text: View the source
+      link: https://github.com/M8Shift/M8Shift
 
 features:
   - icon: <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
-    title: One shared pen
-    details: M8Shift acts as a cooperative repository mutex. One agent claims the pen, works, then hands it off explicitly.
-  - icon: <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
+    title: One writer at a time
+    details: A single exclusive "pen" guards the repository. An agent must claim it before touching files; a second claim simply waits. A cooperative mutex, not a free-for-all.
+  - icon: <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
     title: Structured handoffs
-    details: Every turn records what changed, what is needed next, which files were touched, and which agent receives the next turn.
-  - icon: <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-    title: Readable state
-    details: Coordination lives in versionable text files. Maintainers can inspect, audit, and arbitrate without an opaque dashboard.
+    details: Every turn is a numbered, immutable contract — who wrote, what was done, what is asked next, and which files changed — appended to a grep-able journal.
+  - icon: <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+    title: Configurable roster
+    details: Declare the agents that may take turns (claude, codex, gemini, vibe…). Any active member can receive the pen; the core stays a strict degree-1 relay.
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Provider-neutral
-    details: Claude, Codex, Gemini, Vibe, or another cooperative agent can participate if it can read instructions and run the CLI.
-  - icon: <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-    title: Local-first
-    details: The core makes no network calls, requires no account, and stores no provider secrets.
-  - icon: <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
-    title: Extensible without runtime ownership
-    details: Optional companions cover worktrees, presence, reports, and headless runs without becoming the relay authority.
+    details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
+  - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
+    title: One file, zero dependencies
+    details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
+  - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+    title: Auditable by design
+    details: Append-only turns, memory notes, tasks, session history, and timezone-prefixed local-time status keep the relay inspectable without a service.
+
 ---
 
-## Opening Soon
+## Quick Start
 
-The full M8Shift website is being prepared. This temporary homepage is the public
-entry point while the GitHub Pages repository, domain, and final documentation
-are being connected.
-
-M8Shift solves a simple problem: when several AI agents work inside the same
-repository, they can overwrite each other. The project introduces one clear,
-inspectable rule: **only one agent writes at a time**. Other agents wait for
-their turn, then resume from an explicit handoff with the context they need.
-
-<div class="m8-doc-grid m8-doc-grid--three">
-  <div class="m8-doc-card">
-    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
-    <strong>A coordination tool</strong>
-    <span>M8Shift does not host models or replace your IDE. It coordinates agents around a repository and a shared turn journal.</span>
+<div class="m8-quickstart">
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-macos" checked>
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-linux">
+  <input class="m8-quickstart__radio" type="radio" name="m8-quickstart-en" id="m8-quickstart-en-windows">
+  <div class="m8-quickstart__bar">
+    <div class="m8-quickstart__lights" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="m8-quickstart__tabs">
+      <label for="m8-quickstart-en-macos">macOS</label>
+      <label for="m8-quickstart-en-linux">Linux</label>
+      <label for="m8-quickstart-en-windows">Windows</label>
+    </div>
+    <div class="m8-quickstart__badge">local install</div>
   </div>
-  <div class="m8-doc-card">
-    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
-    <strong>Useful disagreement</strong>
-    <span>Different agents can plan, code, review, document, or challenge an approach while the human maintainer keeps final arbitration.</span>
+  <div class="m8-quickstart__body">
+    <div class="m8-quickstart__panel m8-quickstart__panel--macos">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Terminal install for macOS. Verifies files, installs locally, then runs init.</p>
+      <pre><code><span class="m8-prompt">$</span> cd /path/to/project
+<span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+    </div>
+    <div class="m8-quickstart__panel m8-quickstart__panel--linux">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change.</p>
+      <pre><code><span class="m8-prompt">$</span> cd /path/to/project
+<span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
+    </div>
+    <div class="m8-quickstart__panel m8-quickstart__panel--windows">
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Native PowerShell install for Windows. Verification is enabled by default.</p>
+      <pre><code><span class="m8-prompt">PS&gt;</span> cd C:\path\to\project
+<span class="m8-prompt">PS&gt;</span> irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex</code></pre>
+    </div>
   </div>
-  <div class="m8-doc-card">
-    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-    <strong>A durable trail</strong>
-    <span>The relay keeps turns, requests, decisions, and touched files in a format that can be inspected from Git and plain text.</span>
+  <div class="m8-quickstart__foot">
+    <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
+    <span class="m8-quickstart__links"><a href="/guide/macos">macOS</a><a href="/guide/linux">Linux</a><a href="/guide/windows">Windows</a></span>
   </div>
 </div>
 
-## What M8Shift Does
+## Why Multi-Agent
 
-- It installs a local relay into a project.
-- It creates a `M8SHIFT.md` file containing the lock and the turn journal.
-- It enforces the `claim -> work -> append` sequence to avoid simultaneous writers.
-- It lets one agent hand off explicitly to another member of the roster.
-- It keeps coordination state in the repository, in plain files, without a resident service.
-- It works with CLI, IDE, desktop, and headless workflows.
+<p class="m8-section-lead">Single assistants are strong on punctual tasks. Multi-step repository work needs a small team shape: plan, produce, review, correct, document, and arbitrate without losing context.</p>
 
-## What M8Shift Does Not Do
-
-- It does not run a model for you.
-- It does not become an agent orchestrator.
-- It does not replace Git, tests, or human review.
-- It does not require an API key for its own operation.
-
-## Status
-
-The product is already available as open source. The complete public website will
-follow with documentation, installation guides, use cases, CLI references, and
-architecture notes.
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/guide/why#why-multi-agent-work-helps">
+    <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+    <strong>Long work needs structure</strong>
+    <span>Complex projects fail when planning, implementation, testing, and documentation stay inside one broad prompt.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/agents-roles">
+    <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+    <strong>Roles reduce blur</strong>
+    <span>A planner, coder, reviewer, tester, or editor can optimize for one responsibility instead of one generic answer.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/handoff-contracts">
+    <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
+    <strong>Handoffs prevent drift</strong>
+    <span>Every agent needs to know what changed, what evidence exists, and what the next turn is expected to do.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/validation">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>Humans still arbitrate</strong>
+    <span>More agents can add cost and chatter. M8Shift keeps the repo trail readable so humans can review and decide.</span>
+  </a>
+</div>
 
 <div class="m8-callout m8-callout--purple">
-  <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+  <i class="fa-solid fa-book-open" aria-hidden="true"></i>
   <div>
-    <strong>Temporary launch page</strong>
-    <p>This page tests the <code>m8shift.github.io</code> repository, the VitePress build, GitHub Pages publishing, and the future <code>m8shift.ai</code> domain.</p>
+    <strong>Broader pattern</strong>
+    <p>Liora's article on <a href="https://liora.io/crew-ai-tout-savoir">CrewAI and multi-agent workflows</a> describes the same shift from one-off assistants toward specialized agents, shared context, coordination, and human arbitration.</p>
   </div>
+</div>
+
+## Practical Use Cases
+
+<p class="m8-section-lead">M8Shift helps when one assistant is not enough and the work benefits from explicit roles, handoffs, and review.</p>
+
+<div class="m8-usecase-grid">
+  <a class="m8-usecase-card" href="/use-cases#build-software">
+    <img class="m8-usecase-card__image" src="/use-cases/build-software.svg" alt="">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Build software</strong>
+    <span>Split planning, implementation, review, tests, documentation, and release notes between specialized agents.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#write-a-book">
+    <img class="m8-usecase-card__image" src="/use-cases/write-book.svg" alt="">
+    <i class="fa-solid fa-pen-fancy" aria-hidden="true"></i>
+    <strong>Write long-form content</strong>
+    <span>Use coordinator, writer, reviewer, and editor roles to draft chapters without losing structure or tone.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#design-a-website">
+    <img class="m8-usecase-card__image" src="/use-cases/website.svg" alt="">
+    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+    <strong>Design a website</strong>
+    <span>Coordinate information architecture, landing page copy, docs, FAQ, and implementation-ready content.</span>
+  </a>
+  <a class="m8-usecase-card" href="/use-cases#review-and-quality-control">
+    <img class="m8-usecase-card__image" src="/use-cases/review.svg" alt="">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    <strong>Review and validate</strong>
+    <span>Separate production from validation so the agent that creates the work is not the only one approving it.</span>
+  </a>
+</div>
+
+[Explore all use cases →](/use-cases)
+
+## Documentation for humans and agents
+
+<p class="m8-section-lead">The homepage explains the product. The rest of the site is the operating manual for humans and AI agents that need a shared way to communicate, hand off work, and inspect state.</p>
+
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/guide/quickstart">
+    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+    <strong>Start a relay</strong>
+    <span>Install locally, initialize a repository, and run a first handoff between coding agents.</span>
+  </a>
+  <a class="m8-doc-card" href="/reference/features">
+    <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+    <strong>Feature matrix</strong>
+    <span>Scan the complete list of shipped features and what each capability does.</span>
+  </a>
+  <a class="m8-doc-card" href="/concepts/">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>Understand the protocol</strong>
+    <span>Read the concepts behind the pen, roles, relations, validation, and immutable handoffs.</span>
+  </a>
+  <a class="m8-doc-card" href="/reference/cli">
+    <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+    <strong>Automate from the CLI</strong>
+    <span>Use commands, exit codes, JSON status, contracts, and generated files from scripts or agents.</span>
+  </a>
+</div>
+
+M8Shift is deliberately narrow: it does not host models, replace your IDE, or become
+the project manager. It gives teammates — human or AI — a local, inspectable relay.
+
+## Frequently asked questions
+
+<p class="m8-section-lead">Common questions about M8Shift and how it works.</p>
+
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/faq#is-m8shift-model-agnostic">
+    <i class="fa-solid fa-robot" aria-hidden="true"></i>
+    <strong>Model-agnostic</strong>
+    <span>Claude, Codex, Gemini, Vibe, local tools — any cooperative agent that can run the relay loop.</span>
+  </a>
+  <a class="m8-faq-card" href="/faq#does-m8shift-need-api-keys">
+    <i class="fa-solid fa-key" aria-hidden="true"></i>
+    <strong>No M8Shift API key</strong>
+    <span>The core makes no model calls and stores no provider credentials. Your agent hosts keep their own auth.</span>
+  </a>
+  <a class="m8-faq-card" href="/guide/worktree-toolbox">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>Parallelism via worktrees</strong>
+    <span>One shared tree stays degree-1; isolated feature work uses the shipped worktree toolbox.</span>
+  </a>
+</div>
+
+[Read the full FAQ →](/faq)
+
+## Project status
+
+<p class="m8-section-lead">M8Shift is a free and open-source local CLI. The roadmap separates what is shipped today from the protocol stages still being specified.</p>
+
+<div class="m8-faq-strip">
+  <a class="m8-faq-card" href="/roadmap">
+    <i class="fa-solid fa-route" aria-hidden="true"></i>
+    <strong>Releases and roadmap</strong>
+    <span>See the current version, shipped stages, planned work, and protocol direction.</span>
+  </a>
+  <a class="m8-faq-card" href="/comparison">
+    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+    <strong>Why not an agent platform?</strong>
+    <span>Compare a local relay with hosted runtimes, databases, queues, and orchestration systems.</span>
+  </a>
+  <a class="m8-faq-card" href="https://github.com/M8Shift/M8Shift">
+    <i class="fa-solid fa-code" aria-hidden="true"></i>
+    <strong>Source code</strong>
+    <span>Inspect the implementation, install scripts, generated protocol files, and project history.</span>
+  </a>
 </div>

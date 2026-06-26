@@ -59,6 +59,29 @@ Preview:
 npm run docs:preview
 ```
 
+## Branching and release workflow
+
+`main` is the stable public website: complete homepage, bilingual documentation,
+reference pages, SEO metadata, and production social links.
+
+Use dedicated branches for every site variant, experiment, launch page, or release
+candidate. Do not replace the `main` homepage with a temporary page directly.
+
+Current site branches:
+
+| Branch | Purpose | Status |
+| --- | --- | --- |
+| `main` | Complete M8Shift website and documentation | Stable public baseline |
+| `site/temporary-homepage` | Temporary GitHub Pages launch homepage | Archived branch for the temporary version |
+
+Release rhythm:
+
+- create a branch before changing the public site;
+- merge back to `main` only after build validation and review;
+- tag public versions from `main` after validation;
+- keep shared navigation/social links on `main` before branching so agents do not
+  overwrite them later.
+
 ## Cloudflare Pages
 
 Recommended settings:
