@@ -46,6 +46,13 @@ Build:
 npm run docs:build
 ```
 
+Production SEO uses the `M8SHIFT_SITE_URL` environment variable for canonical
+URLs, Open Graph images, `robots.txt`, and `sitemap.xml`.
+
+```bash
+M8SHIFT_SITE_URL=https://your-production-domain.example npm run docs:build
+```
+
 Preview:
 
 ```bash
