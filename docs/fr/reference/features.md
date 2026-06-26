@@ -38,7 +38,7 @@
     <tr>
       <td>Relais cœur</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Machine d'état</span></td>
-      <td>Suit <code>IDLE</code>, <code>WORKING_&lt;agent&gt;</code>, <code>AWAITING_&lt;agent&gt;</code> et <code>DONE</code> pour que chacun connaisse la prochaine action sûre.</td>
+      <td>Suit <code>IDLE</code>, <code>WORKING_&lt;agent&gt;</code>, <code>AWAITING_&lt;agent&gt;</code>, <code>PAUSED</code> et <code>DONE</code> pour que chacun connaisse la prochaine action sûre.</td>
     </tr>
     <tr>
       <td>Relais cœur</td>
@@ -59,6 +59,11 @@
       <td>Relais cœur</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> État terminé</span></td>
       <td>Marque le relais comme terminé avec <code>done</code>, pour que les humains et les automatisations puissent s'arrêter proprement.</td>
+    </tr>
+    <tr>
+      <td>Relais cœur</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-pause" aria-hidden="true"></i> Pause / resume</span></td>
+      <td>Parque une session ouverte avec <code>PAUSED</code> et <code>holder=none</code>, puis reprend seulement sur nouveau scope utilisateur explicite.</td>
     </tr>
     <tr>
       <td>Passations</td>
@@ -182,6 +187,11 @@
     </tr>
     <tr>
       <td>Validation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-list-check" aria-hidden="true"></i> <code>doctor --lint</code></span></td>
+      <td>Ajoute des constats de lint sûrs pour le cœur : validité relais/LOCK, ancres, dérive protocole, sessions, sessions ouvertes dupliquées et indicateurs de livelock.</td>
+    </tr>
+    <tr>
+      <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Contrôles sécurité</span></td>
       <td>Ajoute des contrôles locaux orientés sécurité avec <code>doctor --security</code>. Cela remonte des constats ; ce n'est pas une sandbox.</td>
     </tr>
@@ -233,12 +243,32 @@
     <tr>
       <td>Automatisation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Runner headless</span></td>
-      <td>Fournit une boucle de référence pour agents CLI sans supervision : claim, lance un tour, observe les crashs et s'arrête sur <code>DONE</code>.</td>
+      <td>Fournit une boucle de référence pour agents CLI sans supervision : claim, lance un tour, observe les crashs, écrit des plans immuables, vérifie le <code>LOCK</code> post-run et s'arrête sur <code>DONE</code>.</td>
     </tr>
     <tr>
       <td>Automatisation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-id-badge" aria-hidden="true"></i> IDs de run runtime</span></td>
       <td>Définit <code>M8SHIFT_RUN_ID</code> et écrit <code>.m8shift/runtime/runs.jsonl</code> pour corréler les processus avec les tours.</td>
+    </tr>
+    <tr>
+      <td>Automatisation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> Compagnon runtime</span></td>
+      <td>Ajoute des sidecars locaux indicatifs pour présence, runs, progression, inbox opérateur, idempotence, approbations, rapports, status runtime et diagnostics.</td>
+    </tr>
+    <tr>
+      <td>Automatisation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-road-barrier" aria-hidden="true"></i> Propriété de lane</span></td>
+      <td>Autorise un runtime géré frais par identité d'agent et exige une reprise périmée explicite avant qu'un second runtime utilise la même lane.</td>
+    </tr>
+    <tr>
+      <td>Automatisation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Détection no-progress</span></td>
+      <td>Remonte des constats runtime quand une boucle compagnon ne voit plus de nouveaux événements run ou progress.</td>
+    </tr>
+    <tr>
+      <td>Automatisation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Rétention sidecar</span></td>
+      <td>Élague les sidecars JSONL runtime à un plafond de lignes fixe et archive les anciennes lignes sous <code>.m8shift/runtime/archive/</code> par défaut.</td>
     </tr>
     <tr>
       <td>Automatisation</td>
@@ -259,6 +289,11 @@
       <td>Frontière</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i> Neutralité fournisseur</span></td>
       <td>Coordonne tout agent coopératif capable d'utiliser une CLI. M8Shift n'appelle pas de modèle, n'héberge pas de runtime et ne demande pas de clé API projet.</td>
+    </tr>
+    <tr>
+      <td>Frontière</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-hand" aria-hidden="true"></i> Frontière indicative des compagnons</span></td>
+      <td>Les compagnons runtime ne possèdent jamais le stylo, n'éditent jamais directement <code>M8SHIFT.md</code>, ne nécessitent pas le réseau et ne forcent jamais automatiquement.</td>
     </tr>
     <tr>
       <td>Frontière</td>

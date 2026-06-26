@@ -23,6 +23,12 @@ Each launched turn receives `M8SHIFT_RUN_ID` in the child environment and append
 to `.m8shift/runtime/runs.jsonl`. If your agent appends `--field x_run_id=$M8SHIFT_RUN_ID`, the
 runtime event and the M8Shift turn can be correlated without changing the core lock.
 
+::: tip Hardened v3.26 runner behavior
+The reference runner also writes an immutable local run plan, verifies the post-run
+core `LOCK` instead of trusting process exit status, and leaves recovery to the normal
+M8Shift rules. Runtime events remain advisory sidecars.
+:::
+
 ```mermaid
 flowchart TD
     S([start]) --> R{read lock state}
@@ -64,6 +70,10 @@ The reference runner exists because the obvious loop has three bugs:
   M8Shift never refreshes the lock for you.
 - **No auditable runtime id.** The runner emits `M8SHIFT_RUN_ID` and `runs.jsonl` so humans can
   correlate a process run with the turn the agent eventually appends.
+- **Mutable plan drift.** The runner stores a run plan before launch so later reports can compare
+  what was intended with what happened.
+- **Exit status confusion.** The runner checks the `LOCK` after the child exits; a zero process
+  exit is not considered proof that the relay advanced.
 
 It also uses bounded backoff and a static `argv` (no shell evaluation of the agent
 command).
