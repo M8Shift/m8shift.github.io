@@ -1142,3 +1142,139 @@
     table-layout: auto;
   }
 }
+
+/* Restraint pass: keep the brand accents, reduce the decorative intensity. */
+.VPHomeHero .text:has(#m8shift-title) {
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(242, 82, 191, .14), rgba(93, 38, 242, .08) 46%, transparent 70%);
+  --vp-home-hero-image-filter: blur(36px);
+}
+
+.VPHomeHero .text:has(#m8shift-title)::before {
+  top: -34px;
+  height: 158px;
+}
+
+.VPHomeFeatures .VPFeature,
+.m8-doc-card,
+.m8-faq-card,
+.m8-usecase-card,
+.m8-usecase-image-card,
+.m8-tool-card {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 8%, var(--vp-c-divider));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 76%, transparent), var(--vp-c-bg-alt));
+  box-shadow: none;
+}
+
+.VPHomeFeatures .VPFeature::before,
+.m8-doc-card::before,
+.m8-faq-card::before,
+.m8-usecase-card::before,
+.m8-usecase-image-card::before,
+.m8-tool-card::before {
+  height: 2px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--vp-c-brand-1) 42%, transparent), transparent 76%);
+  opacity: .24;
+}
+
+.VPHomeFeatures .VPFeature:hover,
+.m8-doc-card:hover,
+.m8-faq-card:hover,
+.m8-usecase-card:hover,
+.m8-usecase-image-card:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 16%, var(--vp-c-divider));
+  box-shadow: 0 10px 26px rgba(17, 24, 39, .045);
+}
+
+.VPHomeFeatures .VPFeature .icon,
+.m8-doc-card i,
+.m8-faq-card i,
+.m8-usecase-card i,
+.m8-usecase-image-card__title i,
+.m8-tool-card header > i {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 10%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-brand-1) 5%, var(--vp-c-bg));
+  box-shadow: none;
+  color: color-mix(in srgb, var(--vp-c-brand-1) 58%, var(--vp-c-text-2));
+}
+
+.VPHomeFeatures .VPFeature .icon .fa-solid {
+  color: color-mix(in srgb, var(--vp-c-brand-1) 58%, var(--vp-c-text-2));
+}
+
+.VPHomeFeatures .VPFeature .icon::after {
+  opacity: .18;
+  box-shadow: none;
+}
+
+.m8-callout {
+  border-color: color-mix(in srgb, var(--m8-card-accent, var(--vp-c-brand-1)) 13%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 78%, transparent);
+}
+
+.m8-callout i,
+.m8-feature-name i {
+  background: color-mix(in srgb, var(--m8-card-accent, var(--vp-c-brand-1)) 7%, transparent);
+  color: color-mix(in srgb, var(--m8-card-accent, var(--vp-c-brand-1)) 62%, var(--vp-c-text-2));
+}
+
+.m8-path span,
+.m8-path a,
+.m8-feature-table,
+.m8-tool-model,
+.m8-tool-verdict,
+.m8-usecase-card__image,
+.m8-usecase-image-card img,
+.m8-quickstart,
+.m8-quickstart__badge {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 12%, var(--vp-c-divider));
+}
+
+.vp-doc .m8-feature-table th {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-shift-purple) 5%, transparent), transparent),
+    var(--vp-c-bg-soft);
+}
+
+.m8-tool-verdict {
+  background: color-mix(in srgb, var(--vp-c-brand-1) 6%, transparent);
+  color: color-mix(in srgb, var(--vp-c-brand-1) 64%, var(--vp-c-text-2));
+}
+
+.m8-tool-card dl > div {
+  border-left-color: color-mix(in srgb, var(--vp-c-brand-1) 11%, var(--vp-c-divider));
+}
+
+.vp-doc .m8-tool-card dt {
+  color: color-mix(in srgb, var(--vp-c-brand-1) 64%, var(--vp-c-text-2));
+}
+
+.m8-usecase-card__image,
+.m8-usecase-image-card img {
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 90%, transparent);
+}
+
+.m8-quickstart {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--vp-c-bg-soft) 78%, transparent), var(--vp-c-bg-alt));
+  box-shadow: 0 16px 44px rgba(17, 24, 39, .07);
+}
+
+.m8-quickstart__lights span {
+  opacity: .45;
+}
+
+#m8-quickstart-en-macos:checked ~ .m8-quickstart__bar label[for="m8-quickstart-en-macos"],
+#m8-quickstart-en-linux:checked ~ .m8-quickstart__bar label[for="m8-quickstart-en-linux"],
+#m8-quickstart-en-windows:checked ~ .m8-quickstart__bar label[for="m8-quickstart-en-windows"],
+#m8-quickstart-fr-macos:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-macos"],
+#m8-quickstart-fr-linux:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-linux"],
+#m8-quickstart-fr-windows:checked ~ .m8-quickstart__bar label[for="m8-quickstart-fr-windows"] {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 24%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+  color: var(--vp-c-brand-1);
+}
+
+.m8-prompt {
+  color: color-mix(in srgb, var(--vp-c-brand-1) 72%, var(--vp-c-text-2));
+}
