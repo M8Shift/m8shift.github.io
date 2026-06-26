@@ -92,7 +92,7 @@ export default defineConfig({
       { icon: 'discord', link: 'https://discord.gg/qNfmjxJJ', ariaLabel: 'M8Shift Discord server' }
     ],
     footer: {
-      message: 'Official site coming soon.',
+      message: 'Built with ❤️ and <a href="/">M8Shift</a> by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a>',
       copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
     }
   }
