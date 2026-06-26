@@ -82,10 +82,12 @@ export default defineConfig({
     logo: '/M8Shift-icone-white.png',
     siteTitle: 'M8Shift',
     nav: [
-      { text: 'GitHub', link: 'https://github.com/M8Shift/M8Shift' }
+      { text: 'GitHub', link: 'https://github.com/M8Shift/M8Shift' },
+      { text: 'LinkedIn', link: 'https://www.linkedin.com/company/m8shift/' }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/M8Shift/M8Shift', ariaLabel: 'M8Shift GitHub repository' }
+      { icon: 'github', link: 'https://github.com/M8Shift/M8Shift', ariaLabel: 'M8Shift GitHub repository' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/company/m8shift/', ariaLabel: 'M8Shift LinkedIn page' }
     ],
     footer: {
       message: 'Official site coming soon.',
