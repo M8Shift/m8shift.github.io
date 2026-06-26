@@ -98,6 +98,27 @@ decision stays human**. And because the coordination lives in one shared file at
 root, you stop **copy-pasting between siloed chat UIs** to keep agents in sync — they relay through
 the repo, like teammates working in shifts, not rivals overwriting each other.
 
+## <i class="fa-solid fa-seedling m8-heading-icon" aria-hidden="true"></i> Living proof from this session
+
+::: tip M8Shift building M8Shift
+This site is not describing a hypothetical workflow from the outside. The current release train is being coordinated by M8Shift itself: agents use the relay to implement, challenge, review, merge, and hand off the next piece of work while the shift remains live.
+:::
+
+The real gain is not just speed; it is speed with an auditable trail. In this session, adversarial cross-review let the project keep shipping while preserving context between turns and keeping a human-readable record of who asked for what, what changed, and what evidence was produced.
+
+| Observation from this session | What it shows |
+|-------------------------------|---------------|
+| ~7 hours of work | Maintainer estimate for a dense stretch of implementation, review, release, documentation, and deployment work. |
+| ~44 relay turns | Exchanges ranged from a few minutes to roughly 45 minutes, including complex review feedback and user waits. |
+| 6 version increments shipped on the fly (`v3.21` → `v3.26`) | The relay kept coordinating while the tool evolved underneath it, without breaking the ongoing shift. |
+| Still running and stable as this ships | The proof is operational: the same coordination loop that produced the feature is still carrying the next handoff. |
+
+::: warning An illustrative observation, not a benchmark
+These numbers are session observations, not a controlled benchmark. They depend on the project scope, agent quality, maintainer attention, existing context, and the amount of review required. The honest status is still late-alpha: M8Shift is useful enough to build and deploy itself, but hardening continues.
+:::
+
+For the broader cost framing, see the roadmap's [proven-by-building-itself and ROI section](/roadmap#proven-by-building-itself).
+
 ## What it is not
 
 M8Shift is not a model provider, hosted gateway, memory platform, or universal agent
