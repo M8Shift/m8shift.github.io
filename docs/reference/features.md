@@ -38,7 +38,7 @@
     <tr>
       <td>Core relay</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> State machine</span></td>
-      <td>Tracks <code>IDLE</code>, <code>WORKING_&lt;agent&gt;</code>, <code>AWAITING_&lt;agent&gt;</code>, and <code>DONE</code> so every participant knows the safe next action.</td>
+      <td>Tracks <code>IDLE</code>, <code>WORKING_&lt;agent&gt;</code>, <code>AWAITING_&lt;agent&gt;</code>, <code>PAUSED</code>, and <code>DONE</code> so every participant knows the safe next action.</td>
     </tr>
     <tr>
       <td>Core relay</td>
@@ -59,6 +59,11 @@
       <td>Core relay</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> Done state</span></td>
       <td>Marks the relay finished with <code>done</code>, allowing humans and automation to stop cleanly.</td>
+    </tr>
+    <tr>
+      <td>Core relay</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-pause" aria-hidden="true"></i> Pause / resume</span></td>
+      <td>Parks an open session with <code>PAUSED</code> and <code>holder=none</code>, then resumes only on explicit new user scope.</td>
     </tr>
     <tr>
       <td>Handoffs</td>
@@ -182,6 +187,11 @@
     </tr>
     <tr>
       <td>Validation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-list-check" aria-hidden="true"></i> <code>doctor --lint</code></span></td>
+      <td>Adds core-safe lint findings for relay/LOCK validity, anchors, protocol drift, sessions, duplicate open sessions, and livelock indicators.</td>
+    </tr>
+    <tr>
+      <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security checks</span></td>
       <td>Adds local security-oriented checks with <code>doctor --security</code>. It reports findings; it is not a sandbox.</td>
     </tr>
@@ -233,12 +243,32 @@
     <tr>
       <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Headless runner</span></td>
-      <td>Ships a reference loop for unattended CLI agents that claims, launches one agent turn, observes crashes, and stops on <code>DONE</code>.</td>
+      <td>Ships a reference loop for unattended CLI agents that claims, launches one agent turn, observes crashes, writes immutable run plans, verifies the post-run <code>LOCK</code>, and stops on <code>DONE</code>.</td>
     </tr>
     <tr>
       <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-id-badge" aria-hidden="true"></i> Runtime run IDs</span></td>
       <td>Sets <code>M8SHIFT_RUN_ID</code> and writes <code>.m8shift/runtime/runs.jsonl</code> so process runs can be correlated with turns.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> Runtime companion</span></td>
+      <td>Adds advisory local sidecars for presence, runs, progress, operator inbox, idempotency, approvals, reports, runtime status, and diagnostics.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-road-barrier" aria-hidden="true"></i> Lane ownership</span></td>
+      <td>Allows one fresh managed runtime per agent identity and requires explicit stale takeover before a second runtime uses the same lane.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> No-progress detection</span></td>
+      <td>Reports runtime no-progress findings when a companion loop stops seeing newer run or progress events.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-box-archive" aria-hidden="true"></i> Sidecar retention</span></td>
+      <td>Prunes runtime JSONL sidecars to a fixed row cap and archives older rows under <code>.m8shift/runtime/archive/</code> by default.</td>
     </tr>
     <tr>
       <td>Automation</td>
@@ -259,6 +289,11 @@
       <td>Boundary</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i> Provider neutrality</span></td>
       <td>Coordinates any cooperative CLI-capable agent. M8Shift does not call models, host a runtime, or require a project API key.</td>
+    </tr>
+    <tr>
+      <td>Boundary</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-hand" aria-hidden="true"></i> Companion advisory boundary</span></td>
+      <td>Runtime companions never own the pen, never edit <code>M8SHIFT.md</code> directly, never require network access, and never auto-force.</td>
     </tr>
     <tr>
       <td>Boundary</td>

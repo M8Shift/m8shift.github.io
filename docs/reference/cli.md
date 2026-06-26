@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.13.0 (Python 3.8+, standard library only).
+The CLI is a single file, `m8shift.py` 3.26.0 (Python 3.8+, standard library only).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
@@ -251,6 +251,20 @@ Mark the relay finished (`state: DONE`).
 python3 m8shift.py done <agent> [--force]
 ```
 
+### `pause` / `resume`
+
+Park an open session with no active work, then resume it only when the maintainer
+assigns new scope.
+
+```bash
+python3 m8shift.py pause <holder> --reason "no further assigned work"
+python3 m8shift.py resume <agent> --reason "user assigned new scope"
+python3 m8shift.py next <agent> --resume --reason "user assigned new scope"
+```
+
+`PAUSED` has `holder=none` and no expiry. `wait <agent>` does not treat it as the
+agent's turn; resumption is explicit.
+
 ### `archive`
 
 Move older turns to `M8SHIFT.archive.md`, keeping the lock and the most recent turns.
@@ -273,3 +287,26 @@ python3 m8shift-worktree.py claim|done|integrate|drop|status ...
 
 Use it when you need parallel branches/worktrees. The core `m8shift.py` relay remains
 degree 1 in the shared repository.
+
+## Optional runtime companion
+
+`m8shift-runtime.py` is a separate local companion for provider registry files,
+roles/workflows, approvals, reports, live presence, operator inbox, progress, runtime
+status, diagnostics, lane ownership, no-progress checks, and bounded runtime sidecar
+retention.
+
+```bash
+python3 m8shift-runtime.py init
+python3 m8shift-runtime.py providers list
+python3 m8shift-runtime.py watch codex --no-progress-warn-after 300
+python3 m8shift-runtime.py progress codex --message "tests running"
+python3 m8shift-runtime.py status-runtime --agent codex
+python3 m8shift-runtime.py doctor --json
+python3 m8shift-runtime.py retention prune --keep 1000
+```
+
+::: warning Advisory companion only
+Runtime sidecars never grant the pen, never edit `M8SHIFT.md` directly, never require
+network access, and never auto-force a holder. They are removable local observability
+files under `.m8shift/`.
+:::

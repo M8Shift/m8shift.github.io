@@ -23,7 +23,7 @@ lang: en
 | Field | Values | Meaning |
 | --- | --- | --- |
 | `holder` | an active agent \| `none` | who currently holds the pen |
-| `state` | `IDLE` \| `WORKING_<X>` \| `AWAITING_<X>` \| `DONE` | the relay state |
+| `state` | `IDLE` \| `WORKING_<X>` \| `AWAITING_<X>` \| `PAUSED` \| `DONE` | the relay state |
 | `agents` | CSV, e.g. `claude,codex,gemini` | active roster; any listed agent may receive the degree-1 pen |
 | `turn` | integer | number of the last closed turn |
 | `since` | ISO-8601 UTC | when the current state began |
@@ -36,6 +36,8 @@ lang: en
 - **`IDLE`** — the pen is free; any roster member may claim it.
 - **`WORKING_<X>`** — agent X holds the pen and is the only one allowed to write.
 - **`AWAITING_<X>`** — X has been handed the pen and is expected to claim and continue.
+- **`PAUSED`** — the session stays open with `holder=none`; no agent may claim until
+  the maintainer explicitly resumes with new scope.
 - **`DONE`** — the relay is finished.
 
 ## Transitions
@@ -50,6 +52,9 @@ stateDiagram-v2
     AWAITING_Z --> WORKING_Z: claim Z
     WORKING_X --> WORKING_X: re-claim X · refresh TTL (+30 min)
     WORKING_X --> WORKING_Y: claim Y --force · only if X is stale
+    WORKING_X --> PAUSED: pause X --reason
+    AWAITING_Y --> PAUSED: pause Y --reason
+    PAUSED --> AWAITING_X: resume X --reason
     WORKING_X --> DONE: done X
     DONE --> [*]
 
@@ -60,10 +65,11 @@ stateDiagram-v2
     class IDLE wait
     class WORKING_X,WORKING_Y,WORKING_Z working
     class AWAITING_Y,AWAITING_Z awaiting
+    class PAUSED wait
     class DONE ok
 ```
 
-*🟣 working · 🩷 awaiting · ⚪ idle · 🟢 done*
+*🟣 working · 🩷 awaiting · ⚪ idle/paused · 🟢 done*
 
 - `claim` is the only acquisition and is **exclusive**: two simultaneous claims yield
   exactly one winner.
@@ -71,6 +77,8 @@ stateDiagram-v2
   roster member.
 - `claim --force` reclaims a lock **only** once it is past `expires` (stale); it is
   refused on a live lock.
+- `pause` parks an open session without a holder when there is no active task.
+  `resume` / `next --resume` requires explicit new user scope.
 - The `WORKING_<self>` TTL is **30 minutes**. The holder refreshes it by re-running
   `claim <self>`, which resets `expires` to `now + 30 min` — a **manual heartbeat**, run by the
   agent or a headless wrapper. M8Shift runs **no background daemon**: nothing renews the lock for

@@ -34,13 +34,13 @@ features:
     details: Déclarez les agents autorisés à prendre un tour (claude, codex, gemini, vibe…). Tout membre actif peut recevoir le stylo ; le cœur reste un strict relais de degré 1.
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Neutre vis-à-vis des fournisseurs
-    details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. M8Shift ne devient jamais le fournisseur de modèle, le runtime, ni un plan de contrôle hébergé.
+    details: Fonctionne avec n'importe quel coéquipier doté d'une CLI. Le cœur ne devient jamais le fournisseur de modèle ni un plan de contrôle hébergé ; les compagnons optionnels restent locaux et indicatifs.
   - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
     title: Un seul fichier, zéro dépendance
     details: Un script Python libre et open source, bibliothèque standard uniquement. Pas de compte, pas de serveur, pas de clé API. L'état vit dans le dépôt et est versionné avec lui.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable par conception
-    details: Tours en ajout seul, mémoire, tâches, historique de sessions et statut en heure locale préfixé par le fuseau gardent le relais inspectable sans service.
+    details: Tours en ajout seul, mémoire, tâches, historique de sessions, sidecars runtime et statut en heure locale préfixé par le fuseau gardent le relais inspectable sans service.
 
 ---
 

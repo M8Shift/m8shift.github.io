@@ -1,6 +1,6 @@
 # Référence CLI
 
-La CLI est un fichier unique, `m8shift.py` 3.13.0 (Python 3.8+, bibliothèque standard
+La CLI est un fichier unique, `m8shift.py` 3.26.0 (Python 3.8+, bibliothèque standard
 uniquement). Lancez-la depuis la racine d'un projet.
 
 Toutes les commandes renvoient le [code de sortie](./exit-codes) `0` en cas de succès,
@@ -253,6 +253,20 @@ Marque le relais comme terminé (`state: DONE`).
 python3 m8shift.py done <agent> [--force]
 ```
 
+### `pause` / `resume`
+
+Parque une session ouverte sans travail actif, puis la reprend uniquement quand le
+mainteneur assigne un nouveau scope.
+
+```bash
+python3 m8shift.py pause <holder> --reason "plus de travail assigné"
+python3 m8shift.py resume <agent> --reason "nouveau scope utilisateur"
+python3 m8shift.py next <agent> --resume --reason "nouveau scope utilisateur"
+```
+
+`PAUSED` a `holder=none` et pas d'expiration. `wait <agent>` ne le traite pas comme le
+tour de l'agent ; la reprise est explicite.
+
 ### `archive`
 
 Déplace les anciens tours vers `M8SHIFT.archive.md`, en conservant le verrou et les
@@ -276,3 +290,26 @@ python3 m8shift-worktree.py claim|done|integrate|drop|status ...
 
 Utilisez-le lorsque vous avez besoin de branches/worktrees parallèles. Le relais cœur
 `m8shift.py` reste de degré 1 dans le dépôt partagé.
+
+## Compagnon runtime optionnel
+
+`m8shift-runtime.py` est un compagnon local séparé pour les fichiers de registre
+fournisseurs, rôles/workflows, approbations, rapports, présence, inbox opérateur,
+progression, status runtime, diagnostics, propriété de lane, no-progress et rétention
+bornée des sidecars runtime.
+
+```bash
+python3 m8shift-runtime.py init
+python3 m8shift-runtime.py providers list
+python3 m8shift-runtime.py watch codex --no-progress-warn-after 300
+python3 m8shift-runtime.py progress codex --message "tests en cours"
+python3 m8shift-runtime.py status-runtime --agent codex
+python3 m8shift-runtime.py doctor --json
+python3 m8shift-runtime.py retention prune --keep 1000
+```
+
+::: warning Compagnon indicatif seulement
+Les sidecars runtime ne donnent jamais le stylo, n'éditent jamais directement
+`M8SHIFT.md`, ne nécessitent pas le réseau et ne forcent jamais automatiquement un
+détenteur. Ce sont des fichiers locaux d'observabilité supprimables sous `.m8shift/`.
+:::

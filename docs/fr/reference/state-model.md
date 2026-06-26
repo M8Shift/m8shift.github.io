@@ -23,7 +23,7 @@ lang: en
 | Champ | Valeurs | Signification |
 | --- | --- | --- |
 | `holder` | un agent actif \| `none` | qui détient actuellement le stylo |
-| `state` | `IDLE` \| `WORKING_<X>` \| `AWAITING_<X>` \| `DONE` | l'état du relais |
+| `state` | `IDLE` \| `WORKING_<X>` \| `AWAITING_<X>` \| `PAUSED` \| `DONE` | l'état du relais |
 | `agents` | CSV, p. ex. `claude,codex,gemini` | roster actif ; tout agent listé peut recevoir le stylo de degré 1 |
 | `turn` | entier | numéro du dernier tour clos |
 | `since` | ISO-8601 UTC | début de l'état courant |
@@ -36,6 +36,8 @@ lang: en
 - **`IDLE`** — le stylo est libre ; tout membre du roster peut le réclamer.
 - **`WORKING_<X>`** — l'agent X détient le stylo et est le seul autorisé à écrire.
 - **`AWAITING_<X>`** — le stylo a été passé à X, qui est censé le réclamer et poursuivre.
+- **`PAUSED`** — la session reste ouverte avec `holder=none` ; aucun agent ne réclame
+  avant une reprise explicite avec nouveau scope mainteneur.
 - **`DONE`** — le relais est terminé.
 
 ## Transitions
@@ -50,6 +52,9 @@ stateDiagram-v2
     AWAITING_Z --> WORKING_Z: claim Z
     WORKING_X --> WORKING_X: re-claim X · rafraîchit le TTL (+30 min)
     WORKING_X --> WORKING_Y: claim Y --force · seulement si X est périmé
+    WORKING_X --> PAUSED: pause X --reason
+    AWAITING_Y --> PAUSED: pause Y --reason
+    PAUSED --> AWAITING_X: resume X --reason
     WORKING_X --> DONE: done X
     DONE --> [*]
 
@@ -60,10 +65,11 @@ stateDiagram-v2
     class IDLE wait
     class WORKING_X,WORKING_Y,WORKING_Z working
     class AWAITING_Y,AWAITING_Z awaiting
+    class PAUSED wait
     class DONE ok
 ```
 
-*🟣 en cours · 🩷 en attente · ⚪ inactif · 🟢 fin*
+*🟣 en cours · 🩷 en attente · ⚪ inactif/pausé · 🟢 fin*
 
 - `claim` est la seule acquisition et elle est **exclusive** : deux réclamations
   simultanées donnent exactement un gagnant.
@@ -71,6 +77,8 @@ stateDiagram-v2
   autre membre du roster.
 - `claim --force` ne réclame un verrou **qu'**une fois qu'il a dépassé `expires` (périmé) ;
   il est refusé sur un verrou actif.
+- `pause` parque une session ouverte sans détenteur quand il n'y a pas de tâche active.
+  `resume` / `next --resume` exige un nouveau scope utilisateur explicite.
 - Le TTL de `WORKING_<self>` est de **30 minutes**. Le détenteur le rafraîchit en relançant
   `claim <self>`, ce qui remet `expires` à `now + 30 min` — un **heartbeat manuel**, déclenché par
   l'agent ou un wrapper headless. M8Shift ne tourne **aucun daemon** en arrière-plan : rien ne

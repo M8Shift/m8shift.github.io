@@ -10,14 +10,15 @@ flowchart TD
     INIT --> PROTO["M8SHIFT.protocol.md"]
     INIT --> ANCH["CLAUDE.md / AGENTS.md / GEMINI.md<br/>(anchors)"]
     CMD["remember / task / history"] --> LEDGER["M8SHIFT.memory.md<br/>M8SHIFT.tasks.md<br/>M8SHIFT.sessions.jsonl"]
+    RT["m8shift-runtime.py / headless runner"] --> RUNTIME[".m8shift/runtime/*.jsonl<br/>.m8shift/runs/run-id/report.md"]
     MUT["mutating commands"] --> LOCK[".m8shift.lock<br/>(temporary mutex)"]
 
     classDef agent fill:#7c3aed22,stroke:#7c3aed;
     classDef pen fill:#f0509c22,stroke:#f0509c;
     classDef store fill:#ff7a1822,stroke:#fb923c;
-    class INIT,CMD,MUT agent
+    class INIT,CMD,MUT,RT agent
     class RELAY pen
-    class PROTO,ANCH,LOCK,LEDGER store
+    class PROTO,ANCH,LOCK,LEDGER,RUNTIME store
 ```
 
 *🟣 init · 🩷 relay file · 🟠 generated files*
@@ -31,6 +32,8 @@ flowchart TD
 | `M8SHIFT.tasks.md` | append-only task events appended by `task` (created on demand) |
 | `M8SHIFT.sessions.jsonl` | session start/done events for `history` (created on demand) |
 | `.m8shift.lock` | temporary inter-process mutation lock (`O_EXCL`) |
+| `.m8shift/runtime/` | advisory runtime sidecars: presence, runs, progress, inbox, idempotency, approvals, diagnostics, and retention archive |
+| `.m8shift/runs/` | optional runtime reports and immutable run artifacts |
 | `CLAUDE.md` | Claude anchor (protocol stanza injected at the top) |
 | `AGENTS.md` | Codex and generic-agent anchor; `AGENTS.override.md` is synced if present |
 | `GEMINI.md` | Gemini anchor, when `gemini` is in the roster |
@@ -43,4 +46,9 @@ before injection.
 ::: tip On-demand ledgers
 `init` does not create the memory, task, archive, or session files unless the relevant
 commands need them. Their absence means "no entries yet", not an error.
+:::
+
+::: warning Runtime sidecars are not the core relay
+Files under `.m8shift/` are local companion state. They never grant the pen and may be
+removed without corrupting `M8SHIFT.md`.
 :::

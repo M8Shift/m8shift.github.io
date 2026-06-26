@@ -34,13 +34,13 @@ features:
     details: Declare the agents that may take turns (claude, codex, gemini, vibe…). Any active member can receive the pen; the core stays a strict degree-1 relay.
   - icon: <i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i>
     title: Provider-neutral
-    details: Works with any CLI-capable teammate. M8Shift never becomes the model provider, the runtime, or a hosted control plane.
+    details: Works with any CLI-capable teammate. The core never becomes the model provider or a hosted control plane; optional companions stay local and advisory.
   - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
     title: One file, zero dependencies
     details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable by design
-    details: Append-only turns, memory notes, tasks, session history, and timezone-prefixed local-time status keep the relay inspectable without a service.
+    details: Append-only turns, memory notes, tasks, session history, runtime sidecars, and timezone-prefixed local-time status keep the relay inspectable without a service.
 
 ---
 

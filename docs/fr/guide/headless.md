@@ -25,6 +25,13 @@ et ajoute des événements de cycle de vie dans `.m8shift/runtime/runs.jsonl`. S
 `--field x_run_id=$M8SHIFT_RUN_ID`, l'événement runtime et le tour M8Shift peuvent être corrélés
 sans modifier le verrou du cœur.
 
+::: tip Comportement runner durci en v3.26
+Le runner de référence écrit aussi un plan de run local immuable, vérifie le `LOCK`
+cœur après l'exécution au lieu de croire le statut de sortie du processus, et laisse
+la récupération aux règles M8Shift normales. Les événements runtime restent des
+sidecars indicatifs.
+:::
+
 ```mermaid
 flowchart TD
     S([début]) --> R{lire l'état du verrou}
@@ -65,6 +72,10 @@ Le runner de référence existe parce que la boucle évidente comporte trois bug
   manuel** ; M8Shift ne rafraîchit jamais le verrou à ta place.
 - **Pas d'identifiant runtime auditable.** Le runner émet `M8SHIFT_RUN_ID` et `runs.jsonl` pour
   corréler un processus lancé avec le tour finalement ajouté par l'agent.
+- **Dérive du plan mutable.** Le runner enregistre un plan de run avant lancement pour que les
+  rapports puissent comparer l'intention et ce qui s'est passé.
+- **Confusion sur le statut de sortie.** Le runner lit le `LOCK` après la sortie de l'enfant ; un
+  code de sortie zéro ne prouve pas que le relais a avancé.
 
 Il utilise également un backoff borné et un `argv` statique (aucune évaluation par le shell de la
 commande de l'agent).
