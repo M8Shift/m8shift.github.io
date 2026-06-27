@@ -20,6 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history so VitePress lastUpdated / sitemap <lastmod> are accurate per page
+          # (a shallow clone makes every page share one wrong lastmod → indexers miss updates).
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
