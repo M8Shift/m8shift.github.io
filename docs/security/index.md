@@ -43,6 +43,11 @@ M8Shift reduces accidental agent conflicts. It is not a sandbox.
     <strong>Threat model</strong>
     <span>Review assets, trust boundaries, expected attackers, and mitigations in one place.</span>
   </a>
+  <a class="m8-doc-card" href="./audits">
+    <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+    <strong>Audits &amp; frameworks</strong>
+    <span>How M8Shift maps to OWASP, MITRE ATLAS, NIST, CISA, ANSSI and IBM — and what is N/A by design.</span>
+  </a>
 </div>
 
 ## <i class="fa-solid fa-scale-balanced m8-heading-icon" aria-hidden="true"></i> Permission vocabulary
