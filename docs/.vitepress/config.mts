@@ -58,6 +58,10 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'M8Shift Security Model — local files, locks and permissions',
     description: 'Understand M8Shift security boundaries: local repository state, file locks, generated files, permissions, threat model and operational guardrails.'
   },
+  '/security/audits': {
+    title: 'M8Shift Security Audits — OWASP, MITRE ATLAS, NIST, CISA, ANSSI, IBM coverage',
+    description: 'How M8Shift maps to agentic-security frameworks — OWASP Agentic Top 10, MITRE ATLAS, NIST AI RMF, CISA, ANSSI-PA-102 and the IBM AI Risk Atlas — including what is N/A by design because it has no model.'
+  },
   '/roadmap': {
     title: 'M8Shift Releases and Roadmap — current version and planned work',
     description: 'Follow the current M8Shift version, release rationale and roadmap for the local multi-agent coding relay.'
@@ -347,6 +351,7 @@ export default defineConfig({
               text: 'Security', items: [
                 { text: 'Security model', link: '/security/' },
                 { text: 'Threat model', link: '/security/threat-model' },
+                { text: 'Audits & frameworks', link: '/security/audits' },
                 { text: 'Permissions', link: '/security/permissions' }
               ]
             }
