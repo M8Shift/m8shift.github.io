@@ -119,6 +119,41 @@ features:
   </div>
 </div>
 
+## AIs have cognitive biases — just like us
+
+<p class="m8-section-lead">A single AI agent has no check on its own biases. M8Shift doesn't debias the model — it structures the work so an <strong>independent, model-diverse</strong> turn, anchored in deterministic tests and a human arbiter, catches what one agent would wave through. Here is how far that actually goes, bias by bias.</p>
+
+<div class="m8-doc-grid m8-doc-grid--four">
+  <a class="m8-doc-card" href="/security/audits#a-note-on-ai-cognitive-bias">
+    <i class="fa-solid fa-face-smile-wink" aria-hidden="true"></i>
+    <strong>Sycophancy</strong>
+    <span>It tries to tell you what you want to hear. M8Shift's reviewer is a <em>different agent on a separate turn</em>, required to refute by default — not to please the author.</span>
+  </a>
+  <a class="m8-doc-card" href="/security/audits#a-note-on-ai-cognitive-bias">
+    <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+    <strong>Overconfidence</strong>
+    <span>It hallucinates with assurance, no warning. Claims are anchored to <em>deterministic ground truth</em> — tests, builds, byte diffs — that confidence can't fake.</span>
+  </a>
+  <a class="m8-doc-card" href="/security/audits#a-note-on-ai-cognitive-bias">
+    <i class="fa-solid fa-anchor" aria-hidden="true"></i>
+    <strong>Anchoring</strong>
+    <span>It clings to its first answer. A <em>different model</em>, with different priors, brings a fresh take that isn't bound to the first agent's draft.</span>
+  </a>
+  <a class="m8-doc-card" href="/security/audits#a-note-on-ai-cognitive-bias">
+    <i class="fa-solid fa-robot" aria-hidden="true"></i>
+    <strong>Automation bias</strong>
+    <span>We over-trust whatever it outputs. The <em>human arbitrates</em> and the append-only trail stays inspectable, so the human stays the decision point.</span>
+  </a>
+</div>
+
+<div class="m8-callout m8-callout--orange">
+  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+  <div>
+    <strong>How true is this? Honestly — structural, not magic.</strong>
+    <p>M8Shift can't make an AI unbiased; the agents still have these biases. What it does is <strong>structure the process so the bias is checked, not trusted</strong>: an independent turn that must refute, ideally a different model family, a verdict anchored in tests a confident hallucination can't pass, and a human who arbitrates. The benefit holds <em>only when the contradiction is real</em> — two agreeing agents, especially the same model, form an echo chamber that <em>amplifies</em> the bias instead. Full analysis in the <a href="/security/audits#a-note-on-ai-cognitive-bias">security audit's bias note</a>.</p>
+  </div>
+</div>
+
 ## Practical Use Cases
 
 <p class="m8-section-lead">M8Shift helps when one assistant is not enough and the work benefits from explicit roles, handoffs, and review.</p>
