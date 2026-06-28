@@ -362,7 +362,7 @@ export default defineConfig({
           text: 'Edit this page'
         },
         footer: {
-          message: 'Built with ❤️ and <a href="/">M8Shift</a> by <a href="https://m8shift.ai/" target="_blank" rel="noopener noreferrer">M8Shift contributors</a>',
+          message: 'Built with ❤️ and <a href="/">M8Shift</a>',
           copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }
