@@ -276,6 +276,7 @@ export default defineConfig({
       lang: 'en-US',
       themeConfig: {
         nav: [
+          { text: 'Story', link: '/story' },
           { text: 'Guide', link: '/guide/' },
           { text: 'Concepts', link: '/concepts/' },
           { text: 'Reference', link: '/reference/' },

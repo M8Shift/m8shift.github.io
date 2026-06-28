@@ -1,0 +1,132 @@
+/* ============================================================
+   M8Shift — /story page (prototype)
+   Narrative landing: hero, numbered chapters, pull-quotes,
+   how-it-works steps, ROI stats, CTA. Theme-aware (light/dark),
+   brand gradient accents. Scroll-reveal handled by .m8-reveal
+   (see animations.css / theme/index.ts).
+   ============================================================ */
+
+.m8-story {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+/* ---- Hero ---- */
+.m8-story-hero { text-align: center; padding: 76px 0 52px; }
+.m8-story-eyebrow {
+  margin: 0 0 18px;
+  font-size: 14px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-m8-orange);
+}
+.m8-story-hero h1 {
+  margin: 0 0 22px;
+  font-size: clamp(40px, 7vw, 74px); line-height: 1.03; font-weight: 800; letter-spacing: -0.5px;
+  background: linear-gradient(120deg, var(--color-m8-orange) 6%, var(--color-flow-coral) 32%, var(--color-relay-pink) 56%, var(--color-shift-purple) 92%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.m8-story-lede {
+  max-width: 640px; margin: 0 auto;
+  font-size: clamp(18px, 2.4vw, 22px); line-height: 1.5; color: var(--vp-c-text-2);
+}
+.m8-story-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+
+.m8-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: 999px; font-weight: 700; font-size: 15px;
+  text-decoration: none; color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.m8-btn:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--color-relay-pink) 50%, var(--vp-c-divider)); }
+.m8-btn--brand {
+  border: none; color: #fff;
+  background: linear-gradient(120deg, var(--color-m8-orange), var(--color-relay-pink) 58%, var(--color-shift-purple));
+}
+.m8-btn--brand:hover { box-shadow: 0 14px 32px color-mix(in srgb, var(--color-relay-pink) 38%, transparent); }
+
+/* ---- Chapters (numbered, gradient rule) ---- */
+.m8-story-chapter {
+  position: relative; margin: 6px 0; padding: 26px 0 26px 32px;
+  border-left: 2px solid var(--vp-c-divider);
+}
+.m8-story-chapter::before {
+  content: ""; position: absolute; left: -2px; top: 30px; width: 2px; height: 52px;
+  background: linear-gradient(180deg, var(--color-m8-orange), var(--color-relay-pink));
+  border-radius: 2px;
+}
+.m8-story-num { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; color: var(--color-relay-pink); }
+.m8-story-chapter h2 {
+  margin: 6px 0 12px; padding: 0; border: 0;
+  font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.3px;
+}
+.m8-story-chapter p { margin: 0; font-size: 18px; line-height: 1.62; color: var(--vp-c-text-2); }
+.m8-story-chapter p + p { margin-top: 14px; }
+
+/* ---- Brand-card figures ---- */
+.m8-story-figure { margin: 26px 0; }
+.m8-story-figure img {
+  display: block; width: 100%; height: auto; border-radius: 16px;
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 18px 44px color-mix(in srgb, var(--color-shift-purple) 14%, transparent);
+}
+.m8-story-figure figcaption {
+  margin-top: 10px; text-align: center; font-size: 13px; color: var(--vp-c-text-3);
+}
+
+/* ---- Pull-quote ---- */
+.m8-story-quote { text-align: center; padding: 48px 0; }
+.m8-story-quote p {
+  margin: 0; font-size: clamp(24px, 4.4vw, 38px); font-weight: 800; line-height: 1.18; letter-spacing: -0.4px;
+  background: linear-gradient(120deg, var(--color-m8-orange), var(--color-relay-pink) 55%, var(--color-shift-purple));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---- How-it-works steps ---- */
+.m8-story-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0; }
+.m8-story-step {
+  border: 1px solid var(--vp-c-divider); border-radius: 16px; padding: 20px; background: var(--vp-c-bg-soft);
+}
+.m8-story-step b {
+  display: block; margin-bottom: 6px; font-size: 20px;
+  background: linear-gradient(120deg, var(--color-m8-orange), var(--color-relay-pink));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.m8-story-step span { color: var(--vp-c-text-2); font-size: 15px; }
+
+/* ---- ROI stats ---- */
+.m8-story-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 24px 0; text-align: center; }
+.m8-story-stat strong {
+  display: block; font-size: clamp(28px, 4.5vw, 40px); font-weight: 800;
+  background: linear-gradient(120deg, var(--color-m8-orange), var(--color-relay-pink));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.m8-story-stat span { color: var(--vp-c-text-2); font-size: 14px; }
+
+/* ---- CTA ---- */
+.m8-story-cta {
+  margin-top: 56px; padding: 44px 24px; border-radius: 24px; text-align: center;
+  border: 1px solid var(--vp-c-divider);
+  background:
+    radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--color-relay-pink) 13%, transparent), transparent 60%),
+    var(--vp-c-bg-soft);
+}
+.m8-story-cta h2 { margin: 0 0 10px; padding: 0; border: 0; font-size: clamp(26px, 4vw, 34px); font-weight: 800; }
+.m8-story-cta p { margin: 0 0 22px; color: var(--vp-c-text-2); }
+
+@media (max-width: 640px) {
+  .m8-story-steps, .m8-story-stats { grid-template-columns: 1fr; }
+}
+
+/* ---- Hero entrance (page has no VPHomeHero, so animate here) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .m8-story-hero > * { animation: m8-story-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+  .m8-story-hero .m8-story-eyebrow { animation-delay: 0.02s; }
+  .m8-story-hero h1 { animation-delay: 0.10s; }
+  .m8-story-hero .m8-story-lede { animation-delay: 0.20s; }
+  .m8-story-hero .m8-story-actions { animation-delay: 0.30s; }
+  @keyframes m8-story-rise {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
