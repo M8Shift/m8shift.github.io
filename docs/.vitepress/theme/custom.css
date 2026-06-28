@@ -337,7 +337,9 @@
   color: var(--m8-card-accent, var(--vp-c-brand-1));
 }
 
-.m8-callout strong {
+/* Only the callout's title (direct child) is a block; inline <strong> inside <p> stays inline. */
+.m8-callout > strong,
+.m8-callout > div > strong {
   display: block;
   margin-bottom: 4px;
   color: var(--vp-c-text-1);
