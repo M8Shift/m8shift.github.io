@@ -1,0 +1,65 @@
+/* ============================================================
+   M8Shift — home dynamism (native, dependency-free)
+   Hero entrance · breathing glow · scroll-reveal (rise + fade).
+
+   Scroll-reveal is driven by JS (see theme/index.ts) using an
+   IntersectionObserver + a MutationObserver, so it re-arms on every
+   SPA navigation WITHOUT touching the router — and content is only
+   ever hidden when JS is active and IntersectionObserver is supported
+   (graceful: no JS / unsupported / reduced-motion => content visible).
+
+   The reveal end-state persists via `.m8-in { opacity: 1 }`, while the
+   keyframe (no fill) only plays the entrance — so it never sticks a
+   transform and the cards' hover transforms keep working.
+   ============================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---- Hero: staggered rise + fade (on mount) ---- */
+  .VPHomeHero .container .main > * {
+    animation: m8-rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+  .VPHomeHero .name    { animation-delay: 0.04s; }
+  .VPHomeHero .text    { animation-delay: 0.12s; }
+  .VPHomeHero .tagline { animation-delay: 0.22s; }
+  .VPHomeHero .actions { animation-delay: 0.32s; }
+
+  @keyframes m8-rise {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- Hero glow: gentle breathing ---- */
+  .VPHomeHero .text:has(#m8shift-title)::before {
+    animation: m8-breathe 7s ease-in-out infinite;
+  }
+  @keyframes m8-breathe {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    50%      { opacity: 1;   transform: translateX(-50%) scale(1.08); }
+  }
+
+  /* ---- Scroll reveal (rise + fade) ---- */
+  .m8-anim :is(
+    .VPHomeFeatures .VPFeature,
+    .m8-doc-card, .m8-faq-card, .m8-usecase-card,
+    .m8-usecase-image-card, .m8-tool-card,
+    .m8-quickstart, .m8-callout, .m8-section-lead, .m8-reveal
+  ) {
+    opacity: 0;
+  }
+
+  .m8-anim :is(
+    .VPHomeFeatures .VPFeature,
+    .m8-doc-card, .m8-faq-card, .m8-usecase-card,
+    .m8-usecase-image-card, .m8-tool-card,
+    .m8-quickstart, .m8-callout, .m8-section-lead, .m8-reveal
+  ).m8-in {
+    opacity: 1;
+    animation: m8-reveal 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  @keyframes m8-reveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
