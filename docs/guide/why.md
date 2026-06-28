@@ -85,6 +85,23 @@ multi-agent workflow stays reviewable.
 Liora's article <a href="https://liora.io/en/all-about-crew-ai" target="_blank" rel="noopener noreferrer">Crew AI: the framework that transforms AIs into office colleagues</a> frames the broader pattern well: isolated assistants are strong on punctual tasks, while complex projects benefit from roles, coordination, shared context, and human arbitration.
 :::
 
+### Two AIs break what one cannot
+
+The deepest advantage is not only splitting the work — it is **breaking a single model's
+self-trust.** One model is prone to **overconfidence** (it states wrong answers as fluently
+as right ones, so confidence is no signal of correctness) and to **sycophancy** (it agrees to
+be agreeable), and a human reviewing it is prone to **automation bias** (deferring to the
+machine because "it's the AI"). A genuine, independent contradiction is the antidote — and
+that is precisely what a turn-taking relay with an independent reviewer is for.
+
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+  <div>
+    <strong>The contradiction has to be real</strong>
+    <p>Two AIs only help when they genuinely challenge each other — ideally different model families (less correlated blind spots), with the verdict anchored in deterministic tests and a human arbiter. Two agents that simply agree, especially the same model, form an <em>echo chamber</em> that manufactures <em>false</em> confidence — worse than one, because a human now trusts a "consensus." The value is the contradiction being real, not the redundancy itself.</p>
+  </div>
+</div>
+
 ## Different agents, by design
 
 The point isn't to make agents interchangeable — it's to let *different* ones work together.
