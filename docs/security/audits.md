@@ -75,9 +75,31 @@ peer's findings? M8Shift's answer is **structural and procedural, never cognitiv
   </div>
 </div>
 
-This is the only "bias" surface that maps onto M8Shift, and it is addressed as a *recorded
-separation of duties* rather than a claim about any agent's internal objectivity. See the
-[reviewer-neutrality guidance](https://github.com/M8Shift/M8Shift/blob/main/docs/en/agents-guide.md) for the exact rules agents follow.
+This is the only *model*-bias surface that maps onto M8Shift, and it is addressed as a
+*recorded separation of duties* rather than a claim about any agent's internal objectivity.
+See the [reviewer-neutrality guidance](https://github.com/M8Shift/M8Shift/blob/main/docs/en/agents-guide.md) for the exact rules agents follow.
+
+### The biases the contradiction targets
+
+Separate from model bias, the biases that actually matter for a multi-agent relay are about
+**trust** — and they are where M8Shift's contradictory process earns its keep:
+
+- **automation bias** — a human deferring to the machine because "it's the AI";
+- **overconfidence** — a model stating wrong answers as fluently as right ones, so confidence
+  is no signal of correctness;
+- **sycophancy** — a model agreeing to be agreeable rather than to be correct.
+
+A structured contradiction is the antidote: an independent reviewer required to refute, ideally
+from a different model family, with the verdict anchored in deterministic tests and a human
+arbiter.
+
+<div class="m8-callout m8-callout--orange">
+  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+  <div>
+    <strong>Not automatic — the contradiction must be real</strong>
+    <p>Two agents that simply agree, especially the same model, form an echo chamber that manufactures <em>false</em> confidence — worse than one, because a human now trusts a "consensus." The advantage is the contradiction being genuine and independent, not the redundancy itself.</p>
+  </div>
+</div>
 
 ## <i class="fa-solid fa-book-open m8-heading-icon" aria-hidden="true"></i> Sources
 
