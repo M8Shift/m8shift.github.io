@@ -16,6 +16,36 @@ const REVEAL_SEL = [
   '.m8-reveal'
 ].join(',')
 
+type AnalyticsWindow = Window & {
+  gtag?: (...args: unknown[]) => void
+}
+
+let lastTrackedPage = ''
+
+function trackAnalyticsPageView() {
+  const gtag = (window as AnalyticsWindow).gtag
+  if (typeof gtag !== 'function') return
+
+  const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`
+  if (pagePath === lastTrackedPage) return
+  lastTrackedPage = pagePath
+
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: pagePath
+  })
+}
+
+function initAnalyticsRouteTracking(router: { onAfterRouteChanged?: (to: string) => void }) {
+  const previousAfterRouteChanged = router.onAfterRouteChanged
+
+  router.onAfterRouteChanged = (to: string) => {
+    previousAfterRouteChanged?.(to)
+    window.setTimeout(trackAnalyticsPageView, 0)
+  }
+}
+
 function initReveal() {
   if (typeof window === 'undefined') return
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -52,9 +82,10 @@ function initReveal() {
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
     app.component('Mermaid', Mermaid)
     if (import.meta.env.SSR) return
+    initAnalyticsRouteTracking(router)
     if (document.readyState === 'loading') {
       window.addEventListener('DOMContentLoaded', initReveal)
     } else {
