@@ -20,6 +20,10 @@ type AnalyticsWindow = Window & {
   gtag?: (...args: unknown[]) => void
 }
 
+type VitePressRouter = {
+  onAfterRouteChange?: (to: string) => void
+}
+
 let lastTrackedPage = ''
 
 function trackAnalyticsPageView() {
@@ -37,11 +41,11 @@ function trackAnalyticsPageView() {
   })
 }
 
-function initAnalyticsRouteTracking(router: { onAfterRouteChanged?: (to: string) => void }) {
-  const previousAfterRouteChanged = router.onAfterRouteChanged
+function initAnalyticsRouteTracking(router: VitePressRouter) {
+  const previousAfterRouteChange = router.onAfterRouteChange
 
-  router.onAfterRouteChanged = (to: string) => {
-    previousAfterRouteChanged?.(to)
+  router.onAfterRouteChange = (to: string) => {
+    previousAfterRouteChange?.(to)
     window.setTimeout(trackAnalyticsPageView, 0)
   }
 }
