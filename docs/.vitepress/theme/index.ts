@@ -1,8 +1,9 @@
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import Mermaid from './Mermaid.vue'
-import '@fortawesome/fontawesome-free/css/fontawesome.css'
-import '@fortawesome/fontawesome-free/css/solid.css'
+// FontAwesome solid, subset to the icons actually used (see scripts/build-fa-subset.py).
+import './fontawesome-core-subset.css'
+import './fontawesome-solid-subset.css'
 import './custom.css'
 import './animations.css'
 import './story.css'
