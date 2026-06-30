@@ -24,8 +24,12 @@ const errors = []
 
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'no-preference' })
-page.on('pageerror', (e) => errors.push('pageerror: ' + e.message))
-page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text()) })
+// Ignore environment-specific noise that is NOT a code regression:
+// - CookieYes only runs on its registered domain (errors on localhost)
+// - analytics endpoints are sinkholed by the local network DNS (ERR_CONNECTION_REFUSED)
+const IGNORE_ERR = /cookieyes|ERR_CONNECTION_REFUSED|google-analytics|googletagmanager/i
+page.on('pageerror', (e) => { if (!IGNORE_ERR.test(e.message)) errors.push('pageerror: ' + e.message) })
+page.on('console', (m) => { if (m.type() === 'error' && !IGNORE_ERR.test(m.text())) errors.push('console: ' + m.text()) })
 
 // Poll the opacity until it settles >= 0.99 (or timeout): ignores mid-transition frames,
 // but a truly stuck (opacity:0 forever) element never settles -> reported.
