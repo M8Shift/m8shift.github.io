@@ -191,6 +191,7 @@ function buildCookieConsentHead(): HeadEntry[] {
       {
         id: 'cookieyes',
         type: 'text/javascript',
+        'data-cfasync': 'false',
         src: `https://cdn-cookieyes.com/client_data/${cookieYesClientDataId}/script.js`
       }
     ])
@@ -199,7 +200,7 @@ function buildCookieConsentHead(): HeadEntry[] {
   if (googleAnalyticsMeasurementId) {
     head.push([
       'script',
-      {},
+      { 'data-cfasync': 'false' },
       `window.dataLayer = window.dataLayer || [];
 function gtag(){window.dataLayer.push(arguments);}
 gtag('consent', 'default', {
@@ -216,6 +217,7 @@ gtag('config', '${googleAnalyticsMeasurementId}');`
       'script',
       {
         async: true,
+        'data-cfasync': 'false',
         src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsMeasurementId}`
       }
     ])
