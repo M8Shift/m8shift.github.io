@@ -38,7 +38,8 @@ jobs:
         run: npm run docs:build
         env:
           M8SHIFT_SITE_URL: ${{ vars.M8SHIFT_SITE_URL || 'https://m8shift.ai' }}
-          M8SHIFT_GA_MEASUREMENT_ID: ${{ vars.M8SHIFT_GA_MEASUREMENT_ID }}
+          M8SHIFT_COOKIEYES_CLIENT_DATA_ID: ${{ vars.M8SHIFT_COOKIEYES_CLIENT_DATA_ID || '62897b62030c6fecabf8f3ba3f6db80e' }}
+          M8SHIFT_GA_MEASUREMENT_ID: ${{ vars.M8SHIFT_GA_MEASUREMENT_ID || 'G-NH0MHKS21Y' }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
