@@ -5,6 +5,8 @@ import { defineConfig } from 'vitepress'
 const repositoryUrl = 'https://github.com/M8Shift/M8Shift'
 const siteUrl = (process.env.M8SHIFT_SITE_URL || 'https://m8shift.ai').replace(/\/+$/, '')
 const socialImage = `${siteUrl}/logo.png`
+const cookieYesClientDataId = (process.env.M8SHIFT_COOKIEYES_CLIENT_DATA_ID || '62897b62030c6fecabf8f3ba3f6db80e').trim()
+const googleAnalyticsMeasurementId = (process.env.M8SHIFT_GA_MEASUREMENT_ID || 'G-NH0MHKS21Y').trim()
 
 const defaultDescription =
   'Free open-source local relay for Claude, Codex, Gemini, Vibe and other coding agents: one writer at a time, structured handoffs, auditable repo state.'
@@ -15,6 +17,8 @@ type SeoEntry = {
   description: string
   keywords?: string[]
 }
+
+type HeadEntry = [string, Record<string, string | boolean>, string?]
 
 const pageSeo: Record<string, SeoEntry> = {
   '/': {
@@ -178,6 +182,48 @@ function buildStructuredData(route: string, seo: SeoEntry) {
   }
 }
 
+function buildCookieConsentHead(): HeadEntry[] {
+  const head: HeadEntry[] = []
+
+  if (cookieYesClientDataId) {
+    head.push([
+      'script',
+      {
+        id: 'cookieyes',
+        type: 'text/javascript',
+        src: `https://cdn-cookieyes.com/client_data/${cookieYesClientDataId}/script.js`
+      }
+    ])
+  }
+
+  if (googleAnalyticsMeasurementId) {
+    head.push([
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsMeasurementId}');`
+    ])
+
+    head.push([
+      'script',
+      {
+        async: true,
+        src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsMeasurementId}`
+      }
+    ])
+  }
+
+  return head
+}
+
 function buildSeoHead(route: string, seo: SeoEntry) {
   const head = [
     ['meta', { name: 'description', content: seo.description }],
@@ -253,6 +299,7 @@ export default defineConfig({
     }
   },
   head: [
+    ...buildCookieConsentHead(),
     ['meta', { name: 'theme-color', content: '#5D26F2' }],
     ['meta', { name: 'application-name', content: 'M8Shift' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: 'M8Shift' }],
