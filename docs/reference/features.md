@@ -257,6 +257,16 @@
     </tr>
     <tr>
       <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-compress" aria-hidden="true"></i> Context compression records</span></td>
+      <td><code>m8shift-context.py compress/retrieve</code> stores redacted raw references, compact digests, backend metadata, and bounded retrieval paths without touching the core relay.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-brain" aria-hidden="true"></i> Optional compression backends</span></td>
+      <td><code>--backend auto</code> uses identity-pinned RTK for shell/tool output and optional <code>headroom_ext</code> for broad context records, degrading to builtin/reference-only when unavailable.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-road-barrier" aria-hidden="true"></i> Lane ownership</span></td>
       <td>Allows one fresh managed runtime per agent identity and requires explicit stale takeover before a second runtime uses the same lane.</td>
     </tr>
