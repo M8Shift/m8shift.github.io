@@ -45,9 +45,42 @@ At the same level of approximation, **~$120 of paid AI** versus **~$150k–300k 
 
 M8Shift is shared openly so anyone can benefit from the method, not just from this specific codebase.
 
+## <i class="fa-solid fa-star m8-heading-icon" aria-hidden="true"></i> Feature focus — the headline advances
+
+::: tip 🚀 Token compression, on by default (RTK)
+The context companion can run **[RTK](https://github.com/rtk-ai/rtk)** as an **identity-pinned,
+telemetry-off, argv-only** shell-output filter to compress what an agent reads. In our own
+measurements the referenced context pack cut the hand-off context by **~97%**, and RTK on real
+shell output by **~54–68%** — a large, measured token (and cost) saving. Since **v3.34.0** it is the
+**default when RTK is present and pinned**, and **fully-degrading** otherwise: absent, unpinned, or
+corrupt → native packing, no error. Telemetry is disabled on setup; the core stays stdlib-only.
+:::
+
+Other advances users feel:
+
+- **⚡ Parallelism** — the degree-2 worktree companion runs several agents on isolated branches and
+  serialises the merge-back through one integration pen (the core stays strictly one-pen).
+- **💸 An economic view of usage** — the core `cooldown` parks the relay before a rolling
+  usage-window limit is hit (RFC 040 Phase B), so a shift never blindly burns a session cap.
+- **🧾 Provenance & traceability** — every commit can carry *which model* produced it
+  (`Agent-Model`), and decisions are recorded in a structured, tool-independent trace (RFC 031).
+- **🗺️ On the design board** — parallel multi-session (RFC 038), model/task **cost routing**
+  (RFC 039), and full usage monitoring (RFC 040) are designed and under review, not yet shipped.
+
+## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Release history
+
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.28.0` | <Badge type="tip" text="current" /> | Native context companion (`m8shift-context.py`): referenced context packs, receipts and metrics, plus an **identity-pinned** RTK `shell_output_filter` adapter — verified fail-closed against renamed/wrapper/PATH-hijack execution (RFC 034). `PAUSED`-aware `wait`: the listener stays armed, quiet, and wakes on resume (RFC 035). Runtime headroom guard `m8shift-runtime.py headroom` with tiered proxy signals (RFC 036). Bounded `git()` collector timeout. |
+| `v3.34.2` | <Badge type="tip" text="current" /> | Retention path hardening (backslash-normalised denylist + `O_NOFOLLOW`/symlink refusal on runtime writes) and the full **colour module map** of core + companions in the architecture docs. |
+| `v3.34.1` | | RTK corrupt-manifest auto-fallback: a broken/non-object adapter manifest degrades a default pack to native packing instead of aborting — fully-degrading by design. |
+| `v3.34.0` | | **RTK is the default context-pack filter when identity-pinned** (never on `PATH` alone), with an install offer (consent) and `rtk telemetry disable` on setup — **token compression on by default, safely** (RFC 034). Mandatory agent rules: RTK token-economy, the decision template, and the issue templates. |
+| `v3.33.0` | | **RFC 028** headless command templates: curated argv-only provider examples, a run-plan validator, an env allowlist, and post-run `LOCK` verification — a curation layer over RFC 014/020, no new launcher. |
+| `v3.32.0` | | **RFC 027** local notifications companion: tiers 0–4 (stdout · prompt file · TTY bell · OS presets · argv-only operator hook), dedup window, and an audit log — advisory, no daemon, no network. |
+| `v3.31.0` | | **RFC 031** tool-independent decision traceability: forge / GitHub / git or a markdown **ADR fallback**, `decisions target/scaffold`, and an advisory `append --stance` — decisions are never lost, whatever the tooling. |
+| `v3.30.0` | | `init` manages the host project **`.gitignore`** with a marker block (consent + `--gitignore`/`--no-gitignore`) — relay state stays local, and the agent anchors are left for the operator to decide. |
+| `v3.29.0` | | **RFC 026** configurable retention policy: per-ledger fixed-count / age / combined-union strategies, archive + audit index, fail-safe on undatable rows — opt-in and fully-degrading. |
+| `v3.28.1` | | Self-declared **`Agent-Model` provenance**: `M8SHIFT_AGENT_MODEL` → a commit trailer stamped alongside `Coordinated-With`, fail-open and independent of the relay version — the forge history shows *which model* produced each commit. Non-UTF-8 commit-message fail-open fix. |
+| `v3.28.0` | | Native context companion (`m8shift-context.py`): referenced context packs, receipts and metrics, plus an **identity-pinned** RTK `shell_output_filter` adapter — verified fail-closed against renamed/wrapper/PATH-hijack execution (RFC 034). `PAUSED`-aware `wait`: the listener stays armed, quiet, and wakes on resume (RFC 035). Runtime headroom guard `m8shift-runtime.py headroom` with tiered proxy signals (RFC 036). Bounded `git()` collector timeout. |
 | `v3.27.0` | | Doctor/status split: core-safe `doctor` versus runtime companion diagnostics (RFC 024); runtime `status` composed over presence/progress/inbox/run sidecars (RFC 025). |
 | `v3.26.0` | | Bounded runtime sidecar retention with `m8shift-runtime.py retention prune --keep N`; archives older JSONL rows by default while leaving the core relay untouched. |
 | `v3.25.0` | | Immutable headless run plans and post-run `LOCK` verification. |
