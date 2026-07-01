@@ -54,6 +54,9 @@ measurements the referenced context pack cut the hand-off context by **~97%**, a
 shell output by **~54–68%** — a large, measured token (and cost) saving. Since **v3.34.0** it is the
 **default when RTK is present and pinned**, and **fully-degrading** otherwise: absent, unpinned, or
 corrupt → native packing, no error. Telemetry is disabled on setup; the core stays stdlib-only.
+Since **v3.36.0** you can *see* the state at a glance — `status-runtime`, `doctor`, and
+`m8shift-context.py status` print **`RTK: ON (pinned, compressing packs)`** or **`RTK: OFF (native)`**
+with the last-pack ratio, so a shift always knows whether it is actually saving tokens.
 :::
 
 Other advances users feel:
@@ -64,14 +67,17 @@ Other advances users feel:
   usage-window limit is hit (RFC 040 Phase B), so a shift never blindly burns a session cap.
 - **🧾 Provenance & traceability** — every commit can carry *which model* produced it
   (`Agent-Model`), and decisions are recorded in a structured, tool-independent trace (RFC 031).
-- **🗺️ On the design board** — parallel multi-session (RFC 038), model/task **cost routing**
-  (RFC 039), and full usage monitoring (RFC 040) are designed and under review, not yet shipped.
+- **🗺️ On the design board** — parallel multi-session (RFC 038) and full usage monitoring (RFC 040)
+  are designed and under review; model/task **cost routing** (RFC 039) has shipped its **Phase 1**
+  advisory `route recommend` (v3.35.0), with delegation/launch still under review.
 
 ## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Release history
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.34.2` | <Badge type="tip" text="current" /> | Retention path hardening (backslash-normalised denylist + `O_NOFOLLOW`/symlink refusal on runtime writes) and the full **colour module map** of core + companions in the architecture docs. |
+| `v3.36.0` | <Badge type="tip" text="current" /> | **RTK visibility (#79):** you can now *see* whether token compression is active — per-agent self-declared `M8SHIFT_RTK` in `status-runtime`, and the context adapter's pinned/native state (**`RTK: ON (pinned, compressing packs)`** / **`RTK: OFF (native)`**) with the last-pack ratio in `status-runtime`, `doctor`, and the new `m8shift-context.py status`. Read-only, advisory, **fail-closed to OFF**; no network, no telemetry re-enable, self-declared only. |
+| `v3.35.0` | | **RFC 039 Phase 1 — model/task routing (#59):** an advisory `route recommend` that picks the cheapest **capability-eligible** model for a task (tier floor + required capabilities + context window), fail-safe when the self-model is unknown — recommendation only, never launches anything. |
+| `v3.34.2` | | Retention path hardening (backslash-normalised denylist + `O_NOFOLLOW`/symlink refusal on runtime writes) and the full **colour module map** of core + companions in the architecture docs. |
 | `v3.34.1` | | RTK corrupt-manifest auto-fallback: a broken/non-object adapter manifest degrades a default pack to native packing instead of aborting — fully-degrading by design. |
 | `v3.34.0` | | **RTK is the default context-pack filter when identity-pinned** (never on `PATH` alone), with an install offer (consent) and `rtk telemetry disable` on setup — **token compression on by default, safely** (RFC 034). Mandatory agent rules: RTK token-economy, the decision template, and the issue templates. |
 | `v3.33.0` | | **RFC 028** headless command templates: curated argv-only provider examples, a run-plan validator, an env allowlist, and post-run `LOCK` verification — a curation layer over RFC 014/020, no new launcher. |
