@@ -47,7 +47,9 @@ M8Shift is shared openly so anyone can benefit from the method, not just from th
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.26.0` | <Badge type="tip" text="current" /> | Bounded runtime sidecar retention with `m8shift-runtime.py retention prune --keep N`; archives older JSONL rows by default while leaving the core relay untouched. |
+| `v3.28.0` | <Badge type="tip" text="current" /> | Native context companion (`m8shift-context.py`): referenced context packs, receipts and metrics, plus an **identity-pinned** RTK `shell_output_filter` adapter — verified fail-closed against renamed/wrapper/PATH-hijack execution (RFC 034). `PAUSED`-aware `wait`: the listener stays armed, quiet, and wakes on resume (RFC 035). Runtime headroom guard `m8shift-runtime.py headroom` with tiered proxy signals (RFC 036). Bounded `git()` collector timeout. |
+| `v3.27.0` | | Doctor/status split: core-safe `doctor` versus runtime companion diagnostics (RFC 024); runtime `status` composed over presence/progress/inbox/run sidecars (RFC 025). |
+| `v3.26.0` | | Bounded runtime sidecar retention with `m8shift-runtime.py retention prune --keep N`; archives older JSONL rows by default while leaving the core relay untouched. |
 | `v3.25.0` | | Immutable headless run plans and post-run `LOCK` verification. |
 | `v3.24.0` | | Runtime no-progress detection for companion loops. |
 | `v3.23.0` | | Runtime lane ownership: one fresh managed runtime per agent identity, explicit stale takeover. |
