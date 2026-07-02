@@ -263,7 +263,7 @@
     <tr>
       <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-brain" aria-hidden="true"></i> Optional compression backends</span></td>
-      <td><code>--backend auto</code> uses identity-pinned RTK for shell/tool output and optional <code>headroom_ext</code> for broad context records, degrading to builtin/reference-only when unavailable.</td>
+      <td><code>--backend auto</code> uses identity-pinned RTK for shell/tool output; broad context records stay on builtin unless <code>backends.headroom_ext.auto_enabled</code> explicitly opts into the optional <code>headroom_ext</code> experiment.</td>
     </tr>
     <tr>
       <td>Automation</td>

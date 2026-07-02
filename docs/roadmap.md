@@ -59,14 +59,13 @@ Since **v3.36.0** you can *see* the state at a glance — `status-runtime`, `doc
 with the last-pack ratio, so a shift always knows whether it is actually saving tokens.
 :::
 
-::: tip 🧠 Broad-context compression, optional (Headroom adapter)
-Since **v3.39.0**, `m8shift-context.py compress --backend auto` has an explicit backend map:
-RTK keeps shell/tool outputs, while broad records such as `conversation`, `history`, `file`,
-`report`, `diff`, and `large-context` may use the optional **`headroom_ext`** adapter when an
-operator provides and identity-pins a compatible local `headroom` command. It is still
-fully-degrading: absent, unpinned, invalid, or drifted manifests fall back to the builtin digest
-in `auto`, while explicit Headroom requests fail closed to reference-only. M8Shift never starts
-Headroom proxy/MCP/server modes here.
+::: tip 🧠 Broad-context compression, opt-in only (Headroom adapter)
+Since **v3.40.0**, `m8shift-context.py compress --backend auto` keeps broad records such as
+`conversation`, `history`, `file`, `report`, `diff`, and `large-context` on the builtin digest
+unless an operator explicitly sets `backends.headroom_ext.auto_enabled: true` and identity-pins a
+compatible local `headroom` command. Explicit `--backend headroom_ext` remains available for
+experiments. M8Shift never starts Headroom proxy/MCP/server modes here, and future wrappers must
+force offline/cache-only execution.
 :::
 
 Other advances users feel:
@@ -85,7 +84,8 @@ Other advances users feel:
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.39.0` | <Badge type="tip" text="current" /> | **RFC 037 Phase D — optional Headroom backend:** `compress --backend auto` now dispatches broad context records to identity-pinned `headroom_ext` when available, keeps RTK for shell/tool outputs, and degrades safely to builtin/reference-only on absent, unpinned, failed, or drifted backends. |
+| `v3.40.0` | <Badge type="tip" text="current" /> | **RFC 037 Headroom follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available, and the docs record why Headroom is not promoted by default. |
+| `v3.39.0` | | **RFC 037 Phase D — optional Headroom backend hook:** added the identity-pinned `headroom_ext` adapter contract and safe degradation for absent, unpinned, failed, or drifted backends. |
 | `v3.38.0` | | **RFC 037 Phase C — backend dispatch + RTK:** `m8shift-context.py compress` records requested/actual backend/version, uses identity-pinned `rtk-shell-output` for shell/tool content types, and fail-closes explicit backend errors to reference-only. |
 | `v3.37.0` | | **RFC 037 Phase B — local compression records:** redacted raw refs, compact digests, builtin stdlib compressor, bounded `retrieve`, secret-pattern hardening, and reference-only fail-safe for bad config/backend paths. |
 | `v3.36.0` | | **RTK visibility (#79):** you can now *see* whether token compression is active — per-agent self-declared `M8SHIFT_RTK` in `status-runtime`, and the context adapter's pinned/native state (**`RTK: ON (pinned, compressing packs)`** / **`RTK: OFF (native)`**) with the last-pack ratio in `status-runtime`, `doctor`, and the new `m8shift-context.py status`. Read-only, advisory, **fail-closed to OFF**; no network, no telemetry re-enable, self-declared only. |
