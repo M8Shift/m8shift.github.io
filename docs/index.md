@@ -9,7 +9,7 @@ hero:
   text: <img src="/logo-wordmark.png" alt="M8Shift wordmark" id="m8shift-title" />AI agents,<br>Working in shifts.
   tagline: "Pronounced mate-shift — AI team mates working in shifts. Free and open source. Coordinate your AI teammates — Claude, Codex, Gemini, Vibe, and other coding agents — on one repository: exactly one writes at a time, and every handoff stays recorded."
   image:
-    src: /logo.png
+    src: /logo-2.webp
     alt: M8Shift logo
   actions:
     - theme: brand
@@ -63,12 +63,12 @@ features:
   </div>
   <div class="m8-quickstart__body">
     <div class="m8-quickstart__panel m8-quickstart__panel--macos">
-      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Terminal install for macOS. Verifies files, installs locally, then runs init.</p>
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Terminal install for macOS. Verifies files, installs locally, then runs init. Add <code>--with-rtk</code> only with consent.</p>
       <pre><code><span class="m8-prompt">$</span> cd /path/to/project
 <span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
     </div>
     <div class="m8-quickstart__panel m8-quickstart__panel--linux">
-      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change.</p>
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change; optional RTK is local and verified.</p>
       <pre><code><span class="m8-prompt">$</span> cd /path/to/project
 <span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
     </div>
@@ -79,7 +79,7 @@ features:
     </div>
   </div>
   <div class="m8-quickstart__foot">
-    <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> SHA256-checked against the selected ref. No sudo. No global PATH change.</span>
+    <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> SHA256-checked against the selected ref. Downloads core, worktree, runtime, and context scripts. Optional RTK/Headroom stay explicit.</span>
     <span class="m8-quickstart__links"><a href="/guide/macos">macOS</a><a href="/guide/linux">Linux</a><a href="/guide/windows">Windows</a></span>
   </div>
 </div>

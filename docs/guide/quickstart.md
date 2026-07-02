@@ -43,10 +43,14 @@ cd C:\path\to\project
 irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
 ```
 
-The installers download `m8shift.py` and the `m8shift-worktree.py` toolbox into the
-current directory, verify them against `checksums.sha256`, then run `init`. They
-do not use `sudo`, do not modify your global PATH, and do not start a
-background service.
+Prerequisites: Python 3.8+, Git for normal repository work, and one downloader
+(`curl`, `wget`, or Python `urllib`). Verification uses `sha256sum`, `shasum`, or
+Python `hashlib`.
+
+The installers download `m8shift.py`, `m8shift-worktree.py`,
+`m8shift-runtime.py`, and `m8shift-context.py` into the current directory, verify
+them against `checksums.sha256`, then run `init`. They do not use `sudo`, do not
+modify your global PATH, and do not start a background service.
 
 For a pinned release, fetch the installer from the tag and pass the same ref:
 
@@ -64,6 +68,32 @@ Security boundary: Bash and PowerShell both verify downloaded files by default
 (`--no-verify` opts out) against the manifest from the selected ref. It catches corruption
 or mismatch. For out-of-band trust against a compromised origin, pin reviewed digests
 with `--sha256 FILE:HEX` or use a signed release tag.
+
+Optional RTK shell-output filtering is explicit:
+
+```bash
+bash install.sh --with-rtk
+```
+
+The Bash installer downloads the matching RTK release asset for macOS, Linux, or
+Git Bash/Windows, verifies it against RTK's `checksums.txt`, installs it under
+`.m8shift/bin`, disables telemetry, and identity-pins the adapter manifest.
+
+Experimental Headroom-compatible compression remains opt-in:
+
+```bash
+bash install.sh --with-headroom
+```
+
+It attempts `pip install headroom-ai` in `.m8shift/venvs/headroom`; some platforms
+need Rust/Cargo for source builds. Failure is reported but does not block the base
+M8Shift install.
+
+Review the install plan without writing files:
+
+```bash
+bash install.sh --dry-run --with-rtk --with-headroom
+```
 
 Prefer manual adoption? Copy `m8shift.py` into the project and run
 `python3 m8shift.py init --agents claude,codex`.

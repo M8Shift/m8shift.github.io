@@ -240,7 +240,7 @@
     <tr>
       <td>Setup</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-download" aria-hidden="true"></i> Install scripts</span></td>
-      <td>Provides shell and PowerShell installers for macOS, Linux, WSL, Git Bash, and Windows.</td>
+      <td>Provides shell and PowerShell installers for macOS, Linux, WSL, Git Bash, and Windows, with checksum verification, dry-run planning, and explicit optional RTK/Headroom setup.</td>
     </tr>
     <tr>
       <td>Setup</td>

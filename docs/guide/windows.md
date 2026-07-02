@@ -1,7 +1,7 @@
 # Run M8Shift on Windows
 
-M8Shift is a single Python file using only the standard library, so there is nothing to
-`pip install`. It runs on Windows in three ways.
+M8Shift is a single Python file using only the standard library, so the core has
+nothing to `pip install`. It runs on Windows in three ways.
 
 ## Option A — WSL (recommended)
 
@@ -12,7 +12,8 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | b
 python3 m8shift.py status
 ```
 
-The installer downloads `m8shift.py` plus `m8shift-worktree.py`, verifies them with
+The installer downloads `m8shift.py` plus `m8shift-worktree.py`,
+`m8shift-runtime.py`, and `m8shift-context.py`, verifies them with
 `checksums.sha256`, and runs `init`.
 
 `claude,codex` is the default example roster. Use `gemini,vibe` or any cooperative
@@ -26,6 +27,18 @@ Works the same, invoking Python explicitly:
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
 python m8shift.py status
 ```
+
+Optional RTK install also works from Git Bash:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | \
+  bash -s -- --agents claude,codex --with-rtk
+```
+
+It downloads the Windows RTK `.zip` asset, verifies it against RTK's
+`checksums.txt`, installs `rtk.exe` in `.m8shift/bin`, disables telemetry, and
+identity-pins the adapter manifest. Experimental `--with-headroom` creates a local
+venv and may require Rust/Cargo if `headroom-ai` builds from source.
 
 ## Option C — native PowerShell / cmd
 
@@ -43,8 +56,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubus
 python m8shift.py status
 ```
 
-The PowerShell installer downloads `m8shift.py` plus `m8shift-worktree.py`, verifies
-them with `checksums.sha256` by default, and runs `init`.
+The PowerShell installer downloads `m8shift.py` plus `m8shift-worktree.py`,
+`m8shift-runtime.py`, and `m8shift-context.py`, verifies them with
+`checksums.sha256` by default, and runs `init`.
 
 Manual fallback:
 
