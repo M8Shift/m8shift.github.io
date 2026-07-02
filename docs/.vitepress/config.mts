@@ -7,6 +7,7 @@ const siteUrl = (process.env.M8SHIFT_SITE_URL || 'https://m8shift.ai').replace(/
 const socialImage = `${siteUrl}/logo.png`
 const cookieYesClientDataId = (process.env.M8SHIFT_COOKIEYES_CLIENT_DATA_ID || '62897b62030c6fecabf8f3ba3f6db80e').trim()
 const googleAnalyticsMeasurementId = (process.env.M8SHIFT_GA_MEASUREMENT_ID || 'G-NH0MHKS21Y').trim()
+const accessibilityWidgetId = (process.env.M8SHIFT_ACCESSIBILITY_WIDGET_ID || '538019fc-b197-4c20-824c-f7d629857640').trim()
 
 const defaultDescription =
   'Free open-source local relay for Claude, Codex, Gemini, Vibe and other coding agents: one writer at a time, structured handoffs, auditable repo state.'
@@ -25,6 +26,10 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'M8Shift — coordinate AI coding agents on one repository',
     description: defaultDescription,
     keywords: ['AI coding agents', 'multi-agent coding', 'Claude', 'Codex', 'Gemini', 'Vibe', 'agent coordination']
+  },
+  '/accessibility': {
+    title: 'Accessibility — M8Shift',
+    description: 'M8Shift accessibility statement: our commitment, conformance target, assistive tools, known limitations, and how to report barriers.'
   },
   '/guide/': {
     title: 'M8Shift Guide — install and coordinate AI coding agents',
@@ -245,6 +250,32 @@ gtag('config', '${googleAnalyticsMeasurementId}');`
   return head
 }
 
+function buildAccessibilityHead(): HeadEntry[] {
+  if (!accessibilityWidgetId) return []
+
+  // CookieYes "AccessiYes" accessibility widget. The config object must exist
+  // before the widget script runs; the statement link points to /accessibility.
+  const config = {
+    iconId: 'default',
+    position: { mobile: 'bottom-right', desktop: 'bottom-right' },
+    language: { default: 'en', selected: [] },
+    modules: { statement: { enabled: true, url: `${siteUrl}/accessibility` } },
+    keyboard: { enabled: true, shortcut: 'alt+a' }
+  }
+
+  return [
+    ['script', { 'data-cfasync': 'false' }, `window._cyA11yConfig=${JSON.stringify(config)};`],
+    [
+      'script',
+      {
+        async: true,
+        'data-cfasync': 'false',
+        src: `https://cdn-cookieyes.com/widgets/accessibility.js?id=${accessibilityWidgetId}`
+      }
+    ]
+  ]
+}
+
 function buildSeoHead(route: string, seo: SeoEntry) {
   const head = [
     ['meta', { name: 'description', content: seo.description }],
@@ -321,6 +352,7 @@ export default defineConfig({
   },
   head: [
     ...buildCookieConsentHead(),
+    ...buildAccessibilityHead(),
     ['meta', { name: 'theme-color', content: '#5D26F2' }],
     ['meta', { name: 'application-name', content: 'M8Shift' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: 'M8Shift' }],
@@ -433,7 +465,7 @@ export default defineConfig({
           text: 'Edit this page'
         },
         footer: {
-          message: 'Built with ❤️ and <a href="/">M8Shift</a>',
+          message: 'Built with ❤️ and <a href="/">M8Shift</a> · <a href="/accessibility">Accessibility</a>',
           copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }
