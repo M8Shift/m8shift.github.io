@@ -50,6 +50,10 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'M8Shift Feature Matrix — complete list of relay capabilities',
     description: 'A complete feature table for M8Shift: pen locking, append-only turns, contracts, memory notes, task files, sessions, validation and local state.'
   },
+  '/reference/architecture': {
+    title: 'M8Shift Architecture — local relay modules and communication channels',
+    description: 'Architecture diagrams for M8Shift: passive core, advisory companions, local files, argv channels, compression records, worktrees and notifications.'
+  },
   '/reference/cli': {
     title: 'M8Shift CLI Reference — commands for the AI agent relay',
     description: 'Reference for M8Shift commands such as init, status, claim, next, append, done, memory, tasks, sessions, doctor and contract validation.'
@@ -349,6 +353,7 @@ export default defineConfig({
           {
             text: 'More', items: [
               { text: 'Features', link: '/reference/features' },
+              { text: 'Architecture', link: '/reference/architecture' },
               { text: 'RFC reference', link: '/reference/rfc' },
               { text: 'Use cases', link: '/use-cases' },
               { text: 'Comparison', link: '/comparison' },
@@ -401,6 +406,7 @@ export default defineConfig({
               text: 'Reference', items: [
                 { text: 'Overview', link: '/reference/' },
                 { text: 'Feature matrix', link: '/reference/features' },
+                { text: 'Architecture', link: '/reference/architecture' },
                 { text: 'RFC reference', link: '/reference/rfc' },
                 { text: 'CLI', link: '/reference/cli' },
                 { text: 'State model', link: '/reference/state-model' },

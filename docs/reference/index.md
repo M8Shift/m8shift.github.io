@@ -17,6 +17,11 @@ as planned until code and tests exist.
     <strong>Feature matrix</strong>
     <span>A full table of shipped capabilities and what each one does.</span>
   </a>
+  <a class="m8-doc-card" href="./architecture">
+    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+    <strong>Architecture</strong>
+    <span>Core, companions, files, argv channels, adapters, notifications, and worktree flows.</span>
+  </a>
   <a class="m8-doc-card" href="./rfc">
     <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
     <strong>RFC reference</strong>

@@ -47,27 +47,29 @@ M8Shift is shared openly so anyone can benefit from the method, not just from th
 
 ## <i class="fa-solid fa-star m8-heading-icon" aria-hidden="true"></i> Feature focus — the headline advances
 
-::: tip 🚀 Token compression, on by default (RTK)
-The context companion can run **[RTK](https://github.com/rtk-ai/rtk)** as an **identity-pinned,
+::: tip 🚀 Token compression, on by default ([RTK](/reference/features#token-adapters-rtk-and-headroom))
+The context companion can run **[RTK](/reference/features#token-adapters-rtk-and-headroom)** as an **identity-pinned,
 telemetry-off, argv-only** shell-output filter to compress what an agent reads. In our own
-measurements the referenced context pack cut the hand-off context by **~97%**, and RTK on real
+measurements the referenced context pack cut the hand-off context by **~97%**, and [RTK](/reference/features#token-adapters-rtk-and-headroom) on real
 shell output by **~54–68%** — a large, measured token (and cost) saving. Since **v3.34.0** it is the
-**default when RTK is present and pinned**, and **fully-degrading** otherwise: absent, unpinned, or
+**default when [RTK](/reference/features#token-adapters-rtk-and-headroom) is present and pinned**, and **fully-degrading** otherwise: absent, unpinned, or
 corrupt → native packing, no error. Telemetry is disabled on setup; the core stays stdlib-only.
 Since **v3.36.0** you can *see* the state at a glance — `status-runtime`, `doctor`, and
 `m8shift-context.py status` print **`RTK: ON (pinned, compressing packs)`** or **`RTK: OFF (native)`**
 with the last-pack ratio, so a shift always knows whether it is actually saving tokens.
 :::
 
-::: tip 🧠 Broad-context compression, opt-in only (Headroom adapter)
+::: tip 🧠 Broad-context compression, opt-in only ([Headroom adapter](/reference/features#token-adapters-rtk-and-headroom))
 Since **v3.40.0**, `m8shift-context.py compress --backend auto` keeps broad records such as
 `conversation`, `history`, `file`, `report`, `diff`, and `large-context` on the builtin digest
 unless an operator explicitly sets `backends.headroom_ext.auto_enabled: true` and identity-pins a
-compatible local `headroom` command. Explicit `--backend headroom_ext` remains available for
+[compatible local `headroom` command](/reference/features#token-adapters-rtk-and-headroom). Explicit `--backend headroom_ext` remains available for
 experiments. The reason is architectural: M8Shift's default handoff is a tiny lossy digest plus
-always-retrievable raw evidence, while Headroom targets a more near-lossless conversation
-compression problem. M8Shift never starts Headroom proxy/MCP/server modes here, and future wrappers
-must force offline/cache-only execution.
+always-retrievable raw evidence, while [Headroom](/reference/features#token-adapters-rtk-and-headroom) targets a more near-lossless conversation
+compression problem. M8Shift never starts [Headroom](/reference/features#token-adapters-rtk-and-headroom) proxy/MCP/server modes here, and future wrappers
+must force offline/cache-only execution. Since **v3.41.0**, records also carry `--access-mode` and
+`--whole-content` routing signals for the later evidence gate, while `retrieve` hash-checks raw and
+compact evidence before serving it.
 :::
 
 Other advances users feel:
@@ -86,22 +88,23 @@ Other advances users feel:
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.40.0` | <Badge type="tip" text="current" /> | **RFC 037 Headroom follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available as a different, opt-in compression experiment. |
-| `v3.39.0` | | **RFC 037 Phase D — optional Headroom backend hook:** added the identity-pinned `headroom_ext` adapter contract and safe degradation for absent, unpinned, failed, or drifted backends. |
-| `v3.38.0` | | **RFC 037 Phase C — backend dispatch + RTK:** `m8shift-context.py compress` records requested/actual backend/version, uses identity-pinned `rtk-shell-output` for shell/tool content types, and fail-closes explicit backend errors to reference-only. |
+| `v3.41.0` | <Badge type="tip" text="current" /> | **RFC 042 Phase B + #91:** compression records now store `access_mode` / `whole_content` advisory routing signals without opening signal-driven [Headroom](/reference/features#token-adapters-rtk-and-headroom) routing; the v3.40 manual `headroom_ext` opt-in is preserved; `retrieve` verifies raw and compact hashes before serving evidence; architecture/spec docs add color communication and agent-flow diagrams. |
+| `v3.40.0` | | **RFC 037 [Headroom](/reference/features#token-adapters-rtk-and-headroom) follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available as a different, opt-in [compression experiment](/reference/features#token-adapters-rtk-and-headroom). |
+| `v3.39.0` | | **RFC 037 Phase D — optional Headroom backend hook:** added the identity-pinned [`headroom_ext`](/reference/features#token-adapters-rtk-and-headroom) adapter contract and safe degradation for absent, unpinned, failed, or drifted backends. |
+| `v3.38.0` | | **RFC 037 Phase C — backend dispatch + RTK:** `m8shift-context.py compress` records requested/actual backend/version, uses identity-pinned [`rtk-shell-output`](/reference/features#token-adapters-rtk-and-headroom) for shell/tool content types, and fail-closes explicit backend errors to reference-only. |
 | `v3.37.0` | | **RFC 037 Phase B — local compression records:** redacted raw refs, compact digests, builtin stdlib compressor, bounded `retrieve`, secret-pattern hardening, and reference-only fail-safe for bad config/backend paths. |
-| `v3.36.0` | | **RTK visibility (#79):** you can now *see* whether token compression is active — per-agent self-declared `M8SHIFT_RTK` in `status-runtime`, and the context adapter's pinned/native state (**`RTK: ON (pinned, compressing packs)`** / **`RTK: OFF (native)`**) with the last-pack ratio in `status-runtime`, `doctor`, and the new `m8shift-context.py status`. Read-only, advisory, **fail-closed to OFF**; no network, no telemetry re-enable, self-declared only. |
+| `v3.36.0` | | **[RTK](/reference/features#token-adapters-rtk-and-headroom) visibility (#79):** you can now *see* whether token compression is active — per-agent self-declared `M8SHIFT_RTK` in `status-runtime`, and the context adapter's pinned/native state (**`RTK: ON (pinned, compressing packs)`** / **`RTK: OFF (native)`**) with the last-pack ratio in `status-runtime`, `doctor`, and the new `m8shift-context.py status`. Read-only, advisory, **fail-closed to OFF**; no network, no telemetry re-enable, self-declared only. |
 | `v3.35.0` | | **RFC 039 Phase 1 — model/task routing (#59):** an advisory `route recommend` that picks the cheapest **capability-eligible** model for a task (tier floor + required capabilities + context window), fail-safe when the self-model is unknown — recommendation only, never launches anything. |
 | `v3.34.2` | | Retention path hardening (backslash-normalised denylist + `O_NOFOLLOW`/symlink refusal on runtime writes) and the full **colour module map** of core + companions in the architecture docs. |
-| `v3.34.1` | | RTK corrupt-manifest auto-fallback: a broken/non-object adapter manifest degrades a default pack to native packing instead of aborting — fully-degrading by design. |
-| `v3.34.0` | | **RTK is the default context-pack filter when identity-pinned** (never on `PATH` alone), with an install offer (consent) and `rtk telemetry disable` on setup — **token compression on by default, safely** (RFC 034). Mandatory agent rules: RTK token-economy, the decision template, and the issue templates. |
+| `v3.34.1` | | [RTK](/reference/features#token-adapters-rtk-and-headroom) corrupt-manifest auto-fallback: a broken/non-object adapter manifest degrades a default pack to native packing instead of aborting — fully-degrading by design. |
+| `v3.34.0` | | **[RTK](/reference/features#token-adapters-rtk-and-headroom) is the default context-pack filter when identity-pinned** (never on `PATH` alone), with an install offer (consent) and `rtk telemetry disable` on setup — **token compression on by default, safely** (RFC 034). Mandatory agent rules: RTK token-economy, the decision template, and the issue templates. |
 | `v3.33.0` | | **RFC 028** headless command templates: curated argv-only provider examples, a run-plan validator, an env allowlist, and post-run `LOCK` verification — a curation layer over RFC 014/020, no new launcher. |
 | `v3.32.0` | | **RFC 027** local notifications companion: tiers 0–4 (stdout · prompt file · TTY bell · OS presets · argv-only operator hook), dedup window, and an audit log — advisory, no daemon, no network. |
 | `v3.31.0` | | **RFC 031** tool-independent decision traceability: forge / GitHub / git or a markdown **ADR fallback**, `decisions target/scaffold`, and an advisory `append --stance` — decisions are never lost, whatever the tooling. |
 | `v3.30.0` | | `init` manages the host project **`.gitignore`** with a marker block (consent + `--gitignore`/`--no-gitignore`) — relay state stays local, and the agent anchors are left for the operator to decide. |
 | `v3.29.0` | | **RFC 026** configurable retention policy: per-ledger fixed-count / age / combined-union strategies, archive + audit index, fail-safe on undatable rows — opt-in and fully-degrading. |
 | `v3.28.1` | | Self-declared **`Agent-Model` provenance**: `M8SHIFT_AGENT_MODEL` → a commit trailer stamped alongside `Coordinated-With`, fail-open and independent of the relay version — the forge history shows *which model* produced each commit. Non-UTF-8 commit-message fail-open fix. |
-| `v3.28.0` | | Native context companion (`m8shift-context.py`): referenced context packs, receipts and metrics, plus an **identity-pinned** RTK `shell_output_filter` adapter — verified fail-closed against renamed/wrapper/PATH-hijack execution (RFC 034). `PAUSED`-aware `wait`: the listener stays armed, quiet, and wakes on resume (RFC 035). Runtime headroom guard `m8shift-runtime.py headroom` with tiered proxy signals (RFC 036). Bounded `git()` collector timeout. |
+| `v3.28.0` | | Native context companion (`m8shift-context.py`): referenced context packs, receipts and metrics, plus an **identity-pinned** [RTK](/reference/features#token-adapters-rtk-and-headroom) `shell_output_filter` adapter — verified fail-closed against renamed/wrapper/PATH-hijack execution (RFC 034). `PAUSED`-aware `wait`: the listener stays armed, quiet, and wakes on resume (RFC 035). Runtime headroom guard `m8shift-runtime.py headroom` with tiered proxy signals (RFC 036; unrelated to the external Headroom adapter). Bounded `git()` collector timeout. |
 | `v3.27.0` | | Doctor/status split: core-safe `doctor` versus runtime companion diagnostics (RFC 024); runtime `status` composed over presence/progress/inbox/run sidecars (RFC 025). |
 | `v3.26.0` | | Bounded runtime sidecar retention with `m8shift-runtime.py retention prune --keep N`; archives older JSONL rows by default while leaving the core relay untouched. |
 | `v3.25.0` | | Immutable headless run plans and post-run `LOCK` verification. |
