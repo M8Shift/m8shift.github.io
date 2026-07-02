@@ -67,7 +67,9 @@ compatible local `headroom` command. Explicit `--backend headroom_ext` remains a
 experiments. The reason is architectural: M8Shift's default handoff is a tiny lossy digest plus
 always-retrievable raw evidence, while Headroom targets a more near-lossless conversation
 compression problem. M8Shift never starts Headroom proxy/MCP/server modes here, and future wrappers
-must force offline/cache-only execution.
+must force offline/cache-only execution. Since **v3.41.0**, records also carry `--access-mode` and
+`--whole-content` routing signals for the later evidence gate, while `retrieve` hash-checks raw and
+compact evidence before serving it.
 :::
 
 Other advances users feel:
@@ -86,7 +88,8 @@ Other advances users feel:
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.40.0` | <Badge type="tip" text="current" /> | **RFC 037 Headroom follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available as a different, opt-in compression experiment. |
+| `v3.41.0` | <Badge type="tip" text="current" /> | **RFC 042 Phase B + #91:** compression records now store `access_mode` / `whole_content` advisory routing signals without opening signal-driven Headroom routing; the v3.40 manual `headroom_ext` opt-in is preserved; `retrieve` verifies raw and compact hashes before serving evidence; architecture/spec docs add color communication and agent-flow diagrams. |
+| `v3.40.0` | | **RFC 037 Headroom follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available as a different, opt-in compression experiment. |
 | `v3.39.0` | | **RFC 037 Phase D — optional Headroom backend hook:** added the identity-pinned `headroom_ext` adapter contract and safe degradation for absent, unpinned, failed, or drifted backends. |
 | `v3.38.0` | | **RFC 037 Phase C — backend dispatch + RTK:** `m8shift-context.py compress` records requested/actual backend/version, uses identity-pinned `rtk-shell-output` for shell/tool content types, and fail-closes explicit backend errors to reference-only. |
 | `v3.37.0` | | **RFC 037 Phase B — local compression records:** redacted raw refs, compact digests, builtin stdlib compressor, bounded `retrieve`, secret-pattern hardening, and reference-only fail-safe for bad config/backend paths. |
