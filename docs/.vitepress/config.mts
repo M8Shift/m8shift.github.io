@@ -257,6 +257,10 @@ function buildAccessibilityHead(): HeadEntry[] {
   // before the widget script runs; the statement link points to /accessibility.
   const config = {
     iconId: 'default',
+    // Brand the widget with the M8Shift purple (same as the theme-color meta).
+    // Undocumented in the public JS guide but read by the widget: it drives the
+    // Shadow-DOM CSS var --cya11y-primary-color (icon, buttons, active states).
+    primaryColor: '#5D26F2',
     position: { mobile: 'bottom-right', desktop: 'bottom-right' },
     language: { default: 'en', selected: [] },
     modules: { statement: { enabled: true, url: `${siteUrl}/accessibility` } },
