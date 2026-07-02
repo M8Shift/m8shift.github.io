@@ -1280,3 +1280,33 @@
 .m8-prompt {
   color: color-mix(in srgb, var(--vp-c-brand-1) 72%, var(--vp-c-text-2));
 }
+
+/* ── CookieYes cookie-consent banner — M8Shift purple branding ────────────
+   The banner is a hosted third-party embed (cdn-cookieyes.com/client_data);
+   its colours are set from the CookieYes dashboard (default blue #1863DC) as
+   inline styles, so these overrides need !important. Selectors were verified
+   against the live m8shift.ai DOM (CookieYes v3, data-cky-tag markup).
+   See docs-internal/third-party-widgets.md. */
+.cky-btn-accept,
+.cky-btn-reject,
+.cky-btn-preferences {
+  background: #5D26F2 !important;
+  border-color: #5D26F2 !important;
+  color: #fff !important;
+}
+.cky-btn-accept:hover,
+.cky-btn-reject:hover,
+.cky-btn-preferences:hover {
+  background: #4A1FC9 !important;
+  border-color: #4A1FC9 !important;
+}
+.cky-btn-customize {
+  color: #5D26F2 !important;
+  border-color: #5D26F2 !important;
+}
+.cky-btn-customize:hover {
+  background: color-mix(in srgb, #5D26F2 10%, transparent) !important;
+}
+.cky-btn-revisit-wrapper {
+  background: #5D26F2 !important;
+}

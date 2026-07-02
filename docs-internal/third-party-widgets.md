@@ -103,23 +103,31 @@ Do it in the **CookieYes dashboard** → *Cookie Banner → Appearance / Design*
 (colours, buttons, layout, text, categories). Changes propagate to the hosted script;
 no code change or redeploy needed.
 
-### Code-side alternative (CSS override)
+### Code-side branding (implemented)
 
-If the dashboard is not enough, add overrides to
-[`docs/.vitepress/theme/custom.css`](../docs/.vitepress/theme/custom.css) targeting the
-banner's `.cky-*` classes. The hosted banner is **not** in a Shadow DOM, so site CSS
-applies.
+Because the dashboard default is blue (`#1863DC`), the banner is re-branded to the
+M8Shift purple via a CSS override in
+[`docs/.vitepress/theme/custom.css`](../docs/.vitepress/theme/custom.css) (search
+"CookieYes cookie-consent banner"). The hosted banner is **not** in a Shadow DOM, so site
+CSS applies; colours are set as inline styles, so the override uses `!important`.
+
+Selectors were verified against the **live** m8shift.ai DOM (CookieYes v3, `data-cky-tag`
+markup):
+
+| Element | Selector | `data-cky-tag` | Default → now |
+| --- | --- | --- | --- |
+| Accept All | `.cky-btn-accept` | `accept-button` | `#1863DC` → `#5D26F2` |
+| Reject All | `.cky-btn-reject` | `reject-button` | `#1863DC` → `#5D26F2` |
+| Customise (outline) | `.cky-btn-customize` | `settings-button` | `#1863DC` → `#5D26F2` |
+| Save preferences (modal) | `.cky-btn-preferences` | — | filled `#5D26F2` |
+| Revisit badge (floating) | `.cky-btn-revisit-wrapper` | `revisit-consent` | `#0056A7` → `#5D26F2` |
 
 > [!WARNING]
-> These class names belong to a third-party bundle and can change — **verify against the
-> live DOM** before relying on them, and keep the override minimal.
-
-```css
-/* Purple-brand the cookie banner buttons (verify selectors against the live DOM) */
-.cky-btn-accept        { background: #5D26F2 !important; border-color: #5D26F2 !important; }
-.cky-btn-revisit-wrapper { background: #5D26F2 !important; }   /* floating "revisit" badge */
-/* .cky-consent-bar, .cky-btn-reject, .cky-btn-customize, .cky-preference-* for the rest */
-```
+> These class names belong to a third-party bundle and can change — re-verify against the
+> live DOM (or re-run the Playwright capture) after any CookieYes update.
+>
+> Not covered by CSS: the preference-center **toggle switches'** active colour is set by
+> the widget's own JS from the dashboard config — change that in the dashboard.
 
 ### Self-hosted WP plugin (not used here)
 
@@ -131,4 +139,4 @@ that local-config route does not apply here — it is documented only to explain
 
 ---
 
-_Last updated: July 2026 · sources inspected: `accessibility-widget` 3.2.3, `cookie-law-info` 3.5.1._
+*Last updated: July 2026 · sources inspected: `accessibility-widget` 3.2.3, `cookie-law-info` 3.5.1.*
