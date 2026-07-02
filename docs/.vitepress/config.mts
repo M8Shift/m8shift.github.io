@@ -185,6 +185,35 @@ function buildStructuredData(route: string, seo: SeoEntry) {
 function buildCookieConsentHead(): HeadEntry[] {
   const head: HeadEntry[] = []
 
+  // Order matters for Google Consent Mode:
+  //   1) consent DEFAULT must run before anything else,
+  //   2) then the CMP (CookieYes) so it can update consent on accept,
+  //   3) then the Google tag itself.
+  // If CookieYes loads before the default, its GCM check reports
+  // "Default consent not set" and analytics never initialises.
+
+  // 1) Consent Mode default (must be first).
+  if (googleAnalyticsMeasurementId) {
+    head.push([
+      'script',
+      { 'data-cfasync': 'false' },
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsMeasurementId}');`
+    ])
+  }
+
+  // 2) CookieYes CMP (loads after the default; updates consent on accept).
   if (cookieYesClientDataId) {
     head.push([
       'script',
@@ -197,22 +226,8 @@ function buildCookieConsentHead(): HeadEntry[] {
     ])
   }
 
+  // 3) The Google tag itself (async, last).
   if (googleAnalyticsMeasurementId) {
-    head.push([
-      'script',
-      { 'data-cfasync': 'false' },
-      `window.dataLayer = window.dataLayer || [];
-function gtag(){window.dataLayer.push(arguments);}
-gtag('consent', 'default', {
-  analytics_storage: 'denied',
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied'
-});
-gtag('js', new Date());
-gtag('config', '${googleAnalyticsMeasurementId}');`
-    ])
-
     head.push([
       'script',
       {
