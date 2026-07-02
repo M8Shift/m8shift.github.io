@@ -68,7 +68,7 @@ features:
 <span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
     </div>
     <div class="m8-quickstart__panel m8-quickstart__panel--linux">
-      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change; optional RTK is local and verified.</p>
+      <p class="m8-quickstart__comment"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Shell install for Linux, WSL, or Git Bash. No sudo and no global PATH change; optional RTK is local and same-tag-checksummed.</p>
       <pre><code><span class="m8-prompt">$</span> cd /path/to/project
 <span class="m8-prompt">$</span> curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex</code></pre>
     </div>

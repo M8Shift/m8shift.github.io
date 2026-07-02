@@ -76,8 +76,10 @@ bash install.sh --with-rtk
 ```
 
 The Bash installer downloads the matching RTK release asset for macOS, Linux, or
-Git Bash/Windows, verifies it against RTK's `checksums.txt`, installs it under
-`.m8shift/bin`, disables telemetry, and identity-pins the adapter manifest.
+Git Bash/Windows, verifies it against RTK's `checksums.txt` from the same GitHub
+release tag, installs it under `.m8shift/bin`, records local provenance, disables
+telemetry, and identity-pins the adapter manifest. Cargo/Rust source builds are
+disabled unless `--allow-source-build` is explicit.
 
 Experimental Headroom-compatible compression remains opt-in:
 
@@ -85,9 +87,9 @@ Experimental Headroom-compatible compression remains opt-in:
 bash install.sh --with-headroom
 ```
 
-It attempts `pip install headroom-ai` in `.m8shift/venvs/headroom`; some platforms
-need Rust/Cargo for source builds. Failure is reported but does not block the base
-M8Shift install.
+It attempts an unpinned best-effort `pip install headroom-ai` in
+`.m8shift/venvs/headroom`; some platforms need Rust/Cargo for source builds.
+Failure is reported but does not block the base M8Shift install.
 
 Review the install plan without writing files:
 

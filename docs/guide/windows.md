@@ -36,9 +36,12 @@ curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | \
 ```
 
 It downloads the Windows RTK `.zip` asset, verifies it against RTK's
-`checksums.txt`, installs `rtk.exe` in `.m8shift/bin`, disables telemetry, and
-identity-pins the adapter manifest. Experimental `--with-headroom` creates a local
-venv and may require Rust/Cargo if `headroom-ai` builds from source.
+`checksums.txt` from the same GitHub release tag, installs `rtk.exe` in
+`.m8shift/bin`, records provenance, disables telemetry, and identity-pins the
+adapter manifest. Cargo/Rust source builds are disabled unless
+`--allow-source-build` is explicit. Experimental `--with-headroom` creates a
+local venv, performs an unpinned `pip install headroom-ai`, and may require
+Rust/Cargo if `headroom-ai` builds from source.
 
 ## Option C — native PowerShell / cmd
 

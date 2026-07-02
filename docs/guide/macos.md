@@ -33,11 +33,11 @@ parallel work.
 Optional token adapters:
 
 ```bash
-# verified RTK release asset, local .m8shift/bin install, telemetry off
+# RTK release asset verified against same-tag checksums, local .m8shift/bin install, telemetry off
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | \
   bash -s -- --agents claude,codex --with-rtk
 
-# experimental headroom-ai venv; may need Rust/Cargo for source builds
+# experimental unpinned headroom-ai venv; may need Rust/Cargo for source builds
 curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | \
   bash -s -- --agents claude,codex --with-headroom
 ```
