@@ -10,6 +10,9 @@ codes, and git. There is no hosted control plane, no network dependency, and no 
 
 ## <i class="fa-solid fa-network-wired m8-heading-icon" aria-hidden="true"></i> Module communication
 
+`RTK` and `headroom_ext` are optional token-usage adapters. See
+[Token adapters: RTK and Headroom](./features#token-adapters-rtk-and-headroom).
+
 ```mermaid
 flowchart LR
     classDef actor fill:#FF7A18,stroke:#AD2F0A,color:#11183A;

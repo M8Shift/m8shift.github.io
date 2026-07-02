@@ -10,6 +10,18 @@
   </div>
 </div>
 
+## <i class="fa-solid fa-gauge-high m8-heading-icon" aria-hidden="true"></i> Token adapters: RTK and Headroom
+
+<div class="m8-callout m8-callout--orange">
+  <i class="fa-solid fa-plug-circle-bolt" aria-hidden="true"></i>
+  <div>
+    <strong>Optional token-usage optimizers, not requirements.</strong>
+    <p><a href="https://github.com/rtk-ai/rtk">RTK</a> is an external open-source shell-output compression tool. M8Shift can use it through the RFC 034 identity-pinned argv runner for shell and tool output, primarily to reduce the amount of command output agents need to read.</p>
+    <p><a href="https://github.com/headroomlabs-ai/headroom">Headroom</a> / <a href="https://pypi.org/project/headroom-ai/">headroom-ai</a> is an external open-source context-compression library and CLI. M8Shift can plug an adapter-compatible local <code>headroom_ext</code> command into the same identity-pinned runner for broad context records.</p>
+    <p>Both are local, optional, and fail closed to builtin behavior when absent, unpinned, invalid, or errored. They exist to optimize token usage, not to change the core relay. M8Shift measurements recorded ~97% savings on referenced context packs and ~54–68% on real shell output with RTK; Headroom is treated as a near-lossless broad-context experiment. See the <a href="https://github.com/M8Shift/M8Shift/blob/main/docs/en/context-pack-measurements.md">context-pack measurements</a>.</p>
+  </div>
+</div>
+
 <div class="m8-feature-table m8-feature-table--fit">
 <table>
   <thead>
@@ -263,7 +275,7 @@
     <tr>
       <td>Automation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-brain" aria-hidden="true"></i> Optional compression backends</span></td>
-      <td><code>--backend auto</code> uses identity-pinned RTK for shell/tool output; broad context records stay on builtin unless <code>backends.headroom_ext.auto_enabled</code> explicitly opts into the optional <code>headroom_ext</code> experiment.</td>
+      <td><code>--backend auto</code> uses identity-pinned <a href="#token-adapters-rtk-and-headroom">RTK</a> for shell/tool output; broad context records stay on builtin unless <code>backends.headroom_ext.auto_enabled</code> explicitly opts into the optional <a href="#token-adapters-rtk-and-headroom"><code>headroom_ext</code></a> experiment.</td>
     </tr>
     <tr>
       <td>Automation</td>
