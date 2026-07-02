@@ -18,7 +18,7 @@ passive, local, single-file coordination relay. Those "no surface here" verdicts
 
 | Framework | What it targets | M8Shift verdict |
 |-----------|-----------------|-----------------|
-| [OWASP Agentic Top 10 (ASI01–10)](https://genai.owasp.org/) | threats specific to agentic applications | **Audited threat-by-threat.** Strong on inter-agent integrity, anti-cascade, supply chain, human traceability; identity & network controls are **out of scope by design** (local, declarative). |
+| [OWASP Agentic Top 10 (ASI01–10)](https://genai.owasp.org/) | threats specific to agentic applications | **Audited threat-by-threat.** Strong on inter-agent integrity, anti-cascade, human traceability; supply chain is strong for the **core** but the **opt-in v3.40+ installer/adapters (RTK/Headroom) add a real supply-chain surface** (downloaded & executed, sha256-pinned); identity & network controls are **out of scope by design** (local, declarative). |
 | [MITRE ATLAS](https://atlas.mitre.org/) | adversarial machine learning (model attacks) | **~90 % N/A.** ATLAS is overwhelmingly a model-attack taxonomy (evasion, inversion, poisoning); there is no model, training, or inference API to attack. |
 | [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) (AI 100-1 + GenAI Profile 600-1) | AI risk management functions | **Partial.** GOVERN / MAP / MANAGE apply (charter-as-governance, ledger-as-traceability); **MEASURE** (model metrics, bias measurement, robustness eval) is **N/A** — no model to measure. |
 | [CISA — Secure AI System Development](https://www.cisa.gov/ai) | secure-by-design AI lifecycle | **Applies.** Supply-chain hygiene, configuration hardening, continuous monitoring — these intersect M8Shift's two named gaps (SEC-4, SEC-7). |
@@ -33,8 +33,16 @@ passive, local, single-file coordination relay. Those "no surface here" verdicts
 | **ASI01** | Goal Hijack | 🟡 Partial — boundary documented & structurally neutralized, not semantically filtered |
 | **ASI02** | Tool Misuse | 🟢 Good — narrow scope, no network, no billable loop |
 | **ASI03** | Identity & Privilege Abuse | 🟠 Out of scope by design — declarative cooperative identity |
-| **ASI04** | Supply Chain | 🟢 Excellent — stdlib-only, no `requirements.txt` |
-| **ASI05** | Remote Code Execution | 🟢 Good — no `eval`/shell; `git` argv-only; SEC-4 fixed & tested |
+| **ASI04** | Supply Chain | 🟢 core (stdlib-only, no `requirements.txt`) / 🟡 opt-in installer adapters — RTK release asset + Headroom pip venv are downloaded & executed (sha256/checksum-pinned, argv-only) since v3.40+ |
+| **ASI05** | Remote Code Execution | 🟢 Good — no `eval`/shell; subprocess = `git` **plus allowlisted RTK/Headroom adapters** (argv-only, realpath+sha256-pinned, no shell; v3.40+); SEC-4 fixed & tested |
+
+::: warning Optional installer / adapters (v3.40+) — audited surfaces
+The **core relay** is stdlib-only, offline, no daemon. The **opt-in** installer and adapters add real, bounded surfaces, audited separately:
+- **Install-time network only** under `--with-rtk` / `--with-headroom` (release-asset / pip download); the **runtime stays offline**.
+- **RTK/Headroom are downloaded and executed** — sha256 / checksum-TOFU pinned over TLS (not an independent signature), argv-only, no shell.
+- **Project-local `.m8shift/bin` adapters require explicit `--allow-project-local-adapters`** (#94); PATH-installed adapters are preferred.
+- **Compression artifacts** under `.m8shift/context/compression/` are **best-effort regex-redacted before store** (can miss novel secret shapes) — a confidentiality-at-rest surface.
+:::
 | **ASI06** | Memory & Context Poisoning | 🟢 Strong integrity (append-only) / 🟡 content |
 | **ASI07** | Insecure Inter-Agent Comm. | 🟢 Local integrity / 🟠 no crypto — network surface is **N/A** |
 | **ASI08** | Cascading Failures | 🟢 Anti-cascade by design — one writer at a time |

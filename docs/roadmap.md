@@ -33,7 +33,7 @@ From **2026-06-21** to **2026-06-26**, for about **$120 of paid AI**:
 
 | Evidence | Snapshot |
 |----------|----------|
-| Tooling | ~6,900 lines of tool code + ~3,550 lines of tests (255 tests) |
+| Tooling | ~6,900 lines of tool code + ~3,550 lines of tests (255 tests **at v3.26.0**; **384 at v3.41.1** — count ≠ coverage) |
 | Knowledge base | 29 RFCs · ~10,000 lines of docs · bilingual site (70 pages, 9 languages) |
 | Release pace | 165 commits across 25 releases (`v1.0.0` → `v3.26.0`) |
 
@@ -151,34 +151,7 @@ RFC numbers are permanent creation-order identifiers. They do not track implemen
 
 ## <i class="fa-solid fa-list-ol m8-heading-icon" aria-hidden="true"></i> RFC index
 
-| № | RFC | Status |
-|----:|-----|--------|
-| 001 | Roster | historical / superseded |
-| 002 | N agents | historical / implemented |
-| 003 | I18n packs | shipped |
-| 004 | Memory | shipped |
-| 005 | Claim check | shipped |
-| 006 | Tasks | shipped |
-| 007 | Subturn | rejected |
-| 008 | Worktree companion | implemented v1 |
-| 009 | Runtime companion | implemented v1 |
-| 010 | Runtime patterns | accepted filter; 6 retained patterns shipped in v3.21–v3.26 |
-| 011 | Session history | implemented |
-| 012 | Contracts validation | implemented |
-| 013 | Hosted runtime control plane | future / not implemented |
-| 014 | Provider management | implemented v1 |
-| 015 | Shared tree degree > 1 | rejected for the core |
-| 016 | Cooperative turn request | implemented |
-| 017 | Stage 6 integrations | implemented |
-| 018 | Agent runtime architecture | implemented v1 |
-| 019 | Input neutral patterns | curated input / not implemented |
-| 020 | Headless runner hardening | implemented v1 |
-| 021 | Pause / resume | implemented v1 |
-| 022 | Session reports | implemented v1 |
-| 023 | Agent token footprint | implemented Phase 1 |
-| 024 | Doctor split | draft |
-| 025 | Runtime status composition | draft |
-| 026 | Sidecar retention | baseline implemented; policy draft |
-| 027 | Notifications | draft |
-| 028 | Headless command templates | draft |
-| 029 | Companion workboard | draft |
+The full, current RFC catalogue — **001–043**, with per-RFC shipped/draft status and
+the version each shipped in — lives in the **[RFC reference](/reference/rfc)** (single
+source of truth). This roadmap previously duplicated the list and drifted out of date;
+the duplicate has been removed to keep one authoritative table.

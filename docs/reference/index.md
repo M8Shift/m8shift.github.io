@@ -25,7 +25,7 @@ as planned until code and tests exist.
   <a class="m8-doc-card" href="./rfc">
     <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
     <strong>RFC reference</strong>
-    <span>All RFCs 001-029 with status, implementation version, date, and notes.</span>
+    <span>All RFCs 001-043 with status, implementation version, date, and notes.</span>
   </a>
   <a class="m8-doc-card" href="./cli">
     <i class="fa-solid fa-terminal" aria-hidden="true"></i>

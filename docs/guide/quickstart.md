@@ -64,7 +64,7 @@ $env:M8SHIFT_INSTALL_REF = "vX.Y.Z"
 irm https://raw.githubusercontent.com/M8Shift/M8Shift/vX.Y.Z/install.ps1 | iex
 ```
 
-Security boundary: Bash and PowerShell both verify downloaded files by default
+Download integrity (not a trust boundary): Bash and PowerShell both verify downloaded files by default
 (`--no-verify` opts out) against the manifest from the selected ref. It catches corruption
 or mismatch. For out-of-band trust against a compromised origin, pin reviewed digests
 with `--sha256 FILE:HEX` or use a signed release tag.

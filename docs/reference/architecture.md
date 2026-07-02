@@ -5,7 +5,7 @@ prepare context, notify, or isolate parallel work without becoming a second writ
 
 ::: tip Local by design
 Every channel below is local: repository files, shell argv, JSON/stdin-stdout, exit
-codes, and git. There is no hosted control plane, no network dependency, and no core daemon.
+codes, and git. The **core relay** has no hosted control plane, no network path, and no daemon. (The optional `--with-rtk` / `--with-headroom` installers perform **install-time** downloads, and the RFC 034 adapters run as **pinned argv subprocesses** — v3.40+; runtime stays offline.)
 :::
 
 ## <i class="fa-solid fa-network-wired m8-heading-icon" aria-hidden="true"></i> Module communication

@@ -11,7 +11,7 @@ shipped across `v3.21` to `v3.26`.
 :::
 
 ::: warning Drafts are not shipped releases
-Unmerged work does not count as implemented. RFC 024 and RFC 025 remain `draft` here
+Unmerged work does not count as implemented. RFC 029 (Companion workboard) and RFC 030 (Tamper-evidence) remain `draft` here
 until the release that implements them is merged and published.
 :::
 
@@ -40,11 +40,11 @@ until the release that implements them is merged and published.
 | 021 | [Pause resume](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/021-rfc-pause-resume.md) | Stable `PAUSED` state for idle sessions | implemented v1 | v3.17.0 · 2026-06-25 | core `PAUSED` + `pause` / `resume` |
 | 022 | [Session reports](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/022-rfc-session-reports.md) | Session reports + decision ledger | implemented v1 | v3.18.3 · 2026-06-26 | `report` generated from existing turns |
 | 023 | [Agent token footprint](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/023-rfc-agent-token-footprint.md) | Cut the mandatory protocol read | implemented (Phase 1) | v3.19.0 · 2026-06-26 | split `protocol.md` / `protocol-reference.md` |
-| 024 | [Doctor split](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/024-rfc-doctor-split.md) | Split core doctor vs companion diagnostics | draft | — | deferred from RFC 010 |
-| 025 | [Runtime status composition](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/025-rfc-status-runtime.md) | Runtime status over core + sidecars | draft | — | deferred from RFC 010 |
-| 026 | [Sidecar retention](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/026-rfc-sidecar-retention.md) | Bound / prune runtime sidecar ledgers | baseline impl. · policy draft | v3.26.0 · 2026-06-26 | baseline `retention prune --keep N`; policy still draft |
-| 027 | [Notifications](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/027-rfc-notifications.md) | Local notifications for handoffs / stale turns | draft | — | deferred from RFC 010 |
-| 028 | [Headless command templates](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/028-rfc-headless-command-templates.md) | Safe headless command templates | draft | — | deferred from RFC 010 |
+| 024 | [Doctor split](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/024-rfc-doctor-split.md) | Split core doctor vs companion diagnostics | baseline impl. | v3.27.0 · 2026-06-26 | core doctor owns relay hygiene; runtime owns sidecar diagnostics |
+| 025 | [Runtime status composition](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/025-rfc-status-runtime.md) | Runtime status over core + sidecars | baseline impl. | v3.27.0 · 2026-06-26 | `status-runtime [--brief] [--json]` |
+| 026 | [Sidecar retention](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/026-rfc-sidecar-retention.md) | Bound / prune runtime sidecar ledgers | shipped | v3.34.2 · 2026-07-01 | `retention apply` / `policy show`; path-safety hardened (#73) |
+| 027 | [Notifications](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/027-rfc-notifications.md) | Local notifications for handoffs / stale turns | shipped | v3.32.0 · 2026-07-01 | `notify`: stdout/file/bell/OS/hook tiers |
+| 028 | [Headless command templates](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/028-rfc-headless-command-templates.md) | Safe headless command templates | shipped | v3.33.0 · 2026-07-01 | provider examples, `argv_by_platform`, strict run-plan validation |
 | 029 | [Companion workboard](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/029-rfc-m8shift-board.md) | Richer companion workboard outside core | draft | — | deferred from RFC 010 |
 | 030 | [Tamper evidence](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/030-rfc-tamper-evidence.md) | Hash-chain tamper-evidence for relay records | draft | — | detection/warning only |
 | 031 | [Decision traceability](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/031-rfc-decision-traceability.md) | Tool-independent decision records | shipped | v3.31.0 · 2026-07-01 | forge/git/ADR fallback |
@@ -57,3 +57,6 @@ until the release that implements them is merged and published.
 | 038 | [Multi-session](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/038-rfc-multi-session.md) | Named parallel relay sessions | draft | — | future companion/core namespace work |
 | 039 | [Model/task routing](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/039-rfc-model-task-routing.md) | Capability-first routing recommendations | Phase 1 shipped | v3.35.0 · 2026-07-01 | read-only `route recommend` |
 | 040 | [AI session usage monitoring](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/040-rfc-ai-session-usage-monitoring.md) | Provider usage-window monitoring and cooldown | Phase B shipped | v3.35.0+ · 2026-07-01 | core `cooldown`; runtime phases ongoing |
+| 041 | [Agent skills](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/041-rfc-agent-skills.md) | Reusable multi-agent competency definitions | draft | — | `skills/` dir, docs-first; tracker #83 |
+| 042 | [Compression-backend routing](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/042-rfc-compression-backend-routing.md) | Hybrid builtin/Headroom routing (evidence-gated) | design + Phase B | v3.41.0 · 2026-07-02 | signals plumbed; auto-route gated on measurement (#84) |
+| 043 | [Routing principle](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/043-rfc-routing-principle.md) | Unify the routing skeleton of 037/039/042/032 | draft (design-only) | — | one canonical 6-stage pipeline; no behavior |
