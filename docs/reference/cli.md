@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.41.1 (Python 3.8+, standard library only — the core; optional adapters install separately).
+The CLI is a single file, `m8shift.py` 3.43.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or

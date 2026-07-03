@@ -49,9 +49,10 @@ M8Shift is shared openly so anyone can benefit from the method, not just from th
 
 ::: tip 🚀 Token compression, on by default ([RTK](/reference/features#token-adapters-rtk-and-headroom))
 The context companion can run **[RTK](/reference/features#token-adapters-rtk-and-headroom)** as an **identity-pinned,
-telemetry-off, argv-only** shell-output filter to compress what an agent reads. In our own
-measurements the referenced context pack cut the hand-off context by **~97%**, and [RTK](/reference/features#token-adapters-rtk-and-headroom) on real
-shell output by **~54–68%** — a large, measured token (and cost) saving. Since **v3.34.0** it is the
+telemetry-off, argv-only** shell-output **filter** — a lossy semantic filter (it extracts the signal: errors, test
+results, log lines) that reduces what an agent reads. In our own measurements the referenced
+context pack cut the hand-off context by **~97%**, and [RTK](/reference/features#token-adapters-rtk-and-headroom) on real shell output by
+**~54–68%** by dropping non-signal lines (a filter drop-rate, **not** lossless compression). Since **v3.34.0** it is the
 **default when [RTK](/reference/features#token-adapters-rtk-and-headroom) is present and pinned**, and **fully-degrading** otherwise: absent, unpinned, or
 corrupt → native packing, no error. Telemetry is disabled on setup; the core stays stdlib-only.
 Since **v3.36.0** you can *see* the state at a glance — `status-runtime`, `doctor`, and
@@ -62,12 +63,10 @@ with the last-pack ratio, so a shift always knows whether it is actually saving 
 ::: tip 🧠 Broad-context compression, opt-in only ([Headroom adapter](/reference/features#token-adapters-rtk-and-headroom))
 Since **v3.40.0**, `m8shift-context.py compress --backend auto` keeps broad records such as
 `conversation`, `history`, `file`, `report`, `diff`, and `large-context` on the builtin digest
-unless an operator explicitly sets `backends.headroom_ext.auto_enabled: true` and identity-pins a
-[compatible local `headroom` command](/reference/features#token-adapters-rtk-and-headroom). Explicit `--backend headroom_ext` remains available for
-experiments. The reason is architectural: M8Shift's default handoff is a tiny lossy digest plus
+unless an operator explicitly sets `backends.headroom_ext.auto_enabled: true` and identity-pins the bundled
+[`m8shift-headroom` launcher](/reference/features#token-adapters-rtk-and-headroom) (`install.sh --with-headroom`, pinned `headroom-ai==0.28.0`, requires `--allow-project-local-adapters`). Explicit `--backend headroom_ext` gives ~45–55% on prose (it errors on shell content). The reason is architectural: M8Shift's default handoff is a tiny lossy digest plus
 always-retrievable raw evidence, while [Headroom](/reference/features#token-adapters-rtk-and-headroom) targets a more near-lossless conversation
-compression problem. M8Shift never starts [Headroom](/reference/features#token-adapters-rtk-and-headroom) proxy/MCP/server modes here, and future wrappers
-must force offline/cache-only execution. Since **v3.41.0**, records also carry `--access-mode` and
+compression problem. M8Shift never starts [Headroom](/reference/features#token-adapters-rtk-and-headroom) proxy/MCP/server modes; the shipped `m8shift-headroom` wrapper forces offline/cache-only execution (socket-blocked, model from cache). Since **v3.41.0**, records also carry `--access-mode` and
 `--whole-content` routing signals for the later evidence gate, while `retrieve` hash-checks raw and
 compact evidence before serving it.
 :::
@@ -88,7 +87,9 @@ Other advances users feel:
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| `v3.41.0` | <Badge type="tip" text="current" /> | **RFC 042 Phase B + #91:** compression records now store `access_mode` / `whole_content` advisory routing signals without opening signal-driven [Headroom](/reference/features#token-adapters-rtk-and-headroom) routing; the v3.40 manual `headroom_ext` opt-in is preserved; `retrieve` verifies raw and compact hashes before serving evidence; architecture/spec docs add color communication and agent-flow diagrams. |
+| `v3.43.0` | <Badge type="tip" text="current" /> | **RFC 037 Phase D — Headroom/Kompress adapter now bundled + active:** `install.sh --with-headroom` builds a pinned native-arch venv (`headroom-ai==0.28.0` + `onnxruntime==1.27.0` + `transformers==5.12.1`), preloads `chopratejas/kompress-v2-base`, and identity-pins the `m8shift-headroom` launcher; `compress --backend headroom_ext` yields ~45–55% real offline Kompress reduction on prose (errors on shell); `auto` stays on the builtin digest until the Phase D gate. |
+| `v3.42.0` | | **Security hardening:** case-insensitive-FS fix so a case-variant of a project-local adapter bin dir on `PATH` can no longer bypass the `--allow-project-local-adapters` opt-in (#94); CodeQL host-parse fix; RTK telemetry hardening; agents-guide coordination discipline (stale-lock / force-claim / worktree isolation). |
+| `v3.41.0` | | **RFC 042 Phase B + #91:** compression records now store `access_mode` / `whole_content` advisory routing signals without opening signal-driven [Headroom](/reference/features#token-adapters-rtk-and-headroom) routing; the v3.40 manual `headroom_ext` opt-in is preserved; `retrieve` verifies raw and compact hashes before serving evidence; architecture/spec docs add color communication and agent-flow diagrams. |
 | `v3.40.0` | | **RFC 037 [Headroom](/reference/features#token-adapters-rtk-and-headroom) follow-up:** broad contexts now stay on builtin in `auto` unless `backends.headroom_ext.auto_enabled: true`; explicit `--backend headroom_ext` remains available as a different, opt-in [compression experiment](/reference/features#token-adapters-rtk-and-headroom). |
 | `v3.39.0` | | **RFC 037 Phase D — optional Headroom backend hook:** added the identity-pinned [`headroom_ext`](/reference/features#token-adapters-rtk-and-headroom) adapter contract and safe degradation for absent, unpinned, failed, or drifted backends. |
 | `v3.38.0` | | **RFC 037 Phase C — backend dispatch + RTK:** `m8shift-context.py compress` records requested/actual backend/version, uses identity-pinned [`rtk-shell-output`](/reference/features#token-adapters-rtk-and-headroom) for shell/tool content types, and fail-closes explicit backend errors to reference-only. |

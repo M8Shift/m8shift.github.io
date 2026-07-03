@@ -81,15 +81,13 @@ release tag, installs it under `.m8shift/bin`, records local provenance, disable
 telemetry, and identity-pins the adapter manifest. Cargo/Rust source builds are
 disabled unless `--allow-source-build` is explicit.
 
-Experimental Headroom-compatible compression remains opt-in:
+The optional Headroom/Kompress context-compression adapter is installed with:
 
 ```bash
 bash install.sh --with-headroom
 ```
 
-It attempts an unpinned best-effort `pip install headroom-ai` in
-`.m8shift/venvs/headroom`; some platforms need Rust/Cargo for source builds.
-Failure is reported but does not block the base M8Shift install.
+It creates a native-arch venv in `.m8shift/venvs/headroom` with pinned `headroom-ai==0.28.0` + `onnxruntime==1.27.0` + `transformers==5.12.1`, preloads the `chopratejas/kompress-v2-base` model, and installs + identity-pins the `m8shift-headroom` launcher. Some platforms need Rust/Cargo for source builds; failure is reported but never blocks the base install. Once installed, compress via `python3 m8shift-context.py compress --backend headroom_ext` (opt-in, requires `--allow-project-local-adapters`; ~45–55% on prose, offline).
 
 Review the install plan without writing files:
 
