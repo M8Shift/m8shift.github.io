@@ -82,15 +82,15 @@ Other advances users feel:
 - **🗺️ On the design board** — parallel multi-session (RFC 038) remains future work;
   model/task **cost routing** (RFC 039) has shipped its **Phase 1** advisory
   `route recommend` (v3.35.0), with delegation/launch still under review; **usage
-  monitoring** (RFC 040) shipped Phase 2 in `v3.48.0`; **adoption discipline**
-  (RFC 048 PR A) shipped in `v3.49.0` with the generated agent pack and adoption
-  doctor checks.
+  monitoring** (RFC 040) shipped Phase 2 in `v3.48.0`; **adoption discipline and
+  local update** (RFC 048) shipped across `v3.49.0` and `v3.50.0`.
 
 ## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Release history
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| **v3.49.0** <Badge type="tip" text="current" /> | 2026-07-04 | RFC 048 PR A — **adoption discipline pack + health diagnostics**: `init` now generates `M8SHIFT.agent-pack.md`, anchors keep a compact mandatory safety floor, `doctor` reports missing/stale/invalid packs and stale stanzas, and `init --force-generated` repairs only corrupted generated pack blocks without resetting the relay. |
+| **v3.50.0** <Badge type="tip" text="current" /> | 2026-07-04 | RFC 048 PR B — **source-driven local update**: run the new source copy with `update --target DIR --source DIR`; it refreshes protocol, agent pack, anchors, installed companions, then the core last, preserves `M8SHIFT.md` byte-for-byte, verifies source checksums when present, refuses downgrade / unsupported baseline / active `WORKING_*` by default, records bounded update audit rows, and exposes `doctor --source` update recommendations. |
+| **v3.49.0** | 2026-07-04 | RFC 048 PR A — **adoption discipline pack + health diagnostics**: `init` now generates `M8SHIFT.agent-pack.md`, anchors keep a compact mandatory safety floor, `doctor` reports missing/stale/invalid packs and stale stanzas, and `init --force-generated` repairs only corrupted generated pack blocks without resetting the relay. |
 | **v3.48.0** | 2026-07-04 | RFC 040 Phase 2 — **AI session usage monitoring**: read-only `usage` snapshots (argv-only bounded adapters, append-only ledger, fail-open unknown) + cooperative `guard/watch/wait/resume` (holds only through the core cooldown with the provider's own `resets_at`, own-WORKING advisory, peer-WORKING advice-only, explicit-only resume). An unattended lane can now hold through a quota window instead of dying silently. |
 | **v3.47.0** | 2026-07-04 | RFC 047 complete — **listener lifecycle companion**: a supervised headless lane in one command (`listener start`), zero model spend while polling, one bounded turn per wake, `--resume-working` gated stuck-retry, launchd/systemd/schtasks backends with safe local fallbacks (macOS protected-folder detection), persistent `halted` honored across service managers, writer-side log rotation, 9 `listener.*` doctor findings. |
 | **v3.46.0** | 2026-07-04 | RFC 047 Phase A — headless runner **final-state enforcement**: authorship-primary total post-run classification (a provider turn ending while the relay is open = non-completion, not success), `claim --refresh` refresh-only heartbeat guard (TOCTOU closed), exit map 0/1/2/3/4, `run.non_completion` events; detailed `--help` on every parameter (v3.45.1, AST coverage guard). |

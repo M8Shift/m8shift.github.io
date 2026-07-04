@@ -208,6 +208,11 @@
       <td>Agent anchors keep a compact inline safety floor and point to the generated pack plus the protocol, reducing repeated prompt weight without dropping critical guardrails.</td>
     </tr>
     <tr>
+      <td>Adoption</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Source-driven update</span></td>
+      <td><code>update --target DIR --source DIR</code> refreshes an adopted project from a newer local source copy while preserving live relay state and writing the core last.</td>
+    </tr>
+    <tr>
       <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Doctor</span></td>
       <td>Runs read-only health and lint checks, with JSON output and severity filtering.</td>

@@ -43,7 +43,7 @@ features:
     details: init --full copies the optional companions — runtime, context, worktree, headroom launcher, i18n — version-locked to the core. Idempotent, never clobbers an edited file, recorded in a kit manifest.
   - icon: <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>
     title: Agent-readable onboarding
-    details: init generates an agent pack plus compact anchor guardrails, so every teammate starts from the same claim-before-write, no-parking, prompt-security, and delivery-complete rules.
+    details: init generates an agent pack plus compact anchor guardrails, and update refreshes adopted projects from a newer local source without copying relay state.
   - icon: <i class="fa-solid fa-window-restore" aria-hidden="true"></i>
     title: Know which tab is which
     details: status and watch print the project name, working directory, and relay root, so several terminals on different repositories stay distinguishable. Label a relay with init --name, or keep the folder name.
