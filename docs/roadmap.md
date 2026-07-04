@@ -79,18 +79,19 @@ Other advances users feel:
   usage-window limit is hit (RFC 040 Phase B), so a shift never blindly burns a session cap.
 - **🧾 Provenance & traceability** — every commit can carry *which model* produced it
   (`Agent-Model`), and decisions are recorded in a structured, tool-independent trace (RFC 031).
-- **🗺️ On the design board** — parallel multi-session (RFC 038) and full usage monitoring (RFC 040)
-  are designed and under review; model/task **cost routing** (RFC 039) has shipped its **Phase 1**
-  advisory `route recommend` (v3.35.0), with delegation/launch still under review; **headless
-  liveness** (RFC 047) — runner final-state enforcement (a provider turn that ends while the relay
-  is still open counts as non-completion, not success) plus a listener lifecycle companion
-  (start/stop/status/logs) — **fully shipped**: Phase A in `v3.46.0`, the listener lifecycle companion (Phases B–E) in `v3.47.0`.
+- **🗺️ On the design board** — parallel multi-session (RFC 038) remains future work;
+  model/task **cost routing** (RFC 039) has shipped its **Phase 1** advisory
+  `route recommend` (v3.35.0), with delegation/launch still under review; **usage
+  monitoring** (RFC 040) shipped Phase 2 in `v3.48.0`; **adoption discipline**
+  (RFC 048 PR A) shipped in `v3.49.0` with the generated agent pack and adoption
+  doctor checks.
 
 ## <i class="fa-solid fa-box-open m8-heading-icon" aria-hidden="true"></i> Release history
 
 | Version | Status | What shipped |
 |---------|--------|--------------|
-| **v3.48.0** <Badge type="tip" text="current" /> | 2026-07-04 | RFC 040 Phase 2 — **AI session usage monitoring**: read-only `usage` snapshots (argv-only bounded adapters, append-only ledger, fail-open unknown) + cooperative `guard/watch/wait/resume` (holds only through the core cooldown with the provider's own `resets_at`, own-WORKING advisory, peer-WORKING advice-only, explicit-only resume). An unattended lane can now hold through a quota window instead of dying silently. |
+| **v3.49.0** <Badge type="tip" text="current" /> | 2026-07-04 | RFC 048 PR A — **adoption discipline pack + health diagnostics**: `init` now generates `M8SHIFT.agent-pack.md`, anchors keep a compact mandatory safety floor, `doctor` reports missing/stale/invalid packs and stale stanzas, and `init --force-generated` repairs only corrupted generated pack blocks without resetting the relay. |
+| **v3.48.0** | 2026-07-04 | RFC 040 Phase 2 — **AI session usage monitoring**: read-only `usage` snapshots (argv-only bounded adapters, append-only ledger, fail-open unknown) + cooperative `guard/watch/wait/resume` (holds only through the core cooldown with the provider's own `resets_at`, own-WORKING advisory, peer-WORKING advice-only, explicit-only resume). An unattended lane can now hold through a quota window instead of dying silently. |
 | **v3.47.0** | 2026-07-04 | RFC 047 complete — **listener lifecycle companion**: a supervised headless lane in one command (`listener start`), zero model spend while polling, one bounded turn per wake, `--resume-working` gated stuck-retry, launchd/systemd/schtasks backends with safe local fallbacks (macOS protected-folder detection), persistent `halted` honored across service managers, writer-side log rotation, 9 `listener.*` doctor findings. |
 | **v3.46.0** | 2026-07-04 | RFC 047 Phase A — headless runner **final-state enforcement**: authorship-primary total post-run classification (a provider turn ending while the relay is open = non-completion, not success), `claim --refresh` refresh-only heartbeat guard (TOCTOU closed), exit map 0/1/2/3/4, `run.non_completion` events; detailed `--help` on every parameter (v3.45.1, AST coverage guard). |
 | `v3.45.0` | | **RFC 046 part 1 — execution modes & project identity:** `status` and `watch` now surface the **project name, cwd, and relay root** (human output, `--json`, and the watch banner), so multiple open terminals or tabs stay distinguishable; the label prefers the operator's `init --name` (persisted on the session start event) with a folder-name fallback, `cwd` is the real working directory and `root` the relay root; the **status-guard** rule moves into the generated protocol core (every anchor + `M8SHIFT.protocol.md`): never claim you hold the pen or reached `DONE` from memory — re-run `status` before ending a turn; the agents-guide adds the interactive-vs-headless distinction and the interactive honesty message. |

@@ -198,9 +198,24 @@
       <td>Keeps relay state, protocol, archive, memory, tasks, sessions, and temporary lock files in the repository or local workspace.</td>
     </tr>
     <tr>
+      <td>Adoption</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Agent pack</span></td>
+      <td><code>init</code> generates <code>M8SHIFT.agent-pack.md</code>, a first-read discipline pack for agents with claim-before-write, no-parking, prompt-security, stale-lock, and delivery-complete rules.</td>
+    </tr>
+    <tr>
+      <td>Adoption</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-anchor-circle-check" aria-hidden="true"></i> Compact anchor floor</span></td>
+      <td>Agent anchors keep a compact inline safety floor and point to the generated pack plus the protocol, reducing repeated prompt weight without dropping critical guardrails.</td>
+    </tr>
+    <tr>
       <td>Validation</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Doctor</span></td>
       <td>Runs read-only health and lint checks, with JSON output and severity filtering.</td>
+    </tr>
+    <tr>
+      <td>Validation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i> Adoption health</span></td>
+      <td><code>doctor</code> reports missing, stale, or invalid agent packs and stale anchor floors. Pre-v3.49 projects receive informational adoption findings until <code>init</code> refreshes them.</td>
     </tr>
     <tr>
       <td>Validation</td>
