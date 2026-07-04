@@ -102,13 +102,18 @@ To keep several open terminals distinguishable, `status` and `watch` also surfac
 watch banner). The label prefers the operator's `init --name`, falling back to the
 relay-root folder name.
 
-::: info What's next — RFC 047 (in review)
-RFC 047 *headless liveness* is under adversarial review, targeting `v3.46.0` — not
-shipped yet. It would add **runner final-state enforcement** (a provider turn that ends
-while the relay is still open counts as non-completion, not success) and a **listener
-lifecycle companion** (start/stop/status/logs, PID/process-group tracking, bounded
-backoff, with local, launchd, systemd, and Windows backends), so unattended relays no
-longer need hand-built scripts.
+::: tip Shipped in v3.46.0 — runner final-state enforcement (RFC 047 Phase A)
+Since `v3.46.0` the reference runner enforces **final-state honesty**: after each
+provider turn it re-reads the relay and only counts the run as a success if the relay
+is `DONE` or the agent actually **authored** a turn above the pre-run turn — a provider
+that exits `0` while the relay still awaits it is `non_completion`, retried with
+backoff. Long turns heartbeat with `claim <agent> --refresh` (refused unless the agent
+already holds its own `WORKING` lock), never a plain claim. See the
+[runner exit codes](../reference/exit-codes.md).
+
+The **listener lifecycle companion** (start/stop/status/logs, PID/process-group,
+OS service backends — RFC 047 Phases B–E) is the next implementation block, tracked in
+[#21](https://github.com/M8Shift/M8Shift/issues/21).
 :::
 
 ## When to use it

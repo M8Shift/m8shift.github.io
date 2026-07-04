@@ -11,8 +11,7 @@ shipped across `v3.21` to `v3.26`.
 :::
 
 ::: warning Drafts are not shipped releases
-Unmerged work does not count as implemented. RFC 029 (Companion workboard), RFC 030 (Tamper-evidence) and
-RFC 047 (Headless liveness, under adversarial review) remain `draft` here
+Unmerged work does not count as implemented. RFC 029 (Companion workboard) and RFC 030 (Tamper-evidence) remain `draft` here
 until the release that implements them is merged and published.
 :::
 
@@ -64,4 +63,4 @@ until the release that implements them is merged and published.
 | 044 | [Companion install](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/044-rfc-complete-init-companion-install.md) | Version-locked companion install at `init` | shipped | v3.44.0 · 2026-07-03 | `init --companions` / `--with-*` / `--full` / `--companion-source`; idempotent, no-clobber, atomic; `.m8shift/kit.json` + doctor kit checks |
 | 045 | [Module reference](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/045-rfc-module-reference-examples.md) | One reference page per shipped module | shipped | v3.44.0 · 2026-07-03 | `docs/en/modules/` — 7 pages: Mermaid ownership diagrams, command tables, tagged examples, drift test |
 | 046 | [Interactive/headless modes](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/046-rfc-interactive-headless-runner-install.md) | Execution-mode distinction + project identity | Part 1 shipped | v3.45.0 · 2026-07-03 | `status` / `watch` show project name + cwd + root; status-guard in the protocol core; runner install next |
-| 047 | Headless liveness | Runner final-state enforcement + listener lifecycle | draft (adversarial review) | — | target v3.46.0: a provider turn that ends with the relay open is non-completion, not success |
+| 047 | [Headless liveness](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/047-rfc-headless-liveness-runner-listener.md) | Runner final-state enforcement + listener lifecycle | **Phase A shipped** | v3.46.0 · 2026-07-04 | Authorship-primary total post-run classification (a turn ending with the relay open = non-completion, not success), `claim --refresh` heartbeat guard, exit map 0/1/2/3/4; listener lifecycle (Phases B–E) still open |

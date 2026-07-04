@@ -210,13 +210,13 @@ python3 m8shift.py next <agent> [--once] [--interval N] [--force]
 Acquire the pen exclusively. This is the only way to start writing.
 
 ```bash
-python3 m8shift.py claim <agent> [--force]
+python3 m8shift.py claim <agent> [--force|--refresh]
 python3 m8shift.py claim <agent> --check [--files CSV] [--turns N]
 ```
 
 Re-claiming a lock you already hold refreshes its 30-minute TTL — the **manual heartbeat** for a
 long `WORKING_<you>` (the agent or a headless wrapper re-runs it; no daemon does it for you).
-`--force` reclaims a stale lock only. `--check` is read-only: it reports readiness and advisory
+`--force` reclaims a stale lock only. `--refresh` (v3.46) only **extends your own `WORKING` lock** — refused otherwise, mutually exclusive with `--force`; automated runners must heartbeat with `--refresh`, never a plain claim. `--check` is read-only: it reports readiness and advisory
 file overlap without taking the pen.
 
 ### `append`
