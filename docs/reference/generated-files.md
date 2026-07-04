@@ -9,6 +9,7 @@ flowchart TD
     INIT["m8shift.py init"] --> RELAY["M8SHIFT.md<br/>(relay file)"]
     INIT --> PROTO["M8SHIFT.protocol.md"]
     INIT --> ANCH["CLAUDE.md / AGENTS.md / GEMINI.md<br/>(anchors)"]
+    INIT --> KIT[".m8shift/kit.json<br/>(companion manifest)<br/>.m8shift/hooks/commit-msg"]
     CMD["remember / task / history"] --> LEDGER["M8SHIFT.memory.md<br/>M8SHIFT.tasks.md<br/>M8SHIFT.sessions.jsonl"]
     RT["m8shift-runtime.py / headless runner"] --> RUNTIME[".m8shift/runtime/*.jsonl<br/>.m8shift/runs/run-id/report.md"]
     MUT["mutating commands"] --> LOCK[".m8shift.lock<br/>(temporary mutex)"]
@@ -18,7 +19,7 @@ flowchart TD
     classDef store fill:#ff7a1822,stroke:#fb923c;
     class INIT,CMD,MUT,RT agent
     class RELAY pen
-    class PROTO,ANCH,LOCK,LEDGER,RUNTIME store
+    class PROTO,ANCH,KIT,LOCK,LEDGER,RUNTIME store
 ```
 
 *🟣 init · 🩷 relay file · 🟠 generated files*
@@ -32,6 +33,9 @@ flowchart TD
 | `M8SHIFT.tasks.md` | append-only task events appended by `task` (created on demand) |
 | `M8SHIFT.sessions.jsonl` | session start/done events for `history` (created on demand) |
 | `.m8shift.lock` | temporary inter-process mutation lock (`O_EXCL`) |
+| `.m8shift/kit.json` | merged companion-install manifest written by `init --companions` / `--with-*` / `--full`; checked read-only by `doctor` |
+| `.m8shift/hooks/commit-msg` | Git hook template written by `init`; stamps the `Coordinated-With` / `Agent-Model` provenance trailers |
+| `.m8shift/decisions.json` | decision-traceability target override persisted by `decisions target --set` (created on demand) |
 | `.m8shift/runtime/` | advisory runtime sidecars: presence, runs, progress, inbox, idempotency, approvals, diagnostics, and retention archive |
 | `.m8shift/runs/` | optional runtime reports and immutable run artifacts |
 | `CLAUDE.md` | Claude anchor (protocol stanza injected at the top) |

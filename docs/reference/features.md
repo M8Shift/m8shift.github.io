@@ -144,6 +144,11 @@
     </tr>
     <tr>
       <td>Read views</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-id-badge" aria-hidden="true"></i> Project identity</span></td>
+      <td>Shows the project name, working directory, and relay root in <code>status</code>, <code>status --json</code>, and the <code>watch</code> banner so multiple open terminals or tabs stay distinguishable. The label prefers <code>init --name</code> and falls back to the folder name, and the generated protocol now carries the status-guard rule: never claim the pen or <code>DONE</code> from memory — re-run <code>status</code> before ending a turn.</td>
+    </tr>
+    <tr>
+      <td>Read views</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-hourglass-start" aria-hidden="true"></i> Wait</span></td>
       <td>Blocks a process until it is an agent's turn, with <code>--once</code> for non-blocking readiness checks.</td>
     </tr>
@@ -221,6 +226,11 @@
       <td>Setup</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Init kit</span></td>
       <td>Generates or regenerates <code>M8SHIFT.md</code>, <code>M8SHIFT.protocol.md</code>, and agent-facing anchor files.</td>
+    </tr>
+    <tr>
+      <td>Setup</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Companion kit install</span></td>
+      <td>Copies selected companion scripts into the kit, version-locked to the core, with <code>init --companions runtime,context,...</code>, <code>--with-runtime</code> and friends, or <code>--full</code>: idempotent, no-clobber (never downgrades, refuses edited or newer files), atomic, and preflighted before any mutation. Records a merged <code>.m8shift/kit.json</code> manifest checked by read-only <code>doctor</code> kit findings; <code>--companion-source &lt;dir&gt;</code> copies from a release or checkout directory.</td>
     </tr>
     <tr>
       <td>Setup</td>

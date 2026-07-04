@@ -38,6 +38,12 @@ features:
   - icon: <i class="fa-solid fa-file-code" aria-hidden="true"></i>
     title: One file, zero dependencies
     details: A free and open-source Python script, standard library only. No account, no server, no API key. State lives in the repo and is versioned with it.
+  - icon: <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+    title: Full kit in one command
+    details: init --full copies the optional companions — runtime, context, worktree, headroom launcher, i18n — version-locked to the core. Idempotent, never clobbers an edited file, recorded in a kit manifest.
+  - icon: <i class="fa-solid fa-window-restore" aria-hidden="true"></i>
+    title: Know which tab is which
+    details: status and watch print the project name, working directory, and relay root, so several terminals on different repositories stay distinguishable. Label a relay with init --name, or keep the folder name.
   - icon: <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
     title: Auditable by design
     details: Append-only turns, memory notes, tasks, session history, runtime sidecars, and timezone-prefixed local-time status keep the relay inspectable without a service.

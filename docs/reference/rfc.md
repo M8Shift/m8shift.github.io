@@ -11,7 +11,8 @@ shipped across `v3.21` to `v3.26`.
 :::
 
 ::: warning Drafts are not shipped releases
-Unmerged work does not count as implemented. RFC 029 (Companion workboard) and RFC 030 (Tamper-evidence) remain `draft` here
+Unmerged work does not count as implemented. RFC 029 (Companion workboard), RFC 030 (Tamper-evidence) and
+RFC 047 (Headless liveness, under adversarial review) remain `draft` here
 until the release that implements them is merged and published.
 :::
 
@@ -60,3 +61,7 @@ until the release that implements them is merged and published.
 | 041 | [Agent skills](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/041-rfc-agent-skills.md) | Reusable multi-agent competency definitions | draft | — | `skills/` dir, docs-first; tracker #83 |
 | 042 | [Compression-backend routing](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/042-rfc-compression-backend-routing.md) | Hybrid builtin/Headroom routing (evidence-gated) | design + Phase B | v3.41.0 · 2026-07-02 | signals plumbed; auto-route gated on measurement (#84) |
 | 043 | [Routing principle](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/043-rfc-routing-principle.md) | Unify the routing skeleton of 037/039/042/032 | draft (design-only) | — | one canonical 6-stage pipeline; no behavior |
+| 044 | [Companion install](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/044-rfc-complete-init-companion-install.md) | Version-locked companion install at `init` | shipped | v3.44.0 · 2026-07-03 | `init --companions` / `--with-*` / `--full` / `--companion-source`; idempotent, no-clobber, atomic; `.m8shift/kit.json` + doctor kit checks |
+| 045 | [Module reference](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/045-rfc-module-reference-examples.md) | One reference page per shipped module | shipped | v3.44.0 · 2026-07-03 | `docs/en/modules/` — 7 pages: Mermaid ownership diagrams, command tables, tagged examples, drift test |
+| 046 | [Interactive/headless modes](https://github.com/M8Shift/M8Shift/blob/main/docs/en/rfc/046-rfc-interactive-headless-runner-install.md) | Execution-mode distinction + project identity | Part 1 shipped | v3.45.0 · 2026-07-03 | `status` / `watch` show project name + cwd + root; status-guard in the protocol core; runner install next |
+| 047 | Headless liveness | Runner final-state enforcement + listener lifecycle | draft (adversarial review) | — | target v3.46.0: a provider turn that ends with the relay open is non-completion, not success |

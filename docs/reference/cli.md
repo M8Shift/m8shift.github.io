@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.43.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
+The CLI is a single file, `m8shift.py` 3.45.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
@@ -38,7 +38,9 @@ flowchart LR
 Generate or regenerate the kit in the current folder.
 
 ```bash
-python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force]
+python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force] \
+  [--companions LIST | --with-runtime ... | --full | --no-companions] \
+  [--companion-source DIR] [--force-companions]
 ```
 
 | Flag | Default | Meaning |
@@ -48,18 +50,49 @@ python3 m8shift.py init [--name NAME] [--agents a,b,c] [--lang en|fr] [--force]
 | `--lang` | `en` | language of generated files (`en` or `fr` in the bundled build) |
 | `--force` | off | also reset the relay file; otherwise an existing relay is kept |
 
+#### Companion install
+
+`init` can also copy the selected companion scripts into the kit dir, version-locked to
+the core. The copy is idempotent and no-clobber (it refuses an edited or newer local
+companion and never downgrades one), atomic, and preflighted before any mutation — a bad
+selection exits non-zero with no half-initialized relay. Installed companions are recorded
+in a merged `.m8shift/kit.json` manifest, and `doctor` reports missing, skewed, or edited
+companions read-only.
+
+| Flag | Default | Meaning |
+| --- | --- | --- |
+| `--companions` | none | comma-separated companions to copy into the kit dir: `runtime,context,worktree,headroom,i18n,e2e` |
+| `--with-runtime` | off | copy `m8shift-runtime.py` |
+| `--with-context` | off | copy `m8shift-context.py` |
+| `--with-worktree` | off | copy `m8shift-worktree.py` |
+| `--with-headroom-companion` | off | copy `m8shift-headroom.py` (the launcher only, not the venv/deps) |
+| `--with-i18n` | off | copy `m8shift-i18n.py` |
+| `--with-e2e` | off | copy `m8shift-e2e.py` |
+| `--full` | off | copy all operational companions (`runtime,context,worktree,headroom,i18n`) |
+| `--no-companions` | off | copy no companions (explicit opt-out; cannot be combined with a selection) |
+| `--companion-source` | kit dir | directory to copy companions **from** (a release/checkout dir); defaults to the running `m8shift.py` dir |
+| `--force-companions` | off | replace an older or edited local companion (never downgrades a newer one) |
+
 ### `status`
 
 Print the current lock: holder, state, turn, roster, session, UTC timestamps, and
 human-facing local time prefixed by the timezone name/offset when available
 (otherwise `local`).
 
+The header also identifies **where** you are: the project name, the working directory
+(`cwd`, the real directory the command runs from), and the relay root (`root`), so
+multiple open terminals or tabs stay distinguishable. The project label prefers the
+name given at `init --name` (persisted on the session start event) and falls back to
+the relay-root folder name; `cwd` and `root` diverge correctly when the tool is invoked
+from a subdirectory.
+
 ```bash
 python3 m8shift.py status [--for agent] [--json]
 ```
 
 - `--for agent` adds the next safe action for that agent.
-- `--json` emits machine-readable status with UTC timestamps.
+- `--json` emits machine-readable status with UTC timestamps, including the same
+  `project`, `cwd`, and `root` keys as the human header.
 
 ### `watch`
 
@@ -72,6 +105,8 @@ python3 m8shift.py watch [--for agent] [--interval N] [--clear] [--changes-only]
 
 - `--interval N` sets the refresh seconds; `--changes-only` reprints only on a change;
   `--clear` redraws in place.
+- Each refresh banner shows the project name and the working directory, so a `watch`
+  left running in another terminal or tab identifies itself at a glance.
 
 ### `doctor`
 

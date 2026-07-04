@@ -98,11 +98,29 @@ bash install.sh --dry-run --with-rtk --with-headroom
 Prefer manual adoption? Copy `m8shift.py` into the project and run
 `python3 m8shift.py init --agents claude,codex`.
 
+To install the full kit in one command, add `--full`:
+
+```bash
+python3 m8shift.py init --agents claude,codex --full
+```
+
+The companions add runtime presence and progress sidecars, context packs, isolated
+worktree lanes, the optional Headroom launcher, and language packs — all advisory,
+while the core stays a single-file degree-1 relay. Copies are version-locked to the
+core, idempotent, and never clobber an edited or newer file; use
+`--companion-source <dir>` to copy from a release or checkout directory instead of
+the directory holding `m8shift.py`.
+
 Check the state:
 
 ```bash
 python3 m8shift.py status --for claude
 ```
+
+Since v3.45, `status` and `watch` print the project name, working directory, and
+relay root in their header, so multiple terminals or tabs on different repositories
+stay distinguishable. The label comes from `init --name "Project label"` when set,
+falling back to the folder name.
 
 Claim before working. In real agent loops, prefer `next`: it waits if needed,
 then performs the normal `claim` and prints the latest handoff.

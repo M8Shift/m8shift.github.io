@@ -63,6 +63,10 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'M8Shift CLI Reference — commands for the AI agent relay',
     description: 'Reference for M8Shift commands such as init, status, claim, next, append, done, memory, tasks, sessions, doctor and contract validation.'
   },
+  '/reference/modules': {
+    title: 'M8Shift Module Reference — the shipped toolkit at a glance',
+    description: 'Overview of the seven shipped M8Shift modules: the degree-1 core relay and the advisory runtime, context, worktree, headroom, i18n and e2e companions.'
+  },
   '/reference/rfc': {
     title: 'M8Shift RFC Reference — statuses, versions and implementation notes',
     description: 'Complete M8Shift RFC reference from 001 to 029, including status, implementation version, implementation date and notes.'
@@ -390,6 +394,7 @@ export default defineConfig({
             text: 'More', items: [
               { text: 'Features', link: '/reference/features' },
               { text: 'Architecture', link: '/reference/architecture' },
+              { text: 'Modules', link: '/reference/modules' },
               { text: 'RFC reference', link: '/reference/rfc' },
               { text: 'Use cases', link: '/use-cases' },
               { text: 'Comparison', link: '/comparison' },
@@ -443,6 +448,7 @@ export default defineConfig({
                 { text: 'Overview', link: '/reference/' },
                 { text: 'Feature matrix', link: '/reference/features' },
                 { text: 'Architecture', link: '/reference/architecture' },
+                { text: 'Modules', link: '/reference/modules' },
                 { text: 'RFC reference', link: '/reference/rfc' },
                 { text: 'CLI', link: '/reference/cli' },
                 { text: 'State model', link: '/reference/state-model' },
