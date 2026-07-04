@@ -22,7 +22,7 @@ owning RFCs and tests. A drift test keeps the pages in lockstep with the module 
 | Module | Script | Primary authority |
 |--------|--------|-------------------|
 | [Core relay](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/core-relay.md) | `m8shift.py` | one-pen relay, `LOCK`, turn ledger, session reports, task board, shared memory, core `doctor`, companion install (RFC 044) |
-| [Runtime companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/runtime.md) | `m8shift-runtime.py` | runtime presence, operator inbox, progress, notifications, provider registry, model/task routing, retention, local reports |
+| [Runtime companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/runtime.md) | `m8shift-runtime.py` | runtime presence, operator inbox, progress, notifications, provider registry, headless listener lifecycle (RFC 047), model/task routing, retention, local reports |
 | [Context companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/context.md) | `m8shift-context.py` | context packs, redacted compression/retrieval records, adapter execution (builtin digest + RTK filter + optional Headroom/Kompress) |
 | [Worktree toolbox](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/worktree.md) | `m8shift-worktree.py` | isolated degree-2 feature lanes and serialized integration |
 | [Headroom adapter launcher](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/headroom.md) | `m8shift-headroom.py` | optional offline Headroom/Kompress launcher (`m8shift-transform`) |

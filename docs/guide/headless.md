@@ -111,9 +111,12 @@ backoff. Long turns heartbeat with `claim <agent> --refresh` (refused unless the
 already holds its own `WORKING` lock), never a plain claim. See the
 [runner exit codes](../reference/exit-codes.md).
 
-The **listener lifecycle companion** (start/stop/status/logs, PID/process-group,
-OS service backends — RFC 047 Phases B–E) is the next implementation block, tracked in
-[#21](https://github.com/M8Shift/M8Shift/issues/21).
+Since `v3.47.0` the **listener lifecycle companion** is shipped: `python3
+m8shift-runtime.py listener start --agent <name> --cmd-file <profile>` runs a supervised
+headless lane — zero model spend while polling, exactly one bounded runner turn per wake,
+visible `HALTED` after the retry budget, OS service backends (launchd/systemd/schtasks)
+with safe local fallbacks, and nine `listener.*` doctor findings. See the
+[runtime module reference](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/runtime.md).
 :::
 
 ## When to use it
