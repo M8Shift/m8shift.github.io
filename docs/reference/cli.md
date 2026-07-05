@@ -114,12 +114,18 @@ Run read-only health and lint checks.
 
 ```bash
 python3 m8shift.py doctor [--lint] [--json] [--security] [--contracts] \
-  [--severity-min info|warning|error]
+  [--install] [--source DIR] [--severity-min info|warning|error]
 ```
 
 `--lint` exits non-zero when findings at or above the selected severity exist.
 `--security` adds local security checks. `--contracts` adds Stage-4 contract
-validation findings.
+validation findings. `--install` (v3.52.0) adds read-only post-install
+verification: Python floor, core presence, checksum-manifest validity and
+drift, companion status, and optional helper states — a missing optional
+helper is `info`, never a warning, so a healthy minimal install stays green.
+`--source DIR` compares the local core against a newer source copy and adds
+a `workspace.dirty_worktree` advisory when the checkout has uncommitted
+changes.
 
 ### `contract validate`
 

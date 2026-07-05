@@ -40,8 +40,11 @@ It downloads the Windows RTK `.zip` asset, verifies it against RTK's
 `.m8shift/bin`, records provenance, disables telemetry, and identity-pins the
 adapter manifest. Cargo/Rust source builds are disabled unless
 `--allow-source-build` is explicit. Experimental `--with-headroom` creates a
-local venv, performs an unpinned `pip install headroom-ai`, and may require
-Rust/Cargo if `headroom-ai` builds from source.
+local venv and installs a **pinned** stack (`headroom-ai==0.28.0` +
+`onnxruntime` + `transformers`), fail-closed: any failed step removes the venv
+and reports clearly. Since v3.52.0 an opted-in helper failure never aborts the
+core install — it degrades to a prominent warning, `init` still runs, and the
+installer exits 0 with a summary of failed helpers.
 
 ## Option C — native PowerShell / cmd
 
@@ -61,7 +64,19 @@ python m8shift.py status
 
 The PowerShell installer downloads `m8shift.py` plus `m8shift-worktree.py`,
 `m8shift-runtime.py`, and `m8shift-context.py`, verifies them with
-`checksums.sha256` by default, and runs `init`.
+`checksums.sha256` by default, and runs `init`. It is kept in lockstep with
+`install.sh` for the core components (verified by static parity tests;
+executed end-to-end where `pwsh` is available) — same flags, same
+verify-by-default, `-Checksums` implies verification, and `-DryRun` prints
+the plan and prerequisites without writing (no Python needed for the plan).
+RTK/Headroom are POSIX-only helpers: PowerShell reports them honestly
+(an `rtk` already on PATH is detected and gets its telemetry disabled,
+mirroring `install.sh`) but never installs them — use WSL or Git Bash for
+`--with-rtk` / `--with-headroom`. After any install, verify with:
+
+```powershell
+python m8shift.py doctor --install
+```
 
 Manual fallback:
 
