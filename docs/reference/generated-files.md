@@ -7,7 +7,7 @@ names.
 ```mermaid
 flowchart TD
     INIT["m8shift.py init"] --> RELAY["M8SHIFT.md<br/>(relay file)"]
-    INIT --> PROTO["M8SHIFT.protocol.md"]
+    INIT --> PROTO["M8SHIFT.protocol.md<br/>M8SHIFT.protocol-reference.md<br/>M8SHIFT.agent-pack.md"]
     INIT --> ANCH["CLAUDE.md / AGENTS.md / GEMINI.md<br/>(anchors)"]
     INIT --> KIT[".m8shift/kit.json<br/>(companion manifest)<br/>.m8shift/hooks/commit-msg"]
     CMD["remember / task / history"] --> LEDGER["M8SHIFT.memory.md<br/>M8SHIFT.tasks.md<br/>M8SHIFT.sessions.jsonl"]
@@ -27,7 +27,9 @@ flowchart TD
 | File | Purpose |
 | --- | --- |
 | `M8SHIFT.md` | living lock, workflow state, and the immutable turn journal |
-| `M8SHIFT.protocol.md` | the shared protocol, generated from `m8shift.py` |
+| `M8SHIFT.protocol.md` | the shared protocol core (hard 2000-proxy-token budget), generated from `m8shift.py` |
+| `M8SHIFT.protocol-reference.md` | the full command reference and adoption details, read on demand |
+| `M8SHIFT.agent-pack.md` | first-read discipline pack: claim-before-write, no-parking, prompt-security, stale-lock, delivery-complete, raw-proof, and shared-checkout rules; repaired by `init --force-generated` |
 | `M8SHIFT.archive.md` | older turns moved here by `archive` (created on demand) |
 | `M8SHIFT.memory.md` | shared-memory notes appended by `remember` (created on demand) |
 | `M8SHIFT.tasks.md` | append-only task events appended by `task` (created on demand) |

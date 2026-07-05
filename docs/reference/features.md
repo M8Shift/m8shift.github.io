@@ -200,7 +200,7 @@
     <tr>
       <td>Adoption</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Agent pack</span></td>
-      <td><code>init</code> generates <code>M8SHIFT.agent-pack.md</code>, a first-read discipline pack for agents with claim-before-write, no-parking, prompt-security, stale-lock, and delivery-complete rules.</td>
+      <td><code>init</code> generates <code>M8SHIFT.agent-pack.md</code>, a first-read discipline pack for agents with claim-before-write, no-parking, prompt-security, stale-lock, delivery-complete, raw-proof (compressed views are orientation, not proof), and shared-checkout (destructive git needs explicit human authorization) rules.</td>
     </tr>
     <tr>
       <td>Adoption</td>
