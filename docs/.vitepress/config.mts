@@ -162,12 +162,26 @@ function buildStructuredData(route: string, seo: SeoEntry) {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'M8Shift',
+        url: `${siteUrl}/`,
+        logo: socialImage,
+        sameAs: [
+          'https://github.com/M8Shift',
+          'https://www.linkedin.com/company/m8shift/',
+          'https://www.reddit.com/r/m8shift',
+          'https://discord.gg/qNfmjxJJ'
+        ]
+      },
+      {
         '@type': 'WebSite',
         '@id': `${siteUrl}/#website`,
         name: 'M8Shift',
         url: `${siteUrl}/`,
         inLanguage,
-        description: defaultDescription
+        description: defaultDescription,
+        publisher: { '@id': `${siteUrl}/#organization` }
       },
       {
         '@type': 'SoftwareSourceCode',
@@ -476,7 +490,7 @@ export default defineConfig({
           text: 'Edit this page'
         },
         footer: {
-          message: 'Built with ❤️ and <a href="/">M8Shift</a> · <a href="/accessibility">Accessibility</a>',
+          message: 'Built with ❤️ and <a href="/">M8Shift</a> · <a href="/accessibility">Accessibility</a> · <a href="https://www.reddit.com/r/m8shift" target="_blank" rel="noopener">r/m8shift</a>',
           copyright: 'Independent project, not affiliated with Anthropic, Google, Mistral, OpenAI · Copyright © 2026 M8Shift contributors'
         }
       }

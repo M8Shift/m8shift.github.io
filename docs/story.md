@@ -93,6 +93,7 @@ aside: false
   <div class="m8-story-actions">
     <a class="m8-btn m8-btn--brand" href="https://github.com/M8Shift/M8Shift" target="_blank" rel="noopener">⭐ Star on GitHub</a>
     <a class="m8-btn" href="/guide/quickstart">Get started</a>
+    <a class="m8-btn" href="https://www.reddit.com/r/m8shift" target="_blank" rel="noopener">Join r/m8shift</a>
   </div>
 </div>
 
