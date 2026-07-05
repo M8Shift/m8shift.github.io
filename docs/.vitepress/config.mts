@@ -375,7 +375,8 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/M8Shift/M8Shift', ariaLabel: 'M8Shift GitHub repository' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/m8shift/', ariaLabel: 'M8Shift LinkedIn page' },
-      { icon: 'discord', link: 'https://discord.gg/qNfmjxJJ', ariaLabel: 'M8Shift Discord server' }
+      { icon: 'discord', link: 'https://discord.gg/qNfmjxJJ', ariaLabel: 'M8Shift Discord server' },
+      { icon: 'reddit', link: 'https://www.reddit.com/r/m8shift', ariaLabel: 'M8Shift subreddit' }
     ]
   },
   locales: {
