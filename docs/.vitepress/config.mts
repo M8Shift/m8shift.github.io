@@ -31,6 +31,11 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'Accessibility — M8Shift',
     description: 'M8Shift accessibility statement: our commitment, conformance target, assistive tools, known limitations, and how to report barriers.'
   },
+  '/beginners/m8shift-simply': {
+    title: 'M8Shift, simply — what it does, explained with the talking stick',
+    description: 'A plain-language, non-technical explanation of M8Shift using the talking-stick metaphor: several AI assistants take turns, check each other, and a human decides.',
+    keywords: ['M8Shift explained', 'AI assistants for beginners', 'talking stick', 'multi-agent in plain words', 'what is M8Shift']
+  },
   '/guide/': {
     title: 'M8Shift Guide — install and coordinate AI coding agents',
     description: 'Install M8Shift, understand the relay workflow, and start coordinating multiple CLI-capable AI coding agents in one repository.'
@@ -400,6 +405,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Story', link: '/story' },
+          { text: 'Simply', link: '/beginners/m8shift-simply' },
           { text: 'Guide', link: '/guide/' },
           { text: 'Concepts', link: '/concepts/' },
           { text: 'Reference', link: '/reference/' },
@@ -420,10 +426,20 @@ export default defineConfig({
           }
         ],
         sidebar: {
+          '/beginners/': [
+            {
+              text: 'Start here', items: [
+                { text: 'M8Shift, simply', link: '/beginners/m8shift-simply' },
+                { text: 'Why M8Shift', link: '/guide/why' },
+                { text: 'The story', link: '/story' }
+              ]
+            }
+          ],
           '/guide/': [
             {
               text: 'Getting started', items: [
                 { text: 'Overview', link: '/guide/' },
+                { text: 'M8Shift, simply', link: '/beginners/m8shift-simply' },
                 { text: 'Why M8Shift', link: '/guide/why' },
                 { text: 'Quickstart', link: '/guide/quickstart' },
                 { text: 'VS Code', link: '/guide/vscode' },
