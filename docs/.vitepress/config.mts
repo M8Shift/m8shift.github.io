@@ -41,6 +41,11 @@ const pageSeo: Record<string, SeoEntry> = {
     description: 'How M8Shift extends model pluralism, adversarial review and token sobriety into operational AI workflows, gated by a Review Budget Gate and human arbitration.',
     keywords: ['Compar:IA', 'model pluralism', 'adversarial review', 'token sobriety', 'multi-agent orchestration', 'Review Budget Gate']
   },
+  '/manifesto/technical-companion': {
+    title: 'M8Shift Technical Companion — agent contracts, review gates, compression',
+    description: 'How M8Shift implements the Compar:IA-DNA manifesto: agent contracts, role separation, review escalation levels, the Review Budget Gate, compressed handoffs and human arbitration, grounded in shipped features.',
+    keywords: ['agent contracts', 'Review Budget Gate', 'context compression', 'adversarial review', 'M8Shift architecture', 'human arbitration']
+  },
   '/guide/': {
     title: 'M8Shift Guide — install and coordinate AI coding agents',
     description: 'Install M8Shift, understand the relay workflow, and start coordinating multiple CLI-capable AI coding agents in one repository.'
@@ -419,6 +424,7 @@ export default defineConfig({
           {
             text: 'More', items: [
               { text: 'Compar:IA DNA', link: '/manifesto/m8shift-comparia-dna' },
+              { text: 'Technical companion', link: '/manifesto/technical-companion' },
               { text: 'Features', link: '/reference/features' },
               { text: 'Architecture', link: '/reference/architecture' },
               { text: 'Modules', link: '/reference/modules' },
@@ -437,6 +443,7 @@ export default defineConfig({
               text: 'Start here', items: [
                 { text: 'M8Shift, simply', link: '/beginners/m8shift-simply' },
                 { text: 'M8Shift and the Compar:IA DNA', link: '/manifesto/m8shift-comparia-dna' },
+                { text: 'Technical companion', link: '/manifesto/technical-companion' },
                 { text: 'Why M8Shift', link: '/guide/why' },
                 { text: 'The story', link: '/story' }
               ]

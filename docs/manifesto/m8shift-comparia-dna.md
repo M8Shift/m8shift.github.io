@@ -147,7 +147,7 @@ Do not confuse automatic consensus with truth. Final decisions must remain **tra
 
 ## From Manifesto to Method
 
-This page is the **positioning layer**: it says what M8Shift believes and why. A future technical companion will be the **implementation layer** — how those beliefs are encoded as agent contracts. That companion covers the per-agent contract files that give each agent an explicit, inspectable brief:
+This page is the **positioning layer**: it says what M8Shift believes and why. The [Technical Companion](/manifesto/technical-companion) is the **implementation layer** — how those beliefs map onto what M8Shift actually ships, and what is still a design or a draft. It covers the per-agent contract concepts that give each agent an explicit, inspectable brief:
 
 | Contract | What it declares |
 | --- | --- |
