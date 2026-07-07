@@ -36,6 +36,11 @@ const pageSeo: Record<string, SeoEntry> = {
     description: 'A plain-language, non-technical explanation of M8Shift using the talking-stick metaphor: several AI assistants take turns, check each other, and a human decides.',
     keywords: ['M8Shift explained', 'AI assistants for beginners', 'talking stick', 'multi-agent in plain words', 'what is M8Shift']
   },
+  '/manifesto/m8shift-comparia-dna': {
+    title: 'M8Shift and the Compar:IA DNA — comparison as a production method',
+    description: 'How M8Shift extends model pluralism, adversarial review and token sobriety into operational AI workflows, gated by a Review Budget Gate and human arbitration.',
+    keywords: ['Compar:IA', 'model pluralism', 'adversarial review', 'token sobriety', 'multi-agent orchestration', 'Review Budget Gate']
+  },
   '/guide/': {
     title: 'M8Shift Guide — install and coordinate AI coding agents',
     description: 'Install M8Shift, understand the relay workflow, and start coordinating multiple CLI-capable AI coding agents in one repository.'
@@ -413,6 +418,7 @@ export default defineConfig({
           { text: 'Releases / Roadmap', link: '/roadmap' },
           {
             text: 'More', items: [
+              { text: 'Compar:IA DNA', link: '/manifesto/m8shift-comparia-dna' },
               { text: 'Features', link: '/reference/features' },
               { text: 'Architecture', link: '/reference/architecture' },
               { text: 'Modules', link: '/reference/modules' },
@@ -429,6 +435,17 @@ export default defineConfig({
           '/beginners/': [
             {
               text: 'Start here', items: [
+                { text: 'M8Shift, simply', link: '/beginners/m8shift-simply' },
+                { text: 'M8Shift and the Compar:IA DNA', link: '/manifesto/m8shift-comparia-dna' },
+                { text: 'Why M8Shift', link: '/guide/why' },
+                { text: 'The story', link: '/story' }
+              ]
+            }
+          ],
+          '/manifesto/': [
+            {
+              text: 'Positioning', items: [
+                { text: 'M8Shift and the Compar:IA DNA', link: '/manifesto/m8shift-comparia-dna' },
                 { text: 'M8Shift, simply', link: '/beginners/m8shift-simply' },
                 { text: 'Why M8Shift', link: '/guide/why' },
                 { text: 'The story', link: '/story' }

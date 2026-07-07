@@ -130,6 +130,6 @@ assistant being special.
   <i class="fa-solid fa-seedling" aria-hidden="true"></i>
   <div>
     <strong>Want the reasoning behind it?</strong>
-    <p>This page is the plain-language version. If you'd like to understand <em>why</em> making AIs disagree is genuinely useful — overconfidence, echo chambers, and the human's role — read <a href="/guide/why">Why M8Shift</a>. It is the same idea, one level deeper.</p>
+    <p>This page is the plain-language version. If you'd like to understand <em>why</em> making AIs disagree is genuinely useful — overconfidence, echo chambers, and the human's role — read <a href="/guide/why">Why M8Shift</a>. And for the same idea framed as a method — model pluralism, adversarial review and token sobriety — see <a href="/manifesto/m8shift-comparia-dna">M8Shift and the Compar:IA DNA</a>.</p>
   </div>
 </div>
