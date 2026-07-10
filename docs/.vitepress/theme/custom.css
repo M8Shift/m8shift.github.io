@@ -1281,6 +1281,156 @@
   color: color-mix(in srgb, var(--vp-c-brand-1) 72%, var(--vp-c-text-2));
 }
 
+/* Beginners page: intentionally plain, image-led, and easy to scan. */
+.vp-doc .m8-simply-cover {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 24px;
+  padding: 18px 20px;
+  border: 3px solid #111;
+  border-radius: 0;
+  background: #ffd400;
+  color: #111;
+  box-shadow: 6px 6px 0 #111;
+}
+
+.vp-doc .m8-simply-cover strong {
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.vp-doc .m8-simply-cover span {
+  color: #111;
+  font-weight: 800;
+}
+
+.vp-doc .m8-simply-label {
+  width: fit-content;
+  padding: 4px 7px;
+  border: 2px solid #111;
+  background: #111;
+  color: #ffd400 !important;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vp-doc .m8-simply-figure {
+  overflow: hidden;
+  margin: 28px 0 34px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 12%, var(--vp-c-divider));
+  border-radius: 14px;
+  background: var(--vp-c-bg);
+  box-shadow: 0 16px 40px rgba(17, 24, 39, .08);
+}
+
+.vp-doc .m8-simply-figure--hero {
+  margin-top: 12px;
+}
+
+.vp-doc .m8-simply-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.m8-simply-lightbox {
+  width: min(94vw, 1536px);
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  border: 3px solid #ffd400;
+  border-radius: 0;
+  background: #111;
+  box-shadow: 8px 8px 0 #ffd400;
+  overflow: visible;
+}
+
+.m8-simply-lightbox::backdrop {
+  background: rgba(0, 0, 0, .88);
+  backdrop-filter: blur(3px);
+}
+
+.m8-simply-lightbox img {
+  display: block;
+  width: 100%;
+  max-height: calc(94vh - 6px);
+  object-fit: contain;
+}
+
+.m8-simply-lightbox button {
+  position: absolute;
+  z-index: 1;
+  top: -18px;
+  right: -18px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 3px solid #111;
+  border-radius: 0;
+  background: #ffd400;
+  color: #111;
+  font: 900 30px/34px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.m8-simply-lightbox button:hover,
+.m8-simply-lightbox button:focus-visible {
+  background: #111;
+  color: #ffd400;
+  outline: 3px solid #ffd400;
+}
+
+.vp-doc .m8-simply-figure figcaption {
+  margin: 0;
+  padding: 12px 16px;
+  border-top: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 10%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 86%, transparent);
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.VPNavBarMenuLink[href="/beginners/m8shift-simply"],
+.VPNavBarMenuLink[href="/beginners/m8shift-simply.html"] {
+  padding: 5px 8px !important;
+  border: 2px solid #111;
+  border-radius: 0 !important;
+  background: #ffd400;
+  box-shadow: 3px 3px 0 #111;
+  color: #111 !important;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.VPNavBarMenuLink[href="/beginners/m8shift-simply"]:hover,
+.VPNavBarMenuLink[href="/beginners/m8shift-simply.html"]:hover,
+.VPNavBarMenuLink[href="/beginners/m8shift-simply"].active,
+.VPNavBarMenuLink[href="/beginners/m8shift-simply.html"].active {
+  border-color: #111;
+  background: #111;
+  box-shadow: 3px 3px 0 #ffd400;
+  color: #ffd400 !important;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .m8-simply-cover {
+    padding: 16px;
+    box-shadow: 4px 4px 0 #111;
+  }
+
+  .vp-doc .m8-simply-figure {
+    margin-right: -8px;
+    margin-left: -8px;
+    border-radius: 10px;
+  }
+}
+
 /* ── CookieYes cookie-consent banner — M8Shift purple branding ────────────
    The banner is a hosted third-party embed (cdn-cookieyes.com/client_data);
    its colours are set from the CookieYes dashboard (default blue #1863DC) as

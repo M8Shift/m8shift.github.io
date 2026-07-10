@@ -85,6 +85,50 @@ function initReveal() {
   new MutationObserver(scheduleNav).observe(document.body, { childList: true, subtree: true })
 }
 
+function initSimplyLightbox() {
+  const dialog = document.createElement('dialog')
+  dialog.className = 'm8-simply-lightbox'
+  dialog.setAttribute('aria-label', 'Image agrandie')
+  dialog.innerHTML = '<button type="button" aria-label="Fermer l’image agrandie">×</button><img alt="">'
+  document.body.append(dialog)
+
+  const image = dialog.querySelector('img')!
+  let images: HTMLImageElement[] = []
+  let currentIndex = 0
+  const close = () => dialog.close()
+  const showImage = (index: number) => {
+    if (!images.length) return
+    currentIndex = (index + images.length) % images.length
+    const target = images[currentIndex]
+    image.src = target.currentSrc || target.src
+    image.alt = target.alt
+  }
+  dialog.querySelector('button')!.addEventListener('click', close)
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) close()
+  })
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      showImage(currentIndex - 1)
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      showImage(currentIndex + 1)
+    }
+  })
+
+  document.addEventListener('click', (event) => {
+    const target = event.target
+    if (!(target instanceof HTMLImageElement)) return
+    if (!target.closest('.m8-simply-figure')) return
+
+    images = Array.from(document.querySelectorAll<HTMLImageElement>('.m8-simply-figure img'))
+    showImage(images.indexOf(target))
+    dialog.showModal()
+  })
+}
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router }) {
@@ -92,9 +136,13 @@ export default {
     if (import.meta.env.SSR) return
     initAnalyticsRouteTracking(router)
     if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', initReveal)
+      window.addEventListener('DOMContentLoaded', () => {
+        initReveal()
+        initSimplyLightbox()
+      })
     } else {
       initReveal()
+      initSimplyLightbox()
     }
   }
 } satisfies Theme
