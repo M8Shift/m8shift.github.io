@@ -1,10 +1,21 @@
 # M8Shift, simply
 
+<div class="m8-simply-cover">
+  <span class="m8-simply-label">Start here</span>
+  <strong>M8Shift for beginners</strong>
+  <span>No framework talk. No agent jargon. Just the idea.</span>
+</div>
+
 <p style="font-size:1.15rem;line-height:1.7;color:var(--vp-c-text-2);max-width:44rem;">
 No code, no jargon. If you have ever wondered what it means to make several
 AI assistants work together <em>well</em>, this page explains it with one old,
 simple idea: <strong>the talking stick</strong>.
 </p>
+
+<figure class="m8-simply-figure m8-simply-figure--hero">
+  <img src="/beginners/m8shift-simply-overview.webp" alt="An illustrated overview of M8Shift: assistants take turns, a shared notebook records everything, and a human makes the final decision." width="1536" height="1024" loading="eager" decoding="async" />
+  <figcaption>Read M8Shift as a simple work ritual: one turn at a time, one shared notebook, one human decision.</figcaption>
+</figure>
 
 ## Picture a council
 
@@ -38,6 +49,11 @@ the work.** But if you put two assistants on the same task with no order, you ge
 a different mess — they both start writing at once, overwrite each other, and no
 one can tell who did what, or when.
 
+<figure class="m8-simply-figure">
+  <img src="/beginners/m8shift-simply-chaos-order.webp" alt="An illustration showing chaotic simultaneous AI edits turning into ordered M8Shift turns: plan, write, review, correct, then human decision." width="1536" height="1024" loading="lazy" decoding="async" />
+  <figcaption>The beginner version: without order, assistants collide; with M8Shift, they work in sequence.</figcaption>
+</figure>
+
 ## The idea: pass the stick
 
 M8Shift brings the council's discipline to the assistants. The work is handed
@@ -45,28 +61,19 @@ from one to the next, **one at a time**. Whoever holds the stick does their part
 then passes it on — and the next assistant can **check, challenge, correct, or
 continue** what came before.
 
-```mermaid
-flowchart LR
-    A["First assistant<br/>holds the stick · does its part"] -->|passes the stick| B["Second assistant<br/>checks &amp; challenges it"]
-    B -->|passes the stick| C["A person<br/>decides what counts"]
-    N[("Shared notebook<br/>every turn written down")]
-    A -.writes its turn.-> N
-    B -.writes its turn.-> N
-    C -.reads the whole story.-> N
-
-    classDef speaker fill:#7c3aed22,stroke:#7c3aed;
-    classDef human fill:#22c55e22,stroke:#16a34a;
-    classDef book fill:#ff7a1822,stroke:#fb923c;
-    class A,B speaker
-    class C human
-    class N book
-```
-
-<p style="text-align:center;color:var(--vp-c-text-2);">🟣 the assistants take turns · 🟢 the person decides · 🟠 the shared notebook remembers everything</p>
+<figure class="m8-simply-figure">
+  <img src="/beginners/m8shift-simply-pass-stick.webp" alt="Five illustrated steps: plan, write, review, correct, and human decision, with the stick passing from one participant to the next." width="1536" height="1024" loading="lazy" decoding="async" />
+  <figcaption>The stick is not decoration. It means write access, responsibility, and the right to move the work forward.</figcaption>
+</figure>
 
 Because only the stick-holder may write, two assistants **never collide**. And
 because every turn goes into the shared notebook, you can always read back the
 whole story: who was asked to do what, what they changed, and why.
+
+<figure class="m8-simply-figure">
+  <img src="/beginners/m8shift-simply-shared-notebook.webp" alt="A shared notebook recording numbered turns from several AI assistants and a human reviewer." width="1536" height="1024" loading="lazy" decoding="async" />
+  <figcaption>The notebook is the memory of the work: who spoke, what changed, what was checked, and what still matters.</figcaption>
+</figure>
 
 ## Why this is better — in plain terms
 
@@ -105,6 +112,11 @@ along to each other are worse than one, because they can make you trust a wrong
 answer twice. What helps is **genuine disagreement** — a second assistant that
 truly pushes back on the first — and **a person to settle it**.
 
+<figure class="m8-simply-figure">
+  <img src="/beginners/m8shift-simply-real-disagreement.webp" alt="Two assistants challenge each other on shared work while a human compares options and decides." width="1536" height="1024" loading="lazy" decoding="async" />
+  <figcaption>Useful multi-agent work is not polite agreement. It is structured challenge, then a human decision.</figcaption>
+</figure>
+
 <div class="m8-callout m8-callout--pink">
   <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
   <div>
@@ -125,6 +137,11 @@ truly pushes back on the first — and **a person to settle it**.
 It is simply a **way of working** — a method, like a well-run meeting. The good
 comes from the order, the checking, and the human at the table, not from any one
 assistant being special.
+
+<figure class="m8-simply-figure">
+  <img src="/beginners/m8shift-simply-human-decides.webp" alt="A human compares two assistant proposals and chooses the final direction." width="1536" height="1024" loading="lazy" decoding="async" />
+  <figcaption>M8Shift does not replace judgment. It gives judgment a clearer view of the options, risks, and trace.</figcaption>
+</figure>
 
 <div class="m8-callout m8-callout--orange">
   <i class="fa-solid fa-seedling" aria-hidden="true"></i>
