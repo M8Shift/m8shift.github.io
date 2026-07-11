@@ -106,12 +106,12 @@ The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml):
 4. uploads `docs/.vitepress/dist`;
 5. deploys the static artifact to GitHub Pages.
 
-The repository also includes [wrangler.jsonc](wrangler.jsonc) for serving the same
-static build through a Cloudflare Worker if needed:
+The repository also includes [wrangler.jsonc](wrangler.jsonc) for direct uploads to
+Cloudflare Pages:
 
 ```bash
 npm run docs:build
-npx wrangler dev
+npx wrangler pages deploy
 ```
 
 No database, API key, or server runtime is required for the website.
