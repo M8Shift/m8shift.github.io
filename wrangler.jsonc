@@ -3,6 +3,7 @@
   // Build first with `npm run docs:build`, then `npx wrangler dev`.
   "name": "m8shift-site",
   "compatibility_date": "2026-06-22",
+  "pages_build_output_dir": "./docs/.vitepress/dist",
   "assets": {
     "directory": "./docs/.vitepress/dist",
     "not_found_handling": "404-page"
