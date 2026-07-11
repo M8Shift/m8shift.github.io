@@ -43,6 +43,36 @@ Account > Cloudflare Pages > Edit
 
 Once the Cloudflare Pages project is attached to the custom domain `m8shift.ai`, Cloudflare Pages will parse the generated `_headers` file and apply the `Link` header without a Transform Rule.
 
+## Custom domain switch
+
+Cloudflare Pages project:
+
+```text
+m8shift-site
+```
+
+Production Pages URL:
+
+```text
+https://m8shift-site.pages.dev/
+```
+
+Attach `m8shift.ai` as a custom domain to the Pages project, then update the DNS
+record so the apex points to Cloudflare Pages instead of the previous GitHub
+Pages origin:
+
+```text
+Type: CNAME
+Name: m8shift.ai
+Target: m8shift-site.pages.dev
+Proxy: enabled
+TTL: auto
+```
+
+Cloudflare supports CNAME flattening at the apex, so this is valid for
+`m8shift.ai`. Until this DNS record is set, the Pages custom-domain validation
+remains pending with `CNAME record not set`.
+
 ## Markdown negotiation
 
 The site implements a free Cloudflare Pages Function in `functions/[[path]].js`.
