@@ -43,6 +43,31 @@ Account > Cloudflare Pages > Edit
 
 Once the Cloudflare Pages project is attached to the custom domain `m8shift.ai`, Cloudflare Pages will parse the generated `_headers` file and apply the `Link` header without a Transform Rule.
 
+## Markdown negotiation
+
+The site implements a free Cloudflare Pages Function in `functions/[[path]].js`.
+`npm run docs:build` runs VitePress and then `scripts/build-markdown-assets.mjs`,
+which copies source Markdown files into:
+
+```text
+docs/.vitepress/dist/_markdown/
+```
+
+When a request includes:
+
+```text
+Accept: text/markdown
+```
+
+the Function maps the clean URL to the matching static Markdown asset and returns:
+
+```text
+Content-Type: text/markdown; charset=utf-8
+Vary: Accept
+```
+
+Regular browser requests continue to receive the normal HTML response from Cloudflare Pages static assets. `docs/public/_routes.json` excludes assets, `/llms.txt`, sitemap, and `.well-known` files so those requests do not need a Function invocation.
+
 ## Free Cloudflare rule
 
 Create a Response Header Modification rule:
