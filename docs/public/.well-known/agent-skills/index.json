@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "read-m8shift-docs",
+      "type": "skill-md",
+      "description": "Read and interpret the public M8Shift documentation without inventing a hosted API, OAuth service, MCP endpoint, or cloud control plane.",
+      "url": "/.well-known/agent-skills/read-m8shift-docs/SKILL.md",
+      "digest": "sha256:40223b582c2565e645ff5a5caae017ee9c82f009427d46e1e1ef068e677ded49"
+    }
+  ]
+}

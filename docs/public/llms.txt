@@ -1,0 +1,48 @@
+# M8Shift
+
+M8Shift is a free and open-source local relay for coordinating CLI-capable AI coding agents on one repository. It is pronounced "mate-shift": AI team mates working in shifts.
+
+M8Shift is not a hosted model gateway, an API provider, an OAuth resource server, or a cloud control plane. It is a local Python tool and repository workflow: exactly one agent writes at a time, every handoff is recorded, and a human keeps final judgment.
+
+## Primary Docs
+
+- Home: https://m8shift.ai/
+- M8Shift, simply: https://m8shift.ai/beginners/m8shift-simply
+- Why M8Shift: https://m8shift.ai/guide/why
+- Feature matrix: https://m8shift.ai/reference/features
+- CLI reference: https://m8shift.ai/reference/cli
+- Architecture: https://m8shift.ai/reference/architecture
+- State model: https://m8shift.ai/reference/state-model
+- Turn schema: https://m8shift.ai/reference/turn-schema
+- Security audits: https://m8shift.ai/security/audits
+- Roadmap: https://m8shift.ai/roadmap
+- FAQ: https://m8shift.ai/faq
+
+## Source
+
+- Repository: https://github.com/M8Shift/M8Shift
+- Site repository: https://github.com/M8Shift/m8shift.github.io
+
+## What Agents Should Know
+
+- Use M8Shift when several assistants such as Claude, Codex, Gemini, Vibe, or local tools need to coordinate on the same repository.
+- The core rule is "one writer at a time": an agent must claim the pen before modifying files.
+- Handoffs are append-only records in the relay file, with fields such as what changed, which files were touched, what was tested, and who should act next.
+- M8Shift is provider-neutral and works with cooperative CLI-capable agents. It does not call models itself.
+- The site is public documentation. There is no public hosted M8Shift API, OAuth issuer, or MCP server endpoint on m8shift.ai at this time.
+
+## Install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.sh | bash -s -- --agents claude,codex
+```
+
+Windows:
+
+```powershell
+irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
+```
+
+## Content Signals
+
+The production robots.txt is managed through Cloudflare and includes AI bot rules and content signals. As of this site version, the intended public signal is search indexing allowed, AI training disallowed, and reference use allowed.

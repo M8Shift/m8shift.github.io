@@ -1,4 +1,5 @@
 /*
+  Link: </llms.txt>; rel="alternate"; type="text/plain"; title="M8Shift LLM guide", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json"; title="M8Shift agent skills", </sitemap.xml>; rel="sitemap"; type="application/xml", </robots.txt>; rel="robots"; type="text/plain", </guide/>; rel="service-doc"; type="text/html"; title="M8Shift guide", </reference/>; rel="service-doc"; type="text/html"; title="M8Shift reference"
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
