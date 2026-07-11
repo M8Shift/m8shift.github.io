@@ -50,6 +50,7 @@ Every built page ships a plain-markdown mirror: take the page path, prefix `/_ma
 - Pattern: https://m8shift.ai/_markdown/<path>.md (home: https://m8shift.ai/_markdown/index.md)
 - Examples: https://m8shift.ai/_markdown/reference/cli.md · https://m8shift.ai/_markdown/reference/features.md · https://m8shift.ai/_markdown/roadmap.md
 - Full agent-access statement: https://m8shift.ai/reference/agents-access
+- Loadable Agent Skill (open format): https://m8shift.ai/.well-known/agent-skills/read-m8shift-docs/SKILL.md
 
 ## Content Signals
 
