@@ -82,6 +82,10 @@ const pageSeo: Record<string, SeoEntry> = {
     title: 'M8Shift Module Reference — the shipped toolkit at a glance',
     description: 'Overview of the seven shipped M8Shift modules: the degree-1 core relay and the advisory runtime, context, worktree, headroom, i18n and e2e companions.'
   },
+  '/reference/agents-access': {
+    title: 'M8Shift Agent Access — llms.txt, markdown mirrors and content signals',
+    description: 'How AI agents read m8shift.ai: the llms.txt discovery file, per-page markdown mirrors under /_markdown/, Cloudflare content signals, and what is deliberately not exposed.'
+  },
   '/reference/rfc': {
     title: 'M8Shift RFC Reference — statuses, versions and implementation notes',
     description: 'Complete M8Shift RFC reference from 001 to 029, including status, implementation version, implementation date and notes.'
@@ -429,6 +433,7 @@ export default defineConfig({
               { text: 'Architecture', link: '/reference/architecture' },
               { text: 'Modules', link: '/reference/modules' },
               { text: 'RFC reference', link: '/reference/rfc' },
+              { text: 'Agent access', link: '/reference/agents-access' },
               { text: 'Use cases', link: '/use-cases' },
               { text: 'Comparison', link: '/comparison' },
               { text: 'FAQ', link: '/faq' },
@@ -505,6 +510,7 @@ export default defineConfig({
                 { text: 'Architecture', link: '/reference/architecture' },
                 { text: 'Modules', link: '/reference/modules' },
                 { text: 'RFC reference', link: '/reference/rfc' },
+                { text: 'Agent access', link: '/reference/agents-access' },
                 { text: 'CLI', link: '/reference/cli' },
                 { text: 'State model', link: '/reference/state-model' },
                 { text: 'Turn schema', link: '/reference/contract-schema' },

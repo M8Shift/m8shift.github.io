@@ -10,6 +10,8 @@ _Public documentation site for M8Shift._
 reference material, roadmap, security notes, and contribution pages.**
 
 [![website](https://img.shields.io/badge/website-m8shift.ai-blue.svg)](https://m8shift.ai)
+[![llms.txt](https://img.shields.io/badge/llms.txt-available-brightgreen.svg)](https://m8shift.ai/llms.txt)
+[![agent access](https://img.shields.io/badge/agent%20access-markdown%20mirrors-8A2BE2.svg)](https://m8shift.ai/reference/agents-access)
 [![VitePress](https://img.shields.io/badge/docs-VitePress-646cff.svg)](https://vitepress.dev/)
 [![deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-success.svg)](.github/workflows/pages.yml)
 [![Node](https://img.shields.io/badge/node-22%2B-green.svg)](package.json)

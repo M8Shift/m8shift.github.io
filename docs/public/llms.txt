@@ -43,6 +43,14 @@ Windows:
 irm https://raw.githubusercontent.com/M8Shift/M8Shift/main/install.ps1 | iex
 ```
 
+## Markdown Mirrors (for agents)
+
+Every built page ships a plain-markdown mirror: take the page path, prefix `/_markdown/`, append `.md`.
+
+- Pattern: https://m8shift.ai/_markdown/<path>.md (home: https://m8shift.ai/_markdown/index.md)
+- Examples: https://m8shift.ai/_markdown/reference/cli.md · https://m8shift.ai/_markdown/reference/features.md · https://m8shift.ai/_markdown/roadmap.md
+- Full agent-access statement: https://m8shift.ai/reference/agents-access
+
 ## Content Signals
 
 The production robots.txt is managed through Cloudflare and includes AI bot rules and content signals. As of this site version, the intended public signal is search indexing allowed, AI training disallowed, and reference use allowed.
