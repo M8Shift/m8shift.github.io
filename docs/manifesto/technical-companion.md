@@ -140,10 +140,10 @@ To keep this page defensible, here is the honest status of the mechanisms it des
 | Compressed handoffs — companion adapters (RFC 034), compression backends (RFC 037) | **Shipped** — v3.36.0 / v3.40.0. |
 | Verification-first context discipline (RFC 033) | **Shipped as policy** — implemented through RFC 037 records. |
 | `route recommend` — capability-first routing (RFC 032 / RFC 039) | **Phase 1 shipped** — advisory, read-only. |
-| Session usage monitoring + cooldown (RFC 040) | **Phase 4 implemented and live-hardened** — disabled by default, advisory, fail-open. |
+| Session usage monitoring + cooldown (RFC 040) | **Phase 4 implemented and live-hardened** — disabled by default, advisory, fail-open; v3.58.0 adds the opt-in tokscale spend example with its never-submit boundary. |
 | Compression-backend auto-routing (RFC 042) | **Design + Phase B** — auto-route gated on measurement. |
 | Holder liveness / stale-claim hardening (RFC 049) | **Shipped — v3.57.0 (PR A+B+C).** |
-| Manual multi-agent specialists (RFC 050) | **Draft.** |
+| Manual multi-agent specialists (RFC 050) | **Shipped — v3.58.0 (Phase 1+1b):** open-format Agent Skills seeds + advisory `doctor` validation; Phase 2 runtime indexing remains future. |
 | Literal `SOUL.md` / `POLICY.md` contract files; a coded L0–L3 gate with numeric thresholds | **Not shipped** — a conceptual model, expressed today through the roster, the agents guide, and the human's judgment. |
 
 <div class="m8-callout m8-callout--purple">
