@@ -14,6 +14,35 @@ The production site is deployed through GitHub Pages behind Cloudflare. GitHub P
 
 For the current production architecture, add the same header with a Cloudflare Transform Rule.
 
+## GitHub build to Cloudflare Pages
+
+The repository also includes `.github/workflows/cloudflare-pages.yml`. It keeps GitHub Actions as the build runner, then uploads the VitePress output directory to Cloudflare Pages with Wrangler:
+
+```text
+docs/.vitepress/dist
+```
+
+Required GitHub repository secrets:
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+Recommended GitHub repository variable:
+
+```text
+CLOUDFLARE_PAGES_PROJECT_NAME=m8shift-site
+```
+
+Cloudflare API token permissions:
+
+```text
+Account > Cloudflare Pages > Edit
+```
+
+Once the Cloudflare Pages project is attached to the custom domain `m8shift.ai`, Cloudflare Pages will parse the generated `_headers` file and apply the `Link` header without a Transform Rule.
+
 ## Free Cloudflare rule
 
 Create a Response Header Modification rule:
