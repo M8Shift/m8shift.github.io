@@ -176,7 +176,7 @@ RFC numbers are permanent creation-order identifiers. They do not track implemen
 
 ## <i class="fa-solid fa-list-ol m8-heading-icon" aria-hidden="true"></i> RFC index
 
-The full, current RFC catalogue — **001–043**, with per-RFC shipped/draft status and
+The full, current RFC catalogue — **001–053**, with per-RFC shipped/draft status and
 the version each shipped in — lives in the **[RFC reference](/reference/rfc)** (single
 source of truth). This roadmap previously duplicated the list and drifted out of date;
 the duplicate has been removed to keep one authoritative table.
