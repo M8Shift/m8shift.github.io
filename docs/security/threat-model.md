@@ -5,6 +5,15 @@ errors* between agents that follow the protocol. It is not a sandbox and does no
 a malicious or compromised agent — that is the host's job (filesystem permissions,
 branch protection, secret scoping).
 
+Since v3.59.0 the repository also ships a formal
+[OWASP LLM Top 10 / MITRE ATLAS mapping](https://github.com/M8Shift/M8Shift/blob/main/docs/en/security-threat-model.md)
+with explicit out-of-scope calls, backed by an executable conformance suite:
+each mapped technique has a named behavioral test that fails when its invariant
+breaks (mutation-verified). See also
+[SECURITY.md](https://github.com/M8Shift/M8Shift/blob/main/SECURITY.md) for the
+private reporting channel and the automated checks (CodeQL, Bandit, ShellCheck,
+actionlint, Scorecard, Dependabot, and the anti-leak data-hygiene gates).
+
 Every command that mutates state goes through the same serialised path:
 
 ```mermaid
