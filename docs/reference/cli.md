@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.60.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
+The CLI is a single file, `m8shift.py` 3.61.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
@@ -345,6 +345,66 @@ python3 m8shift-runtime.py status-runtime --agent codex
 python3 m8shift-runtime.py doctor --json
 python3 m8shift-runtime.py retention prune --keep 1000
 ```
+
+### `fleet`
+
+Since v3.61.0 (RFC 072) the runtime companion also plans and reconciles a declarative
+batch of exact agent identities from a `m8shift.fleet.spec.v1` document (curated
+provider template + explicit model only).
+
+```bash
+python3 m8shift-runtime.py fleet plan --spec FILE [--json]
+python3 m8shift-runtime.py fleet health --spec FILE [--json]
+python3 m8shift-runtime.py fleet apply --spec FILE --by HOLDER [--json]
+python3 m8shift-runtime.py fleet reconcile|stop|resume --spec FILE \
+  [--backend local] [--runner PATH] [--grace 10] [--dry-run] [--json]
+```
+
+`fleet plan` and `fleet health` are pure reads. `fleet apply` is holder-attributed:
+it writes one git-ignored exact identity artifact per lane and delegates live roster
+membership to core `roster add`; reapplying the same spec is a no-op. `fleet stop`
+never removes roster membership.
+
+### `fleet supervise`
+
+One control-plane process reconciles every declared lane; it never claims or appends.
+
+```bash
+python3 m8shift-runtime.py fleet supervise --spec FILE \
+  [--backend local] [--runner PATH] [--grace 10] [--dry-run] [--json] \
+  [--poll-interval 20] [--max-ticks 0] [--detach] [--reconcile-control]
+```
+
+`--detach` (v3.61.0, RFC 073 slice 2) launches the single control plane through the
+selected native service backend (launchd, user systemd, or a Windows service) when
+available, or a weaker local detached fallback reported explicitly. It persists
+crash-consistent control, lane, and opaque-session records under
+`.m8shift/runtime/fleet/`, reconciles PID start identity on startup, and fails closed
+to `needs_reconciliation` on corrupt, stale, reused, or ambiguous evidence.
+`--reconcile-control` accepts a changed fleet spec only after durable evidence shows
+the previous supervisor is not alive.
+
+### `fleet jobs`
+
+Immutable producer jobs with explicit done criteria and shell-free verification
+recipes — provider exit alone is never completion.
+
+```bash
+python3 m8shift-runtime.py fleet jobs plan --spec FILE [--json]
+python3 m8shift-runtime.py fleet jobs submit --spec FILE --by INTEGRATOR [--json]
+python3 m8shift-runtime.py fleet jobs assign --spec FILE --by INTEGRATOR [--json]
+python3 m8shift-runtime.py fleet jobs attempt --id ID --by PRODUCER \
+  --provider-exit N [--json]
+python3 m8shift-runtime.py fleet jobs integrate --id ID --by INTEGRATOR \
+  --to AGENT [--json]
+```
+
+`submit` requires the live holder to be the declared integrator; changed retries fail
+closed. `assign` is integrator-gated, delegates worktree creation to the worktree
+companion, allows at most two active isolated producer worktrees, and never places a
+producer on the shared target. `attempt` records the provider exit first, then runs
+the exact recipe inside the assigned worktree. `integrate` requires verified evidence
+and the exact designated integrator — a producer cannot self-integrate.
 
 ::: warning Advisory companion only
 Runtime sidecars never grant the pen, never edit `M8SHIFT.md` directly, never require

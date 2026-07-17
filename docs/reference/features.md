@@ -338,6 +338,16 @@
       <td>Merges worktree results through one integration pen so two integrations cannot run at the same time.</td>
     </tr>
     <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-ship" aria-hidden="true"></i> Fleet manager</span></td>
+      <td>Plans, bootstraps, and reconciles a declarative batch of exact agent identities (RFC 072): pure <code>fleet plan</code>/<code>health</code> over a <code>m8shift.fleet.spec.v1</code> spec (curated provider template + explicit model only), holder-attributed <code>fleet apply</code> that writes one git-ignored identity artifact per lane and delegates enrollment to core <code>roster add</code>, and batch <code>reconcile</code>/<code>stop</code>/<code>resume</code> where stop never removes roster membership. Immutable <code>fleet jobs</code> carry explicit done criteria and shell-free verification recipes — provider exit alone is never completion — with at most two isolated producer worktrees and integrator-gated merge, handoff, and drop.</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-plug-circle-bolt" aria-hidden="true"></i> Adapter registry + detached durability</span></td>
+      <td>Dispatches managed agent-CLI launches through the vendor-neutral <code>m8shift.agent-cli-adapter.v1</code> contract (<code>launch_argv</code>/<code>stop</code>/<code>resume</code>/<code>health</code>) behind a provider-keyed registry (RFC 073): Codex and Claude migrated with byte-identical launch fixtures, a Gemini validated stub registered, resume fail-closed pending probe evidence. <code>fleet supervise --detach</code> installs one durable control plane through launchd, user-systemd, or Windows service definitions when available (honest local process-group-detached fallback otherwise) over a crash-consistent <code>.m8shift/runtime/fleet/</code> store, with PID start-identity reconciliation that adopts exact survivors, restarts a missing desired-running lane once, and fails closed to <code>needs_reconciliation</code> on ambiguous evidence.</td>
+    </tr>
+    <tr>
       <td>Boundary</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-plug-circle-check" aria-hidden="true"></i> Provider neutrality</span></td>
       <td>Coordinates any cooperative CLI-capable agent. M8Shift does not call models, host a runtime, or require a project API key.</td>

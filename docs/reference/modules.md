@@ -10,7 +10,10 @@ on the published `main` branch; treat that index as the data source.
 ::: tip One pen, advisory everything else
 The **core relay is degree-1** (one pen). Every other module is optional and advisory:
 it reads state M8Shift already stores, never writes the relay `LOCK`, and never routes
-work.
+work. That boundary holds for the v3.61.0 fleet layer too: fleet enrollment is
+holder-attributed and delegated to core `roster add`, the detached supervisor persists
+only ignored `.m8shift/runtime/fleet/` sidecars, and adapter `health` can never imply
+relay completion.
 :::
 
 ## <i class="fa-solid fa-boxes-stacked m8-heading-icon" aria-hidden="true"></i> Shipped modules
@@ -22,7 +25,7 @@ owning RFCs and tests. A drift test keeps the pages in lockstep with the module 
 | Module | Script | Primary authority |
 |--------|--------|-------------------|
 | [Core relay](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/core-relay.md) | `m8shift.py` | one-pen relay, `LOCK`, turn ledger, session reports, task board, shared memory, core `doctor`, companion install (RFC 044) |
-| [Runtime companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/runtime.md) | `m8shift-runtime.py` | runtime presence, operator inbox, progress, notifications, provider registry, headless listener lifecycle (RFC 047), model/task routing, retention, local reports |
+| [Runtime companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/runtime.md) | `m8shift-runtime.py` | runtime presence, operator inbox, progress, notifications, provider registry, vendor-neutral agent-CLI adapter registry (RFC 073), exact-identity fleet bootstrap, jobs, and detached durable supervision (RFC 072/073, `fleet` / `fleet jobs` / `fleet supervise --detach`), headless listener lifecycle (RFC 047), model/task routing, retention, local reports |
 | [Context companion](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/context.md) | `m8shift-context.py` | context packs, redacted compression/retrieval records, adapter execution (builtin digest + RTK filter + optional Headroom/Kompress) |
 | [Worktree toolbox](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/worktree.md) | `m8shift-worktree.py` | isolated degree-2 feature lanes and serialized integration |
 | [Headroom adapter launcher](https://github.com/M8Shift/M8Shift/blob/main/docs/en/modules/headroom.md) | `m8shift-headroom.py` | optional offline Headroom/Kompress launcher (`m8shift-transform`) |

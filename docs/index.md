@@ -93,6 +93,16 @@ features:
   </div>
 </div>
 
+## See your team at work
+
+<p class="m8-section-lead">A read-only <code>top</code>-style dashboard shows the whole relay at a glance — who holds the pen, the turn history, usage windows, the ledger, and how much time was effective work versus waiting — without ever claiming the pen or changing relay state.</p>
+
+<a class="m8-top-showcase" href="/reference/top">
+  <img src="/m8shift-top-placeholder.svg" alt="The m8shift-top dashboard: pen holder, TTL gauge, agents with usage, listeners, current turn, ledger, bounded activity, and the effective-time strip. Illustrative placeholder data." loading="lazy" />
+</a>
+
+<p style="text-align:center"><a href="/reference/top">Read the dashboard reference →</a></p>
+
 ## Why Multi-Agent
 
 <p class="m8-section-lead">Single assistants are strong on punctual tasks. Multi-step repository work needs a small team shape: plan, produce, review, correct, document, and arbitrate without losing context.</p>

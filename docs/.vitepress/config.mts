@@ -88,7 +88,7 @@ const pageSeo: Record<string, SeoEntry> = {
   },
   '/reference/rfc': {
     title: 'M8Shift RFC Reference — statuses, versions and implementation notes',
-    description: 'Complete M8Shift RFC reference from 001 to 029, including status, implementation version, implementation date and notes.'
+    description: 'Complete M8Shift RFC reference from 001 to 073, including status, implementation version, implementation date and notes.'
   },
   '/security/': {
     title: 'M8Shift Security Model — local files, locks and permissions',
@@ -432,6 +432,7 @@ export default defineConfig({
               { text: 'Features', link: '/reference/features' },
               { text: 'Architecture', link: '/reference/architecture' },
               { text: 'Modules', link: '/reference/modules' },
+              { text: 'top dashboard', link: '/reference/top' },
               { text: 'RFC reference', link: '/reference/rfc' },
               { text: 'Agent access', link: '/reference/agents-access' },
               { text: 'Use cases', link: '/use-cases' },

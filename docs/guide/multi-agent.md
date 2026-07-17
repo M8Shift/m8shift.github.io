@@ -35,6 +35,18 @@ and custom fields. It does not enforce role permissions or dependency graphs. If
 need an architect/reviewer/integrator split, write that contract into the `--ask`,
 `--next`, task ledger, or protocol prompt.
 
+## Multi-vendor fleets
+
+Since v3.61.0 the runtime companion can bootstrap and supervise a whole roster batch
+declaratively. Roster identities are data, not a fixed pair: managed provider launches
+dispatch through the vendor-neutral `m8shift.agent-cli-adapter.v1` registry
+(`launch_argv` / `stop` / `resume` / `health`), Codex and Claude migrated behind
+adapters byte-identically, and a registered Gemini validated stub proves a third
+vendor can join without a core change. `fleet apply` stays holder-attributed through
+core `roster add`, `fleet stop` never removes membership, and
+`fleet supervise --detach` keeps the batch alive through a native service backend —
+still one shared pen. See the [CLI reference](/reference/cli#fleet).
+
 ## When you need real parallelism
 
 Use the [worktree companion](./worktree-toolbox) for isolated branches:

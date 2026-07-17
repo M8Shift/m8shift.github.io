@@ -13,6 +13,16 @@ codes, and git. The **core relay** has no hosted control plane, no network path,
 `RTK` and `headroom_ext` are optional token-usage adapters. See
 [Token adapters: RTK and Headroom](./features#token-adapters-rtk-and-headroom).
 
+Since v3.61.0 the runtime companion also carries the RFC 072 **fleet layer** and the
+RFC 073 **provider-keyed adapter registry**: managed agent CLIs launch through the
+vendor-neutral `m8shift.agent-cli-adapter.v1` contract
+(`launch_argv`/`stop`/`resume`/`health`, shell-free argv), and
+`fleet supervise --detach` runs one durable control plane — a native
+launchd/user-systemd/Windows-service backend when available, an honestly weaker local
+detached fallback otherwise — over a crash-consistent `.m8shift/runtime/fleet/`
+store. None of this adds a second pen: fleet enrollment is holder-attributed core
+`roster add`, and adapter `health` can never imply relay completion.
+
 ```mermaid
 flowchart LR
     classDef actor fill:#FF7A18,stroke:#AD2F0A,color:#11183A;
@@ -26,7 +36,7 @@ flowchart LR
     R["M8SHIFT.md + LOCK"]:::record
     L[".m8shift.lock<br/>O_EXCL guard"]:::record
     B["memory / tasks / sessions<br/>MD + JSONL"]:::record
-    RT["m8shift-runtime.py<br/>presence · progress · notify"]:::companion
+    RT["m8shift-runtime.py<br/>presence · progress · notify · fleet"]:::companion
     RS[".m8shift/runtime/*"]:::record
     CX["m8shift-context.py<br/>pack · compress · retrieve"]:::companion
     CS[".m8shift/context/*<br/>packs · records · adapters"]:::record
@@ -41,6 +51,7 @@ flowchart LR
     RT -->|"subprocess argv: status --json / pause"| C
     RT -->|"JSON/JSONL file R/W: runtime sidecars"| RS
     RT -->|"one-shot argv + exit code: notify hook"| EXT
+    RT -->|"registry-compiled shell-free argv: managed agent CLI launch"| EXT
     CX -->|"bounded file read: relay/context input"| R
     CX -->|"JSON/text file R/W: packs + records"| CS
     CX -->|"argv + stdin/stdout + exit code: RFC 034 adapter"| EXT
@@ -103,4 +114,6 @@ sequenceDiagram
 | context → adapters | RFC 034 argv-only runner with bounded stdout/stderr and exit-code handling |
 | context → compression store | `compress` writes raw/compact/record files; `retrieve` serves bounded, hash-verified content |
 | worktree → git/core | git worktree/merge argv calls plus imported core helpers for serialized integration |
+| runtime → agent CLIs | `m8shift.agent-cli-adapter.v1` registry dispatch keyed by the validated provider row; `launch_argv` compiles one shell-free argv array, `stop`/`resume`/`health` mediate generic reconciliation without relay authority |
+| runtime → fleet store | crash-consistent `.m8shift/runtime/fleet/` records (`control.json`, `lanes/`, `jobs/`, `attempts/`, `sessions/`, `events.jsonl`) written with fsync + atomic replace; PID start-identity reconciliation fails closed to `needs_reconciliation` on ambiguous evidence |
 | e2e → core | temp-copy scenarios driven by subprocess argv and exit codes |
