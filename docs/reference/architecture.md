@@ -38,20 +38,24 @@ flowchart LR
     B["memory / tasks / sessions<br/>MD + JSONL"]:::record
     RT["m8shift-runtime.py<br/>presence · progress · notify · fleet"]:::companion
     RS[".m8shift/runtime/*"]:::record
+    GM["gateway mandates / results<br/>immutable one-shot records"]:::record
     CX["m8shift-context.py<br/>pack · compress · retrieve"]:::companion
     CS[".m8shift/context/*<br/>packs · records · adapters"]:::record
     WT["m8shift-worktree.py<br/>degree-2 worktrees"]:::companion
     E2E["m8shift-e2e.py<br/>hermetic runner"]:::companion
     EXT["local commands<br/>git · RTK · headroom_ext · hooks"]:::external
 
-    A -->|"shell argv: claim/next/append/status"| C
+    A -->|"claim/next/append/status<br/>guard-exec/lease-keeper"| C
     C -->|"atomic file R/W: state + turn append"| R
     C -->|"O_EXCL create/remove: mutex"| L
     C -->|"MD/JSONL append/read: boards"| B
     RT -->|"subprocess argv: status --json / pause"| C
     RT -->|"JSON/JSONL file R/W: runtime sidecars"| RS
+    RT -->|"create-exclusive capability/result R/W"| GM
     RT -->|"one-shot argv + exit code: notify hook"| EXT
     RT -->|"registry-compiled shell-free argv: managed agent CLI launch"| EXT
+    RT -->|"canonical gateway-exec transport argv"| EXT
+    C -->|"guarded shell-free child argv"| EXT
     CX -->|"bounded file read: relay/context input"| R
     CX -->|"JSON/text file R/W: packs + records"| CS
     CX -->|"argv + stdin/stdout + exit code: RFC 034 adapter"| EXT
@@ -74,10 +78,12 @@ sequenceDiagram
     participant WT as m8shift-worktree.py
     participant Rt as m8shift-runtime.py
     participant Hook as local hooks
+    participant Forge as git / forge transport
 
     rect rgb(247,245,255)
         U->>A: UI prompt / user scope
         A->>C: shell argv `claim A` → file LOCK `WORKING_A`
+        A->>C: `lease-keeper A -- child` → refresh + protective beat
         A->>Board: shell argv board command → MD/JSONL append
         A->>C: shell argv `append --to B` → turn append + `AWAITING_B`
         B->>C: shell argv `next B` → claim + handoff read
@@ -101,6 +107,14 @@ sequenceDiagram
         Rt->>Hook: one-shot argv/stdout/file/bell → notification result
         Hook-->>Rt: exit code / warning, relay unchanged
     end
+
+    rect rgb(255,247,237)
+        A->>C: `guard-exec A -- argv` → point-in-time pen check
+        C->>Forge: shell-free direct-holder mutation
+        A->>Rt: exact expiring mandate for gateway G
+        Rt->>Forge: consume once → canonical transport argv
+        Forge-->>Rt: exit code + bounded result record
+    end
 ```
 
 ## <i class="fa-solid fa-check-double m8-heading-icon" aria-hidden="true"></i> Verified channels
@@ -111,6 +125,8 @@ sequenceDiagram
 | core → relay files | `M8SHIFT.md` state updates guarded by `.m8shift.lock` and atomic writes |
 | runtime → core | `m8shift-runtime.py run_core_json()` calls `[python, m8shift.py, ...]` and parses JSON stdout |
 | runtime → notifications | one-shot stdout/file/bell/OS/hook tiers; hooks return exit codes and never mutate relay state |
+| core → guarded child | `guard-exec` checks the binding-resolved pen immediately before one shell-free exec; `lease-keeper` refreshes authority plus wrapper liveness while its child lives |
+| runtime → gateway store/transport | immutable one-shot mandate/result records plus closed canonical push/comment/PR-create argv; integration and destructive actions remain non-mandatable |
 | context → adapters | RFC 034 argv-only runner with bounded stdout/stderr and exit-code handling |
 | context → compression store | `compress` writes raw/compact/record files; `retrieve` serves bounded, hash-verified content |
 | worktree → git/core | git worktree/merge argv calls plus imported core helpers for serialized integration |

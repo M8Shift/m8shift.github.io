@@ -1,6 +1,6 @@
 # CLI reference
 
-The CLI is a single file, `m8shift.py` 3.61.0 (Python 3.8+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
+The CLI is a single file, `m8shift.py` 4.1.0 (Python 3.12+, standard library only — the core; the optional RTK filter and Headroom/Kompress compression adapter are version-pinned via `install.sh --with-rtk` / `--with-headroom` and gated by `--allow-project-local-adapters`).
 Run it from a project root.
 
 All commands return [exit code](./exit-codes) `0` on success, `1` on a refusal or
@@ -225,6 +225,36 @@ long `WORKING_<you>` (the agent or a headless wrapper re-runs it; no daemon does
 `--force` reclaims a stale lock only. `--refresh` (v3.46) only **extends your own `WORKING` lock** — refused otherwise, mutually exclusive with `--force`; automated runners must heartbeat with `--refresh`, never a plain claim. `--check` is read-only: it reports readiness and advisory
 file overlap without taking the pen.
 
+### `guard-exec`
+
+Check one agent's live, binding-resolved pen immediately before replacing the
+wrapper process with one shell-free command:
+
+```bash
+python3 m8shift.py guard-exec <agent> -- COMMAND [ARG ...]
+```
+
+The child receives the exact `M8SHIFT_AGENT`, resolved `M8SHIFT_ROOT`, and the
+running core path. Native exit codes and signals are preserved. This is the
+direct-holder path for one Git/forge mutation; it narrows the cooperative
+check/use window but is not a hostile-host sandbox.
+
+### `lease-keeper`
+
+Run one interactive child while maintaining both the actual write lease and
+protective liveness:
+
+```bash
+python3 m8shift.py lease-keeper <agent> \
+  [--cadence-seconds N] -- COMMAND [ARG ...]
+```
+
+The wrapper starts only if the agent holds a live pen. While the child lives it
+runs `claim --refresh` and `heartbeat --source wrapper` at a bounded cadence no
+later than half the TTL. If either guarantee fails, it stops the child process
+group. A heartbeat alone prevents stale takeover but does not renew write
+authority; the two operations are intentionally both required.
+
 ### `append`
 
 Close your turn and hand the pen to another roster member. Requires that you currently
@@ -345,6 +375,28 @@ python3 m8shift-runtime.py status-runtime --agent codex
 python3 m8shift-runtime.py doctor --json
 python3 m8shift-runtime.py retention prune --keep 1000
 ```
+
+### Scoped gateway transport
+
+The live pen holder can grant one distinct gateway actor an immutable, expiring
+capability for one canonical transport action:
+
+```bash
+python3 m8shift-runtime.py gateway-mandate create \
+  --by HOLDER --actor GATEWAY --action ACTION \
+  --target KEY=VALUE [--ttl-seconds 30..900] -- EXACT_ARGV...
+
+python3 m8shift-runtime.py gateway-exec \
+  --actor GATEWAY --mandate ID --action ACTION \
+  --target KEY=VALUE -- SAME_EXACT_ARGV...
+```
+
+The mandate binds actor, action-specific targets, physical project and working
+directory, relay turn, argv digest, executable path and executable bytes. It is
+claimed atomically before launch and cannot be replayed. The allowed actions are
+exact push, issue comment, PR creation and PR comment command shapes. Merge,
+close, tag, deletion, mirror, force-push and other integration/destructive work
+cannot be expressed by this surface and retain explicit human authorization.
 
 ### `fleet`
 

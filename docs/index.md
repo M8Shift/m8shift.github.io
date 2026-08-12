@@ -53,6 +53,14 @@ features:
 
 ---
 
+<div class="m8-callout m8-callout--purple">
+  <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+  <div>
+    <strong>v4.1.0 — authority from the pen to the forge</strong>
+    <p><code>lease-keeper</code> keeps interactive liveness and write authority together; <code>guard-exec</code> protects one direct external mutation; and an expiring one-shot gateway mandate can transport one exact push, comment, or PR creation without gaining merge, tag, delete, or force-push authority. Publication policy now binds to destination proof, while runtime success and quota health expose what was actually observed. <a href="/roadmap">Read the release history →</a></p>
+  </div>
+</div>
+
 ## Quick Start
 
 <div class="m8-quickstart">
