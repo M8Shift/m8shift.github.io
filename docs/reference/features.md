@@ -59,6 +59,26 @@
     </tr>
     <tr>
       <td>Core relay</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Managed lease keeper</span></td>
+      <td><code>lease-keeper</code> runs one shell-free interactive child while refreshing the actual pen and emitting protective wrapper beats; loss of either guarantee stops the child.</td>
+    </tr>
+    <tr>
+      <td>Core relay</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-shield" aria-hidden="true"></i> Guarded external mutation</span></td>
+      <td><code>guard-exec</code> performs the binding-resolved pen check directly before one shell-free external argv and preserves its native result.</td>
+    </tr>
+    <tr>
+      <td>Delivery</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-ticket" aria-hidden="true"></i> One-shot gateway mandate</span></td>
+      <td>The live holder grants a distinct gateway one expiring capability bound to exact action, targets, project/cwd, turn, argv digest and executable bytes. Consumption is atomic and single-use.</td>
+    </tr>
+    <tr>
+      <td>Delivery</td>
+      <td><span class="m8-feature-name"><i class="fa-solid fa-ban" aria-hidden="true"></i> Human integration boundary</span></td>
+      <td>Gateway mandates can transport exact pushes, comments and PR creation only. Merge, close, tag, deletion, mirror and force-push remain non-mandatable and require human authorization.</td>
+    </tr>
+    <tr>
+      <td>Core relay</td>
       <td><span class="m8-feature-name"><i class="fa-solid fa-unlock-keyhole" aria-hidden="true"></i> Stale recovery</span></td>
       <td>Lets another agent recover with <code>claim --force</code> only after the current lock has expired.</td>
     </tr>
